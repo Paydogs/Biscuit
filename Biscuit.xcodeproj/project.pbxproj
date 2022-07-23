@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */; };
+		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
+		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
+		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
+		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
+		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
+		BE682F75288C936B0096346F /* LogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F74288C936B0096346F /* LogState.swift */; };
+		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
+		BE682F7A288C96630096346F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F79288C96630096346F /* Action.swift */; };
+		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
+		BE682F7E288C98AF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7D288C98AF0096346F /* Connector.swift */; };
+		BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F80288C98FD0096346F /* BagelPacket.swift */; };
+		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
+		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
+		BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F86288C99650096346F /* BagelDeviceModel.swift */; };
+		BE682F8A288C9A520096346F /* BagelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F89288C9A520096346F /* BagelPublisher.swift */; };
+		BE682F8C288C9A830096346F /* BagelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F8B288C9A830096346F /* BagelConfiguration.swift */; };
+		BE682F90288CB8900096346F /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F8F288CB8900096346F /* ServerConnection.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
+		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
+		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE682F74288C936B0096346F /* LogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogState.swift; sourceTree = "<group>"; };
+		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		BE682F79288C96630096346F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		BE682F7D288C98AF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		BE682F80288C98FD0096346F /* BagelPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacket.swift; sourceTree = "<group>"; };
+		BE682F82288C99160096346F /* BagelRequestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelRequestInfo.swift; sourceTree = "<group>"; };
+		BE682F84288C992D0096346F /* BagelProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelProjectModel.swift; sourceTree = "<group>"; };
+		BE682F86288C99650096346F /* BagelDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelDeviceModel.swift; sourceTree = "<group>"; };
+		BE682F89288C9A520096346F /* BagelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPublisher.swift; sourceTree = "<group>"; };
+		BE682F8B288C9A830096346F /* BagelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfiguration.swift; sourceTree = "<group>"; };
+		BE682F8F288CB8900096346F /* ServerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
+		C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.debug.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.debug.xcconfig"; sourceTree = "<group>"; };
+		F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.release.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE682F5C288C31010096346F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D57B64D57F08F1B0585615C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */,
+				F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A530AB981607D23F7BA97C69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE682F56288C31010096346F = {
+			isa = PBXGroup;
+			children = (
+				BE682F61288C31010096346F /* Biscuit */,
+				A530AB981607D23F7BA97C69 /* Frameworks */,
+				3D57B64D57F08F1B0585615C /* Pods */,
+				BE682F60288C31010096346F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE682F60288C31010096346F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F5F288C31010096346F /* Biscuit.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE682F61288C31010096346F /* Biscuit */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F8E288CA0260096346F /* Assets */,
+				BE682F76288C963F0096346F /* Flux */,
+				BE682F88288C99CB0096346F /* Logic */,
+				BE682F7F288C98EE0096346F /* Models */,
+				BE682F73288C93490096346F /* State */,
+				BE682F8D288CA0090096346F /* Views */,
+				BE682F71288C311A0096346F /* AppDelegate.swift */,
+				BE682F6B288C31020096346F /* Biscuit.entitlements */,
+				BE682F62288C31010096346F /* BiscuitApp.swift */,
+			);
+			path = Biscuit;
+			sourceTree = "<group>";
+		};
+		BE682F68288C31020096346F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F69288C31020096346F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BE682F73288C93490096346F /* State */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F74288C936B0096346F /* LogState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		BE682F76288C963F0096346F /* Flux */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F79288C96630096346F /* Action.swift */,
+				BE682F77288C964F0096346F /* Dispatcher.swift */,
+				BE682F7B288C96780096346F /* Store.swift */,
+			);
+			path = Flux;
+			sourceTree = "<group>";
+		};
+		BE682F7F288C98EE0096346F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F8B288C9A830096346F /* BagelConfiguration.swift */,
+				BE682F86288C99650096346F /* BagelDeviceModel.swift */,
+				BE682F80288C98FD0096346F /* BagelPacket.swift */,
+				BE682F84288C992D0096346F /* BagelProjectModel.swift */,
+				BE682F82288C99160096346F /* BagelRequestInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE682F88288C99CB0096346F /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F89288C9A520096346F /* BagelPublisher.swift */,
+				BE682F7D288C98AF0096346F /* Connector.swift */,
+				BE682F8F288CB8900096346F /* ServerConnection.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		BE682F8D288CA0090096346F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F64288C31010096346F /* MainWindow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE682F8E288CA0260096346F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F68288C31020096346F /* Preview Content */,
+				BE682F66288C31020096346F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE682F5E288C31010096346F /* Biscuit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE682F6E288C31020096346F /* Build configuration list for PBXNativeTarget "Biscuit" */;
+			buildPhases = (
+				BDEA61FB6A997D9E62C459E6 /* [CP] Check Pods Manifest.lock */,
+				BE682F5B288C31010096346F /* Sources */,
+				BE682F5C288C31010096346F /* Frameworks */,
+				BE682F5D288C31010096346F /* Resources */,
+				D0FB3052E5A323049764AF4B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Biscuit;
+			productName = Biscuit;
+			productReference = BE682F5F288C31010096346F /* Biscuit.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE682F57288C31010096346F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					BE682F5E288C31010096346F = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = BE682F5A288C31010096346F /* Build configuration list for PBXProject "Biscuit" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE682F56288C31010096346F;
+			productRefGroup = BE682F60288C31010096346F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE682F5E288C31010096346F /* Biscuit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE682F5D288C31010096346F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE682F67288C31020096346F /* Assets.xcassets in Resources */,
+				BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BDEA61FB6A997D9E62C459E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Biscuit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0FB3052E5A323049764AF4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biscuit/Pods-Biscuit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Biscuit/Pods-Biscuit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biscuit/Pods-Biscuit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE682F5B288C31010096346F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE682F7A288C96630096346F /* Action.swift in Sources */,
+				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
+				BE682F8C288C9A830096346F /* BagelConfiguration.swift in Sources */,
+				BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */,
+				BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */,
+				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
+				BE682F8A288C9A520096346F /* BagelPublisher.swift in Sources */,
+				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
+				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
+				BE682F7E288C98AF0096346F /* Connector.swift in Sources */,
+				BE682F78288C964F0096346F /* Dispatcher.swift in Sources */,
+				BE682F75288C936B0096346F /* LogState.swift in Sources */,
+				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
+				BE682F90288CB8900096346F /* ServerConnection.swift in Sources */,
+				BE682F7C288C96780096346F /* Store.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BE682F6C288C31020096346F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE682F6D288C31020096346F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BE682F6F288C31020096346F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Biscuit/Assets/Preview Content\"";
+				DEVELOPMENT_TEAM = 2TQPT2TRMX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.Biscuit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BE682F70288C31020096346F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Biscuit/Assets/Preview Content\"";
+				DEVELOPMENT_TEAM = 2TQPT2TRMX;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.Biscuit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE682F5A288C31010096346F /* Build configuration list for PBXProject "Biscuit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE682F6C288C31020096346F /* Debug */,
+				BE682F6D288C31020096346F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE682F6E288C31020096346F /* Build configuration list for PBXNativeTarget "Biscuit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE682F6F288C31020096346F /* Debug */,
+				BE682F70288C31020096346F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE682F57288C31010096346F /* Project object */;
+}
