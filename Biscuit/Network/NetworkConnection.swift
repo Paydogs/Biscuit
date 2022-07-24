@@ -27,7 +27,9 @@ class NetworkConnection {
             self?.stateDidChange(to: state)
         }
 
-        receive()
+//        receive()
+//        tempReceiveMessageDiscontiguous()
+//        tempReceiveMessage()
         connection.start(queue: .global(qos: .background))
     }
 
@@ -44,9 +46,10 @@ private extension NetworkConnection {
         switch state {
         case .ready:
             NSLog("[NetworkConnection][\(id)] Connection successful")
-                notifyConnectionStarted()
-        case .waiting(let error),
-             .failed(let error):
+            notifyConnectionStarted()
+            receive()
+//            receiveMessage()
+        case .failed(let error):
             stopWithError(error: error)
             stop()
         default:
@@ -54,13 +57,32 @@ private extension NetworkConnection {
         }
     }
 
+    func receiveMessage() {
+        connection.receiveMessage { (data: Data?, _, isComplete: Bool, error: NWError?) in
+            if let data = data, !data.isEmpty {
+                let message = String(decoding: data, as: UTF8.self)
+                NSLog("[NetworkConnection][\(self.id)] Received message: \(message)")
+            }
+        }
+    }
+
     func receive() {
-        connection.receive(minimumIncompleteLength: 1, maximumLength: MTU) { [weak self] (data, _, isComplete, error) in
+        connection.receive(minimumIncompleteLength: 1, maximumLength: MTU) { [weak self] (data: Data?, _, isComplete: Bool, error: NWError?) in
             guard let self = self else { return }
+            NSLog("=================")
+            NSLog("[NetworkConnection][\(self.id)] isComplete: \(isComplete)")
+            NSLog("[NetworkConnection][\(self.id)] error: \(error)")
 
             if let data = data, !data.isEmpty {
-                NSLog("[NetworkConnection][\(self.id)] Received something \(data)")
-                self.send(data: data)
+                NSLog("[NetworkConnection][\(self.id)] Received data: \(data)")
+                let peak = String(data: data, encoding: .utf8)
+                NSLog("[NetworkConnection][\(self.id)] peak: \(peak)")
+                let newData = self.removeFirstBytes(data: data)
+                let peak2 = String(data: newData, encoding: .utf8)
+                NSLog("[NetworkConnection][\(self.id)] peak2: \(peak2)")
+                let parsed = self.parseBody(data: newData)
+                NSLog("[NetworkConnection][\(self.id)] parsed: \(parsed)")
+//                self.send(data: data)
             }
 
             if isComplete {
@@ -102,6 +124,12 @@ private extension NetworkConnection {
             return nil
         }
     }
+
+    func removeFirstBytes(data: Data) -> Data {
+        let range: Range<Data.Index> = 8 ..< data.endIndex
+        let newData = data.subdata(in: range)
+        return newData
+    }
 }
 
 // MARK: - Callback handling
@@ -127,24 +155,49 @@ private extension NetworkConnection {
 }
 
 private extension NetworkConnection {
-    func tempReceives() {
-        connection.receiveMessageDiscontiguous { (completeContent, contentContext, isComplete, error) in
-            if let completeContent = completeContent {
-                NSLog("Content Received: \(completeContent)")
+    func tempReceiveMessageDiscontiguous() {
+        connection.receiveMessageDiscontiguous { [weak self] (completeContent, contentContext, isComplete, error) in
+            guard let self = self else { return }
+
+            NSLog("[receiveMessageDiscontiguous] Content isComplete: \(isComplete)")
+            if let data = completeContent, !data.isEmpty {
+                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
+//                self.send(data: data)
             }
-            NSLog("Content isComplete: \(isComplete)")
+            if let contentContext = contentContext {
+                NSLog("[receiveMessageDiscontiguous][\(self.id)] contentContext: \(contentContext)")
+            }
+
+            if isComplete {
+                self.stop()
+            } else if let error = error {
+                self.stopWithError(error: error)
+            } else {
+                self.receive()
+            }
         }
-        connection.receiveMessage { (completeContent, contentContext, isComplete, error) in
-            if let completeContent = completeContent {
-                NSLog("Content Received 2: \(completeContent)")
+    }
+
+    func tempReceiveMessage() {
+        connection.receiveMessage { [weak self] (completeContent, contentContext, isComplete, error) in
+            guard let self = self else { return }
+
+            NSLog("[receiveMessage] Content isComplete: \(isComplete)")
+            if let data = completeContent, !data.isEmpty {
+                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
+                self.send(data: data)
             }
-            NSLog("Content isComplete 2: \(isComplete)")
-        }
-        connection.receive(minimumIncompleteLength: 1, maximumLength: MTU) { (content, contentContext, isComplete, error) in
-            if let content = content {
-                NSLog("Content Received 3: \(content)")
+            if let contentContext = contentContext {
+                NSLog("[receiveMessage][\(self.id)] contentContext: \(contentContext)")
             }
-            NSLog("Content isComplete 3: \(isComplete)")
+
+            if isComplete {
+                self.stop()
+            } else if let error = error {
+                self.stopWithError(error: error)
+            } else {
+                self.receive()
+            }
         }
     }
 }

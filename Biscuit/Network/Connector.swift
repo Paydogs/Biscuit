@@ -29,6 +29,7 @@ class Connector {
 
                 self.didStopConnection(connection)
             }
+
             networkConnection.didStartConnection = { (connection: NetworkConnection) in
                 NSLog("[Connector][\(connection.id)] Started")
             }
