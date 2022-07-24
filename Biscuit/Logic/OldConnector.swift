@@ -16,7 +16,7 @@ protocol NetworkConnectionDelegate: AnyObject
     func connectionReceivedData()
 }
 
-class Connector {
+class OldConnector {
     var connection: NWConnection?
     var listener: NWListener?
     weak var delegate: NetworkConnectionDelegate?
@@ -36,7 +36,7 @@ class Connector {
         let params = NWParameters(tls: nil, tcp: NWProtocolTCP.Options())
         params.includePeerToPeer = true
 
-        listener = try? NWListener(using: params)
+        listener = try? NWListener(using: params, on: port)
         guard let listener = listener else { return }
 
         listener.service = NWListener.Service(name: "",

@@ -7,49 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */; };
-		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
-		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
-		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
-		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
-		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
-		BE682F75288C936B0096346F /* LogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F74288C936B0096346F /* LogState.swift */; };
-		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
 		BE682F7A288C96630096346F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F79288C96630096346F /* Action.swift */; };
-		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
-		BE682F7E288C98AF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7D288C98AF0096346F /* Connector.swift */; };
-		BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F80288C98FD0096346F /* BagelPacket.swift */; };
-		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
-		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
-		BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F86288C99650096346F /* BagelDeviceModel.swift */; };
-		BE682F8A288C9A520096346F /* BagelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F89288C9A520096346F /* BagelPublisher.swift */; };
+		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
+		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
+		BE682F95288CBB300096346F /* BagelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F94288CBB300096346F /* BagelConfig.swift */; };
 		BE682F8C288C9A830096346F /* BagelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F8B288C9A830096346F /* BagelConfiguration.swift */; };
+		BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F86288C99650096346F /* BagelDeviceModel.swift */; };
+		BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F80288C98FD0096346F /* BagelPacket.swift */; };
+		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
+		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
+		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
+		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
+		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
+		BE682F75288C936B0096346F /* LogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F74288C936B0096346F /* LogState.swift */; };
+		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
+		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
+		BE682F7E288C98AF0096346F /* OldConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7D288C98AF0096346F /* OldConnector.swift */; };
+		57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */; };
+		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
 		BE682F90288CB8900096346F /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F8F288CB8900096346F /* ServerConnection.swift */; };
+		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
-		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
-		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
-		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE682F74288C936B0096346F /* LogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogState.swift; sourceTree = "<group>"; };
-		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		BE682F79288C96630096346F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		BE682F7D288C98AF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
-		BE682F80288C98FD0096346F /* BagelPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacket.swift; sourceTree = "<group>"; };
-		BE682F82288C99160096346F /* BagelRequestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelRequestInfo.swift; sourceTree = "<group>"; };
-		BE682F84288C992D0096346F /* BagelProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelProjectModel.swift; sourceTree = "<group>"; };
-		BE682F86288C99650096346F /* BagelDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelDeviceModel.swift; sourceTree = "<group>"; };
-		BE682F89288C9A520096346F /* BagelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPublisher.swift; sourceTree = "<group>"; };
+		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE682F94288CBB300096346F /* BagelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfig.swift; sourceTree = "<group>"; };
 		BE682F8B288C9A830096346F /* BagelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfiguration.swift; sourceTree = "<group>"; };
-		BE682F8F288CB8900096346F /* ServerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
+		BE682F86288C99650096346F /* BagelDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelDeviceModel.swift; sourceTree = "<group>"; };
+		BE682F80288C98FD0096346F /* BagelPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacket.swift; sourceTree = "<group>"; };
+		BE682F84288C992D0096346F /* BagelProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelProjectModel.swift; sourceTree = "<group>"; };
+		BE682F82288C99160096346F /* BagelRequestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelRequestInfo.swift; sourceTree = "<group>"; };
+		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
+		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
+		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		BE682F74288C936B0096346F /* LogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogState.swift; sourceTree = "<group>"; };
+		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
+		BE682F7D288C98AF0096346F /* OldConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldConnector.swift; sourceTree = "<group>"; };
 		C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.debug.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.release.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.release.xcconfig"; sourceTree = "<group>"; };
+		94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE682F8F288CB8900096346F /* ServerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
+		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				BE682F76288C963F0096346F /* Flux */,
 				BE682F88288C99CB0096346F /* Logic */,
 				BE682F7F288C98EE0096346F /* Models */,
+				BE682F91288CBAB00096346F /* Network */,
 				BE682F73288C93490096346F /* State */,
 				BE682F8D288CA0090096346F /* Views */,
 				BE682F71288C311A0096346F /* AppDelegate.swift */,
@@ -156,8 +161,7 @@
 		BE682F88288C99CB0096346F /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				BE682F89288C9A520096346F /* BagelPublisher.swift */,
-				BE682F7D288C98AF0096346F /* Connector.swift */,
+				BE682F7D288C98AF0096346F /* OldConnector.swift */,
 				BE682F8F288CB8900096346F /* ServerConnection.swift */,
 			);
 			path = Logic;
@@ -180,6 +184,16 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		BE682F91288CBAB00096346F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F94288CBB300096346F /* BagelConfig.swift */,
+				BE682F92288CBADF0096346F /* Connector.swift */,
+				BE682F96288CC15C0096346F /* NetworkConnection.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,7 +205,6 @@
 				BE682F5B288C31010096346F /* Sources */,
 				BE682F5C288C31010096346F /* Frameworks */,
 				BE682F5D288C31010096346F /* Resources */,
-				D0FB3052E5A323049764AF4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,23 +283,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D0FB3052E5A323049764AF4B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Biscuit/Pods-Biscuit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Biscuit/Pods-Biscuit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Biscuit/Pods-Biscuit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -296,17 +292,19 @@
 			files = (
 				BE682F7A288C96630096346F /* Action.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
+				BE682F95288CBB300096346F /* BagelConfig.swift in Sources */,
 				BE682F8C288C9A830096346F /* BagelConfiguration.swift in Sources */,
 				BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */,
 				BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */,
 				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
-				BE682F8A288C9A520096346F /* BagelPublisher.swift in Sources */,
 				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
-				BE682F7E288C98AF0096346F /* Connector.swift in Sources */,
+				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
 				BE682F78288C964F0096346F /* Dispatcher.swift in Sources */,
 				BE682F75288C936B0096346F /* LogState.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
+				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
+				BE682F7E288C98AF0096346F /* OldConnector.swift in Sources */,
 				BE682F90288CB8900096346F /* ServerConnection.swift in Sources */,
 				BE682F7C288C96780096346F /* Store.swift in Sources */,
 			);

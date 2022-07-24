@@ -8,9 +8,9 @@
 import SwiftUI
 
 @main
-struct BiscuitApp: App, BagelPublisherDelegate {
+struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var publisher = BagelPublisher()
+    var oldConnector = OldConnector()
     var connector = Connector()
 
     init() {
@@ -24,12 +24,7 @@ struct BiscuitApp: App, BagelPublisherDelegate {
     }
 
     func start() {
-//        self.publisher.delegate = self
-//        publisher.startPublishing()
-        connector.start2()
-    }
-
-    func didGetPacket(publisher: BagelPublisher, packet: BagelPacket) {
-        NSLog("Received something: from: \(publisher), packet: \(packet)")
+//        oldConnector.start2()
+        connector.start()
     }
 }
