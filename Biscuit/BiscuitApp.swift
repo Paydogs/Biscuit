@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var oldConnector = OldConnector()
     var connector = Connector()
 
     init() {
@@ -24,7 +23,6 @@ struct BiscuitApp: App {
     }
 
     func start() {
-//        oldConnector.start2()
         connector.start()
     }
 }

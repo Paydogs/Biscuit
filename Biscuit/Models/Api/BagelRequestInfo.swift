@@ -8,15 +8,6 @@
 
 import Cocoa
 
-enum RequestMethod: String, Codable {
-  case get = "GET"
-  case post = "POST"
-  case put = "PUT"
-  case delete = "DELETE"
-  case patch = "PATCH"
-  case head = "HEAD"
-}
-
 class BagelRequestInfo: Codable {
 
     var url: String?

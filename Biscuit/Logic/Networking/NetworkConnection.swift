@@ -14,13 +14,14 @@ class NetworkConnection {
     let id: String
 
     var didStartConnection: ((NetworkConnection) -> Void)? = nil
+    var didReceivedData: ((NetworkConnection, Data) -> Void)? = nil
     var didStopConnection: ((NetworkConnection, Error?) -> Void)? = nil
 
     init(with connection: NWConnection) {
         self.connection = connection
         self.id = UUID().uuidString
     }
-
+    
     func start() {
         NSLog("[NetworkConnection][\(id)] Connection starting...")
         connection.stateUpdateHandler = { [weak self] (state: NWConnection.State) in
@@ -69,20 +70,10 @@ private extension NetworkConnection {
     func receive() {
         connection.receive(minimumIncompleteLength: 1, maximumLength: MTU) { [weak self] (data: Data?, _, isComplete: Bool, error: NWError?) in
             guard let self = self else { return }
-            NSLog("=================")
-            NSLog("[NetworkConnection][\(self.id)] isComplete: \(isComplete)")
-            NSLog("[NetworkConnection][\(self.id)] error: \(error)")
 
             if let data = data, !data.isEmpty {
-                NSLog("[NetworkConnection][\(self.id)] Received data: \(data)")
-                let peak = String(data: data, encoding: .utf8)
-                NSLog("[NetworkConnection][\(self.id)] peak: \(peak)")
-                let newData = self.removeFirstBytes(data: data)
-                let peak2 = String(data: newData, encoding: .utf8)
-                NSLog("[NetworkConnection][\(self.id)] peak2: \(peak2)")
-                let parsed = self.parseBody(data: newData)
-                NSLog("[NetworkConnection][\(self.id)] parsed: \(parsed)")
-//                self.send(data: data)
+                self.notifyDataReceived(data: data)
+                self.send(data: data)
             }
 
             if isComplete {
@@ -108,30 +99,6 @@ private extension NetworkConnection {
     }
 }
 
-// MARK: - Data processing
-private extension NetworkConnection {
-    func parseBody(data: Data) -> BagelPacket? {
-
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.dateDecodingStrategy = .secondsSince1970
-
-        do {
-            let bagelPacket = try jsonDecoder.decode(BagelPacket.self, from: data)
-            return bagelPacket
-
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-
-    func removeFirstBytes(data: Data) -> Data {
-        let range: Range<Data.Index> = 8 ..< data.endIndex
-        let newData = data.subdata(in: range)
-        return newData
-    }
-}
-
 // MARK: - Callback handling
 private extension NetworkConnection {
     func stopWithError(error: Error) {
@@ -146,6 +113,12 @@ private extension NetworkConnection {
         }
     }
 
+    func notifyDataReceived(data: Data) {
+        if let dataReceivedClosure = self.didReceivedData {
+            dataReceivedClosure(self, data)
+        }
+    }
+
     func notifyConnectionStopped(with error: Error? = nil) {
         if let stopClosure = didStopConnection {
             didStopConnection = nil
@@ -155,51 +128,51 @@ private extension NetworkConnection {
 }
 
 private extension NetworkConnection {
-    func tempReceiveMessageDiscontiguous() {
-        connection.receiveMessageDiscontiguous { [weak self] (completeContent, contentContext, isComplete, error) in
-            guard let self = self else { return }
-
-            NSLog("[receiveMessageDiscontiguous] Content isComplete: \(isComplete)")
-            if let data = completeContent, !data.isEmpty {
-                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
+//    func tempReceiveMessageDiscontiguous() {
+//        connection.receiveMessageDiscontiguous { [weak self] (completeContent, contentContext, isComplete, error) in
+//            guard let self = self else { return }
+//
+//            NSLog("[receiveMessageDiscontiguous] Content isComplete: \(isComplete)")
+//            if let data = completeContent, !data.isEmpty {
+//                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
 //                self.send(data: data)
-            }
-            if let contentContext = contentContext {
-                NSLog("[receiveMessageDiscontiguous][\(self.id)] contentContext: \(contentContext)")
-            }
-
-            if isComplete {
-                self.stop()
-            } else if let error = error {
-                self.stopWithError(error: error)
-            } else {
-                self.receive()
-            }
-        }
-    }
-
-    func tempReceiveMessage() {
-        connection.receiveMessage { [weak self] (completeContent, contentContext, isComplete, error) in
-            guard let self = self else { return }
-
-            NSLog("[receiveMessage] Content isComplete: \(isComplete)")
-            if let data = completeContent, !data.isEmpty {
-                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
-                self.send(data: data)
-            }
-            if let contentContext = contentContext {
-                NSLog("[receiveMessage][\(self.id)] contentContext: \(contentContext)")
-            }
-
-            if isComplete {
-                self.stop()
-            } else if let error = error {
-                self.stopWithError(error: error)
-            } else {
-                self.receive()
-            }
-        }
-    }
+//            }
+//            if let contentContext = contentContext {
+//                NSLog("[receiveMessageDiscontiguous][\(self.id)] contentContext: \(contentContext)")
+//            }
+//
+//            if isComplete {
+//                self.stop()
+//            } else if let error = error {
+//                self.stopWithError(error: error)
+//            } else {
+//                self.receive()
+//            }
+//        }
+//    }
+//
+//    func tempReceiveMessage() {
+//        connection.receiveMessage { [weak self] (completeContent, contentContext, isComplete, error) in
+//            guard let self = self else { return }
+//
+//            NSLog("[receiveMessage] Content isComplete: \(isComplete)")
+//            if let data = completeContent, !data.isEmpty {
+//                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
+//                self.send(data: data)
+//            }
+//            if let contentContext = contentContext {
+//                NSLog("[receiveMessage][\(self.id)] contentContext: \(contentContext)")
+//            }
+//
+//            if isComplete {
+//                self.stop()
+//            } else if let error = error {
+//                self.stopWithError(error: error)
+//            } else {
+//                self.receive()
+//            }
+//        }
+//    }
 }
 
 extension NetworkConnection: Hashable {

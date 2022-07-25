@@ -11,22 +11,30 @@
 		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
 		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
 		BE682F95288CBB300096346F /* BagelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F94288CBB300096346F /* BagelConfig.swift */; };
-		BE682F8C288C9A830096346F /* BagelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F8B288C9A830096346F /* BagelConfiguration.swift */; };
 		BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F86288C99650096346F /* BagelDeviceModel.swift */; };
 		BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F80288C98FD0096346F /* BagelPacket.swift */; };
+		BE27F8F0288F35E30042F376 /* BagelPacketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */; };
 		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
 		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
+		BE27F8F7288F40070042F376 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F6288F40070042F376 /* Client.swift */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
+		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
+		BE27F906288F52080042F376 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* Device.swift */; };
 		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
 		BE682F75288C936B0096346F /* LogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F74288C936B0096346F /* LogState.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
+		BE27F8F9288F40510042F376 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F8288F40510042F376 /* Message.swift */; };
+		BE27F902288F4B630042F376 /* MessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F901288F4B630042F376 /* MessageParser.swift */; };
+		BE27F900288F4AE60042F376 /* MessagesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FF288F4AE60042F376 /* MessagesState.swift */; };
 		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
-		BE682F7E288C98AF0096346F /* OldConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7D288C98AF0096346F /* OldConnector.swift */; };
 		57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
-		BE682F90288CB8900096346F /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F8F288CB8900096346F /* ServerConnection.swift */; };
+		BE27F908288F54290042F376 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F907288F54290042F376 /* Request.swift */; };
+		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
+		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
 		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
+		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,26 +42,34 @@
 		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE682F94288CBB300096346F /* BagelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfig.swift; sourceTree = "<group>"; };
-		BE682F8B288C9A830096346F /* BagelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfiguration.swift; sourceTree = "<group>"; };
 		BE682F86288C99650096346F /* BagelDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelDeviceModel.swift; sourceTree = "<group>"; };
 		BE682F80288C98FD0096346F /* BagelPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacket.swift; sourceTree = "<group>"; };
+		BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacketParser.swift; sourceTree = "<group>"; };
 		BE682F84288C992D0096346F /* BagelProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelProjectModel.swift; sourceTree = "<group>"; };
 		BE682F82288C99160096346F /* BagelRequestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelRequestInfo.swift; sourceTree = "<group>"; };
 		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
+		BE27F8F6288F40070042F376 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		BE27F8FD288F48C40042F376 /* Data+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utils.swift"; sourceTree = "<group>"; };
+		BE27F905288F52080042F376 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		BE682F74288C936B0096346F /* LogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogState.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		BE27F8F8288F40510042F376 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		BE27F901288F4B630042F376 /* MessageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageParser.swift; sourceTree = "<group>"; };
+		BE27F8FF288F4AE60042F376 /* MessagesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesState.swift; sourceTree = "<group>"; };
 		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
-		BE682F7D288C98AF0096346F /* OldConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldConnector.swift; sourceTree = "<group>"; };
 		C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.debug.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.release.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.release.xcconfig"; sourceTree = "<group>"; };
 		94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BE682F8F288CB8900096346F /* ServerConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
+		BE27F907288F54290042F376 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +101,64 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE27F8EE288F35B80042F376 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */,
+				BE27F901288F4B630042F376 /* MessageParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		BE27F8F1288F366E0042F376 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BE27F8FD288F48C40042F376 /* Data+Utils.swift */,
+				BE27F8F2288F367B0042F376 /* String+Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BE27F8FA288F415D0042F376 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F86288C99650096346F /* BagelDeviceModel.swift */,
+				BE682F80288C98FD0096346F /* BagelPacket.swift */,
+				BE682F84288C992D0096346F /* BagelProjectModel.swift */,
+				BE682F82288C99160096346F /* BagelRequestInfo.swift */,
+				BE27F903288F4C140042F376 /* RequestMethod.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		BE27F8FB288F42560042F376 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F91288CBAB00096346F /* Networking */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		BE27F8FC288F42690042F376 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F73288C93490096346F /* State */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BE27F90B288F59A50042F376 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BE27F8F6288F40070042F376 /* Client.swift */,
+				BE27F905288F52080042F376 /* Device.swift */,
+				BE27F8F8288F40510042F376 /* Message.swift */,
+				BE27F907288F54290042F376 /* Request.swift */,
+				BE27F909288F54300042F376 /* Response.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		BE682F56288C31010096346F = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +181,11 @@
 			isa = PBXGroup;
 			children = (
 				BE682F8E288CA0260096346F /* Assets */,
+				BE27F8FC288F42690042F376 /* Data */,
 				BE682F76288C963F0096346F /* Flux */,
-				BE682F88288C99CB0096346F /* Logic */,
+				BE27F8FB288F42560042F376 /* Logic */,
 				BE682F7F288C98EE0096346F /* Models */,
-				BE682F91288CBAB00096346F /* Network */,
-				BE682F73288C93490096346F /* State */,
+				BE27F8F1288F366E0042F376 /* Utils */,
 				BE682F8D288CA0090096346F /* Views */,
 				BE682F71288C311A0096346F /* AppDelegate.swift */,
 				BE682F6B288C31020096346F /* Biscuit.entitlements */,
@@ -132,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				BE682F74288C936B0096346F /* LogState.swift */,
+				BE27F8FF288F4AE60042F376 /* MessagesState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -149,22 +224,11 @@
 		BE682F7F288C98EE0096346F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BE682F8B288C9A830096346F /* BagelConfiguration.swift */,
-				BE682F86288C99650096346F /* BagelDeviceModel.swift */,
-				BE682F80288C98FD0096346F /* BagelPacket.swift */,
-				BE682F84288C992D0096346F /* BagelProjectModel.swift */,
-				BE682F82288C99160096346F /* BagelRequestInfo.swift */,
+				BE27F8FA288F415D0042F376 /* Api */,
+				BE27F90B288F59A50042F376 /* Domain */,
+				BE27F8EE288F35B80042F376 /* Parser */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		BE682F88288C99CB0096346F /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				BE682F7D288C98AF0096346F /* OldConnector.swift */,
-				BE682F8F288CB8900096346F /* ServerConnection.swift */,
-			);
-			path = Logic;
 			sourceTree = "<group>";
 		};
 		BE682F8D288CA0090096346F /* Views */ = {
@@ -184,14 +248,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		BE682F91288CBAB00096346F /* Network */ = {
+		BE682F91288CBAB00096346F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				BE682F94288CBB300096346F /* BagelConfig.swift */,
 				BE682F92288CBADF0096346F /* Connector.swift */,
 				BE682F96288CC15C0096346F /* NetworkConnection.swift */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,20 +357,28 @@
 				BE682F7A288C96630096346F /* Action.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
 				BE682F95288CBB300096346F /* BagelConfig.swift in Sources */,
-				BE682F8C288C9A830096346F /* BagelConfiguration.swift in Sources */,
 				BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */,
 				BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */,
+				BE27F8F0288F35E30042F376 /* BagelPacketParser.swift in Sources */,
 				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
 				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
+				BE27F8F7288F40070042F376 /* Client.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
+				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
+				BE27F906288F52080042F376 /* Device.swift in Sources */,
 				BE682F78288C964F0096346F /* Dispatcher.swift in Sources */,
 				BE682F75288C936B0096346F /* LogState.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
+				BE27F8F9288F40510042F376 /* Message.swift in Sources */,
+				BE27F902288F4B630042F376 /* MessageParser.swift in Sources */,
+				BE27F900288F4AE60042F376 /* MessagesState.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
-				BE682F7E288C98AF0096346F /* OldConnector.swift in Sources */,
-				BE682F90288CB8900096346F /* ServerConnection.swift in Sources */,
+				BE27F908288F54290042F376 /* Request.swift in Sources */,
+				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
+				BE27F90A288F54300042F376 /* Response.swift in Sources */,
 				BE682F7C288C96780096346F /* Store.swift in Sources */,
+				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
