@@ -23,15 +23,13 @@ class NetworkConnection {
     }
     
     func start() {
-        NSLog("[NetworkConnection][\(id)] Connection starting...")
+        print("[NetworkConnection] Connection starting...")
         connection.stateUpdateHandler = { [weak self] (state: NWConnection.State) in
             self?.stateDidChange(to: state)
         }
 
-//        receive()
-//        tempReceiveMessageDiscontiguous()
-//        tempReceiveMessage()
-        connection.start(queue: .global(qos: .background))
+//        connection.start(queue: .global(qos: .default))
+        connection.start(queue: DispatchQueue(label: "NetworkConnection"))
     }
 
     func stop() {
@@ -46,10 +44,9 @@ private extension NetworkConnection {
     func stateDidChange(to state: NWConnection.State) {
         switch state {
         case .ready:
-            NSLog("[NetworkConnection][\(id)] Connection successful")
+            print("[NetworkConnection] Connection successful")
             notifyConnectionStarted()
             receive()
-//            receiveMessage()
         case .failed(let error):
             stopWithError(error: error)
             stop()
@@ -58,22 +55,13 @@ private extension NetworkConnection {
         }
     }
 
-    func receiveMessage() {
-        connection.receiveMessage { (data: Data?, _, isComplete: Bool, error: NWError?) in
-            if let data = data, !data.isEmpty {
-                let message = String(decoding: data, as: UTF8.self)
-                NSLog("[NetworkConnection][\(self.id)] Received message: \(message)")
-            }
-        }
-    }
-
     func receive() {
-        connection.receive(minimumIncompleteLength: 1, maximumLength: MTU) { [weak self] (data: Data?, _, isComplete: Bool, error: NWError?) in
+        connection.receive(minimumIncompleteLength: 8, maximumLength: MTU) { [weak self] (data: Data?, context: NWConnection.ContentContext?, isComplete: Bool, error: NWError?) in
             guard let self = self else { return }
 
             if let data = data, !data.isEmpty {
                 self.notifyDataReceived(data: data)
-                self.send(data: data)
+//                self.send(data: data)
             }
 
             if isComplete {
@@ -94,7 +82,7 @@ private extension NetworkConnection {
                 self.stopWithError(error: error)
                 return
             }
-            NSLog("[NetworkConnection][\(self.id)] Responding to connection, data: \(data as NSData)")
+            print("[NetworkConnection] Responding to connection, data: \(data as NSData)")
         }))
     }
 }
@@ -125,54 +113,6 @@ private extension NetworkConnection {
             stopClosure(self, error)
         }
     }
-}
-
-private extension NetworkConnection {
-//    func tempReceiveMessageDiscontiguous() {
-//        connection.receiveMessageDiscontiguous { [weak self] (completeContent, contentContext, isComplete, error) in
-//            guard let self = self else { return }
-//
-//            NSLog("[receiveMessageDiscontiguous] Content isComplete: \(isComplete)")
-//            if let data = completeContent, !data.isEmpty {
-//                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
-//                self.send(data: data)
-//            }
-//            if let contentContext = contentContext {
-//                NSLog("[receiveMessageDiscontiguous][\(self.id)] contentContext: \(contentContext)")
-//            }
-//
-//            if isComplete {
-//                self.stop()
-//            } else if let error = error {
-//                self.stopWithError(error: error)
-//            } else {
-//                self.receive()
-//            }
-//        }
-//    }
-//
-//    func tempReceiveMessage() {
-//        connection.receiveMessage { [weak self] (completeContent, contentContext, isComplete, error) in
-//            guard let self = self else { return }
-//
-//            NSLog("[receiveMessage] Content isComplete: \(isComplete)")
-//            if let data = completeContent, !data.isEmpty {
-//                NSLog("[receiveMessageDiscontiguous][\(self.id)] completeContent: \(data)")
-//                self.send(data: data)
-//            }
-//            if let contentContext = contentContext {
-//                NSLog("[receiveMessage][\(self.id)] contentContext: \(contentContext)")
-//            }
-//
-//            if isComplete {
-//                self.stop()
-//            } else if let error = error {
-//                self.stopWithError(error: error)
-//            } else {
-//                self.receive()
-//            }
-//        }
-//    }
 }
 
 extension NetworkConnection: Hashable {

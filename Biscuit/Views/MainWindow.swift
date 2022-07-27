@@ -14,7 +14,7 @@ struct MainWindow: View {
             ProcessContainer()
             VStack {
                 Button("Test", action: {
-                    NSLog("Tapped")
+                    print("Tapped")
                 })
                 .frame(minWidth: 100, maxHeight: 44)
 
