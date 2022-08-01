@@ -8,9 +8,12 @@
 import Foundation
 import Network
 
+private enum Stage {
+    case striding
+    case receiving
+}
+
 class NetworkConnection {
-    let MTU = 65536
-    let padding = MemoryLayout<UInt64>.stride
     let connection: NWConnection
     let id: String
 
@@ -29,8 +32,7 @@ class NetworkConnection {
             self?.stateDidChange(to: state)
         }
 
-//        connection.start(queue: .global(qos: .default))
-        connection.start(queue: DispatchQueue(label: "NetworkConnection"))
+        connection.start(queue: .global(qos: .default))
     }
 
     func stop() {
@@ -47,7 +49,7 @@ private extension NetworkConnection {
         case .ready:
             print("[NetworkConnection] Connection successful")
             notifyConnectionStarted()
-            receive(bytes: padding)
+            listen(to: .striding)
         case .failed(let error):
             stopWithError(error: error)
             stop()
@@ -56,18 +58,18 @@ private extension NetworkConnection {
         }
     }
 
-    func receive(bytes: Int) {
-        connection.receive(minimumIncompleteLength: 1, maximumLength: bytes) { [weak self] (data: Data?, context: NWConnection.ContentContext?, isComplete: Bool, error: NWError?) in
+    func listen(to stage: Stage, bytes: Int? = nil) {
+        let readAmount = stage == .striding ? Constants.stride : bytes ?? 1
+        connection.receive(minimumIncompleteLength: 1, maximumLength: readAmount) { [weak self] (data: Data?, context: NWConnection.ContentContext?, isComplete: Bool, error: NWError?) in
             guard let self = self else { return }
-            if bytes == 8, let data = data {
-                let length = self.lengthOf(data: data)
-                self.receive(bytes: length)
+            if stage == .striding, let strideData = data {
+                let receivingLength = self.getNextLength(from: strideData)
+                self.listen(to: .receiving, bytes: receivingLength)
                 return
             }
 
-            if let data = data, !data.isEmpty {
-                self.notifyDataReceived(data: data)
-//                self.send(data: data)
+            if let receivedData = data, !receivedData.isEmpty {
+                self.notifyDataReceived(data: receivedData)
             }
 
             if isComplete {
@@ -75,20 +77,14 @@ private extension NetworkConnection {
             } else if let error = error {
                 self.stopWithError(error: error)
             } else {
-                self.receive(bytes: self.padding)
+                self.listen(to: .striding)
             }
         }
     }
 
-    func lengthOf(data: Data) -> Int {
-        NSLog("[NetworkConnection] LengthOfData on data: \(data): \(data.count) byte")
+    func getNextLength(from data: Data) -> Int {
         var length = 0
-        let until = MemoryLayout<UInt64>.stride
-        let intermed = ([UInt8](data))
-        NSLog("[NetworkConnection] Memcopy \(until) byte of \(intermed) to \(length)")
-        memcpy(&length,intermed, until)
-
-        NSLog("[NetworkConnection] Returning length: \(length)")
+        memcpy(&length, ([UInt8](data)), Constants.stride)
         return length
     }
 }
@@ -128,5 +124,11 @@ extension NetworkConnection: Hashable {
 
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+}
+
+private extension NetworkConnection {
+    struct Constants {
+        static let stride = MemoryLayout<UInt64>.stride
     }
 }

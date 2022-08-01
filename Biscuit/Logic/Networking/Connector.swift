@@ -7,15 +7,23 @@
 
 import Foundation
 import Network
+import Combine
 
 class Connector {
     var listener: NWListener?
     var activeConnections: Set<NetworkConnection> = []
     let bagelPacketParser = BagelPacketParser()
     let messageParser = MessageParser()
+    var subscription: AnyCancellable?
+
+    @Published var messages: [Message] = []
 
     func start() {
-        print("Starting new connector")
+        print("[Connector] Starting new connector")
+        subscription = $messages.sink { (value: [Message]) in
+            NSLog("Message store count: \(value.count)")
+        }
+
         listener = createListener()
 
         listener?.stateUpdateHandler = didStateChanged(state:)
@@ -27,7 +35,6 @@ class Connector {
         }
 
         listener?.start(queue: DispatchQueue.global(qos: .default))
-//        listener?.start(queue: DispatchQueue(label: "Connector"))
     }
 }
 
@@ -67,11 +74,6 @@ private extension Connector {
         let port: NWEndpoint.Port = NWEndpoint.Port(integerLiteral: BagelConfig.defaultPort)
 
         let tcpOptions = NWProtocolTCP.Options()
-        tcpOptions.persistTimeout = 30
-        tcpOptions.connectionDropTime = 30
-        tcpOptions.connectionTimeout = 30
-//        tcpOptions.noDelay = true
-
         let params = NWParameters(tls: nil, tcp: tcpOptions)
 
         let listener = try? NWListener(using: params, on: port)
@@ -87,20 +89,17 @@ private extension Connector {
         }
 
         connection.didReceivedData = { [weak self] (connection: NetworkConnection, data: Data) in
-            print("RECEIVED \(data.count) bytes")
             DispatchQueue.global(qos: .background).async {
                 guard let self = self,
                       let packet = self.bagelPacketParser.parseData(data) else {
                     print("WRONG DATA")
                     return
                 }
-                if let url = packet.requestInfo?.url {
-                    print("Parsed a \(url) packet")
-                }
 
                 let message = self.messageParser.parseMessage(from: packet)
-                print("[Connector] converted to message:")
-                self.describeMessage(message: message)
+//                print("[Connector] Received message:")
+                self.messages.append(message)
+//                self.describeMessage(message: message)
             }
         }
 
@@ -117,7 +116,6 @@ private extension Connector {
 
 private extension Connector {
     func describeMessage(message: Message) {
-        DispatchQueue.global(qos: .background).async {
         print("\n====================")
         print("[Connector] url: \(message.url)")
         print("[Connector] statusCode: \(message.statusCode)")
@@ -125,6 +123,5 @@ private extension Connector {
         print("[Connector] request: \(message.request)")
         print("[Connector] response: \(message.response)")
         print("====================\n")
-        }
     }
 }
