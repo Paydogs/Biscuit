@@ -10,6 +10,7 @@ import Network
 
 class NetworkConnection {
     let MTU = 65536
+    let padding = MemoryLayout<UInt64>.stride
     let connection: NWConnection
     let id: String
 
@@ -46,7 +47,7 @@ private extension NetworkConnection {
         case .ready:
             print("[NetworkConnection] Connection successful")
             notifyConnectionStarted()
-            receive()
+            receive(bytes: padding)
         case .failed(let error):
             stopWithError(error: error)
             stop()
@@ -55,9 +56,14 @@ private extension NetworkConnection {
         }
     }
 
-    func receive() {
-        connection.receive(minimumIncompleteLength: 8, maximumLength: MTU) { [weak self] (data: Data?, context: NWConnection.ContentContext?, isComplete: Bool, error: NWError?) in
+    func receive(bytes: Int) {
+        connection.receive(minimumIncompleteLength: 1, maximumLength: bytes) { [weak self] (data: Data?, context: NWConnection.ContentContext?, isComplete: Bool, error: NWError?) in
             guard let self = self else { return }
+            if bytes == 8, let data = data {
+                let length = self.lengthOf(data: data)
+                self.receive(bytes: length)
+                return
+            }
 
             if let data = data, !data.isEmpty {
                 self.notifyDataReceived(data: data)
@@ -69,21 +75,21 @@ private extension NetworkConnection {
             } else if let error = error {
                 self.stopWithError(error: error)
             } else {
-                self.receive()
+                self.receive(bytes: self.padding)
             }
         }
     }
 
-    func send(data: Data) {
-        self.connection.send(content: data, completion: .contentProcessed( { [weak self] (error: Error?) in
-            guard let self = self else { return }
+    func lengthOf(data: Data) -> Int {
+        NSLog("[NetworkConnection] LengthOfData on data: \(data): \(data.count) byte")
+        var length = 0
+        let until = MemoryLayout<UInt64>.stride
+        let intermed = ([UInt8](data))
+        NSLog("[NetworkConnection] Memcopy \(until) byte of \(intermed) to \(length)")
+        memcpy(&length,intermed, until)
 
-            if let error = error {
-                self.stopWithError(error: error)
-                return
-            }
-            print("[NetworkConnection] Responding to connection, data: \(data as NSData)")
-        }))
+        NSLog("[NetworkConnection] Returning length: \(length)")
+        return length
     }
 }
 

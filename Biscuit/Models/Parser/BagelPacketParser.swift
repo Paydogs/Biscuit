@@ -9,8 +9,14 @@ import Foundation
 
 struct BagelPacketParser {
     func parseData(_ data: Data) -> BagelPacket? {
-        let cleaned = data.removeFirstBytes(8)
-        return parseBody(data: cleaned)
+//        let cleaned = data.removeFirstBytes(8)
+//        let cleanedString = String(data: cleaned, encoding: .utf8)
+//        if cleanedString == nil {
+//            print("This is a fucky string")
+//            let d = data as NSData
+//            print("FUCK: \(d)")
+//        }
+        return parseBody(data: data)
     }
 }
 

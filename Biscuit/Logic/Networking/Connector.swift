@@ -100,7 +100,7 @@ private extension Connector {
 
                 let message = self.messageParser.parseMessage(from: packet)
                 print("[Connector] converted to message:")
-//                self.describeMessage(message: message)
+                self.describeMessage(message: message)
             }
         }
 
