@@ -8,5 +8,5 @@
 import Foundation
 
 struct MessagesState {
-    let clients: [Client]
+    var messages: [Message]
 }

@@ -14,14 +14,17 @@ class Connector {
     var activeConnections: Set<NetworkConnection> = []
     let bagelPacketParser = BagelPacketParser()
     let messageParser = MessageParser()
+    let store = MessageStore()
     var subscription: AnyCancellable?
 
     @Published var messages: [Message] = []
 
     func start() {
         print("[Connector] Starting new connector")
-        subscription = $messages.sink { (value: [Message]) in
-            NSLog("Message store count: \(value.count)")
+        subscription = store.$state.sink { (value: MessagesState) in
+            let messages = value.messages
+            print("\nMessage store count: \(messages.count)")
+            messages.map { $0.quickDescription() }
         }
 
         listener = createListener()
@@ -97,9 +100,9 @@ private extension Connector {
                 }
 
                 let message = self.messageParser.parseMessage(from: packet)
-//                print("[Connector] Received message:")
-                self.messages.append(message)
-//                self.describeMessage(message: message)
+//                message.quickDescription()
+                let action: MessageActions = .didReceivedMessage(message)
+                self.store.reducer(action: action)
             }
         }
 
@@ -111,17 +114,5 @@ private extension Connector {
 
             self.didStopConnection(connection)
         }
-    }
-}
-
-private extension Connector {
-    func describeMessage(message: Message) {
-        print("\n====================")
-        print("[Connector] url: \(message.url)")
-        print("[Connector] statusCode: \(message.statusCode)")
-        print("[Connector] device: \(message.device)")
-        print("[Connector] request: \(message.request)")
-        print("[Connector] response: \(message.response)")
-        print("====================\n")
     }
 }

@@ -15,10 +15,10 @@
 /* Begin PBXFileReference section */
 		040297F7E5FDDB69A021BBF0AC7D027C /* Pods-Biscuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Biscuit.release.xcconfig"; sourceTree = "<group>"; };
 		16A24B4C5A04DC2DC5EC37F1D9E7A52D /* Pods-Biscuit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Biscuit-umbrella.h"; sourceTree = "<group>"; };
-		1EAE651B307247CB75878835A9D2FFBF /* Pods-Biscuit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Biscuit"; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EAE651B307247CB75878835A9D2FFBF /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		346254E2F8A70D3CF02BCD0A62F0FE1D /* Pods-Biscuit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Biscuit-dummy.m"; sourceTree = "<group>"; };
 		3589514AD2613F0B9315ECA1EA825C54 /* Pods-Biscuit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Biscuit-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A5B3DEB0DE9B86A59D292345E723827A /* Pods-Biscuit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Biscuit-acknowledgements.plist"; sourceTree = "<group>"; };
 		C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		D4D4ACA64F59CFEF4B7A5AD204F56350 /* Pods-Biscuit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Biscuit-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		365A8794A195FA894795712FEF129122 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1EAE651B307247CB75878835A9D2FFBF /* Pods-Biscuit */,
+				1EAE651B307247CB75878835A9D2FFBF /* Pods_Biscuit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,7 +125,7 @@
 			);
 			name = "Pods-Biscuit";
 			productName = Pods_Biscuit;
-			productReference = 1EAE651B307247CB75878835A9D2FFBF /* Pods-Biscuit */;
+			productReference = 1EAE651B307247CB75878835A9D2FFBF /* Pods_Biscuit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -135,7 +135,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -182,7 +182,6 @@
 			baseConfigurationReference = DD580A19E78C59144CC8C98072A68E82 /* Pods-Biscuit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -219,7 +218,6 @@
 			baseConfigurationReference = 040297F7E5FDDB69A021BBF0AC7D027C /* Pods-Biscuit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";

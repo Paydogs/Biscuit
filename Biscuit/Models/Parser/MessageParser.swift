@@ -10,7 +10,7 @@ import Foundation
 struct MessageParser {
     func parseMessage(from packet: BagelPacket) -> Message {
         return .init(bagelPacketId: packet.packetId ?? "",
-                     project: mapProjectName(model: packet.project),
+                     project: mapProject(model: packet.project),
                      device: mapDevice(packet.device),
                      url: packet.requestInfo?.url ?? "",
                      statusCode: packet.requestInfo?.statusCode ?? "",
@@ -22,10 +22,12 @@ struct MessageParser {
 }
 
 private extension MessageParser {
-            func mapProjectName(model: BagelProjectModel?) -> String {
-                guard let model = model else { return "" }
-                return model.projectName ?? ""
-            }
+    func mapProject(model: BagelProjectModel?) -> Project {
+        guard let model = model,
+              let projectName = model.projectName else { return Project(id: "unknown", name: "unknown") }
+        return Project(id: projectName, name: projectName)
+    }
+
     func mapDevice(_ device: BagelDeviceModel?) -> Device {
         guard let device = device else { return Device.defaultValue() }
         return .init(deviceId: device.deviceId ?? "",
@@ -44,6 +46,7 @@ private extension MessageParser {
     func mapResponse(from packet: BagelPacket) -> Response {
         guard let source = packet.requestInfo else { return Response.defaultValue() }
         return .init(headers: source.responseHeaders ?? [:],
-                     body: source.responseData)
+                     body: nil,
+                     rawBody: source.responseData)
     }
 }

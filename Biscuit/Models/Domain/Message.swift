@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct Message {
+struct Message: Hashable, Equatable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(bagelPacketId)
+    }
+
     let bagelPacketId: String
-    let project: String
+    let project: Project
     let device: Device
 
     let url: String

@@ -17,19 +17,23 @@
 		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
 		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
-		BE27F8F7288F40070042F376 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F6288F40070042F376 /* Client.swift */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
 		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
+		BEC25AE62899D6510083E5B5 /* DefaultDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE52899D6510083E5B5 /* DefaultDispatcher.swift */; };
 		BE27F906288F52080042F376 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* Device.swift */; };
 		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
-		BE682F75288C936B0096346F /* LogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F74288C936B0096346F /* LogState.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
+		BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */; };
 		BE27F8F9288F40510042F376 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F8288F40510042F376 /* Message.swift */; };
+		BEC25AE92899D79A0083E5B5 /* MessageActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE82899D79A0083E5B5 /* MessageActions.swift */; };
 		BE27F902288F4B630042F376 /* MessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F901288F4B630042F376 /* MessageParser.swift */; };
+		BEC25AE42899D5EA0083E5B5 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE32899D5EA0083E5B5 /* MessageStore.swift */; };
 		BE27F900288F4AE60042F376 /* MessagesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FF288F4AE60042F376 /* MessagesState.swift */; };
 		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
 		57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */; };
+		BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
+		BEC25AED2899DE890083E5B5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEC2899DE890083E5B5 /* Project.swift */; };
 		BE27F908288F54290042F376 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F907288F54290042F376 /* Request.swift */; };
 		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
@@ -50,21 +54,25 @@
 		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
-		BE27F8F6288F40070042F376 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		BE27F8FD288F48C40042F376 /* Data+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utils.swift"; sourceTree = "<group>"; };
+		BEC25AE52899D6510083E5B5 /* DefaultDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDispatcher.swift; sourceTree = "<group>"; };
 		BE27F905288F52080042F376 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
-		BE682F74288C936B0096346F /* LogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogState.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Utils.swift"; sourceTree = "<group>"; };
 		BE27F8F8288F40510042F376 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		BEC25AE82899D79A0083E5B5 /* MessageActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageActions.swift; sourceTree = "<group>"; };
 		BE27F901288F4B630042F376 /* MessageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageParser.swift; sourceTree = "<group>"; };
+		BEC25AE32899D5EA0083E5B5 /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
 		BE27F8FF288F4AE60042F376 /* MessagesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesState.swift; sourceTree = "<group>"; };
 		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.debug.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.debug.xcconfig"; sourceTree = "<group>"; };
 		F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.release.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.release.xcconfig"; sourceTree = "<group>"; };
 		94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCase.swift; sourceTree = "<group>"; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BEC25AEC2899DE890083E5B5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BE27F907288F54290042F376 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BE27F8FD288F48C40042F376 /* Data+Utils.swift */,
+				BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */,
 				BE27F8F2288F367B0042F376 /* String+Utils.swift */,
 			);
 			path = Utils;
@@ -139,20 +148,12 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
-		BE27F8FC288F42690042F376 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				BE682F73288C93490096346F /* State */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		BE27F90B288F59A50042F376 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				BE27F8F6288F40070042F376 /* Client.swift */,
 				BE27F905288F52080042F376 /* Device.swift */,
 				BE27F8F8288F40510042F376 /* Message.swift */,
+				BEC25AEC2899DE890083E5B5 /* Project.swift */,
 				BE27F907288F54290042F376 /* Request.swift */,
 				BE27F909288F54300042F376 /* Response.swift */,
 			);
@@ -181,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				BE682F8E288CA0260096346F /* Assets */,
-				BE27F8FC288F42690042F376 /* Data */,
 				BE682F76288C963F0096346F /* Flux */,
 				BE27F8FB288F42560042F376 /* Logic */,
 				BE682F7F288C98EE0096346F /* Models */,
@@ -202,21 +202,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BE682F73288C93490096346F /* State */ = {
-			isa = PBXGroup;
-			children = (
-				BE682F74288C936B0096346F /* LogState.swift */,
-				BE27F8FF288F4AE60042F376 /* MessagesState.swift */,
-			);
-			path = State;
-			sourceTree = "<group>";
-		};
 		BE682F76288C963F0096346F /* Flux */ = {
 			isa = PBXGroup;
 			children = (
-				BE682F79288C96630096346F /* Action.swift */,
-				BE682F77288C964F0096346F /* Dispatcher.swift */,
-				BE682F7B288C96780096346F /* Store.swift */,
+				BEC25AE22899CC3F0083E5B5 /* Interfaces */,
+				BEC25AE72899D7490083E5B5 /* Message */,
+				BEC25AE52899D6510083E5B5 /* DefaultDispatcher.swift */,
 			);
 			path = Flux;
 			sourceTree = "<group>";
@@ -256,6 +247,27 @@
 				BE682F96288CC15C0096346F /* NetworkConnection.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		BEC25AE22899CC3F0083E5B5 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F79288C96630096346F /* Action.swift */,
+				BE682F77288C964F0096346F /* Dispatcher.swift */,
+				BE682F7B288C96780096346F /* Store.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		BEC25AE72899D7490083E5B5 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BEC25AE82899D79A0083E5B5 /* MessageActions.swift */,
+				BEC25AE32899D5EA0083E5B5 /* MessageStore.swift */,
+				BE27F8FF288F4AE60042F376 /* MessagesState.swift */,
+				BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,17 +375,21 @@
 				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
 				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
-				BE27F8F7288F40070042F376 /* Client.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
 				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
+				BEC25AE62899D6510083E5B5 /* DefaultDispatcher.swift in Sources */,
 				BE27F906288F52080042F376 /* Device.swift in Sources */,
 				BE682F78288C964F0096346F /* Dispatcher.swift in Sources */,
-				BE682F75288C936B0096346F /* LogState.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
+				BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */,
 				BE27F8F9288F40510042F376 /* Message.swift in Sources */,
+				BEC25AE92899D79A0083E5B5 /* MessageActions.swift in Sources */,
 				BE27F902288F4B630042F376 /* MessageParser.swift in Sources */,
+				BEC25AE42899D5EA0083E5B5 /* MessageStore.swift in Sources */,
 				BE27F900288F4AE60042F376 /* MessagesState.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
+				BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */,
+				BEC25AED2899DE890083E5B5 /* Project.swift in Sources */,
 				BE27F908288F54290042F376 /* Request.swift in Sources */,
 				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
@@ -505,6 +521,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -533,6 +550,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

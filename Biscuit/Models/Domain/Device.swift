@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Device {
+struct Device: Equatable {
     var deviceId: String
     var name: String
     var description: String

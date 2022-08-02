@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Request {
+struct Request: Equatable {
     var method: RequestMethod?
     let headers: [String: String]
     var body: String?
