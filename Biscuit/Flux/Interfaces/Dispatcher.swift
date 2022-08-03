@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol Dispatcher { }
+protocol Dispatcher {
+    func dispatch(action: Action)
+}

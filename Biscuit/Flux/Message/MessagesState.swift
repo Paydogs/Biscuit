@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct MessagesState {
+struct MessagesState: State {
     var messages: [Message]
+}
+
+extension MessagesState {
+    static func initialValue() -> MessagesState {
+        return .init(messages: [])
+    }
 }

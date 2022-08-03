@@ -8,20 +8,21 @@
 import Foundation
 import Network
 import Combine
+import Factory
 
 class Connector {
     var listener: NWListener?
     var activeConnections: Set<NetworkConnection> = []
     let bagelPacketParser = BagelPacketParser()
     let messageParser = MessageParser()
-    let store = MessageStore()
     var subscription: AnyCancellable?
 
-    @Published var messages: [Message] = []
+    @Injected(Container.postMessageUseCase) private var postMessageUseCase
+    @Injected(Container.messageStore) private var messageStore
 
     func start() {
         print("[Connector] Starting new connector")
-        subscription = store.$state.sink { (value: MessagesState) in
+        subscription = messageStore.$state.sink { (value: MessagesState) in
             let messages = value.messages
             print("\nMessage store count: \(messages.count)")
             messages.map { $0.quickDescription() }
@@ -100,9 +101,8 @@ private extension Connector {
                 }
 
                 let message = self.messageParser.parseMessage(from: packet)
-//                message.quickDescription()
                 let action: MessageActions = .didReceivedMessage(message)
-                self.store.reducer(action: action)
+                self.postMessageUseCase.execute(message: message)
             }
         }
 

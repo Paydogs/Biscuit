@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE682F7A288C96630096346F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F79288C96630096346F /* Action.swift */; };
 		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
+		BE5C9EAE2899F3D000F84DE7 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */; };
 		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
 		BE682F95288CBB300096346F /* BagelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F94288CBB300096346F /* BagelConfig.swift */; };
 		BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F86288C99650096346F /* BagelDeviceModel.swift */; };
@@ -16,12 +17,14 @@
 		BE27F8F0288F35E30042F376 /* BagelPacketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */; };
 		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
 		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
+		BE5C9EB7289A035D00F84DE7 /* BaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB6289A035D00F84DE7 /* BaseStore.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
 		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
 		BEC25AE62899D6510083E5B5 /* DefaultDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE52899D6510083E5B5 /* DefaultDispatcher.swift */; };
 		BE27F906288F52080042F376 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* Device.swift */; };
 		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
+		BE5C9EB32899FD1F00F84DE7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BE5C9EB22899FD1F00F84DE7 /* Factory */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
 		BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */; };
 		BE27F8F9288F40510042F376 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F8288F40510042F376 /* Message.swift */; };
@@ -30,13 +33,14 @@
 		BEC25AE42899D5EA0083E5B5 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE32899D5EA0083E5B5 /* MessageStore.swift */; };
 		BE27F900288F4AE60042F376 /* MessagesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FF288F4AE60042F376 /* MessagesState.swift */; };
 		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
-		57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */; };
 		BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */; };
+		BE5C9EB02899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
 		BEC25AED2899DE890083E5B5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEC2899DE890083E5B5 /* Project.swift */; };
 		BE27F908288F54290042F376 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F907288F54290042F376 /* Request.swift */; };
 		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
+		BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* State.swift */; };
 		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +48,7 @@
 /* Begin PBXFileReference section */
 		BE682F79288C96630096346F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE682F94288CBB300096346F /* BagelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfig.swift; sourceTree = "<group>"; };
 		BE682F86288C99650096346F /* BagelDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelDeviceModel.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacketParser.swift; sourceTree = "<group>"; };
 		BE682F84288C992D0096346F /* BagelProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelProjectModel.swift; sourceTree = "<group>"; };
 		BE682F82288C99160096346F /* BagelRequestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelRequestInfo.swift; sourceTree = "<group>"; };
+		BE5C9EB6289A035D00F84DE7 /* BaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStore.swift; sourceTree = "<group>"; };
 		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
@@ -67,15 +73,14 @@
 		BEC25AE32899D5EA0083E5B5 /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
 		BE27F8FF288F4AE60042F376 /* MessagesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesState.swift; sourceTree = "<group>"; };
 		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
-		C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.debug.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.debug.xcconfig"; sourceTree = "<group>"; };
-		F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Biscuit.release.xcconfig"; path = "Target Support Files/Pods-Biscuit/Pods-Biscuit.release.xcconfig"; sourceTree = "<group>"; };
-		94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Biscuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCase.swift; sourceTree = "<group>"; };
+		BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BEC25AEC2899DE890083E5B5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BE27F907288F54290042F376 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		BE5C9EB4289A025E00F84DE7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,30 +90,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57B8A584091D419E1AB2C419 /* Pods_Biscuit.framework in Frameworks */,
+				BE5C9EB32899FD1F00F84DE7 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D57B64D57F08F1B0585615C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */,
-				F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		A530AB981607D23F7BA97C69 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				94FF414D5B714674A2F10142 /* Pods_Biscuit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		BE27F8EE288F35B80042F376 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,12 +148,18 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		BE5C9EAC2899F3C200F84DE7 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		BE682F56288C31010096346F = {
 			isa = PBXGroup;
 			children = (
 				BE682F61288C31010096346F /* Biscuit */,
-				A530AB981607D23F7BA97C69 /* Frameworks */,
-				3D57B64D57F08F1B0585615C /* Pods */,
 				BE682F60288C31010096346F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -182,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BE682F8E288CA0260096346F /* Assets */,
+				BE5C9EAC2899F3C200F84DE7 /* DI */,
 				BE682F76288C963F0096346F /* Flux */,
 				BE27F8FB288F42560042F376 /* Logic */,
 				BE682F7F288C98EE0096346F /* Models */,
@@ -207,6 +202,7 @@
 			children = (
 				BEC25AE22899CC3F0083E5B5 /* Interfaces */,
 				BEC25AE72899D7490083E5B5 /* Message */,
+				BE5C9EB6289A035D00F84DE7 /* BaseStore.swift */,
 				BEC25AE52899D6510083E5B5 /* DefaultDispatcher.swift */,
 			);
 			path = Flux;
@@ -254,6 +250,7 @@
 			children = (
 				BE682F79288C96630096346F /* Action.swift */,
 				BE682F77288C964F0096346F /* Dispatcher.swift */,
+				BE5C9EB4289A025E00F84DE7 /* State.swift */,
 				BE682F7B288C96780096346F /* Store.swift */,
 			);
 			path = Interfaces;
@@ -266,6 +263,7 @@
 				BEC25AE32899D5EA0083E5B5 /* MessageStore.swift */,
 				BE27F8FF288F4AE60042F376 /* MessagesState.swift */,
 				BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */,
+				BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -277,7 +275,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE682F6E288C31020096346F /* Build configuration list for PBXNativeTarget "Biscuit" */;
 			buildPhases = (
-				BDEA61FB6A997D9E62C459E6 /* [CP] Check Pods Manifest.lock */,
 				BE682F5B288C31010096346F /* Sources */,
 				BE682F5C288C31010096346F /* Frameworks */,
 				BE682F5D288C31010096346F /* Resources */,
@@ -287,6 +284,9 @@
 			dependencies = (
 			);
 			name = Biscuit;
+			packageProductDependencies = (
+				BE5C9EB22899FD1F00F84DE7 /* Factory */,
+			);
 			productName = Biscuit;
 			productReference = BE682F5F288C31010096346F /* Biscuit.app */;
 			productType = "com.apple.product-type.application";
@@ -315,6 +315,9 @@
 				Base,
 			);
 			mainGroup = BE682F56288C31010096346F;
+			packageReferences = (
+				BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = BE682F60288C31010096346F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,31 +339,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		BDEA61FB6A997D9E62C459E6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Biscuit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		BE682F5B288C31010096346F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -368,12 +346,14 @@
 			files = (
 				BE682F7A288C96630096346F /* Action.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
+				BE5C9EAE2899F3D000F84DE7 /* Assembly.swift in Sources */,
 				BE682F95288CBB300096346F /* BagelConfig.swift in Sources */,
 				BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */,
 				BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */,
 				BE27F8F0288F35E30042F376 /* BagelPacketParser.swift in Sources */,
 				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
 				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
+				BE5C9EB7289A035D00F84DE7 /* BaseStore.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
 				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
@@ -389,10 +369,12 @@
 				BE27F900288F4AE60042F376 /* MessagesState.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
 				BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */,
+				BE5C9EB02899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift in Sources */,
 				BEC25AED2899DE890083E5B5 /* Project.swift in Sources */,
 				BE27F908288F54290042F376 /* Request.swift in Sources */,
 				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
+				BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */,
 				BE682F7C288C96780096346F /* Store.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
 			);
@@ -516,7 +498,6 @@
 		};
 		BE682F6F288C31020096346F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C556C924C7ECAF1A6D42DBB2 /* Pods-Biscuit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -545,7 +526,6 @@
 		};
 		BE682F70288C31020096346F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2E3772C3F9A4B5A6401D3E2 /* Pods-Biscuit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -594,6 +574,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE5C9EB22899FD1F00F84DE7 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE682F57288C31010096346F /* Project object */;
 }

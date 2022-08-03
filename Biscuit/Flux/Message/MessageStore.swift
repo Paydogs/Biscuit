@@ -5,16 +5,16 @@
 //  Created by Andras Olah on 2022. 08. 03..
 //
 
-import Foundation
+import Factory
 
-class MessageStore: Store {
-    @Published var state: MessagesState
+extension Container {
+    static let messageStore = Factory { MessageStore(state: MessagesState.initialValue()) }
+}
 
-    init() {
-        self.state = MessagesState.init(messages: [])
-    }
+class MessageStore: BaseStore<MessagesState> {
+    override func reduce(action: Action) {
+        guard let action = action as? MessageActions else { return }
 
-    func reducer(action: MessageActions) {
         switch action {
         case .didReceivedMessage(let message):
             handleDidReceivedMessage(newMessage: message)
@@ -35,11 +35,5 @@ private extension MessageStore {
                 state.messages.append(newMessage)
             }
         }
-    }
-
-    func modify(_ transform: (inout MessagesState) -> Void) {
-        var copy = state
-        transform(&copy)
-        state = copy
     }
 }

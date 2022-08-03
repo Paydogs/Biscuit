@@ -8,4 +8,6 @@
 import Foundation
 
 protocol Store {
+    associatedtype IncludedState: State
+    func reduce(action: Action)
 }
