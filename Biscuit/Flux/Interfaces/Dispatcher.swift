@@ -8,5 +8,7 @@
 import Foundation
 
 protocol Dispatcher {
+    func registerStore(store: Store)
+    
     func dispatch(action: Action)
 }

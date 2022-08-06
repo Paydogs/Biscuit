@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainWindow: View {
-//    @State text: Text
     var body: some View {
         HStack {
             ProcessContainer()

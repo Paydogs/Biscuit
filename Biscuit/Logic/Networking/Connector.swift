@@ -13,21 +13,14 @@ import Factory
 class Connector {
     var listener: NWListener?
     var activeConnections: Set<NetworkConnection> = []
+
     let bagelPacketParser = BagelPacketParser()
     let messageParser = MessageParser()
-    var subscription: AnyCancellable?
 
     @Injected(Container.postMessageUseCase) private var postMessageUseCase
-    @Injected(Container.messageStore) private var messageStore
 
     func start() {
         print("[Connector] Starting new connector")
-        subscription = messageStore.$state.sink { (value: MessagesState) in
-            let messages = value.messages
-            print("\nMessage store count: \(messages.count)")
-            messages.map { $0.quickDescription() }
-        }
-
         listener = createListener()
 
         listener?.stateUpdateHandler = didStateChanged(state:)
@@ -101,6 +94,7 @@ private extension Connector {
                 }
 
                 let message = self.messageParser.parseMessage(from: packet)
+                print("got message: \(message.url)")
                 let action: MessageActions = .didReceivedMessage(message)
                 self.postMessageUseCase.execute(message: message)
             }

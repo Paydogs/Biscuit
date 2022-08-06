@@ -7,14 +7,11 @@
 
 import Factory
 
-extension Container {
-    static let postMessageUseCase = Factory { PostMessageUseCase() as PostMessageUseCaseInterface }
-}
-
 struct PostMessageUseCase: PostMessageUseCaseInterface {
     @Injected(Container.dispatcher) private var dispatcher
 
     func execute(message: Message) {
+        print("[PostMessageUseCase] sending action")
         let action: MessageActions = .didReceivedMessage(message)
         dispatcher.dispatch(action: action)
     }

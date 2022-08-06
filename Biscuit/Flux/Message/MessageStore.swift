@@ -2,38 +2,41 @@
 //  MessageStore.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 08. 03..
+//  Created by Andras Olah on 2022. 08. 06..
 //
 
-import Factory
+import Foundation
 
-extension Container {
-    static let messageStore = Factory { MessageStore(state: MessagesState.initialValue()) }
-}
+class MessageStore: Store {
+    typealias TransformState = (inout MessageState) -> Void
+    @Published var state: MessageState
 
-class MessageStore: BaseStore<MessagesState> {
-    override func reduce(action: Action) {
+    init() {
+        state = MessageState.defaultValue()
+    }
+
+    func handleAction(action: Action) {
         guard let action = action as? MessageActions else { return }
-
+        print("MessageStore is handling action")
         switch action {
-        case .didReceivedMessage(let message):
-            handleDidReceivedMessage(newMessage: message)
+            case .didReceivedMessage(let message):
+                handleDidReceivedMessage(message: message)
         }
     }
 }
 
 private extension MessageStore {
-    func handleDidReceivedMessage(newMessage: Message) {
-        modify { state in
-            let existing = state.messages.first(where: { (message: Message) in
-                message.bagelPacketId == newMessage.bagelPacketId
-            })
-
-            if let existing = existing, let i = state.messages.firstIndex(of: existing) {
-                state.messages[i] = newMessage
-            } else {
-                state.messages.append(newMessage)
-            }
+    func handleDidReceivedMessage(message: Message) {
+        update { state in
+            state.messages.append(message)
         }
+    }
+}
+
+private extension MessageStore {
+    func update(_ transform: TransformState) {
+        var copy = state
+        transform(&copy)
+        state = copy
     }
 }
