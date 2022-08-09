@@ -5,7 +5,7 @@
 //  Created by Andras Olah on 2022. 08. 06..
 //
 
-class MainDispatcher: Dispatcher {
+public class MainDispatcher: Dispatcher {
     private var stores: [Store] = []
 
     func registerStore(store: Store) {

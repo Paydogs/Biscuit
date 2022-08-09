@@ -5,7 +5,7 @@ BiscuitTests:
   sources:
     include:
     - ./Biscuit
-  output: ./Common/CommonTests/Mocks/BiscuitTests.generated.swift
+  output: ./BiscuitTests/Mocks/BiscuitTests.generated.swift
   targets:
   - Biscuit
   testable:

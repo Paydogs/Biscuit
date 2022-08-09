@@ -11,6 +11,7 @@
 		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
 		BE5C9EAE2899F3D000F84DE7 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */; };
 		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
+		BECCCB9228A2002A00BD65BB /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCB9128A2002A00BD65BB /* AutoMockable.swift */; };
 		BE682F95288CBB300096346F /* BagelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F94288CBB300096346F /* BagelConfig.swift */; };
 		BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F86288C99650096346F /* BagelDeviceModel.swift */; };
 		BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F80288C98FD0096346F /* BagelPacket.swift */; };
@@ -19,6 +20,7 @@
 		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
 		BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */; };
+		BECCCB9528A2011B00BD65BB /* BiscuitTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
 		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
 		BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */; };
@@ -47,6 +49,7 @@
 		BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* State.swift */; };
 		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
+		BECCCB9828A2024A00BD65BB /* SwiftyMocky in Frameworks */ = {isa = PBXBuildFile; productRef = BECCCB9728A2024A00BD65BB /* SwiftyMocky */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,7 @@
 		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BECCCB9128A2002A00BD65BB /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		BE682F94288CBB300096346F /* BagelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelConfig.swift; sourceTree = "<group>"; };
 		BE682F86288C99650096346F /* BagelDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelDeviceModel.swift; sourceTree = "<group>"; };
 		BE682F80288C98FD0096346F /* BagelPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacket.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
 		BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitCore.swift; sourceTree = "<group>"; };
+		BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiscuitTests.generated.swift; sourceTree = "<group>"; };
 		BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiscuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		BE27F8FD288F48C40042F376 /* Data+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utils.swift"; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECCCB9828A2024A00BD65BB /* SwiftyMocky in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +141,7 @@
 		BE27F8F1288F366E0042F376 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BECCCB9128A2002A00BD65BB /* AutoMockable.swift */,
 				BE27F8FD288F48C40042F376 /* Data+Utils.swift */,
 				BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */,
 				BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */,
@@ -179,6 +186,7 @@
 		BE32D63428A1E0E500EADEF7 /* BiscuitTests */ = {
 			isa = PBXGroup;
 			children = (
+				BECCCB9328A2011B00BD65BB /* Mocks */,
 				BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */,
 				BE32D68528A1E8D900EADEF7 /* MyTests.swift */,
 			);
@@ -315,6 +323,14 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		BECCCB9328A2011B00BD65BB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +350,7 @@
 			);
 			name = BiscuitTests;
 			packageProductDependencies = (
+				BECCCB9728A2024A00BD65BB /* SwiftyMocky */,
 			);
 			productName = BiscuitTests;
 			productReference = BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */;
@@ -389,6 +406,7 @@
 			mainGroup = BE682F56288C31010096346F;
 			packageReferences = (
 				BE32D64128A1E26300EADEF7 /* XCRemoteSwiftPackageReference "Factory" */,
+				BECCCB9628A2024A00BD65BB /* XCRemoteSwiftPackageReference "SwiftyMocky" */,
 			);
 			productRefGroup = BE682F60288C31010096346F /* Products */;
 			projectDirPath = "";
@@ -424,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECCCB9528A2011B00BD65BB /* BiscuitTests.generated.swift in Sources */,
 				BE32D68828A1EDC300EADEF7 /* DispatcherTests.swift in Sources */,
 				BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */,
 			);
@@ -436,6 +455,7 @@
 				BE682F7A288C96630096346F /* Action.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
 				BE5C9EAE2899F3D000F84DE7 /* Assembly.swift in Sources */,
+				BECCCB9228A2002A00BD65BB /* AutoMockable.swift in Sources */,
 				BE682F95288CBB300096346F /* BagelConfig.swift in Sources */,
 				BE682F87288C99650096346F /* BagelDeviceModel.swift in Sources */,
 				BE682F81288C98FD0096346F /* BagelPacket.swift in Sources */,
@@ -739,6 +759,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		BECCCB9628A2024A00BD65BB /* XCRemoteSwiftPackageReference "SwiftyMocky" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MakeAWishFoundation/SwiftyMocky";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -751,6 +779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		BECCCB9728A2024A00BD65BB /* SwiftyMocky */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BECCCB9628A2024A00BD65BB /* XCRemoteSwiftPackageReference "SwiftyMocky" */;
+			productName = SwiftyMocky;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

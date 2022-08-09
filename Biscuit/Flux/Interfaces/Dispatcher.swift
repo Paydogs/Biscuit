@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Dispatcher {
+protocol Dispatcher: AutoMockable {
     func registerStore(store: Store)
     
     func dispatch(action: Action)

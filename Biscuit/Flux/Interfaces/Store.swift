@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol Store {
+protocol Store: AutoMockable {
     func handleAction(action: Action)
 }
