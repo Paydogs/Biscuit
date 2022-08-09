@@ -18,12 +18,15 @@
 		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
 		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
+		BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
 		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
 		BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */; };
 		BE27F906288F52080042F376 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* Device.swift */; };
 		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
-		BE5C9EB32899FD1F00F84DE7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BE5C9EB22899FD1F00F84DE7 /* Factory */; };
+		BE32D68828A1EDC300EADEF7 /* DispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */; };
+		BE32D64328A1E26300EADEF7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BE32D64228A1E26300EADEF7 /* Factory */; };
+		BE32D5B328A1C62F00EADEF7 /* Factory+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */; };
 		BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
 		BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */; };
@@ -32,6 +35,7 @@
 		BE27F902288F4B630042F376 /* MessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F901288F4B630042F376 /* MessageParser.swift */; };
 		BE6F8123289DD94400D28F49 /* MessageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8122289DD94400D28F49 /* MessageState.swift */; };
 		BE6F8121289DD92900D28F49 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8120289DD92900D28F49 /* MessageStore.swift */; };
+		BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68528A1E8D900EADEF7 /* MyTests.swift */; };
 		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
 		BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */; };
 		BE5C9EB02899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */; };
@@ -44,6 +48,16 @@
 		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE32D68328A1E6E300EADEF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE682F57288C31010096346F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE682F5E288C31010096346F;
+			remoteInfo = Biscuit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BE682F79288C96630096346F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -59,11 +73,15 @@
 		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
+		BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitCore.swift; sourceTree = "<group>"; };
+		BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiscuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		BE27F8FD288F48C40042F376 /* Data+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utils.swift"; sourceTree = "<group>"; };
 		BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultInitializer.swift; sourceTree = "<group>"; };
 		BE27F905288F52080042F376 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherTests.swift; sourceTree = "<group>"; };
+		BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+Extension.swift"; sourceTree = "<group>"; };
 		BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Utils.swift"; sourceTree = "<group>"; };
@@ -72,6 +90,7 @@
 		BE27F901288F4B630042F376 /* MessageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageParser.swift; sourceTree = "<group>"; };
 		BE6F8122289DD94400D28F49 /* MessageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageState.swift; sourceTree = "<group>"; };
 		BE6F8120289DD92900D28F49 /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
+		BE32D68528A1E8D900EADEF7 /* MyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTests.swift; sourceTree = "<group>"; };
 		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCase.swift; sourceTree = "<group>"; };
 		BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCaseInterface.swift; sourceTree = "<group>"; };
@@ -86,11 +105,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BE32D63028A1E0E500EADEF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE682F5C288C31010096346F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5C9EB32899FD1F00F84DE7 /* Factory in Frameworks */,
+				BE32D64328A1E26300EADEF7 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +137,7 @@
 			children = (
 				BE27F8FD288F48C40042F376 /* Data+Utils.swift */,
 				BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */,
+				BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */,
 				BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */,
 				BE27F8F2288F367B0042F376 /* String+Utils.swift */,
 			);
@@ -149,10 +176,27 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		BE32D63428A1E0E500EADEF7 /* BiscuitTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */,
+				BE32D68528A1E8D900EADEF7 /* MyTests.swift */,
+			);
+			path = BiscuitTests;
+			sourceTree = "<group>";
+		};
+		BE32D69228A1F1D600EADEF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE5C9EAC2899F3C200F84DE7 /* DI */ = {
 			isa = PBXGroup;
 			children = (
 				BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */,
+				BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -161,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				BE682F61288C31010096346F /* Biscuit */,
+				BE32D63428A1E0E500EADEF7 /* BiscuitTests */,
+				BE32D69228A1F1D600EADEF7 /* Frameworks */,
 				BE682F60288C31010096346F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				BE682F5F288C31010096346F /* Biscuit.app */,
+				BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,6 +318,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BE32D63228A1E0E500EADEF7 /* BiscuitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE32D63928A1E0E500EADEF7 /* Build configuration list for PBXNativeTarget "BiscuitTests" */;
+			buildPhases = (
+				BE32D62F28A1E0E500EADEF7 /* Sources */,
+				BE32D63028A1E0E500EADEF7 /* Frameworks */,
+				BE32D63128A1E0E500EADEF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE32D64828A1E51F00EADEF7 /* PBXTargetDependency */,
+				BE32D68428A1E6E300EADEF7 /* PBXTargetDependency */,
+			);
+			name = BiscuitTests;
+			packageProductDependencies = (
+			);
+			productName = BiscuitTests;
+			productReference = BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		BE682F5E288C31010096346F /* Biscuit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE682F6E288C31020096346F /* Build configuration list for PBXNativeTarget "Biscuit" */;
@@ -285,7 +353,7 @@
 			);
 			name = Biscuit;
 			packageProductDependencies = (
-				BE5C9EB22899FD1F00F84DE7 /* Factory */,
+				BE32D64228A1E26300EADEF7 /* Factory */,
 			);
 			productName = Biscuit;
 			productReference = BE682F5F288C31010096346F /* Biscuit.app */;
@@ -301,6 +369,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					BE32D63228A1E0E500EADEF7 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = BE682F5E288C31010096346F;
+					};
 					BE682F5E288C31010096346F = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -316,18 +388,26 @@
 			);
 			mainGroup = BE682F56288C31010096346F;
 			packageReferences = (
-				BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */,
+				BE32D64128A1E26300EADEF7 /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = BE682F60288C31010096346F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BE682F5E288C31010096346F /* Biscuit */,
+				BE32D63228A1E0E500EADEF7 /* BiscuitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BE32D63128A1E0E500EADEF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE682F5D288C31010096346F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -340,6 +420,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BE32D62F28A1E0E500EADEF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE32D68828A1EDC300EADEF7 /* DispatcherTests.swift in Sources */,
+				BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE682F5B288C31010096346F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,11 +443,13 @@
 				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
 				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
+				BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
 				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
 				BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */,
 				BE27F906288F52080042F376 /* Device.swift in Sources */,
 				BE682F78288C964F0096346F /* Dispatcher.swift in Sources */,
+				BE32D5B328A1C62F00EADEF7 /* Factory+Extension.swift in Sources */,
 				BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
 				BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */,
@@ -382,7 +473,57 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BE32D64828A1E51F00EADEF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = BE32D64728A1E51F00EADEF7 /* Factory */;
+		};
+		BE32D68428A1E6E300EADEF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE682F5E288C31010096346F /* Biscuit */;
+			targetProxy = BE32D68328A1E6E300EADEF7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		BE32D63A28A1E0E500EADEF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2TQPT2TRMX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.BiscuitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Biscuit.app/Contents/MacOS/Biscuit";
+			};
+			name = Debug;
+		};
+		BE32D63B28A1E0E500EADEF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2TQPT2TRMX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.BiscuitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Biscuit.app/Contents/MacOS/Biscuit";
+			};
+			name = Release;
+		};
 		BE682F6C288C31020096346F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -502,7 +643,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -530,12 +670,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Biscuit/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = 2TQPT2TRMX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -555,6 +693,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BE32D63928A1E0E500EADEF7 /* Build configuration list for PBXNativeTarget "BiscuitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE32D63A28A1E0E500EADEF7 /* Debug */,
+				BE32D63B28A1E0E500EADEF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BE682F5A288C31010096346F /* Build configuration list for PBXProject "Biscuit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -576,6 +723,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BE32D64128A1E26300EADEF7 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -587,7 +742,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BE5C9EB22899FD1F00F84DE7 /* Factory */ = {
+		BE32D64228A1E26300EADEF7 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE32D64128A1E26300EADEF7 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		BE32D64728A1E51F00EADEF7 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;

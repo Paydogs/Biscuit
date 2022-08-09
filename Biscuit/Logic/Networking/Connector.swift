@@ -17,7 +17,7 @@ class Connector {
     let bagelPacketParser = BagelPacketParser()
     let messageParser = MessageParser()
 
-    @Injected(Container.postMessageUseCase) private var postMessageUseCase
+    @Injected(BiscuitContainer.postMessageUseCase) private var postMessageUseCase
 
     func start() {
         print("[Connector] Starting new connector")
@@ -53,7 +53,7 @@ private extension Connector {
     }
 
     func didAcceptConnection(_ connection: NetworkConnection) {
-        print("[Connector] New connection accepted")
+        print("[Connector] New connection accepted from \(connection.connection.endpoint)")
         activeConnections.insert(connection)
         print("[Connector] Number of active connections: \(activeConnections.count)")
         connection.start()
@@ -61,7 +61,7 @@ private extension Connector {
 
     func didStopConnection(_ connection: NetworkConnection) {
         activeConnections.remove(connection)
-        print("[Connector] Connection closed")
+        print("[Connector] Connection closed from \(connection.connection.endpoint)")
         print("[Connector] Number of active connections: \(activeConnections.count)")
     }
 }
@@ -101,9 +101,8 @@ private extension Connector {
         }
 
         connection.didStopConnection = { (connection: NetworkConnection, error: Error?) in
-            print("[Connector] Connection closed")
             if let error = error {
-                print("[Connector] With error: \(error)")
+                print("[Connector] Connection closed with error: \(error)")
             }
 
             self.didStopConnection(connection)

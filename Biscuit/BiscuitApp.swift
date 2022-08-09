@@ -12,34 +12,25 @@ import Combine
 @main
 struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) private var scenePhase
 
-    @Injected(Container.dispatcher) private var dispatcher
-    @Injected(Container.messageStore) private var messageStore
-    @Injected(Container.connector) private var connector
-
-    var subscription: AnyCancellable?
-
-    init() {
-        start()
-        peak()
-    }
+    init() { }
 
     var body: some Scene {
         WindowGroup {
             MainWindow()
         }
-    }
-
-    func start() {
-        dispatcher.registerStore(store: messageStore)
-        connector.start()
-    }
-
-    mutating func peak() {
-        subscription = messageStore.$state.sink { (value: MessageState) in
-            let messages = value.messages
-            print("\nMessage store count: \(messages.count)")
-            messages.map { $0.quickDescription() }
-        }
+        .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
+            switch phase {
+                case .background:
+                    print("[APP] onBackground")
+                case .inactive:
+                    print("[APP] onInactive")
+                case .active:
+                    print("[APP] onActive")
+                @unknown default:
+                    print("[APP] unknown default")
+            }
+        })
     }
 }

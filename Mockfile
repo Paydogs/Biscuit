@@ -1,0 +1,15 @@
+sourceryCommand: null
+sourceryTemplate: null
+
+BiscuitTests:
+  sources:
+    include:
+    - ./Biscuit
+  output: ./Common/CommonTests/Mocks/BiscuitTests.generated.swift
+  targets:
+  - Biscuit
+  testable:
+  - Biscuit
+  import:
+  - Factory
+  - Combine

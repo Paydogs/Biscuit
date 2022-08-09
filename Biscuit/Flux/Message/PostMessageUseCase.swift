@@ -8,7 +8,7 @@
 import Factory
 
 struct PostMessageUseCase: PostMessageUseCaseInterface {
-    @Injected(Container.dispatcher) private var dispatcher
+    @Injected(BiscuitContainer.dispatcher) private var dispatcher
 
     func execute(message: Message) {
         print("[PostMessageUseCase] sending action")

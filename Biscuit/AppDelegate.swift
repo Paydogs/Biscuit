@@ -7,10 +7,18 @@
 
 import AppKit
 import SwiftUI
+import Factory
+import Combine
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    @Injected(BiscuitContainer.connector) private var connector
+
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        BiscuitCore.startup()
+    }
+
     func applicationDidFinishLaunching(_ notification: Notification) {
-        print("Application did finish launching")
+        connector.start()
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
