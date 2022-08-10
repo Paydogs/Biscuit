@@ -46,6 +46,7 @@
 		BE27F908288F54290042F376 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F907288F54290042F376 /* Request.swift */; };
 		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
+		BEC3A10328A32AF300870627 /* Showcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3A10228A32AF300870627 /* Showcase.swift */; };
 		BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* State.swift */; };
 		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
@@ -104,6 +105,7 @@
 		BE27F907288F54290042F376 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		BEC3A10228A32AF300870627 /* Showcase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showcase.swift; sourceTree = "<group>"; };
 		BE5C9EB4289A025E00F84DE7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				BE682F91288CBAB00096346F /* Networking */,
+				BEC3A10128A32AE100870627 /* Showcase */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -321,6 +324,14 @@
 				BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		BEC3A10128A32AE100870627 /* Showcase */ = {
+			isa = PBXGroup;
+			children = (
+				BEC3A10228A32AF300870627 /* Showcase.swift */,
+			);
+			path = Showcase;
 			sourceTree = "<group>";
 		};
 		BECCCB9328A2011B00BD65BB /* Mocks */ = {
@@ -485,6 +496,7 @@
 				BE27F908288F54290042F376 /* Request.swift in Sources */,
 				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
+				BEC3A10328A32AF300870627 /* Showcase.swift in Sources */,
 				BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */,
 				BE682F7C288C96780096346F /* Store.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
@@ -517,6 +529,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.BiscuitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -536,6 +552,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.BiscuitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;

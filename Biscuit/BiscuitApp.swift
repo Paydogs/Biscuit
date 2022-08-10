@@ -14,7 +14,12 @@ struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
 
-    init() { }
+    @Injected(BiscuitContainer.messageStore) private var messageStore
+    var subscription: AnyCancellable?
+
+    init() {
+        peak()
+    }
 
     var body: some Scene {
         WindowGroup {
@@ -32,5 +37,13 @@ struct BiscuitApp: App {
                     print("[APP] unknown default")
             }
         })
+    }
+
+    mutating func peak() {
+        subscription = messageStore.$state.sink { (value: MessageState) in
+            let messages = value.messages
+            print("\nMessage store count: \(messages.count)")
+            messages.map { $0.quickDescription() }
+        }
     }
 }

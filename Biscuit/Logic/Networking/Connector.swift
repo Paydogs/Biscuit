@@ -93,7 +93,7 @@ private extension Connector {
                     return
                 }
 
-                let message = self.messageParser.parseMessage(from: packet)
+                let message = self.messageParser.parseMessage(from: packet, client: connection.connection.endpoint.debugDescription)
                 print("got message: \(message.url)")
                 let action: MessageActions = .didReceivedMessage(message)
                 self.postMessageUseCase.execute(message: message)

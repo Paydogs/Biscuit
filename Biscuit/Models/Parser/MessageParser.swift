@@ -8,10 +8,10 @@
 import Foundation
 
 struct MessageParser {
-    func parseMessage(from packet: BagelPacket) -> Message {
+    func parseMessage(from packet: BagelPacket, client: String) -> Message {
         return .init(bagelPacketId: packet.packetId ?? "",
                      project: mapProject(model: packet.project),
-                     device: mapDevice(packet.device),
+                     device: mapDevice(packet.device, client: client),
                      url: packet.requestInfo?.url ?? "",
                      statusCode: packet.requestInfo?.statusCode ?? "",
                      startDate: packet.requestInfo?.startDate ?? Date(timeIntervalSince1970: 0),
@@ -28,11 +28,12 @@ private extension MessageParser {
         return Project(id: projectName, name: projectName)
     }
 
-    func mapDevice(_ device: BagelDeviceModel?) -> Device {
+    func mapDevice(_ device: BagelDeviceModel?, client: String) -> Device {
         guard let device = device else { return Device.defaultValue() }
         return .init(deviceId: device.deviceId ?? "",
                      name: device.deviceName ?? "",
-                     description: device.deviceDescription ?? "")
+                     description: device.deviceDescription ?? "",
+                     ip: client)
     }
 
     func mapRequest(from packet: BagelPacket) -> Request {

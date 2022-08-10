@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        Showcase().startPeaking()
         connector.start()
     }
 

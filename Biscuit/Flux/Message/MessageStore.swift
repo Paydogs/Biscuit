@@ -28,7 +28,17 @@ class MessageStore: Store {
 private extension MessageStore {
     func handleDidReceivedMessage(message: Message) {
         update { state in
-            state.messages.append(message)
+            let existingIndex = state.messages.firstIndex { storedMessage in
+                storedMessage.bagelPacketId == message.bagelPacketId
+            }
+            if let index = existingIndex {
+                print("message found at \(index), replacing")
+                state.messages.remove(at: index)
+                state.messages.insert(message, at: index)
+            } else {
+                print("message not found, appending")
+                state.messages.append(message)
+            }
         }
     }
 }

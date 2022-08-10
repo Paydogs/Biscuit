@@ -11,12 +11,14 @@ struct Device: Equatable {
     var deviceId: String
     var name: String
     var description: String
+    var ip: String
 }
 
 extension Device {
     static func defaultValue() -> Device {
         return .init(deviceId: "",
                      name: "",
-                     description: "")
+                     description: "",
+                     ip: "")
     }
 }

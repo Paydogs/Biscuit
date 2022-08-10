@@ -7,7 +7,7 @@
 
 extension Message {
     func quickDescription() {
-        print("[Message][\(bagelPacketId)] url: \(url)")
+        print("[Message][\(device.ip)][\(bagelPacketId)] url: \(url)")
     }
 
     func describe() {
