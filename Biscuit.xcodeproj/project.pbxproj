@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BE682F7A288C96630096346F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F79288C96630096346F /* Action.swift */; };
+		BEED2A8A28A5B32D00EE1E5D /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A8928A5B32D00EE1E5D /* AppActions.swift */; };
 		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
+		BEED2A9828A5BD1A00EE1E5D /* AppError+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */; };
+		BEED2A9028A5B3D500EE1E5D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A8F28A5B3D500EE1E5D /* AppError.swift */; };
+		BEED2A8C28A5B33500EE1E5D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A8B28A5B33500EE1E5D /* AppState.swift */; };
+		BEED2A8E28A5B34300EE1E5D /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A8D28A5B34300EE1E5D /* AppStore.swift */; };
 		BE5C9EAE2899F3D000F84DE7 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */; };
 		BE682F67288C31020096346F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F66288C31020096346F /* Assets.xcassets */; };
 		BECCCB9228A2002A00BD65BB /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCB9128A2002A00BD65BB /* AutoMockable.swift */; };
@@ -18,6 +23,7 @@
 		BE27F8F0288F35E30042F376 /* BagelPacketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */; };
 		BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F84288C992D0096346F /* BagelProjectModel.swift */; };
 		BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F82288C99160096346F /* BagelRequestInfo.swift */; };
+		BEED2A9228A5B45B00EE1E5D /* BaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9128A5B45B00EE1E5D /* BaseStore.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
 		BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */; };
 		BECCCB9528A2011B00BD65BB /* BiscuitTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */; };
@@ -39,6 +45,8 @@
 		BE6F8121289DD92900D28F49 /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8120289DD92900D28F49 /* MessageStore.swift */; };
 		BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68528A1E8D900EADEF7 /* MyTests.swift */; };
 		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
+		BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */; };
+		BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */; };
 		BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */; };
 		BE5C9EB02899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
@@ -65,7 +73,12 @@
 
 /* Begin PBXFileReference section */
 		BE682F79288C96630096346F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		BEED2A8928A5B32D00EE1E5D /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppError+UI.swift"; sourceTree = "<group>"; };
+		BEED2A8F28A5B3D500EE1E5D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		BEED2A8B28A5B33500EE1E5D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		BEED2A8D28A5B34300EE1E5D /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		BE682F66288C31020096346F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BECCCB9128A2002A00BD65BB /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
@@ -75,6 +88,7 @@
 		BE27F8EF288F35E30042F376 /* BagelPacketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelPacketParser.swift; sourceTree = "<group>"; };
 		BE682F84288C992D0096346F /* BagelProjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelProjectModel.swift; sourceTree = "<group>"; };
 		BE682F82288C99160096346F /* BagelRequestInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagelRequestInfo.swift; sourceTree = "<group>"; };
+		BEED2A9128A5B45B00EE1E5D /* BaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStore.swift; sourceTree = "<group>"; };
 		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
@@ -98,6 +112,8 @@
 		BE6F8120289DD92900D28F49 /* MessageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStore.swift; sourceTree = "<group>"; };
 		BE32D68528A1E8D900EADEF7 /* MyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTests.swift; sourceTree = "<group>"; };
 		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
+		BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCase.swift; sourceTree = "<group>"; };
+		BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCaseInterface.swift; sourceTree = "<group>"; };
 		BEC25AEA2899DAE40083E5B5 /* PostMessageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCase.swift; sourceTree = "<group>"; };
 		BE5C9EAF2899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -143,6 +159,7 @@
 		BE27F8F1288F366E0042F376 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */,
 				BECCCB9128A2002A00BD65BB /* AutoMockable.swift */,
 				BE27F8FD288F48C40042F376 /* Data+Utils.swift */,
 				BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */,
@@ -177,6 +194,7 @@
 		BE27F90B288F59A50042F376 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				BEED2A8F28A5B3D500EE1E5D /* AppError.swift */,
 				BE27F905288F52080042F376 /* Device.swift */,
 				BE27F8F8288F40510042F376 /* Message.swift */,
 				BEC25AEC2899DE890083E5B5 /* Project.swift */,
@@ -259,8 +277,10 @@
 		BE682F76288C963F0096346F /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				BEED2A8828A5B31500EE1E5D /* App */,
 				BEC25AE22899CC3F0083E5B5 /* Interfaces */,
 				BEC25AE72899D7490083E5B5 /* Message */,
+				BEED2A9128A5B45B00EE1E5D /* BaseStore.swift */,
 				BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */,
 			);
 			path = Flux;
@@ -340,6 +360,18 @@
 				BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		BEED2A8828A5B31500EE1E5D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BEED2A8928A5B32D00EE1E5D /* AppActions.swift */,
+				BEED2A8B28A5B33500EE1E5D /* AppState.swift */,
+				BEED2A8D28A5B34300EE1E5D /* AppStore.swift */,
+				BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */,
+				BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,7 +496,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE682F7A288C96630096346F /* Action.swift in Sources */,
+				BEED2A8A28A5B32D00EE1E5D /* AppActions.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
+				BEED2A9828A5BD1A00EE1E5D /* AppError+UI.swift in Sources */,
+				BEED2A9028A5B3D500EE1E5D /* AppError.swift in Sources */,
+				BEED2A8C28A5B33500EE1E5D /* AppState.swift in Sources */,
+				BEED2A8E28A5B34300EE1E5D /* AppStore.swift in Sources */,
 				BE5C9EAE2899F3D000F84DE7 /* Assembly.swift in Sources */,
 				BECCCB9228A2002A00BD65BB /* AutoMockable.swift in Sources */,
 				BE682F95288CBB300096346F /* BagelConfig.swift in Sources */,
@@ -473,6 +510,7 @@
 				BE27F8F0288F35E30042F376 /* BagelPacketParser.swift in Sources */,
 				BE682F85288C992D0096346F /* BagelProjectModel.swift in Sources */,
 				BE682F83288C99160096346F /* BagelRequestInfo.swift in Sources */,
+				BEED2A9228A5B45B00EE1E5D /* BaseStore.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
 				BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
@@ -490,6 +528,8 @@
 				BE6F8123289DD94400D28F49 /* MessageState.swift in Sources */,
 				BE6F8121289DD92900D28F49 /* MessageStore.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
+				BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */,
+				BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */,
 				BEC25AEB2899DAE40083E5B5 /* PostMessageUseCase.swift in Sources */,
 				BE5C9EB02899F5EA00F84DE7 /* PostMessageUseCaseInterface.swift in Sources */,
 				BEC25AED2899DE890083E5B5 /* Project.swift in Sources */,
@@ -767,8 +807,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 1.2.8;
 			};
 		};
 		BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */ = {

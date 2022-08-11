@@ -14,8 +14,10 @@ struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
 
+    @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.messageStore) private var messageStore
-    var subscription: AnyCancellable?
+
+    var subscriptions: [AnyCancellable] = []
 
     init() {
         peak()
@@ -40,10 +42,13 @@ struct BiscuitApp: App {
     }
 
     mutating func peak() {
-        subscription = messageStore.$state.sink { (value: MessageState) in
+        let subscription = messageStore.$state.sink { (value: MessageState) in
             let messages = value.messages
             print("\nMessage store count: \(messages.count)")
-            messages.map { $0.quickDescription() }
+            messages.forEach { (message: Message) in
+                message.quickDescription()
+            }
         }
+        subscriptions.append(subscription)
     }
 }

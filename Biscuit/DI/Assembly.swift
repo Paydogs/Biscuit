@@ -17,11 +17,13 @@ extension BiscuitContainer {
 
 // MARK: - Stores
 extension BiscuitContainer {
-    static let messageStore = Factory(scope: .shared, factory: { MessageStore() })
+    static let appStore = Factory(scope: .shared, factory: { AppStore(state: AppState.defaultValue()) })
+    static let messageStore = Factory(scope: .shared, factory: { MessageStore(state: MessageState.defaultValue()) })
 }
 
 // MARK: - UseCases
 extension BiscuitContainer {
+    static let postAppErrorUseCase = Factory { PostAppErrorUseCase() as PostAppErrorUseCaseInterface }
     static let postMessageUseCase = Factory { PostMessageUseCase() as PostMessageUseCaseInterface }
 }
 

@@ -21,6 +21,7 @@ struct MainWindow: View {
             }
         }
         .frame(minWidth: 640, minHeight: 480)
+
     }
 }
 

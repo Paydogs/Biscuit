@@ -5,9 +5,7 @@
 //  Created by Andras Olah on 2022. 08. 06..
 //
 
-import Foundation
-
-struct MessageState {
+struct MessageState: State {
     var messages: [Message]
 }
 

@@ -19,6 +19,7 @@ struct BiscuitCore {
 private extension BiscuitCore {
     static func registerStores() {
         let dispatcher = BiscuitContainer.dispatcher.resolve()
+        dispatcher.registerStore(store: BiscuitContainer.appStore.resolve())
         dispatcher.registerStore(store: BiscuitContainer.messageStore.resolve())
     }
 }

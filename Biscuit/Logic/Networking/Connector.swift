@@ -18,6 +18,7 @@ class Connector {
     let messageParser = MessageParser()
 
     @Injected(BiscuitContainer.postMessageUseCase) private var postMessageUseCase
+    @Injected(BiscuitContainer.postAppErrorUseCase) private var postAppErrorUseCase
 
     func start() {
         print("[Connector] Starting new connector")
@@ -47,6 +48,7 @@ private extension Connector {
         case .failed(let error):
             listener.cancel()
             print("[Connector] Failed to connect listener: \(error.localizedDescription)")
+            postAppErrorUseCase.execute(errors: [.cannotConnect])
         default:
             break
         }
@@ -95,7 +97,6 @@ private extension Connector {
 
                 let message = self.messageParser.parseMessage(from: packet, client: connection.connection.endpoint.debugDescription)
                 print("got message: \(message.url)")
-                let action: MessageActions = .didReceivedMessage(message)
                 self.postMessageUseCase.execute(message: message)
             }
         }
