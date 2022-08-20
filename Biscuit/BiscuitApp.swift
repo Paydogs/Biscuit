@@ -15,9 +15,10 @@ struct BiscuitApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     @Injected(BiscuitContainer.appStore) private var appStore
-    @Injected(BiscuitContainer.messageStore) private var messageStore
+    @Injected(BiscuitContainer.packetStore) private var packetStore
+    @Injected(BiscuitContainer.testStore) private var testStore
 
-    var subscriptions: [AnyCancellable] = []
+    var subscriptions: Set<AnyCancellable> = []
 
     init() {
         peak()
@@ -42,13 +43,24 @@ struct BiscuitApp: App {
     }
 
     mutating func peak() {
-        let subscription = messageStore.$state.sink { (value: MessageState) in
-            let messages = value.messages
-            print("\nMessage store count: \(messages.count)")
-            messages.forEach { (message: Message) in
-                message.quickDescription()
+        packetStore.$state
+            .removeDuplicates()
+            .sink { (state: PacketState) in
+            print("     [BiscuitApp] PacketState changed")
+            print("     [BiscuitApp] Project: \(state.projects.count)")
+            for project in state.projects {
+                print("     [BiscuitApp] Project: \(project.descriptor.name), devices: \(project.devices.count)")
+                for device in project.devices {
+                    print("     [BiscuitApp] Device: \(device.descriptor.description), packets: \(device.packets.count)")
+                    device.packets.forEach { print("     [BiscuitApp] \($0.bagelPacketId) \($0.url)") }
+                }
             }
         }
-        subscriptions.append(subscription)
+        .store(in: &subscriptions)
+
+        testStore.$state.sink { (value: TestState) in
+            print("New value: \(value.currentValue)")
+        }
+        .store(in: &subscriptions)
     }
 }

@@ -15,10 +15,10 @@ class Connector {
     var activeConnections: Set<NetworkConnection> = []
 
     let bagelPacketParser = BagelPacketParser()
-    let messageParser = MessageParser()
+    let packetParser = PacketParser()
 
-    @Injected(BiscuitContainer.postMessageUseCase) private var postMessageUseCase
     @Injected(BiscuitContainer.postAppErrorUseCase) private var postAppErrorUseCase
+    @Injected(BiscuitContainer.storePacketUseCase) private var storePacketUseCase
 
     func start() {
         print("[Connector] Starting new connector")
@@ -90,14 +90,14 @@ private extension Connector {
         connection.didReceivedData = { [weak self] (connection: NetworkConnection, data: Data) in
             DispatchQueue.global(qos: .background).async {
                 guard let self = self,
-                      let packet = self.bagelPacketParser.parseData(data) else {
+                      let bagelPacket = self.bagelPacketParser.parseData(data) else {
                     print("WRONG DATA")
                     return
                 }
 
-                let message = self.messageParser.parseMessage(from: packet, client: connection.connection.endpoint.debugDescription)
-                print("got message: \(message.url)")
-                self.postMessageUseCase.execute(message: message)
+                let packet = self.packetParser.parsePacket(bagelPacket, client: connection.connection.endpoint.debugDescription)
+                print("got packet: \(packet.device.ip): \(packet.packet.url)")
+                self.storePacketUseCase.execute(packet: packet)
             }
         }
 

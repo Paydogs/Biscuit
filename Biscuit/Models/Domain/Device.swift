@@ -2,23 +2,10 @@
 //  Device.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 07. 26..
+//  Created by Andras Olah on 2022. 08. 20..
 //
 
-import Foundation
-
-struct Device: Equatable {
-    var deviceId: String
-    var name: String
-    var description: String
-    var ip: String
-}
-
-extension Device {
-    static func defaultValue() -> Device {
-        return .init(deviceId: "",
-                     name: "",
-                     description: "",
-                     ip: "")
-    }
+struct Device {
+    var descriptor: DeviceDescriptor
+    var packets: Set<Packet>
 }

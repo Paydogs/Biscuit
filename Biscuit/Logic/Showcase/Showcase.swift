@@ -10,18 +10,17 @@ import Combine
 import Factory
 
 class Showcase {
-    @Injected(BiscuitContainer.messageStore) private var messageStore
-    var subscription: AnyCancellable?
+    @Injected(BiscuitContainer.packetStore) private var packetStore
+    var subscriptions: Set<AnyCancellable> = []
 
     func startPeaking() {
-        subscribeMessages()
+        subscribePackets()
     }
 
-    func subscribeMessages() {
-        subscription = messageStore.$state.sink { (value: MessageState) in
-            for message in value.messages {
-                message.quickDescription()
-            }
+    func subscribePackets() {
+        packetStore.$state.sink { (value: PacketState) in
+
         }
+        .store(in: &subscriptions)
     }
 }

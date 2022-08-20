@@ -2,12 +2,10 @@
 //  Project.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 08. 03..
+//  Created by Andras Olah on 2022. 08. 20..
 //
 
-import Foundation
-
-struct Project: Equatable {
-    let id: String
-    let name: String
+struct Project {
+    var descriptor: ProjectDescriptor
+    var devices: Set<Device>
 }

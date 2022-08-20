@@ -25,8 +25,8 @@ public class MainDispatcher: Dispatcher {
         print("[MainDispatcher] dispatching action to \(stores.count) stores")
         let operations = stores.map { store in
             BlockOperation {
-                store.handleAction(action: action)
                 OperationQueue.main.addOperation {
+                    store.handleAction(action: action)
                 }
             }
         }

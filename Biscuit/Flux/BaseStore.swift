@@ -12,9 +12,11 @@ class BaseStore<T: State>: Store {
     typealias TransformState = (inout T) -> Void
 
     @Published var state: T
+    @Published var mainState: StateWrapper<T>
 
     init(state: T) {
         self.state = state
+        self.mainState = StateWrapper<T>(state: state)
     }
 
     func handleAction(action: Action) {
