@@ -5,6 +5,6 @@
 //  Created by Andras Olah on 2022. 08. 13..
 //
 
-enum TestActions: Action {
+enum TestActions: FluxAction {
     case modifyValue(Int)
 }

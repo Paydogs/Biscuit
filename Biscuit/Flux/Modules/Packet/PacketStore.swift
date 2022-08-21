@@ -6,9 +6,9 @@
 //
 
 class PacketStore: BaseStore<PacketState> {
-    override func handleAction(action: Action) {
+    override func handleAction(action: FluxAction) {
         guard let action = action as? PacketActions else { return }
-        print("PacketStore is handling action")
+        print("[PacketStore] PacketStore is handling action")
         switch action {
             case .storePacket(let packet):
                 handleStorePacket(packet: packet)

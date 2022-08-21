@@ -11,7 +11,7 @@ class BiscuitContainer: SharedContainer { }
 
 // MARK: - Core
 extension BiscuitContainer {
-    static let dispatcher = Factory(scope: .singleton, factory: { MainDispatcher() as Dispatcher })
+    static let dispatcher = Factory(scope: .singleton, factory: { MainDispatcher() as FluxDispatcher })
     static let connector = Factory(scope: .shared, factory: { Connector() })
 }
 
@@ -27,5 +27,6 @@ extension BiscuitContainer {
     static let postAppErrorUseCase = Factory { PostAppErrorUseCase() as PostAppErrorUseCaseInterface }
     static let storePacketUseCase = Factory { StorePacketUseCase() as StorePacketUseCaseInterface }
     static let changeValueUseCase = Factory { ChangeValueUseCase() as ChangeValueUseCaseInterface }
+    static let setActiveConnectionCountUseCase = Factory { SetActiveConnectionCountUseCase() as SetActiveConnectionCountUseCaseInterface }
 }
 

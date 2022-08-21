@@ -5,7 +5,7 @@
 //  Created by Andras Olah on 2022. 08. 13..
 //
 
-struct TestState: State {
+struct TestState: FluxState {
     var currentValue: Int
 }
 

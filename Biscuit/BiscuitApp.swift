@@ -26,7 +26,7 @@ struct BiscuitApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainWindow()
+            MainWindow(state: testStore.observed)
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {
@@ -43,7 +43,7 @@ struct BiscuitApp: App {
     }
 
     mutating func peak() {
-        packetStore.$state
+        packetStore.observed.$state
             .removeDuplicates()
             .sink { (state: PacketState) in
             print("     [BiscuitApp] PacketState changed")
@@ -58,8 +58,15 @@ struct BiscuitApp: App {
         }
         .store(in: &subscriptions)
 
-        testStore.$state.sink { (value: TestState) in
+        testStore.observed.$state.sink { (value: TestState) in
             print("New value: \(value.currentValue)")
+        }
+        .store(in: &subscriptions)
+
+        appStore.observed.$state
+            .removeDuplicates()
+            .sink { (value: AppState) in
+            print("[BiscuitApp] Active connections: \(value.activeConnections)")
         }
         .store(in: &subscriptions)
     }

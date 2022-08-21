@@ -7,21 +7,21 @@
 
 import Foundation
 
-public class MainDispatcher: Dispatcher {
-    private var stores: [Store] = []
+public class MainDispatcher: FluxDispatcher {
+    private var stores: [FluxStore] = []
     var queue: OperationQueue = {
         var queue = OperationQueue()
         queue.name = "com.magnificat.Biscuit.dispatcherQueue"
         return queue
     }()
 
-    func registerStore(store: Store) {
+    func registerStore(store: FluxStore) {
         print("[MainDispatcher] registering a store: \(store)")
         stores.append(store)
         print("[MainDispatcher] now have \(stores.count)")
     }
 
-    func dispatch(action: Action) {
+    func dispatch(action: FluxAction) {
         print("[MainDispatcher] dispatching action to \(stores.count) stores")
         let operations = stores.map { store in
             BlockOperation {

@@ -7,27 +7,36 @@
 
 import Foundation
 
-class BaseStore<T: State>: Store {
+class BaseStore<T: FluxState>: FluxStore {
     typealias BoundedContext = T
     typealias TransformState = (inout T) -> Void
 
-    @Published var state: T
-    @Published var mainState: StateWrapper<T>
+    private var _state: T
+    var observed: Observed<T>
 
     init(state: T) {
-        self.state = state
-        self.mainState = StateWrapper<T>(state: state)
+        _state = state
+        self.observed = Observed<T>(state: state)
     }
 
-    func handleAction(action: Action) {
+    func handleAction(action: FluxAction) {
         /* no-op */
     }
 }
 
 extension BaseStore {
     func update(_ transform: TransformState) {
-        var copy = state
+        var copy = _state
         transform(&copy)
-        state = copy
+        _state = copy
+        observed.state = _state
+    }
+}
+
+class Observed<T: FluxState>: ObservableObject {
+    @Published var state: T
+
+    init(state: T) {
+        self.state = state
     }
 }

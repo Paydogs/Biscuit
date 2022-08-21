@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE682F7A288C96630096346F /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F79288C96630096346F /* Action.swift */; };
 		BEED2A8A28A5B32D00EE1E5D /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A8928A5B32D00EE1E5D /* AppActions.swift */; };
 		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
 		BEED2A9828A5BD1A00EE1E5D /* AppError+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */; };
@@ -38,11 +37,15 @@
 		BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */; };
 		BE9001A328B0F3FA000B7C0E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A228B0F3FA000B7C0E /* Device.swift */; };
 		BE27F906288F52080042F376 /* DeviceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* DeviceDescriptor.swift */; };
-		BE682F78288C964F0096346F /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* Dispatcher.swift */; };
 		BE32D68828A1EDC300EADEF7 /* DispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */; };
 		BE32D64328A1E26300EADEF7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BE32D64228A1E26300EADEF7 /* Factory */; };
 		BE32D5B328A1C62F00EADEF7 /* Factory+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */; };
+		BE682F7A288C96630096346F /* FluxAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F79288C96630096346F /* FluxAction.swift */; };
+		BE682F78288C964F0096346F /* FluxDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* FluxDispatcher.swift */; };
+		BE5C9EB5289A025E00F84DE7 /* FluxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* FluxState.swift */; };
+		BE682F7C288C96780096346F /* FluxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* FluxStore.swift */; };
 		BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A828B0F999000B7C0E /* IncomingPacket.swift */; };
+		BE9001BC28B2F87D000B7C0E /* LogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BB28B2F87D000B7C0E /* LogContainer.swift */; };
 		BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
 		BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */; };
@@ -56,15 +59,16 @@
 		BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */; };
 		BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
+		BE9001BE28B2F8A9000B7C0E /* ProcessContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BD28B2F8A9000B7C0E /* ProcessContainer.swift */; };
 		BE9001A128B0F38B000B7C0E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A028B0F38B000B7C0E /* Project.swift */; };
 		BEC25AED2899DE890083E5B5 /* ProjectDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */; };
 		BE27F908288F54290042F376 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F907288F54290042F376 /* Request.swift */; };
 		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
+		BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */; };
+		BE9001B428B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B328B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift */; };
+		BE9001B628B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B528B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift */; };
 		BEC3A10328A32AF300870627 /* Showcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3A10228A32AF300870627 /* Showcase.swift */; };
-		BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* State.swift */; };
-		BEF7BD8F28A86D2E002E825A /* StateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7BD8E28A86D2E002E825A /* StateWrapper.swift */; };
-		BE682F7C288C96780096346F /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* Store.swift */; };
 		BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */; };
 		BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
@@ -85,7 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BE682F79288C96630096346F /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		BEED2A8928A5B32D00EE1E5D /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppError+UI.swift"; sourceTree = "<group>"; };
@@ -119,10 +122,14 @@
 		BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionUtils.swift; sourceTree = "<group>"; };
 		BE9001A228B0F3FA000B7C0E /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BE27F905288F52080042F376 /* DeviceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDescriptor.swift; sourceTree = "<group>"; };
-		BE682F77288C964F0096346F /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherTests.swift; sourceTree = "<group>"; };
 		BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+Extension.swift"; sourceTree = "<group>"; };
+		BE682F79288C96630096346F /* FluxAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxAction.swift; sourceTree = "<group>"; };
+		BE682F77288C964F0096346F /* FluxDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxDispatcher.swift; sourceTree = "<group>"; };
+		BE5C9EB4289A025E00F84DE7 /* FluxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxState.swift; sourceTree = "<group>"; };
+		BE682F7B288C96780096346F /* FluxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxStore.swift; sourceTree = "<group>"; };
 		BE9001A828B0F999000B7C0E /* IncomingPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingPacket.swift; sourceTree = "<group>"; };
+		BE9001BB28B2F87D000B7C0E /* LogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogContainer.swift; sourceTree = "<group>"; };
 		BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Utils.swift"; sourceTree = "<group>"; };
@@ -136,15 +143,16 @@
 		BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCase.swift; sourceTree = "<group>"; };
 		BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE9001BD28B2F8A9000B7C0E /* ProcessContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessContainer.swift; sourceTree = "<group>"; };
 		BE9001A028B0F38B000B7C0E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptor.swift; sourceTree = "<group>"; };
 		BE27F907288F54290042F376 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleButton.swift; sourceTree = "<group>"; };
+		BE9001B328B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActiveConnectionCountUseCase.swift; sourceTree = "<group>"; };
+		BE9001B528B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActiveConnectionCountUseCaseInterface.swift; sourceTree = "<group>"; };
 		BEC3A10228A32AF300870627 /* Showcase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showcase.swift; sourceTree = "<group>"; };
-		BE5C9EB4289A025E00F84DE7 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		BEF7BD8E28A86D2E002E825A /* StateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateWrapper.swift; sourceTree = "<group>"; };
-		BE682F7B288C96780096346F /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCase.swift; sourceTree = "<group>"; };
 		BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
@@ -312,7 +320,6 @@
 				BE9001B028B10273000B7C0E /* Modules */,
 				BEED2A9128A5B45B00EE1E5D /* BaseStore.swift */,
 				BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */,
-				BEF7BD8E28A86D2E002E825A /* StateWrapper.swift */,
 			);
 			path = Flux;
 			sourceTree = "<group>";
@@ -330,7 +337,10 @@
 		BE682F8D288CA0090096346F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE9001BB28B2F87D000B7C0E /* LogContainer.swift */,
 				BE682F64288C31010096346F /* MainWindow.swift */,
+				BE9001BD28B2F8A9000B7C0E /* ProcessContainer.swift */,
+				BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,10 +391,10 @@
 		BEC25AE22899CC3F0083E5B5 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				BE682F79288C96630096346F /* Action.swift */,
-				BE682F77288C964F0096346F /* Dispatcher.swift */,
-				BE5C9EB4289A025E00F84DE7 /* State.swift */,
-				BE682F7B288C96780096346F /* Store.swift */,
+				BE682F79288C96630096346F /* FluxAction.swift */,
+				BE682F77288C964F0096346F /* FluxDispatcher.swift */,
+				BE5C9EB4289A025E00F84DE7 /* FluxState.swift */,
+				BE682F7B288C96780096346F /* FluxStore.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -413,6 +423,8 @@
 				BEED2A8D28A5B34300EE1E5D /* AppStore.swift */,
 				BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */,
 				BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */,
+				BE9001B328B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift */,
+				BE9001B528B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -551,7 +563,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE682F7A288C96630096346F /* Action.swift in Sources */,
 				BEED2A8A28A5B32D00EE1E5D /* AppActions.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
 				BEED2A9828A5BD1A00EE1E5D /* AppError+UI.swift in Sources */,
@@ -579,9 +590,13 @@
 				BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */,
 				BE9001A328B0F3FA000B7C0E /* Device.swift in Sources */,
 				BE27F906288F52080042F376 /* DeviceDescriptor.swift in Sources */,
-				BE682F78288C964F0096346F /* Dispatcher.swift in Sources */,
 				BE32D5B328A1C62F00EADEF7 /* Factory+Extension.swift in Sources */,
+				BE682F7A288C96630096346F /* FluxAction.swift in Sources */,
+				BE682F78288C964F0096346F /* FluxDispatcher.swift in Sources */,
+				BE5C9EB5289A025E00F84DE7 /* FluxState.swift in Sources */,
+				BE682F7C288C96780096346F /* FluxStore.swift in Sources */,
 				BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */,
+				BE9001BC28B2F87D000B7C0E /* LogContainer.swift in Sources */,
 				BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
 				BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */,
@@ -593,15 +608,16 @@
 				BE90019728B0F257000B7C0E /* PacketStore.swift in Sources */,
 				BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */,
 				BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */,
+				BE9001BE28B2F8A9000B7C0E /* ProcessContainer.swift in Sources */,
 				BE9001A128B0F38B000B7C0E /* Project.swift in Sources */,
 				BEC25AED2899DE890083E5B5 /* ProjectDescriptor.swift in Sources */,
 				BE27F908288F54290042F376 /* Request.swift in Sources */,
 				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
+				BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */,
+				BE9001B428B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift in Sources */,
+				BE9001B628B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift in Sources */,
 				BEC3A10328A32AF300870627 /* Showcase.swift in Sources */,
-				BE5C9EB5289A025E00F84DE7 /* State.swift in Sources */,
-				BEF7BD8F28A86D2E002E825A /* StateWrapper.swift in Sources */,
-				BE682F7C288C96780096346F /* Store.swift in Sources */,
 				BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */,
 				BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
@@ -791,6 +807,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -818,6 +835,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

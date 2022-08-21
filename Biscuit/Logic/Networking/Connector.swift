@@ -19,6 +19,7 @@ class Connector {
 
     @Injected(BiscuitContainer.postAppErrorUseCase) private var postAppErrorUseCase
     @Injected(BiscuitContainer.storePacketUseCase) private var storePacketUseCase
+    @Injected(BiscuitContainer.setActiveConnectionCountUseCase) private var setActiveConnectionCountUseCase
 
     func start() {
         print("[Connector] Starting new connector")
@@ -57,12 +58,14 @@ private extension Connector {
     func didAcceptConnection(_ connection: NetworkConnection) {
         print("[Connector] New connection accepted from \(connection.connection.endpoint)")
         activeConnections.insert(connection)
+        setActiveConnectionCountUseCase.execute(count: activeConnections.count)
         print("[Connector] Number of active connections: \(activeConnections.count)")
         connection.start()
     }
 
     func didStopConnection(_ connection: NetworkConnection) {
         activeConnections.remove(connection)
+        setActiveConnectionCountUseCase.execute(count: activeConnections.count)
         print("[Connector] Connection closed from \(connection.connection.endpoint)")
         print("[Connector] Number of active connections: \(activeConnections.count)")
     }
@@ -91,12 +94,12 @@ private extension Connector {
             DispatchQueue.global(qos: .background).async {
                 guard let self = self,
                       let bagelPacket = self.bagelPacketParser.parseData(data) else {
-                    print("WRONG DATA")
+                    print("[Connector] WRONG DATA")
                     return
                 }
 
                 let packet = self.packetParser.parsePacket(bagelPacket, client: connection.connection.endpoint.debugDescription)
-                print("got packet: \(packet.device.ip): \(packet.packet.url)")
+                print("[Connector] Got packet: \(packet.device.ip): \(packet.packet.url)")
                 self.storePacketUseCase.execute(packet: packet)
             }
         }

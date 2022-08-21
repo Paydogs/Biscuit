@@ -18,7 +18,7 @@ class Showcase {
     }
 
     func subscribePackets() {
-        packetStore.$state.sink { (value: PacketState) in
+        packetStore.observed.$state.sink { (value: PacketState) in
 
         }
         .store(in: &subscriptions)

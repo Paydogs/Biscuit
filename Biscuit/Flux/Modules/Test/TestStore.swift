@@ -6,9 +6,9 @@
 //
 
 class TestStore: BaseStore<TestState> {
-    override func handleAction(action: Action) {
+    override func handleAction(action: FluxAction) {
         guard let action = action as? TestActions else { return }
-        print("TestStore is handling action")
+        print("[TestStore] TestStore is handling action")
         switch action {
             case .modifyValue(let amount):
                 handleAmountChange(amount: amount)
