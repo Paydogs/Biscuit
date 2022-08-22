@@ -9,10 +9,18 @@ import Combine
 import SwiftUI
 
 struct LogContainer: View {
-    @ObservedObject var state: Observed<TestState>
+    var data: Data
 
     var body: some View {
-        Text("Test: \(state.state.currentValue)")
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        HStack {
+            Text("Test: \(data.currentValue)")
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        }
+    }
+}
+
+extension LogContainer {
+    struct Data {
+        var currentValue: Int
     }
 }

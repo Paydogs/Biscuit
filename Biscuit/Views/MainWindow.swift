@@ -23,7 +23,7 @@ struct MainWindow: View {
             }
             VStack {
                 SampleButton { changeValueUseCase.execute(amount: Int.random(in: -5...5)) }
-                LogContainer(state: state)
+                LogContainer(data: LogContainer.Data(currentValue: state.state.currentValue))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         }
