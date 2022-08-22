@@ -11,13 +11,33 @@ import Factory
 struct SampleButton: View {
     typealias Action = ()->()
     var action: Action
-//    @Injected(BiscuitContainer.changeValueUseCase) private var useCase
-//    @Injected(BiscuitContainer.dispatcher) private var dispatcher
 
     var body: some View {
         Button("Test button") { action() }
-//            print("Test button pressed")
-//            useCase.execute(amount: Int.random(in: -5...5))
-//        }
+    }
+}
+
+struct LibraryContent: LibraryContentProvider {
+    @LibraryContentBuilder
+    var views: [LibraryItem] {
+        LibraryItem(
+            SampleButton(action: {}),
+            title: "Biscuit Sample Button",
+            category: .control
+        )
+    }
+
+    @LibraryContentBuilder
+    func modifiers(base: SampleButton) -> [LibraryItem] {
+        LibraryItem(
+            base.sized(width: 100, height: 50)
+        )
+    }
+}
+
+extension SampleButton {
+    func sized(width: CGFloat, height: CGFloat) -> some View {
+        return self
+            .frame(minWidth: width, maxWidth: width, minHeight: height, maxHeight: height)
     }
 }
