@@ -22,7 +22,9 @@ struct MainWindow: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
             VStack {
-                SampleButton { changeValueUseCase.execute(amount: Int.random(in: -5...5)) }
+                SampleButton(data: SampleButton.Data(title: "Dynamic text button"),
+                             event: SampleButton.Event(action: { changeValueUseCase.execute(amount: Int.random(in: -5...5)) }))
+                SampleButton(data: SampleButton.Data(title: "Empty Button"))
                 LogContainer(data: LogContainer.Data(currentValue: state.state.currentValue))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)

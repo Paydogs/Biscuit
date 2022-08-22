@@ -20,7 +20,7 @@ struct BiscuitApp: App {
 
     var subscriptions: Set<AnyCancellable> = []
 
-    init() {
+    init() { 
         peak()
     }
 
