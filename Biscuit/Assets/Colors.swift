@@ -11,6 +11,11 @@ import SwiftUI
 enum Colors {
     enum Background {
         public static let panelBackground = Color(biscuitName: "PanelBackground")
+        public static let bubbleBackground = Color(biscuitName: "BubbleBackground")
+    }
+    enum Status {
+        public static let activeStatus = Color(biscuitName: "StatusActive")
+        public static let offlineStatus = Color(biscuitName: "StatusOffline")
     }
 }
 

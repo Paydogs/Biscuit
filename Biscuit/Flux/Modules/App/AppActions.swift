@@ -6,6 +6,7 @@
 //
 
 enum AppActions: FluxAction {
-    case setActiveConnectionCount(Int)
+    case didConnectClient(Client)
+    case didDisconnectClient(Client)
     case didReceivedErrors([AppError])
 }

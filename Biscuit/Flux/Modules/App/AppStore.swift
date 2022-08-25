@@ -10,8 +10,10 @@ class AppStore: BaseStore<AppState> {
         guard let action = action as? AppActions else { return }
         print("[AppStore] AppStore is handling action")
         switch action {
-            case .setActiveConnectionCount(let count):
-                handleSetActiveConnectionCount(count: count)
+            case .didConnectClient(let client):
+                handleDidConnectClient(client: client)
+            case .didDisconnectClient(let client):
+                handleDidDisconnectClient(client: client)
             case .didReceivedErrors(let error):
                 handleDidReceivedErrors(errors: error)
         }
@@ -19,9 +21,15 @@ class AppStore: BaseStore<AppState> {
 }
 
 private extension AppStore {
-    func handleSetActiveConnectionCount(count: Int) {
+    func handleDidConnectClient(client: Client) {
         update { state in
-            state.activeConnections = count
+            state.connectedClients.append(client)
+        }
+    }
+
+    func handleDidDisconnectClient(client: Client) {
+        update { state in
+            state.connectedClients.removeAll(where: { (connectedClient: Client) in connectedClient == client })
         }
     }
 

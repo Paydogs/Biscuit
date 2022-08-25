@@ -6,13 +6,13 @@
 //
 
 struct AppState: FluxState {
-    var activeConnections: Int
+    var connectedClients: [Client]
     var errors: [AppError]
 }
 
 extension AppState: DefaultInitializer {
     static func defaultValue() -> AppState {
-        return .init(activeConnections: 0,
+        return .init(connectedClients: [],
                      errors: [])
     }
 }

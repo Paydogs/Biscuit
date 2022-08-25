@@ -19,7 +19,8 @@ class Connector {
 
     @Injected(BiscuitContainer.postAppErrorUseCase) private var postAppErrorUseCase
     @Injected(BiscuitContainer.storePacketUseCase) private var storePacketUseCase
-    @Injected(BiscuitContainer.setActiveConnectionCountUseCase) private var setActiveConnectionCountUseCase
+    @Injected(BiscuitContainer.clientConnectedUseCase) private var clientConnectedUseCase
+    @Injected(BiscuitContainer.clientDisconnectedUseCase) private var clientDisconnectedUseCase
 
     func start() {
         print("[Connector] Starting new connector")
@@ -58,14 +59,15 @@ private extension Connector {
     func didAcceptConnection(_ connection: NetworkConnection) {
         print("[Connector] New connection accepted from \(connection.connection.endpoint)")
         activeConnections.insert(connection)
-        setActiveConnectionCountUseCase.execute(count: activeConnections.count)
+        clientConnectedUseCase.execute(client: Client(id: connection.id,
+                                                      ip: connection.connection.endpoint.debugDescription))
         print("[Connector] Number of active connections: \(activeConnections.count)")
         connection.start()
     }
 
     func didStopConnection(_ connection: NetworkConnection) {
         activeConnections.remove(connection)
-        setActiveConnectionCountUseCase.execute(count: activeConnections.count)
+        clientDisconnectedUseCase.execute(clientId: connection.id)
         print("[Connector] Connection closed from \(connection.connection.endpoint)")
         print("[Connector] Number of active connections: \(activeConnections.count)")
     }

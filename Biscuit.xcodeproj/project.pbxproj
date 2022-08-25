@@ -29,6 +29,11 @@
 		BECCCB9528A2011B00BD65BB /* BiscuitTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */; };
 		BEF7BD8328A84140002E825A /* ChangeValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7BD8228A84140002E825A /* ChangeValueUseCase.swift */; };
 		BEF7BD8528A84156002E825A /* ChangeValueUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7BD8428A84156002E825A /* ChangeValueUseCaseInterface.swift */; };
+		BE04CE9228B82AB80057F82A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9128B82AB80057F82A /* Client.swift */; };
+		BE9001B428B2D9F9000B7C0E /* ClientConnectedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B328B2D9F9000B7C0E /* ClientConnectedUseCase.swift */; };
+		BE9001B628B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B528B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift */; };
+		BE04CE9428B82D6F0057F82A /* ClientDisconnectedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9328B82D6F0057F82A /* ClientDisconnectedUseCase.swift */; };
+		BE04CE9628B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9528B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift */; };
 		BEF7BD8B28A847B8002E825A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7BD8A28A847B8002E825A /* Colors.swift */; };
 		BEF7BD8D28A847D1002E825A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF7BD8C28A847D1002E825A /* Colors.xcassets */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
@@ -66,9 +71,8 @@
 		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
 		BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */; };
-		BE9001B428B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B328B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift */; };
-		BE9001B628B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B528B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift */; };
 		BEC3A10328A32AF300870627 /* Showcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC3A10228A32AF300870627 /* Showcase.swift */; };
+		BEEE4D1F28B42AB700402219 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE4D1E28B42AB700402219 /* Status.swift */; };
 		BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */; };
 		BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
@@ -114,6 +118,11 @@
 		BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiscuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF7BD8228A84140002E825A /* ChangeValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeValueUseCase.swift; sourceTree = "<group>"; };
 		BEF7BD8428A84156002E825A /* ChangeValueUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeValueUseCaseInterface.swift; sourceTree = "<group>"; };
+		BE04CE9128B82AB80057F82A /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		BE9001B328B2D9F9000B7C0E /* ClientConnectedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConnectedUseCase.swift; sourceTree = "<group>"; };
+		BE9001B528B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConnectedUseCaseInterface.swift; sourceTree = "<group>"; };
+		BE04CE9328B82D6F0057F82A /* ClientDisconnectedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDisconnectedUseCase.swift; sourceTree = "<group>"; };
+		BE04CE9528B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDisconnectedUseCaseInterface.swift; sourceTree = "<group>"; };
 		BEF7BD8A28A847B8002E825A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BEF7BD8C28A847D1002E825A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
@@ -150,9 +159,8 @@
 		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleButton.swift; sourceTree = "<group>"; };
-		BE9001B328B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActiveConnectionCountUseCase.swift; sourceTree = "<group>"; };
-		BE9001B528B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetActiveConnectionCountUseCaseInterface.swift; sourceTree = "<group>"; };
 		BEC3A10228A32AF300870627 /* Showcase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Showcase.swift; sourceTree = "<group>"; };
+		BEEE4D1E28B42AB700402219 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCase.swift; sourceTree = "<group>"; };
 		BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				BEED2A8F28A5B3D500EE1E5D /* AppError.swift */,
+				BE04CE9128B82AB80057F82A /* Client.swift */,
 				BE9001A228B0F3FA000B7C0E /* Device.swift */,
 				BE27F905288F52080042F376 /* DeviceDescriptor.swift */,
 				BE9001A828B0F999000B7C0E /* IncomingPacket.swift */,
@@ -239,6 +248,7 @@
 				BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */,
 				BE27F907288F54290042F376 /* Request.swift */,
 				BE27F909288F54300042F376 /* Response.swift */,
+				BEEE4D1E28B42AB700402219 /* Status.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -421,10 +431,12 @@
 				BEED2A8928A5B32D00EE1E5D /* AppActions.swift */,
 				BEED2A8B28A5B33500EE1E5D /* AppState.swift */,
 				BEED2A8D28A5B34300EE1E5D /* AppStore.swift */,
+				BE9001B328B2D9F9000B7C0E /* ClientConnectedUseCase.swift */,
+				BE9001B528B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift */,
+				BE04CE9328B82D6F0057F82A /* ClientDisconnectedUseCase.swift */,
+				BE04CE9528B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift */,
 				BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */,
 				BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */,
-				BE9001B328B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift */,
-				BE9001B528B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -583,6 +595,11 @@
 				BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */,
 				BEF7BD8328A84140002E825A /* ChangeValueUseCase.swift in Sources */,
 				BEF7BD8528A84156002E825A /* ChangeValueUseCaseInterface.swift in Sources */,
+				BE04CE9228B82AB80057F82A /* Client.swift in Sources */,
+				BE9001B428B2D9F9000B7C0E /* ClientConnectedUseCase.swift in Sources */,
+				BE9001B628B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift in Sources */,
+				BE04CE9428B82D6F0057F82A /* ClientDisconnectedUseCase.swift in Sources */,
+				BE04CE9628B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift in Sources */,
 				BEF7BD8B28A847B8002E825A /* Colors.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
 				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
@@ -615,9 +632,8 @@
 				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
 				BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */,
-				BE9001B428B2D9F9000B7C0E /* SetActiveConnectionCountUseCase.swift in Sources */,
-				BE9001B628B2DA03000B7C0E /* SetActiveConnectionCountUseCaseInterface.swift in Sources */,
 				BEC3A10328A32AF300870627 /* Showcase.swift in Sources */,
+				BEEE4D1F28B42AB700402219 /* Status.swift in Sources */,
 				BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */,
 				BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
@@ -807,7 +823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -835,11 +851,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Biscuit/Biscuit.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Biscuit/Assets/Preview Content\"";
+				DEVELOPMENT_TEAM = 2TQPT2TRMX;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

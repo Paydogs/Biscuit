@@ -66,7 +66,7 @@ struct BiscuitApp: App {
         appStore.observed.$state
             .removeDuplicates()
             .sink { (value: AppState) in
-            print("[BiscuitApp] Active connections: \(value.activeConnections)")
+            print("[BiscuitApp] Active connections: \(value.connectedClients)")
         }
         .store(in: &subscriptions)
     }
