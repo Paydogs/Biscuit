@@ -21,6 +21,5 @@ private extension BiscuitCore {
         let dispatcher = BiscuitContainer.dispatcher.resolve()
         dispatcher.registerStore(store: BiscuitContainer.appStore.resolve())
         dispatcher.registerStore(store: BiscuitContainer.packetStore.resolve())
-        dispatcher.registerStore(store: BiscuitContainer.testStore.resolve())
     }
 }

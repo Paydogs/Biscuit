@@ -16,7 +16,6 @@ struct BiscuitApp: App {
 
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
-    @Injected(BiscuitContainer.testStore) private var testStore
 
     var subscriptions: Set<AnyCancellable> = []
 
@@ -26,7 +25,8 @@ struct BiscuitApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainWindow(state: testStore.observed)
+            MainWindow(appState: appStore.observed,
+                       packetState: packetStore.observed)
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {
@@ -55,11 +55,6 @@ struct BiscuitApp: App {
                     device.packets.forEach { print("     [BiscuitApp] \($0.bagelPacketId) \($0.url)") }
                 }
             }
-        }
-        .store(in: &subscriptions)
-
-        testStore.observed.$state.sink { (value: TestState) in
-            print("New value: \(value.currentValue)")
         }
         .store(in: &subscriptions)
 

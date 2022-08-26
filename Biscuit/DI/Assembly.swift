@@ -19,14 +19,12 @@ extension BiscuitContainer {
 extension BiscuitContainer {
     static let appStore = Factory(scope: .shared, factory: { AppStore(state: AppState.defaultValue()) })
     static let packetStore = Factory(scope: .shared, factory: { PacketStore(state: PacketState.defaultValue()) })
-    static let testStore = Factory(scope: .shared, factory: { TestStore(state: TestState.defaultValue()) })
 }
 
 // MARK: - UseCases
 extension BiscuitContainer {
     static let postAppErrorUseCase = Factory { PostAppErrorUseCase() as PostAppErrorUseCaseInterface }
     static let storePacketUseCase = Factory { StorePacketUseCase() as StorePacketUseCaseInterface }
-    static let changeValueUseCase = Factory { ChangeValueUseCase() as ChangeValueUseCaseInterface }
     static let clientConnectedUseCase = Factory { ClientConnectedUseCase() as ClientConnectedUseCaseInterface }
     static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
 }

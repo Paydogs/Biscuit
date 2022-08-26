@@ -12,7 +12,7 @@ class BaseStore<T: FluxState>: FluxStore {
     typealias TransformState = (inout T) -> Void
 
     private var _state: T
-    var observed: Observed<T>
+    let observed: Observed<T>
 
     init(state: T) {
         _state = state
@@ -29,12 +29,12 @@ extension BaseStore {
         var copy = _state
         transform(&copy)
         _state = copy
-        observed.state = _state
+        observed.state = copy
     }
 }
 
 class Observed<T: FluxState>: ObservableObject {
-    @Published var state: T
+    @Published fileprivate(set) var state: T
 
     init(state: T) {
         self.state = state

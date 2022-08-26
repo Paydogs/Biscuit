@@ -10,31 +10,34 @@ import Factory
 import Combine
 
 struct MainWindow: View {
-    @ObservedObject var state: Observed<TestState>
-    @Injected(BiscuitContainer.changeValueUseCase) private var changeValueUseCase
-    @Injected(BiscuitContainer.dispatcher) private var dispatcher
+    @ObservedObject var appState: Observed<AppState>
+    @ObservedObject var packetState: Observed<PacketState>
 
     var body: some View {
-        HStack {
+        VStack {
+            HeaderComponent(data: HeaderComponent.Data(projectList: HeaderComponentUIMapper.getProjectNameList(list: packetState.state.projects),
+                                                       deviceList: []),
+                            event: HeaderComponent.Event(projectSelectionChanged: { index in print("project index selected: \(index)") },
+                                                         deviceSelectionChanged: { index in print("device index selected: \(index)") }))
             HStack {
-                ProcessContainer()
-                    .background(Colors.Background.panelBackground)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                HStack {
+                    ProcessContainer()
+                        .background(Colors.Background.panelBackground)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                }
+                VStack {
+                    LogContainer(data: LogContainer.Data(currentValue: packetState.state.projects.count))
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             }
-            VStack {
-                SampleButton(data: SampleButton.Data(title: "Dynamic text button"),
-                             event: SampleButton.Event(action: { changeValueUseCase.execute(amount: Int.random(in: -5...5)) }))
-                SampleButton(data: SampleButton.Data(title: "Empty Button"))
-                LogContainer(data: LogContainer.Data(currentValue: state.state.currentValue))
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+            .frame(minWidth: 640, minHeight: 480)
         }
-        .frame(minWidth: 640, minHeight: 480)
     }
 }
 
 struct MainWindow_Previews: PreviewProvider {
     static var previews: some View {
-        MainWindow(state: Observed<TestState>(state: TestState.defaultValue()))
+        MainWindow(appState: Observed<AppState>(state: AppState.defaultValue()),
+                   packetState: Observed<PacketState>(state: PacketState.defaultValue()))
     }
 }
