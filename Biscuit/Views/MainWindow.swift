@@ -20,11 +20,6 @@ struct MainWindow: View {
                             event: HeaderComponent.Event(projectSelectionChanged: { index in print("project index selected: \(index)") },
                                                          deviceSelectionChanged: { index in print("device index selected: \(index)") }))
             HStack {
-                HStack {
-                    ProcessContainer()
-                        .background(Colors.Background.panelBackground)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                }
                 VStack {
                     LogContainer(data: LogContainer.Data(currentValue: packetState.state.projects.count))
                 }
