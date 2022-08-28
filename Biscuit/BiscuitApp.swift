@@ -25,8 +25,8 @@ struct BiscuitApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainWindow(appState: appStore.observed,
-                       packetState: packetStore.observed)
+            MainWindow()
+                .environmentObject(MainWindowState(packetState: packetStore.observed))
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {

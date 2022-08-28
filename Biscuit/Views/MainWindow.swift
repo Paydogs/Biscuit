@@ -10,29 +10,19 @@ import Factory
 import Combine
 
 struct MainWindow: View {
-    @ObservedObject var appState: Observed<AppState>
-    @ObservedObject var packetState: Observed<PacketState>
+    @EnvironmentObject var state: MainWindowState
 
     var body: some View {
         VStack {
-            HeaderComponent(data: HeaderComponent.Data(projectList: HeaderComponentUIMapper.getProjectNameList(list: packetState.state.projects),
-                                                       deviceList: []),
-                            event: HeaderComponent.Event(projectSelectionChanged: { index in print("project index selected: \(index)") },
-                                                         deviceSelectionChanged: { index in print("device index selected: \(index)") }))
+            HeaderComponent(data: state.headerData,
+                            event: state.headerEvents)
             HStack {
                 VStack {
-                    LogContainer(data: LogContainer.Data(currentValue: packetState.state.projects.count))
+                    LogContainer(data: state.logContainerData)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             }
             .frame(minWidth: 640, minHeight: 480)
         }
-    }
-}
-
-struct MainWindow_Previews: PreviewProvider {
-    static var previews: some View {
-        MainWindow(appState: Observed<AppState>(state: AppState.defaultValue()),
-                   packetState: Observed<PacketState>(state: PacketState.defaultValue()))
     }
 }
