@@ -9,15 +9,25 @@ import Foundation
 import Factory
 
 struct BiscuitCore {
-    @Injected(BiscuitContainer.dispatcher) private var dispatcher
+    static let shared = BiscuitCore()
 
-    static func startup() {
+    @Injected(BiscuitContainer.dispatcher) private var dispatcher
+    private let peaker: Peaker
+
+    init() {
+        self.peaker = Peaker()
+    }
+
+    func startup() {
+        print("[BiscuitCore] startup")
         registerStores()
+        peaker.startPeaking()
     }
 }
 
 private extension BiscuitCore {
-    static func registerStores() {
+    func registerStores() {
+        print("[BiscuitCore] Registering stores...")
         let dispatcher = BiscuitContainer.dispatcher.resolve()
         dispatcher.registerStore(store: BiscuitContainer.appStore.resolve())
         dispatcher.registerStore(store: BiscuitContainer.packetStore.resolve())

@@ -12,9 +12,10 @@ import Combine
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     @Injected(BiscuitContainer.connector) private var connector
+    private let core = BiscuitCore.shared
 
     func applicationWillFinishLaunching(_ notification: Notification) {
-        BiscuitCore.startup()
+        core.startup()
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {

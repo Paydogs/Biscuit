@@ -9,4 +9,6 @@ enum AppActions: FluxAction {
     case didConnectClient(Client)
     case didDisconnectClient(Client)
     case didReceivedErrors([AppError])
+    case didSelectProject(Project?)
+    case didSelectDevice(Device?)
 }

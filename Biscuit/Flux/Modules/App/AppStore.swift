@@ -16,6 +16,10 @@ class AppStore: BaseStore<AppState> {
                 handleDidDisconnectClient(client: client)
             case .didReceivedErrors(let error):
                 handleDidReceivedErrors(errors: error)
+            case .didSelectProject(let project):
+                handleDidSelectProject(project: project)
+            case .didSelectDevice(let device):
+                handleDidSelectDevice(device: device)
         }
     }
 }
@@ -36,6 +40,18 @@ private extension AppStore {
     func handleDidReceivedErrors(errors: [AppError]) {
         update { state in
             state.errors.append(contentsOf: errors)
+        }
+    }
+
+    func handleDidSelectProject(project: Project?) {
+        update { state in
+            state.selectedProject = project
+        }
+    }
+
+    func handleDidSelectDevice(device: Device?) {
+        update { state in
+            state.selectedDevice = device
         }
     }
 }

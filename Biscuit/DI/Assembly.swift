@@ -27,5 +27,14 @@ extension BiscuitContainer {
     static let storePacketUseCase = Factory { StorePacketUseCase() as StorePacketUseCaseInterface }
     static let clientConnectedUseCase = Factory { ClientConnectedUseCase() as ClientConnectedUseCaseInterface }
     static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
+    static let selectProjectUseCase = Factory { SelectProjectUseCase() as SelectProjectUseCaseInterface }
+    static let selectDeviceUseCase = Factory { SelectDeviceUseCase() as SelectDeviceUseCaseInterface }
+}
+
+extension BiscuitContainer {
+    static let headerController = Factory { HeaderController(appState: BiscuitContainer.appStore.resolve().observed,
+                                                             packetState: BiscuitContainer.packetStore.resolve().observed,
+                                                             selectProjectUseCase: BiscuitContainer.selectProjectUseCase.resolve(),
+                                                             selectDeviceUseCase: BiscuitContainer.selectDeviceUseCase.resolve()) }
 }
 

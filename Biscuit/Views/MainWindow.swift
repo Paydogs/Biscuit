@@ -14,8 +14,7 @@ struct MainWindow: View {
 
     var body: some View {
         VStack {
-            HeaderComponent(data: state.headerData,
-                            event: state.headerEvents)
+            HeaderComponent()
             HStack {
                 VStack {
                     LogContainer(data: state.logContainerData)

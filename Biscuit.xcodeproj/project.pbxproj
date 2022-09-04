@@ -25,6 +25,7 @@
 		BEED2A9228A5B45B00EE1E5D /* BaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9128A5B45B00EE1E5D /* BaseStore.swift */; };
 		BE9001AF28B0FC00000B7C0E /* Biscuit+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001AE28B0FC00000B7C0E /* Biscuit+Hashable.swift */; };
 		BE682F63288C31010096346F /* BiscuitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F62288C31010096346F /* BiscuitApp.swift */; };
+		BE44C45028C40F4B00791897 /* BiscuitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44F28C40F4B00791897 /* BiscuitController.swift */; };
 		BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */; };
 		BECCCB9528A2011B00BD65BB /* BiscuitTests.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */; };
 		BE04CEA028B847FE0057F82A /* Callbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9F28B847FE0057F82A /* Callbacks.swift */; };
@@ -36,6 +37,7 @@
 		BEF7BD8B28A847B8002E825A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7BD8A28A847B8002E825A /* Colors.swift */; };
 		BEF7BD8D28A847D1002E825A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF7BD8C28A847D1002E825A /* Colors.xcassets */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
+		BE44C44E28C40EB600791897 /* ControlledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44D28C40EB600791897 /* ControlledView.swift */; };
 		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
 		BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */; };
 		BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */; };
@@ -49,13 +51,12 @@
 		BE5C9EB5289A025E00F84DE7 /* FluxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* FluxState.swift */; };
 		BE682F7C288C96780096346F /* FluxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* FluxStore.swift */; };
 		BE04CE9828B834350057F82A /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9728B834350057F82A /* HeaderComponent.swift */; };
-		BE04CE9B28B83BA30057F82A /* HeaderComponentUIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9A28B83BA30057F82A /* HeaderComponentUIMapper.swift */; };
+		BE44C45228C4117F00791897 /* HeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45128C4117F00791897 /* HeaderController.swift */; };
 		BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A828B0F999000B7C0E /* IncomingPacket.swift */; };
 		BE9001BC28B2F87D000B7C0E /* LogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BB28B2F87D000B7C0E /* LogContainer.swift */; };
 		BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
 		BE7B42F028BAFCD200DB8529 /* MainWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B42EF28BAFCD200DB8529 /* MainWindowState.swift */; };
-		BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */; };
 		BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68528A1E8D900EADEF7 /* MyTests.swift */; };
 		BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F96288CC15C0096346F /* NetworkConnection.swift */; };
 		BE90019D28B0F29C000B7C0E /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019C28B0F29C000B7C0E /* Packet.swift */; };
@@ -65,6 +66,7 @@
 		BE90019728B0F257000B7C0E /* PacketStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019628B0F257000B7C0E /* PacketStore.swift */; };
 		BEE7190A28BC172C000F147B /* PacketTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7190928BC172C000F147B /* PacketTableRow.swift */; };
 		BEE7190C28BC1849000F147B /* PacketTableRowUIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7190B28BC1849000F147B /* PacketTableRowUIMapper.swift */; };
+		BE59915828CD1780008BA5CF /* Peaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59915728CD1780008BA5CF /* Peaker.swift */; };
 		BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */; };
 		BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
@@ -74,6 +76,12 @@
 		BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F903288F4C140042F376 /* RequestMethod.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
 		BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */; };
+		BE44C45F28C4E26B00791897 /* SelectDeviceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45E28C4E26B00791897 /* SelectDeviceUseCase.swift */; };
+		BE44C46128C4E27600791897 /* SelectDeviceUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C46028C4E27600791897 /* SelectDeviceUseCaseInterface.swift */; };
+		BE44C45B28C4E24F00791897 /* SelectProjectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45A28C4E24F00791897 /* SelectProjectUseCase.swift */; };
+		BE44C45D28C4E25E00791897 /* SelectProjectUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45C28C4E25E00791897 /* SelectProjectUseCaseInterface.swift */; };
+		BE44C45928C4DD6300791897 /* Set+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45828C4DD6300791897 /* Set+Utils.swift */; };
+		BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44B28C40BFB00791897 /* StandardPicker.swift */; };
 		BEEE4D1F28B42AB700402219 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE4D1E28B42AB700402219 /* Status.swift */; };
 		BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */; };
 		BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */; };
@@ -112,6 +120,7 @@
 		BE682F5F288C31010096346F /* Biscuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biscuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE682F6B288C31020096346F /* Biscuit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Biscuit.entitlements; sourceTree = "<group>"; };
 		BE682F62288C31010096346F /* BiscuitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitApp.swift; sourceTree = "<group>"; };
+		BE44C44F28C40F4B00791897 /* BiscuitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitController.swift; sourceTree = "<group>"; };
 		BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiscuitCore.swift; sourceTree = "<group>"; };
 		BECCCB9428A2011B00BD65BB /* BiscuitTests.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiscuitTests.generated.swift; sourceTree = "<group>"; };
 		BE32D63328A1E0E500EADEF7 /* BiscuitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiscuitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +133,7 @@
 		BEF7BD8A28A847B8002E825A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		BEF7BD8C28A847D1002E825A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		BE44C44D28C40EB600791897 /* ControlledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlledView.swift; sourceTree = "<group>"; };
 		BE27F8FD288F48C40042F376 /* Data+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utils.swift"; sourceTree = "<group>"; };
 		BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultInitializer.swift; sourceTree = "<group>"; };
 		BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionUtils.swift; sourceTree = "<group>"; };
@@ -136,13 +146,12 @@
 		BE5C9EB4289A025E00F84DE7 /* FluxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxState.swift; sourceTree = "<group>"; };
 		BE682F7B288C96780096346F /* FluxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxStore.swift; sourceTree = "<group>"; };
 		BE04CE9728B834350057F82A /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
-		BE04CE9A28B83BA30057F82A /* HeaderComponentUIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponentUIMapper.swift; sourceTree = "<group>"; };
+		BE44C45128C4117F00791897 /* HeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderController.swift; sourceTree = "<group>"; };
 		BE9001A828B0F999000B7C0E /* IncomingPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingPacket.swift; sourceTree = "<group>"; };
 		BE9001BB28B2F87D000B7C0E /* LogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogContainer.swift; sourceTree = "<group>"; };
 		BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BE7B42EF28BAFCD200DB8529 /* MainWindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowState.swift; sourceTree = "<group>"; };
-		BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Utils.swift"; sourceTree = "<group>"; };
 		BE32D68528A1E8D900EADEF7 /* MyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTests.swift; sourceTree = "<group>"; };
 		BE682F96288CC15C0096346F /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		BE90019C28B0F29C000B7C0E /* Packet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
@@ -152,6 +161,7 @@
 		BE90019628B0F257000B7C0E /* PacketStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketStore.swift; sourceTree = "<group>"; };
 		BEE7190928BC172C000F147B /* PacketTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTableRow.swift; sourceTree = "<group>"; };
 		BEE7190B28BC1849000F147B /* PacketTableRowUIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTableRowUIMapper.swift; sourceTree = "<group>"; };
+		BE59915728CD1780008BA5CF /* Peaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peaker.swift; sourceTree = "<group>"; };
 		BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCase.swift; sourceTree = "<group>"; };
 		BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -161,6 +171,12 @@
 		BE27F903288F4C140042F376 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleButton.swift; sourceTree = "<group>"; };
+		BE44C45E28C4E26B00791897 /* SelectDeviceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDeviceUseCase.swift; sourceTree = "<group>"; };
+		BE44C46028C4E27600791897 /* SelectDeviceUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDeviceUseCaseInterface.swift; sourceTree = "<group>"; };
+		BE44C45A28C4E24F00791897 /* SelectProjectUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectUseCase.swift; sourceTree = "<group>"; };
+		BE44C45C28C4E25E00791897 /* SelectProjectUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectUseCaseInterface.swift; sourceTree = "<group>"; };
+		BE44C45828C4DD6300791897 /* Set+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+Utils.swift"; sourceTree = "<group>"; };
+		BE44C44B28C40BFB00791897 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		BEEE4D1E28B42AB700402219 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCase.swift; sourceTree = "<group>"; };
 		BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCaseInterface.swift; sourceTree = "<group>"; };
@@ -190,7 +206,6 @@
 		BE04CE9928B83B720057F82A /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
-				BE04CE9A28B83BA30057F82A /* HeaderComponentUIMapper.swift */,
 				BEE7190B28BC1849000F147B /* PacketTableRowUIMapper.swift */,
 			);
 			path = Mappers;
@@ -216,7 +231,8 @@
 				BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */,
 				BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */,
 				BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */,
-				BEC25AE02899C84B0083E5B5 /* Message+Utils.swift */,
+				BE59915728CD1780008BA5CF /* Peaker.swift */,
+				BE44C45828C4DD6300791897 /* Set+Utils.swift */,
 				BE27F8F2288F367B0042F376 /* String+Utils.swift */,
 			);
 			path = Utils;
@@ -238,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				BE682F91288CBAB00096346F /* Networking */,
+				BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -277,11 +294,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE44C45628C421C700791897 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				BE04CE9728B834350057F82A /* HeaderComponent.swift */,
+				BE44C45128C4117F00791897 /* HeaderController.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		BE44C45728C421F900791897 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */,
+				BE44C44B28C40BFB00791897 /* StandardPicker.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		BE5C9EAC2899F3C200F84DE7 /* DI */ = {
 			isa = PBXGroup;
 			children = (
 				BE5C9EAD2899F3D000F84DE7 /* Assembly.swift */,
-				BE32D5B028A1C44A00EADEF7 /* BiscuitCore.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -355,12 +389,14 @@
 		BE682F8D288CA0090096346F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE44C45728C421F900791897 /* Common */,
+				BE44C45628C421C700791897 /* Header */,
 				BEE7190828BC16C3000F147B /* Models */,
-				BE04CE9728B834350057F82A /* HeaderComponent.swift */,
+				BE44C44F28C40F4B00791897 /* BiscuitController.swift */,
+				BE44C44D28C40EB600791897 /* ControlledView.swift */,
 				BE9001BB28B2F87D000B7C0E /* LogContainer.swift */,
 				BE682F64288C31010096346F /* MainWindow.swift */,
 				BE7B42EF28BAFCD200DB8529 /* MainWindowState.swift */,
-				BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -386,14 +422,39 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		BE69392F28CE2605007D4E3C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				BE9001B328B2D9F9000B7C0E /* ClientConnectedUseCase.swift */,
+				BE9001B528B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift */,
+				BE04CE9328B82D6F0057F82A /* ClientDisconnectedUseCase.swift */,
+				BE04CE9528B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift */,
+				BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */,
+				BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */,
+				BE44C45E28C4E26B00791897 /* SelectDeviceUseCase.swift */,
+				BE44C46028C4E27600791897 /* SelectDeviceUseCaseInterface.swift */,
+				BE44C45A28C4E24F00791897 /* SelectProjectUseCase.swift */,
+				BE44C45C28C4E25E00791897 /* SelectProjectUseCaseInterface.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		BE69393028CE2616007D4E3C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */,
+				BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		BE90019128B0F22D000B7C0E /* Packet */ = {
 			isa = PBXGroup;
 			children = (
+				BE69393028CE2616007D4E3C /* UseCases */,
 				BE90019228B0F242000B7C0E /* PacketActions.swift */,
 				BE90019428B0F24A000B7C0E /* PacketState.swift */,
 				BE90019628B0F257000B7C0E /* PacketStore.swift */,
-				BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */,
-				BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */,
 			);
 			path = Packet;
 			sourceTree = "<group>";
@@ -437,15 +498,10 @@
 		BEED2A8828A5B31500EE1E5D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				BE69392F28CE2605007D4E3C /* UseCases */,
 				BEED2A8928A5B32D00EE1E5D /* AppActions.swift */,
 				BEED2A8B28A5B33500EE1E5D /* AppState.swift */,
 				BEED2A8D28A5B34300EE1E5D /* AppStore.swift */,
-				BE9001B328B2D9F9000B7C0E /* ClientConnectedUseCase.swift */,
-				BE9001B528B2DA03000B7C0E /* ClientConnectedUseCaseInterface.swift */,
-				BE04CE9328B82D6F0057F82A /* ClientDisconnectedUseCase.swift */,
-				BE04CE9528B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift */,
-				BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */,
-				BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -589,6 +645,7 @@
 				BEED2A9228A5B45B00EE1E5D /* BaseStore.swift in Sources */,
 				BE9001AF28B0FC00000B7C0E /* Biscuit+Hashable.swift in Sources */,
 				BE682F63288C31010096346F /* BiscuitApp.swift in Sources */,
+				BE44C45028C40F4B00791897 /* BiscuitController.swift in Sources */,
 				BE32D5B128A1C44A00EADEF7 /* BiscuitCore.swift in Sources */,
 				BE04CEA028B847FE0057F82A /* Callbacks.swift in Sources */,
 				BE04CE9228B82AB80057F82A /* Client.swift in Sources */,
@@ -598,6 +655,7 @@
 				BE04CE9628B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift in Sources */,
 				BEF7BD8B28A847B8002E825A /* Colors.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
+				BE44C44E28C40EB600791897 /* ControlledView.swift in Sources */,
 				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
 				BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */,
 				BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */,
@@ -609,13 +667,12 @@
 				BE5C9EB5289A025E00F84DE7 /* FluxState.swift in Sources */,
 				BE682F7C288C96780096346F /* FluxStore.swift in Sources */,
 				BE04CE9828B834350057F82A /* HeaderComponent.swift in Sources */,
-				BE04CE9B28B83BA30057F82A /* HeaderComponentUIMapper.swift in Sources */,
+				BE44C45228C4117F00791897 /* HeaderController.swift in Sources */,
 				BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */,
 				BE9001BC28B2F87D000B7C0E /* LogContainer.swift in Sources */,
 				BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
 				BE7B42F028BAFCD200DB8529 /* MainWindowState.swift in Sources */,
-				BEC25AE12899C84B0083E5B5 /* Message+Utils.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
 				BE90019D28B0F29C000B7C0E /* Packet.swift in Sources */,
 				BE90019328B0F242000B7C0E /* PacketActions.swift in Sources */,
@@ -624,6 +681,7 @@
 				BE90019728B0F257000B7C0E /* PacketStore.swift in Sources */,
 				BEE7190A28BC172C000F147B /* PacketTableRow.swift in Sources */,
 				BEE7190C28BC1849000F147B /* PacketTableRowUIMapper.swift in Sources */,
+				BE59915828CD1780008BA5CF /* Peaker.swift in Sources */,
 				BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */,
 				BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */,
 				BE9001A128B0F38B000B7C0E /* Project.swift in Sources */,
@@ -632,6 +690,12 @@
 				BE27F904288F4C140042F376 /* RequestMethod.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
 				BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */,
+				BE44C45F28C4E26B00791897 /* SelectDeviceUseCase.swift in Sources */,
+				BE44C46128C4E27600791897 /* SelectDeviceUseCaseInterface.swift in Sources */,
+				BE44C45B28C4E24F00791897 /* SelectProjectUseCase.swift in Sources */,
+				BE44C45D28C4E25E00791897 /* SelectProjectUseCaseInterface.swift in Sources */,
+				BE44C45928C4DD6300791897 /* Set+Utils.swift in Sources */,
+				BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */,
 				BEEE4D1F28B42AB700402219 /* Status.swift in Sources */,
 				BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */,
 				BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */,
