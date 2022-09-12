@@ -12,7 +12,9 @@ class BiscuitContainer: SharedContainer { }
 // MARK: - Core
 extension BiscuitContainer {
     static let dispatcher = Factory(scope: .singleton, factory: { MainDispatcher() as FluxDispatcher })
+    static let core = Factory(scope: .singleton, factory: { BiscuitCore() })
     static let connector = Factory(scope: .shared, factory: { Connector() })
+    static let appController = Factory(scope: .shared, factory: { AppController(packetState: packetStore.resolve().observed) })
 }
 
 // MARK: - Stores
@@ -31,10 +33,14 @@ extension BiscuitContainer {
     static let selectDeviceUseCase = Factory { SelectDeviceUseCase() as SelectDeviceUseCaseInterface }
 }
 
+// MARK: - Controllers
 extension BiscuitContainer {
     static let headerController = Factory { HeaderController(appState: BiscuitContainer.appStore.resolve().observed,
                                                              packetState: BiscuitContainer.packetStore.resolve().observed,
                                                              selectProjectUseCase: BiscuitContainer.selectProjectUseCase.resolve(),
                                                              selectDeviceUseCase: BiscuitContainer.selectDeviceUseCase.resolve()) }
+
+    static let logController = Factory { LogController(appState: BiscuitContainer.appStore.resolve().observed,
+                                                       packetState: BiscuitContainer.packetStore.resolve().observed) }
 }
 

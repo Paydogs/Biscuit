@@ -9,12 +9,12 @@ import Foundation
 import Factory
 
 struct BiscuitCore {
-    static let shared = BiscuitCore()
-
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
+
     private let peaker: Peaker
 
     init() {
+        print("[BiscuitCore] init")
         self.peaker = Peaker()
     }
 

@@ -9,7 +9,7 @@ import SwiftUI
 import Factory
 import Combine
 
-class HeaderController: BiscuitController {
+class HeaderController {
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
     private let selectProjectUseCase: SelectProjectUseCaseInterface
@@ -56,6 +56,13 @@ class HeaderController: BiscuitController {
         let project = packetState.state.projects.sorted()[index]
         print("Selected project: \(project)")
         selectProjectUseCase.execute(project: project)
-        selectDeviceUseCase.execute(device: project.devices.first)
+    }
+
+    func deviceSelected(index: Int) {
+        print("Device selected: \(index)")
+        let devices = appState.state.selectedProject?.devices.sorted()
+        if let device = devices?[index] {
+            selectDeviceUseCase.execute(device: device)
+        }
     }
 }

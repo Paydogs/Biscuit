@@ -7,12 +7,13 @@
 
 import Combine
 import SwiftUI
+import Factory
 
 struct LogContainer: View {
-    var data: Data
+    @Injected(BiscuitContainer.logController) var controller
 
     var body: some View {
-        Table(data.packets) {
+        Table(controller.packets) {
             TableColumn("Status", value: \.status)
                 .width(max: 50)
             TableColumn("Method", value: \.method)
@@ -20,11 +21,5 @@ struct LogContainer: View {
             TableColumn("Url", value: \.url)
             TableColumn("Date", value: \.date)
         }
-    }
-}
-
-extension LogContainer {
-    struct Data {
-        var packets: [PacketTableRow]
     }
 }

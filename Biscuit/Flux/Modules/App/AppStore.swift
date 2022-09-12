@@ -27,30 +27,36 @@ class AppStore: BaseStore<AppState> {
 private extension AppStore {
     func handleDidConnectClient(client: Client) {
         update { state in
+            print("[APPSTORE MANIP] Client connected: \(client)")
             state.connectedClients.append(client)
         }
     }
 
     func handleDidDisconnectClient(client: Client) {
         update { state in
+            print("[APPSTORE MANIP] Client disconnected: \(client)")
             state.connectedClients.removeAll(where: { (connectedClient: Client) in connectedClient == client })
         }
     }
 
     func handleDidReceivedErrors(errors: [AppError]) {
         update { state in
+            print("[APPSTORE MANIP] Error: \(errors)")
             state.errors.append(contentsOf: errors)
         }
     }
 
     func handleDidSelectProject(project: Project?) {
         update { state in
+            print("[APPSTORE MANIP] project selected: \(project)")
             state.selectedProject = project
+            state.selectedDevice = project?.devices.first
         }
     }
 
     func handleDidSelectDevice(device: Device?) {
         update { state in
+            print("[APPSTORE MANIP] device selected: \(device)")
             state.selectedDevice = device
         }
     }

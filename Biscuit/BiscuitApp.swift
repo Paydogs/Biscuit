@@ -14,13 +14,16 @@ struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
 
-    @Injected(BiscuitContainer.packetStore) private var packetStore
+//    @Injected(BiscuitContainer.packetStore) private var packetStore
+
+    @Injected(BiscuitContainer.appController) private var appController
+
     init() { }
 
     var body: some Scene {
         WindowGroup {
             MainWindow()
-                .environmentObject(MainWindowState(packetState: packetStore.observed))
+                .environmentObject(appController)
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {

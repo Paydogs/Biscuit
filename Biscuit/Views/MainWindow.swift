@@ -10,14 +10,14 @@ import Factory
 import Combine
 
 struct MainWindow: View {
-    @EnvironmentObject var state: MainWindowState
+    @EnvironmentObject var appController: AppController
 
     var body: some View {
         VStack {
             HeaderComponent()
             HStack {
                 VStack {
-                    LogContainer(data: state.logContainerData)
+                    LogContainer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             }
