@@ -8,7 +8,7 @@
 import Foundation
 
 struct PacketTableRow: Identifiable {
-    let id: Int
+    let id: String
     let status: String
     var method: String
     var url: String

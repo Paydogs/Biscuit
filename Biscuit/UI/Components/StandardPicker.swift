@@ -10,8 +10,8 @@ import SwiftUI
 struct StandardPicker: View {
     @State private var selectedIndex: Int?
 
-    var data: Data
-    var event: Event?
+    var data: Content
+    var event: Events?
 
     var body: some View {
         Picker(data.title, selection: $selectedIndex) {
@@ -39,11 +39,11 @@ struct StandardPicker: View {
 }
 
 extension StandardPicker {
-    struct Data {
+    struct Content {
         var title: String
         var values: [String]
     }
-    struct Event {
+    struct Events {
         var indexSelected: (Int)->()
     }
 }

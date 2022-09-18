@@ -49,11 +49,17 @@
 		BE682F78288C964F0096346F /* FluxDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F77288C964F0096346F /* FluxDispatcher.swift */; };
 		BE5C9EB5289A025E00F84DE7 /* FluxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C9EB4289A025E00F84DE7 /* FluxState.swift */; };
 		BE682F7C288C96780096346F /* FluxStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F7B288C96780096346F /* FluxStore.swift */; };
-		BE04CE9828B834350057F82A /* HeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9728B834350057F82A /* HeaderComponent.swift */; };
-		BE44C45228C4117F00791897 /* HeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45128C4117F00791897 /* HeaderController.swift */; };
+		BE04CE9828B834350057F82A /* HeaderArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9728B834350057F82A /* HeaderArea.swift */; };
+		BE44C45228C4117F00791897 /* HeaderAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45128C4117F00791897 /* HeaderAreaController.swift */; };
+		BE92891F28D787BD0008E116 /* HeaderAreaDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92891E28D787BD0008E116 /* HeaderAreaDataProvider.swift */; };
+		BE92892128D78B220008E116 /* HeaderAreaDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892028D78B220008E116 /* HeaderAreaDomain.swift */; };
+		BE92891D28D785BE0008E116 /* HeaderAreaEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92891C28D785BD0008E116 /* HeaderAreaEventHandler.swift */; };
 		BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A828B0F999000B7C0E /* IncomingPacket.swift */; };
-		BE9001BC28B2F87D000B7C0E /* LogContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BB28B2F87D000B7C0E /* LogContainer.swift */; };
-		BE69393728CEB1C8007D4E3C /* LogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69393628CEB1C8007D4E3C /* LogController.swift */; };
+		BE9001BC28B2F87D000B7C0E /* LogArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BB28B2F87D000B7C0E /* LogArea.swift */; };
+		BE69393728CEB1C8007D4E3C /* LogAreaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69393628CEB1C8007D4E3C /* LogAreaController.swift */; };
+		BE92892728D792FA0008E116 /* LogAreaDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892628D792FA0008E116 /* LogAreaDataProvider.swift */; };
+		BE92892528D792E80008E116 /* LogAreaDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892428D792E80008E116 /* LogAreaDomain.swift */; };
+		BE92892328D792DD0008E116 /* LogAreaEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892228D792DD0008E116 /* LogAreaEventHandler.swift */; };
 		BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
 		BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68528A1E8D900EADEF7 /* MyTests.swift */; };
@@ -143,11 +149,17 @@
 		BE682F77288C964F0096346F /* FluxDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxDispatcher.swift; sourceTree = "<group>"; };
 		BE5C9EB4289A025E00F84DE7 /* FluxState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxState.swift; sourceTree = "<group>"; };
 		BE682F7B288C96780096346F /* FluxStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxStore.swift; sourceTree = "<group>"; };
-		BE04CE9728B834350057F82A /* HeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderComponent.swift; sourceTree = "<group>"; };
-		BE44C45128C4117F00791897 /* HeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderController.swift; sourceTree = "<group>"; };
+		BE04CE9728B834350057F82A /* HeaderArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderArea.swift; sourceTree = "<group>"; };
+		BE44C45128C4117F00791897 /* HeaderAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAreaController.swift; sourceTree = "<group>"; };
+		BE92891E28D787BD0008E116 /* HeaderAreaDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAreaDataProvider.swift; sourceTree = "<group>"; };
+		BE92892028D78B220008E116 /* HeaderAreaDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAreaDomain.swift; sourceTree = "<group>"; };
+		BE92891C28D785BD0008E116 /* HeaderAreaEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAreaEventHandler.swift; sourceTree = "<group>"; };
 		BE9001A828B0F999000B7C0E /* IncomingPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingPacket.swift; sourceTree = "<group>"; };
-		BE9001BB28B2F87D000B7C0E /* LogContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogContainer.swift; sourceTree = "<group>"; };
-		BE69393628CEB1C8007D4E3C /* LogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogController.swift; sourceTree = "<group>"; };
+		BE9001BB28B2F87D000B7C0E /* LogArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogArea.swift; sourceTree = "<group>"; };
+		BE69393628CEB1C8007D4E3C /* LogAreaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAreaController.swift; sourceTree = "<group>"; };
+		BE92892628D792FA0008E116 /* LogAreaDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAreaDataProvider.swift; sourceTree = "<group>"; };
+		BE92892428D792E80008E116 /* LogAreaDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAreaDomain.swift; sourceTree = "<group>"; };
+		BE92892228D792DD0008E116 /* LogAreaEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAreaEventHandler.swift; sourceTree = "<group>"; };
 		BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BE32D68528A1E8D900EADEF7 /* MyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTests.swift; sourceTree = "<group>"; };
@@ -292,22 +304,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BE44C45628C421C700791897 /* Header */ = {
+		BE44C45628C421C700791897 /* HeaderArea */ = {
 			isa = PBXGroup;
 			children = (
-				BE04CE9728B834350057F82A /* HeaderComponent.swift */,
-				BE44C45128C4117F00791897 /* HeaderController.swift */,
+				BE04CE9728B834350057F82A /* HeaderArea.swift */,
+				BE44C45128C4117F00791897 /* HeaderAreaController.swift */,
+				BE92891E28D787BD0008E116 /* HeaderAreaDataProvider.swift */,
+				BE92892028D78B220008E116 /* HeaderAreaDomain.swift */,
+				BE92891C28D785BD0008E116 /* HeaderAreaEventHandler.swift */,
 			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		BE44C45728C421F900791897 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */,
-				BE44C44B28C40BFB00791897 /* StandardPicker.swift */,
-			);
-			path = Common;
+			path = HeaderArea;
 			sourceTree = "<group>";
 		};
 		BE5C9EAC2899F3C200F84DE7 /* DI */ = {
@@ -346,8 +352,8 @@
 				BE27F8FB288F42560042F376 /* Logic */,
 				BE04CE9928B83B720057F82A /* Mappers */,
 				BE682F7F288C98EE0096346F /* Models */,
+				BE682F8D288CA0090096346F /* UI */,
 				BE27F8F1288F366E0042F376 /* Utils */,
-				BE682F8D288CA0090096346F /* Views */,
 				BE682F71288C311A0096346F /* AppDelegate.swift */,
 				BE682F6B288C31020096346F /* Biscuit.entitlements */,
 				BE682F62288C31010096346F /* BiscuitApp.swift */,
@@ -384,16 +390,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		BE682F8D288CA0090096346F /* Views */ = {
+		BE682F8D288CA0090096346F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BE44C45728C421F900791897 /* Common */,
-				BE44C45628C421C700791897 /* Header */,
-				BE69393528CEB1B9007D4E3C /* LogContainer */,
+				BE92891528D74A1C0008E116 /* Components */,
+				BE44C45628C421C700791897 /* HeaderArea */,
+				BE69393528CEB1B9007D4E3C /* LogArea */,
 				BE7B42EF28BAFCD200DB8529 /* AppController.swift */,
 				BE682F64288C31010096346F /* MainWindow.swift */,
 			);
-			path = Views;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		BE682F8E288CA0260096346F /* Assets */ = {
@@ -443,14 +449,17 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		BE69393528CEB1B9007D4E3C /* LogContainer */ = {
+		BE69393528CEB1B9007D4E3C /* LogArea */ = {
 			isa = PBXGroup;
 			children = (
 				BEE7190828BC16C3000F147B /* Models */,
-				BE9001BB28B2F87D000B7C0E /* LogContainer.swift */,
-				BE69393628CEB1C8007D4E3C /* LogController.swift */,
+				BE9001BB28B2F87D000B7C0E /* LogArea.swift */,
+				BE69393628CEB1C8007D4E3C /* LogAreaController.swift */,
+				BE92892628D792FA0008E116 /* LogAreaDataProvider.swift */,
+				BE92892428D792E80008E116 /* LogAreaDomain.swift */,
+				BE92892228D792DD0008E116 /* LogAreaEventHandler.swift */,
 			);
-			path = LogContainer;
+			path = LogArea;
 			sourceTree = "<group>";
 		};
 		BE90019128B0F22D000B7C0E /* Packet */ = {
@@ -471,6 +480,15 @@
 				BE90019128B0F22D000B7C0E /* Packet */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		BE92891528D74A1C0008E116 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */,
+				BE44C44B28C40BFB00791897 /* StandardPicker.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		BEC25AE22899CC3F0083E5B5 /* Interfaces */ = {
@@ -564,7 +582,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					BE32D63228A1E0E500EADEF7 = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -670,11 +688,17 @@
 				BE682F78288C964F0096346F /* FluxDispatcher.swift in Sources */,
 				BE5C9EB5289A025E00F84DE7 /* FluxState.swift in Sources */,
 				BE682F7C288C96780096346F /* FluxStore.swift in Sources */,
-				BE04CE9828B834350057F82A /* HeaderComponent.swift in Sources */,
-				BE44C45228C4117F00791897 /* HeaderController.swift in Sources */,
+				BE04CE9828B834350057F82A /* HeaderArea.swift in Sources */,
+				BE44C45228C4117F00791897 /* HeaderAreaController.swift in Sources */,
+				BE92891F28D787BD0008E116 /* HeaderAreaDataProvider.swift in Sources */,
+				BE92892128D78B220008E116 /* HeaderAreaDomain.swift in Sources */,
+				BE92891D28D785BE0008E116 /* HeaderAreaEventHandler.swift in Sources */,
 				BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */,
-				BE9001BC28B2F87D000B7C0E /* LogContainer.swift in Sources */,
-				BE69393728CEB1C8007D4E3C /* LogController.swift in Sources */,
+				BE9001BC28B2F87D000B7C0E /* LogArea.swift in Sources */,
+				BE69393728CEB1C8007D4E3C /* LogAreaController.swift in Sources */,
+				BE92892728D792FA0008E116 /* LogAreaDataProvider.swift in Sources */,
+				BE92892528D792E80008E116 /* LogAreaDomain.swift in Sources */,
+				BE92892328D792DD0008E116 /* LogAreaEventHandler.swift in Sources */,
 				BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
@@ -729,6 +753,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2TQPT2TRMX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -752,6 +777,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2TQPT2TRMX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -801,6 +827,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -861,6 +888,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -891,6 +919,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Biscuit/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TQPT2TRMX;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -919,6 +948,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Biscuit/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TQPT2TRMX;
 				ENABLE_HARDENED_RUNTIME = YES;

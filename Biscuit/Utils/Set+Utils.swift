@@ -22,3 +22,11 @@ extension Set where Element == Device {
         }
     }
 }
+
+extension Set where Element == Packet {
+    func sorted() -> [Packet] {
+        return self.sorted { (lhs:Packet, rhs: Packet) in
+            lhs.startDate < rhs.startDate
+        }
+    }
+}

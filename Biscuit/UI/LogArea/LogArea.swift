@@ -1,5 +1,5 @@
 //
-//  LogContainer.swift
+//  LogArea.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 08. 22..
@@ -9,11 +9,12 @@ import Combine
 import SwiftUI
 import Factory
 
-struct LogContainer: View {
-    @Injected(BiscuitContainer.logController) var controller
+struct LogArea: View {
+    @ObservedObject var domain: LogAreaDomain
+    var eventHandler: LogAreaEventHandling
 
     var body: some View {
-        Table(controller.packets) {
+        Table(domain.packets) {
             TableColumn("Status", value: \.status)
                 .width(max: 50)
             TableColumn("Method", value: \.method)

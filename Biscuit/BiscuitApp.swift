@@ -14,8 +14,6 @@ struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
 
-//    @Injected(BiscuitContainer.packetStore) private var packetStore
-
     @Injected(BiscuitContainer.appController) private var appController
 
     init() { }
