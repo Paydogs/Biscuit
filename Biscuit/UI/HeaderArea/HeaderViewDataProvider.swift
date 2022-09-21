@@ -1,5 +1,5 @@
 //
-//  HeaderAreaDataProvider.swift
+//  HeaderViewDataProvider.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 09. 18..
@@ -9,8 +9,8 @@ import SwiftUI
 import Factory
 import Combine
 
-class HeaderAreaDataProvider {
-    @ObservedObject var domain: HeaderAreaDomain
+class HeaderViewDataProvider {
+    @ObservedObject var domain: HeaderViewDomain
 
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
@@ -22,7 +22,7 @@ class HeaderAreaDataProvider {
         self.appState = appState
         self.packetState = packetState
 
-        domain =  HeaderAreaDomain()
+        domain =  HeaderViewDomain()
         subscribe()
     }
 
@@ -30,18 +30,21 @@ class HeaderAreaDataProvider {
         packetState.$state
             .map(\.projects)
             .map { projects in
-                projects.sorted().map { $0.descriptor.name }
+                projects.sorted().map { project in
+                    StandardPicker.PickerItem(id: project.id, text: project.descriptor.name)
+                }
             }
             .sink(receiveValue: { [weak self] value in
                 self?.domain.projectList = value
             })
             .store(in: &subscriptions)
 
-        appState.$state
-            .map(\.selectedProject)
-            .map { selectedProject in
-                guard let selectedProject = selectedProject else { return [] }
-                return selectedProject.devices.sorted().map { $0.descriptor.name }
+        packetState.$state.map(\.projects)
+            .combineLatest(appState.$state.map(\.filter))
+            .map { (projects: Set<Project>, filter: Filter) in
+                projects.filterDevices(filter: filter).map { device in
+                    StandardPicker.PickerItem(id: device.id, text: device.descriptor.name)
+                }
             }
             .sink(receiveValue: { [weak self] value in
                 self?.domain.deviceList = value

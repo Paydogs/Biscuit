@@ -20,6 +20,8 @@ class AppStore: BaseStore<AppState> {
                 handleDidSelectProject(project: project)
             case .didSelectDevice(let device):
                 handleDidSelectDevice(device: device)
+            case .didModifiedFilter(let filter):
+                handleDidModifiedFilter(filter: filter)
         }
     }
 }
@@ -48,7 +50,7 @@ private extension AppStore {
 
     func handleDidSelectProject(project: Project?) {
         update { state in
-            print("[APPSTORE MANIP] project selected: \(project)")
+            print("[APPSTORE MANIP] project selected: \(String(describing: project))")
             state.selectedProject = project
             state.selectedDevice = project?.devices.first
         }
@@ -56,8 +58,26 @@ private extension AppStore {
 
     func handleDidSelectDevice(device: Device?) {
         update { state in
-            print("[APPSTORE MANIP] device selected: \(device)")
+            print("[APPSTORE MANIP] device selected: \(String(describing: device))")
             state.selectedDevice = device
+        }
+    }
+
+    func handleDidModifiedFilter(filter: Filter) {
+        update { state in
+            print("[APPSTORE MANIP] filter changed: \(filter)")
+            if let project = filter.project {
+                state.filter.project = project
+            }
+            if let device = filter.deviceId {
+                state.filter.deviceId = device
+            }
+            if let from = filter.from {
+                state.filter.from = from
+            }
+            if let to = filter.to {
+                state.filter.to = to
+            }
         }
     }
 }

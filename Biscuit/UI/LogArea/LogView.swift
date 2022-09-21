@@ -1,5 +1,5 @@
 //
-//  LogArea.swift
+//  LogView.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 08. 22..
@@ -9,9 +9,9 @@ import Combine
 import SwiftUI
 import Factory
 
-struct LogArea: View {
-    @ObservedObject var domain: LogAreaDomain
-    var eventHandler: LogAreaEventHandling
+struct LogView: View {
+    @ObservedObject var domain: LogViewDomain
+    var eventHandler: LogViewEventHandling
 
     var body: some View {
         Table(domain.packets) {

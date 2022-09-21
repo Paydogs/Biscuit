@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Packet {
+struct Packet: Identifiable {
     let bagelPacketId: String
 
     let url: String
@@ -17,4 +17,8 @@ struct Packet {
 
     let request: Request
     let response: Response
+
+    var id: String {
+        bagelPacketId
+    }
 }

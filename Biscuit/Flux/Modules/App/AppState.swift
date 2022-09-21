@@ -10,11 +10,13 @@ struct AppState: FluxState {
     var errors: [AppError]
     var selectedProject: Project?
     var selectedDevice: Device?
+    var filter: Filter
 }
 
 extension AppState: DefaultInitializer {
     static func defaultValue() -> AppState {
         return .init(connectedClients: [],
-                     errors: [])
+                     errors: [],
+                     filter: Filter())
     }
 }

@@ -31,31 +31,33 @@ extension BiscuitContainer {
     static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
     static let selectProjectUseCase = Factory { SelectProjectUseCase() as SelectProjectUseCaseInterface }
     static let selectDeviceUseCase = Factory { SelectDeviceUseCase() as SelectDeviceUseCaseInterface }
+    static let updateFilterUseCase = Factory { UpdateFilterUseCase() as UpdateFilterUseCaseInterface }
 }
 
 // MARK: - DataProviders
 extension BiscuitContainer {
-    static let headerAreaDataProvider = Factory { HeaderAreaDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
-                                                                     packetState: BiscuitContainer.packetStore.resolve().observed) }
-    static let logAreaDataProvider = Factory { LogAreaDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
-                                                                   packetState: BiscuitContainer.packetStore.resolve().observed) }
+    static let headerViewDataProvider = Factory { HeaderViewDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
+                                                                         packetState: BiscuitContainer.packetStore.resolve().observed) }
+    static let logViewEventProvider = Factory { LogViewDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
+                                                                    packetState: BiscuitContainer.packetStore.resolve().observed) }
 }
 
 // MARK: - EventHandlers
 extension BiscuitContainer {
-    static let headerAreaEventHandler = Factory { HeaderAreaEventHandler(appState: BiscuitContainer.appStore.resolve().observed,
+    static let headerViewEventHandler = Factory { HeaderViewEventHandler(appState: BiscuitContainer.appStore.resolve().observed,
                                                                          packetState: BiscuitContainer.packetStore.resolve().observed,
                                                                          selectProjectUseCase: BiscuitContainer.selectProjectUseCase.resolve(),
-                                                                         selectDeviceUseCase: BiscuitContainer.selectDeviceUseCase.resolve())}
-    static let logAreaEventHandler = Factory { LogAreaEventHandler()}
+                                                                         selectDeviceUseCase: BiscuitContainer.selectDeviceUseCase.resolve(),
+                                                                         updateFilterUseCase: BiscuitContainer.updateFilterUseCase.resolve()) }
+    static let logViewEventHandler = Factory { LogViewEventHandler()}
 }
 
 // MARK: - Controllers
 extension BiscuitContainer {
-    static let headerAreaController = Factory { HeaderAreaController(dataProvider: BiscuitContainer.headerAreaDataProvider.resolve(),
-                                                                     eventHandler: BiscuitContainer.headerAreaEventHandler.resolve()) }
+    static let headerViewController = Factory { HeaderViewController(dataProvider: BiscuitContainer.headerViewDataProvider.resolve(),
+                                                                     eventHandler: BiscuitContainer.headerViewEventHandler.resolve()) }
 
-    static let logAreaController = Factory { LogAreaController(dataProvider: BiscuitContainer.logAreaDataProvider.resolve(),
-                                                               eventHandler: BiscuitContainer.logAreaEventHandler.resolve()) }
+    static let logViewController = Factory { LogViewController(dataProvider: BiscuitContainer.logViewEventProvider.resolve(),
+                                                               eventHandler: BiscuitContainer.logViewEventHandler.resolve()) }
 }
 

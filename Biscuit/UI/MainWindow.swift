@@ -11,17 +11,17 @@ import Combine
 
 struct MainWindow: View {
     @EnvironmentObject var appController: AppController
-    @Injected(BiscuitContainer.headerAreaController) var headerAreaController
-    @Injected(BiscuitContainer.logAreaController) var logAreaController
+    @Injected(BiscuitContainer.headerViewController) var headerViewController
+    @Injected(BiscuitContainer.logViewController) var logViewController
 
     var body: some View {
         VStack {
-            HeaderArea(domain: headerAreaController.domain,
-                       eventHandler: headerAreaController.eventHandler)
+            HeaderView(domain: headerViewController.domain,
+                       eventHandler: headerViewController.eventHandler)
             HStack {
                 VStack {
-                    LogArea(domain: logAreaController.domain,
-                            eventHandler: logAreaController.eventHandler)
+                    LogView(domain: logViewController.domain,
+                            eventHandler: logViewController.eventHandler)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             }

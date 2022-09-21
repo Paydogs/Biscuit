@@ -19,7 +19,7 @@ struct StandardPicker: View {
                 Text("None").tag(nil as Int?)
             } else {
                 ForEach(Array(data.values.enumerated()), id: \.element) { index, element in
-                    Text(element).tag(index as Int?)
+                    Text(element.text).tag(index as Int?)
                 }
             }
         }
@@ -28,22 +28,25 @@ struct StandardPicker: View {
                 selectedIndex = 0
             }
         })
-        .onChange(of: selectedIndex, perform: { projectSelection in
-            guard let projectSelection = projectSelection else {
+        .onChange(of: selectedIndex, perform: { selection in
+            guard let selection = selection else {
                 return
             }
-
-            event?.indexSelected(projectSelection)
+            event?.itemSelected(data.values[selection])
         })
     }
 }
 
 extension StandardPicker {
+    struct PickerItem: Equatable, Hashable {
+        var id: String
+        var text: String
+    }
     struct Content {
         var title: String
-        var values: [String]
+        var values: [PickerItem]
     }
     struct Events {
-        var indexSelected: (Int)->()
+        var itemSelected: (PickerItem)->()
     }
 }

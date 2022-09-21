@@ -11,4 +11,5 @@ enum AppActions: FluxAction {
     case didReceivedErrors([AppError])
     case didSelectProject(Project?)
     case didSelectDevice(Device?)
+    case didModifiedFilter(Filter)
 }
