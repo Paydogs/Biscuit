@@ -57,6 +57,7 @@
 		BE92892128D78B220008E116 /* HeaderViewDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892028D78B220008E116 /* HeaderViewDomain.swift */; };
 		BE92891D28D785BE0008E116 /* HeaderViewEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92891C28D785BD0008E116 /* HeaderViewEventHandler.swift */; };
 		BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A828B0F999000B7C0E /* IncomingPacket.swift */; };
+		BEF6A00028DFB44A00B3ECBB /* InvalidPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */; };
 		BE9001BC28B2F87D000B7C0E /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BB28B2F87D000B7C0E /* LogView.swift */; };
 		BE69393728CEB1C8007D4E3C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69393628CEB1C8007D4E3C /* LogViewController.swift */; };
 		BE92892728D792FA0008E116 /* LogViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892628D792FA0008E116 /* LogViewDataProvider.swift */; };
@@ -76,6 +77,8 @@
 		BE59915828CD1780008BA5CF /* Peaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59915728CD1780008BA5CF /* Peaker.swift */; };
 		BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */; };
 		BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */; };
+		BEF69FFC28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69FFB28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift */; };
+		BEF69FFE28DFB3BD00B3ECBB /* PostInvalidPacketUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69FFD28DFB3BD00B3ECBB /* PostInvalidPacketUseCaseInterface.swift */; };
 		BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE682F69288C31020096346F /* Preview Assets.xcassets */; };
 		BE9001A128B0F38B000B7C0E /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A028B0F38B000B7C0E /* Project.swift */; };
 		BEC25AED2899DE890083E5B5 /* ProjectDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */; };
@@ -160,6 +163,7 @@
 		BE92892028D78B220008E116 /* HeaderViewDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewDomain.swift; sourceTree = "<group>"; };
 		BE92891C28D785BD0008E116 /* HeaderViewEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewEventHandler.swift; sourceTree = "<group>"; };
 		BE9001A828B0F999000B7C0E /* IncomingPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingPacket.swift; sourceTree = "<group>"; };
+		BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidPacket.swift; sourceTree = "<group>"; };
 		BE9001BB28B2F87D000B7C0E /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		BE69393628CEB1C8007D4E3C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		BE92892628D792FA0008E116 /* LogViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewDataProvider.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 		BE59915728CD1780008BA5CF /* Peaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peaker.swift; sourceTree = "<group>"; };
 		BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCase.swift; sourceTree = "<group>"; };
 		BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCaseInterface.swift; sourceTree = "<group>"; };
+		BEF69FFB28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInvalidPacketUseCase.swift; sourceTree = "<group>"; };
+		BEF69FFD28DFB3BD00B3ECBB /* PostInvalidPacketUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInvalidPacketUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE682F69288C31020096346F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BE9001A028B0F38B000B7C0E /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDescriptor.swift; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 				BE27F905288F52080042F376 /* DeviceDescriptor.swift */,
 				BEAC289328D7A9CB00B1F4B6 /* Filter.swift */,
 				BE9001A828B0F999000B7C0E /* IncomingPacket.swift */,
+				BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */,
 				BE90019C28B0F29C000B7C0E /* Packet.swift */,
 				BE9001A028B0F38B000B7C0E /* Project.swift */,
 				BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */,
@@ -439,6 +446,8 @@
 				BE04CE9528B82D7D0057F82A /* ClientDisconnectedUseCaseInterface.swift */,
 				BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */,
 				BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */,
+				BEF69FFB28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift */,
+				BEF69FFD28DFB3BD00B3ECBB /* PostInvalidPacketUseCaseInterface.swift */,
 				BE44C45E28C4E26B00791897 /* SelectDeviceUseCase.swift */,
 				BE44C46028C4E27600791897 /* SelectDeviceUseCaseInterface.swift */,
 				BE44C45A28C4E24F00791897 /* SelectProjectUseCase.swift */,
@@ -705,6 +714,7 @@
 				BE92892128D78B220008E116 /* HeaderViewDomain.swift in Sources */,
 				BE92891D28D785BE0008E116 /* HeaderViewEventHandler.swift in Sources */,
 				BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */,
+				BEF6A00028DFB44A00B3ECBB /* InvalidPacket.swift in Sources */,
 				BE9001BC28B2F87D000B7C0E /* LogView.swift in Sources */,
 				BE69393728CEB1C8007D4E3C /* LogViewController.swift in Sources */,
 				BE92892728D792FA0008E116 /* LogViewDataProvider.swift in Sources */,
@@ -723,6 +733,8 @@
 				BE59915828CD1780008BA5CF /* Peaker.swift in Sources */,
 				BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */,
 				BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */,
+				BEF69FFC28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift in Sources */,
+				BEF69FFE28DFB3BD00B3ECBB /* PostInvalidPacketUseCaseInterface.swift in Sources */,
 				BE9001A128B0F38B000B7C0E /* Project.swift in Sources */,
 				BEC25AED2899DE890083E5B5 /* ProjectDescriptor.swift in Sources */,
 				BE27F908288F54290042F376 /* Request.swift in Sources */,

@@ -16,6 +16,8 @@ class AppStore: BaseStore<AppState> {
                 handleDidDisconnectClient(client: client)
             case .didReceivedErrors(let error):
                 handleDidReceivedErrors(errors: error)
+            case .didReceivedInvalidPacket(let packet):
+                handleDidReceivedInvalidPacket(packet: packet)
             case .didSelectProject(let project):
                 handleDidSelectProject(project: project)
             case .didSelectDevice(let device):
@@ -45,6 +47,13 @@ private extension AppStore {
         update { state in
             print("[APPSTORE MANIP] Error: \(errors)")
             state.errors.append(contentsOf: errors)
+        }
+    }
+
+    func handleDidReceivedInvalidPacket(packet: InvalidPacket) {
+        update { state in
+            print("[APPSTORE MANIP] Invalid packet: \(packet)")
+            state.invalidPackets.append(packet)
         }
     }
 

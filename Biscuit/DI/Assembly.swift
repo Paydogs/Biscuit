@@ -27,6 +27,7 @@ extension BiscuitContainer {
 extension BiscuitContainer {
     static let postAppErrorUseCase = Factory { PostAppErrorUseCase() as PostAppErrorUseCaseInterface }
     static let storePacketUseCase = Factory { StorePacketUseCase() as StorePacketUseCaseInterface }
+    static let postInvalidPacketUseCase = Factory { PostInvalidPacketUseCase() as PostInvalidPacketUseCaseInterface }
     static let clientConnectedUseCase = Factory { ClientConnectedUseCase() as ClientConnectedUseCaseInterface }
     static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
     static let selectProjectUseCase = Factory { SelectProjectUseCase() as SelectProjectUseCaseInterface }

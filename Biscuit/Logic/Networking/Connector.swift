@@ -19,6 +19,7 @@ class Connector {
 
     @Injected(BiscuitContainer.postAppErrorUseCase) private var postAppErrorUseCase
     @Injected(BiscuitContainer.storePacketUseCase) private var storePacketUseCase
+    @Injected(BiscuitContainer.postInvalidPacketUseCase) private var postInvalidPacketUseCase
     @Injected(BiscuitContainer.clientConnectedUseCase) private var clientConnectedUseCase
     @Injected(BiscuitContainer.clientDisconnectedUseCase) private var clientDisconnectedUseCase
 
@@ -94,9 +95,10 @@ private extension Connector {
 
         connection.didReceivedData = { [weak self] (connection: NetworkConnection, data: Data) in
             DispatchQueue.global(qos: .background).async {
-                guard let self = self,
-                      let bagelPacket = self.bagelPacketParser.parseData(data) else {
-                    print("[Connector] WRONG DATA")
+                guard let self = self else { return }
+                guard let bagelPacket = self.bagelPacketParser.parseData(data) else {
+                    print("[Connector] WRONG DATA... INVALID, UNKNOWN")
+                    self.postInvalidPacketUseCase.execute(packet: InvalidPacket(body: data))
                     return
                 }
 
