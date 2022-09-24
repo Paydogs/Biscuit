@@ -30,7 +30,9 @@ class LogViewDataProvider {
         packetState.$state.map(\.projects)
             .combineLatest(appState.$state.map(\.filter))
             .map { (projects: Set<Project>, filter: Filter) in
-                projects.filterPackets(filter: filter).compactMap { [weak self] packet -> PacketTableRow? in
+                projects.filterPackets(filter: filter)
+                    .sorted()
+                    .compactMap { [weak self] packet -> PacketTableRow? in
                     guard let self = self else { return nil }
                     return self.mapPacket(packet: packet)
                 }

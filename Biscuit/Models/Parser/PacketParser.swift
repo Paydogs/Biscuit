@@ -32,6 +32,7 @@ private extension PacketParser {
 
     func mapPacket(_ packet: BagelPacket) -> Packet {
         .init(bagelPacketId: packet.packetId ?? "",
+              received: Double(Date().timeIntervalSince1970),
               url: packet.requestInfo?.url ?? "",
               statusCode: packet.requestInfo?.statusCode ?? "",
               startDate: packet.requestInfo?.startDate ?? Date(timeIntervalSince1970: 0),

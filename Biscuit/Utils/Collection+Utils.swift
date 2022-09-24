@@ -39,7 +39,7 @@ extension Collection where Element == Device {
 extension Collection where Element == Packet {
     func sorted() -> [Packet] {
         return self.sorted { (lhs:Packet, rhs: Packet) in
-            lhs.startDate < rhs.startDate
+            lhs.received < rhs.received
         }
     }
 

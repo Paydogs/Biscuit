@@ -9,6 +9,7 @@ import Foundation
 
 struct Packet: Identifiable {
     let bagelPacketId: String
+    var received: Double
 
     let url: String
     let statusCode: String
