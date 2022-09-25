@@ -46,6 +46,12 @@ class LogViewDataProvider {
 
 private extension LogViewDataProvider {
     func mapPacket(packet: Packet) -> PacketTableRow {
-        return .init(id: packet.bagelPacketId, status: packet.statusCode, method: packet.request.method?.rawValue ?? "", url: packet.url, date: packet.startDate.formatted())
+        return .init(id: packet.bagelPacketId,
+                     status: String(packet.statusCode.code),
+                     statusColor: packet.statusCode.color,
+                     method: packet.request.method?.rawValue ?? "",
+                     methodColor: packet.request.method?.color ?? Color.white,
+                     url: packet.url,
+                     date: packet.startDate.formatted())
     }
 }

@@ -34,7 +34,7 @@ private extension PacketParser {
         .init(bagelPacketId: packet.packetId ?? "",
               received: Double(Date().timeIntervalSince1970),
               url: packet.requestInfo?.url ?? "",
-              statusCode: packet.requestInfo?.statusCode ?? "",
+              statusCode: StatusCode(code: Int(packet.requestInfo?.statusCode ?? "-1") ?? -1),
               startDate: packet.requestInfo?.startDate ?? Date(timeIntervalSince1970: 0),
               endDate: packet.requestInfo?.endDate ?? Date(timeIntervalSince1970: 0),
               request: mapRequest(from: packet),

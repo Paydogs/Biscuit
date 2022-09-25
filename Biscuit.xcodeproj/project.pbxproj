@@ -44,6 +44,7 @@
 		BE9001A328B0F3FA000B7C0E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A228B0F3FA000B7C0E /* Device.swift */; };
 		BE27F906288F52080042F376 /* DeviceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* DeviceDescriptor.swift */; };
 		BE32D68828A1EDC300EADEF7 /* DispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */; };
+		BE9AA93328DFCCBC0030F0B3 /* DomainModel+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9AA93228DFCCBC0030F0B3 /* DomainModel+Color.swift */; };
 		BE32D64328A1E26300EADEF7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BE32D64228A1E26300EADEF7 /* Factory */; };
 		BE32D5B328A1C62F00EADEF7 /* Factory+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */; };
 		BEAC289428D7A9CB00B1F4B6 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAC289328D7A9CB00B1F4B6 /* Filter.swift */; };
@@ -73,7 +74,6 @@
 		BE90019528B0F24A000B7C0E /* PacketState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019428B0F24A000B7C0E /* PacketState.swift */; };
 		BE90019728B0F257000B7C0E /* PacketStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019628B0F257000B7C0E /* PacketStore.swift */; };
 		BEE7190A28BC172C000F147B /* PacketTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7190928BC172C000F147B /* PacketTableRow.swift */; };
-		BEE7190C28BC1849000F147B /* PacketTableRowUIMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE7190B28BC1849000F147B /* PacketTableRowUIMapper.swift */; };
 		BE59915828CD1780008BA5CF /* Peaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE59915728CD1780008BA5CF /* Peaker.swift */; };
 		BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */; };
 		BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */; };
@@ -92,6 +92,7 @@
 		BE44C45D28C4E25E00791897 /* SelectProjectUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C45C28C4E25E00791897 /* SelectProjectUseCaseInterface.swift */; };
 		BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44B28C40BFB00791897 /* StandardPicker.swift */; };
 		BEEE4D1F28B42AB700402219 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE4D1E28B42AB700402219 /* Status.swift */; };
+		BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE88A63028DFD39800406E79 /* StatusCode.swift */; };
 		BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */; };
 		BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
@@ -151,6 +152,7 @@
 		BE9001A228B0F3FA000B7C0E /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BE27F905288F52080042F376 /* DeviceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDescriptor.swift; sourceTree = "<group>"; };
 		BE32D68728A1EDC300EADEF7 /* DispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatcherTests.swift; sourceTree = "<group>"; };
+		BE9AA93228DFCCBC0030F0B3 /* DomainModel+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DomainModel+Color.swift"; sourceTree = "<group>"; };
 		BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+Extension.swift"; sourceTree = "<group>"; };
 		BEAC289328D7A9CB00B1F4B6 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		BE682F79288C96630096346F /* FluxAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluxAction.swift; sourceTree = "<group>"; };
@@ -179,7 +181,6 @@
 		BE90019428B0F24A000B7C0E /* PacketState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketState.swift; sourceTree = "<group>"; };
 		BE90019628B0F257000B7C0E /* PacketStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketStore.swift; sourceTree = "<group>"; };
 		BEE7190928BC172C000F147B /* PacketTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTableRow.swift; sourceTree = "<group>"; };
-		BEE7190B28BC1849000F147B /* PacketTableRowUIMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTableRowUIMapper.swift; sourceTree = "<group>"; };
 		BE59915728CD1780008BA5CF /* Peaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peaker.swift; sourceTree = "<group>"; };
 		BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCase.swift; sourceTree = "<group>"; };
 		BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCaseInterface.swift; sourceTree = "<group>"; };
@@ -198,6 +199,7 @@
 		BE44C45C28C4E25E00791897 /* SelectProjectUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProjectUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE44C44B28C40BFB00791897 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		BEEE4D1E28B42AB700402219 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		BE88A63028DFD39800406E79 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCase.swift; sourceTree = "<group>"; };
 		BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
@@ -225,14 +227,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BE04CE9928B83B720057F82A /* Mappers */ = {
-			isa = PBXGroup;
-			children = (
-				BEE7190B28BC1849000F147B /* PacketTableRowUIMapper.swift */,
-			);
-			path = Mappers;
-			sourceTree = "<group>";
-		};
 		BE27F8EE288F35B80042F376 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +247,7 @@
 				BE27F8FD288F48C40042F376 /* Data+Utils.swift */,
 				BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */,
 				BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */,
+				BE9AA93228DFCCBC0030F0B3 /* DomainModel+Color.swift */,
 				BE32D5B228A1C62F00EADEF7 /* Factory+Extension.swift */,
 				BE59915728CD1780008BA5CF /* Peaker.swift */,
 				BE27F8F2288F367B0042F376 /* String+Utils.swift */,
@@ -297,6 +292,7 @@
 				BE27F907288F54290042F376 /* Request.swift */,
 				BE27F909288F54300042F376 /* Response.swift */,
 				BEEE4D1E28B42AB700402219 /* Status.swift */,
+				BE88A63028DFD39800406E79 /* StatusCode.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -364,7 +360,6 @@
 				BE5C9EAC2899F3C200F84DE7 /* DI */,
 				BE682F76288C963F0096346F /* Flux */,
 				BE27F8FB288F42560042F376 /* Logic */,
-				BE04CE9928B83B720057F82A /* Mappers */,
 				BE682F7F288C98EE0096346F /* Models */,
 				BE682F8D288CA0090096346F /* UI */,
 				BE27F8F1288F366E0042F376 /* Utils */,
@@ -702,6 +697,7 @@
 				BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */,
 				BE9001A328B0F3FA000B7C0E /* Device.swift in Sources */,
 				BE27F906288F52080042F376 /* DeviceDescriptor.swift in Sources */,
+				BE9AA93328DFCCBC0030F0B3 /* DomainModel+Color.swift in Sources */,
 				BE32D5B328A1C62F00EADEF7 /* Factory+Extension.swift in Sources */,
 				BEAC289428D7A9CB00B1F4B6 /* Filter.swift in Sources */,
 				BE682F7A288C96630096346F /* FluxAction.swift in Sources */,
@@ -729,7 +725,6 @@
 				BE90019528B0F24A000B7C0E /* PacketState.swift in Sources */,
 				BE90019728B0F257000B7C0E /* PacketStore.swift in Sources */,
 				BEE7190A28BC172C000F147B /* PacketTableRow.swift in Sources */,
-				BEE7190C28BC1849000F147B /* PacketTableRowUIMapper.swift in Sources */,
 				BE59915828CD1780008BA5CF /* Peaker.swift in Sources */,
 				BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */,
 				BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */,
@@ -747,6 +742,7 @@
 				BE44C45D28C4E25E00791897 /* SelectProjectUseCaseInterface.swift in Sources */,
 				BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */,
 				BEEE4D1F28B42AB700402219 /* Status.swift in Sources */,
+				BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */,
 				BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */,
 				BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,

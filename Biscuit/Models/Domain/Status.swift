@@ -25,9 +25,9 @@ extension ClientStatus {
     func color() -> Color {
         switch self {
             case .active:
-                return Colors.Status.activeStatus
+                return Colors.DeviceStatus.activeStatus
             case .offline:
-                return Colors.Status.offlineStatus
+                return Colors.DeviceStatus.offlineStatus
         }
     }
 }

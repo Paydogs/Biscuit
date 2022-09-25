@@ -15,10 +15,16 @@ struct LogView: View {
 
     var body: some View {
         Table(domain.packets) {
-            TableColumn("Status", value: \.status)
-                .width(max: 50)
-            TableColumn("Method", value: \.method)
-                .width(max: 50)
+            TableColumn("Status") { item in
+                Text(item.status)
+                    .foregroundColor(item.statusColor)
+            }
+            .width(min: 40, max: 50)
+            TableColumn("Method") { item in
+                Text(item.method)
+                    .foregroundColor(item.methodColor)
+            }
+            .width(min: 40, max: 50)
             TableColumn("Url", value: \.url)
             TableColumn("Date", value: \.date)
         }

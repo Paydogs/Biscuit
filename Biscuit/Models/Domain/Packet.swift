@@ -12,7 +12,7 @@ struct Packet: Identifiable {
     var received: Double
 
     let url: String
-    let statusCode: String
+    let statusCode: StatusCode
     let startDate: Date
     let endDate: Date
 
