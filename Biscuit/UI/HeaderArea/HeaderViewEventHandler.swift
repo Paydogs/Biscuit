@@ -13,19 +13,13 @@ protocol HeaderViewEventHandling {
 struct HeaderViewEventHandler {
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
-    private let selectProjectUseCase: SelectProjectUseCaseInterface
-    private let selectDeviceUseCase: SelectDeviceUseCaseInterface
     private let updateFilterUseCase: UpdateFilterUseCaseInterface
 
     init(appState: Observed<AppState>,
          packetState: Observed<PacketState>,
-         selectProjectUseCase: SelectProjectUseCaseInterface,
-         selectDeviceUseCase: SelectDeviceUseCaseInterface,
          updateFilterUseCase: UpdateFilterUseCaseInterface) {
         self.appState = appState
         self.packetState = packetState
-        self.selectProjectUseCase = selectProjectUseCase
-        self.selectDeviceUseCase = selectDeviceUseCase
         self.updateFilterUseCase = updateFilterUseCase
     }
 }

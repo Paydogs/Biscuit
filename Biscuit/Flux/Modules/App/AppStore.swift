@@ -18,10 +18,8 @@ class AppStore: BaseStore<AppState> {
                 handleDidReceivedErrors(errors: error)
             case .didReceivedInvalidPacket(let packet):
                 handleDidReceivedInvalidPacket(packet: packet)
-            case .didSelectProject(let project):
-                handleDidSelectProject(project: project)
-            case .didSelectDevice(let device):
-                handleDidSelectDevice(device: device)
+            case .didSelectPackets(let packets):
+                handleDidSelectPackets(packets: packets)
             case .didModifiedFilter(let filter):
                 handleDidModifiedFilter(filter: filter)
         }
@@ -57,18 +55,10 @@ private extension AppStore {
         }
     }
 
-    func handleDidSelectProject(project: Project?) {
+    func handleDidSelectPackets(packets: [Packet]) {
         update { state in
-            print("[APPSTORE MANIP] project selected: \(String(describing: project))")
-            state.selectedProject = project
-            state.selectedDevice = project?.devices.first
-        }
-    }
-
-    func handleDidSelectDevice(device: Device?) {
-        update { state in
-            print("[APPSTORE MANIP] device selected: \(String(describing: device))")
-            state.selectedDevice = device
+            print("[APPSTORE MANIP] packets selected: \(String(describing: packets))")
+            state.selectedPackets = packets
         }
     }
 

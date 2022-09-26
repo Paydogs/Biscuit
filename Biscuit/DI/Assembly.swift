@@ -30,8 +30,7 @@ extension BiscuitContainer {
     static let postInvalidPacketUseCase = Factory { PostInvalidPacketUseCase() as PostInvalidPacketUseCaseInterface }
     static let clientConnectedUseCase = Factory { ClientConnectedUseCase() as ClientConnectedUseCaseInterface }
     static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
-    static let selectProjectUseCase = Factory { SelectProjectUseCase() as SelectProjectUseCaseInterface }
-    static let selectDeviceUseCase = Factory { SelectDeviceUseCase() as SelectDeviceUseCaseInterface }
+    static let selectPacketsUseCase = Factory { SelectPacketsUseCase() as SelectPacketsUseCaseInterface }
     static let updateFilterUseCase = Factory { UpdateFilterUseCase() as UpdateFilterUseCaseInterface }
 }
 
@@ -47,10 +46,10 @@ extension BiscuitContainer {
 extension BiscuitContainer {
     static let headerViewEventHandler = Factory { HeaderViewEventHandler(appState: BiscuitContainer.appStore.resolve().observed,
                                                                          packetState: BiscuitContainer.packetStore.resolve().observed,
-                                                                         selectProjectUseCase: BiscuitContainer.selectProjectUseCase.resolve(),
-                                                                         selectDeviceUseCase: BiscuitContainer.selectDeviceUseCase.resolve(),
                                                                          updateFilterUseCase: BiscuitContainer.updateFilterUseCase.resolve()) }
-    static let logViewEventHandler = Factory { LogViewEventHandler()}
+    static let logViewEventHandler = Factory { LogViewEventHandler(appState: BiscuitContainer.appStore.resolve().observed,
+                                                                   packetState: BiscuitContainer.packetStore.resolve().observed,
+                                                                   selectPacketsUseCase: BiscuitContainer.selectPacketsUseCase.resolve()) }
 }
 
 // MARK: - Controllers

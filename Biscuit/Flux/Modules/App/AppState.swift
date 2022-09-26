@@ -11,6 +11,7 @@ struct AppState: FluxState {
     var invalidPackets: [InvalidPacket]
     var selectedProject: Project?
     var selectedDevice: Device?
+    var selectedPackets: [Packet]
     var filter: Filter
 }
 
@@ -19,6 +20,7 @@ extension AppState: DefaultInitializer {
         return .init(connectedClients: [],
                      errors: [],
                      invalidPackets: [],
+                     selectedPackets: [],
                      filter: Filter())
     }
 }

@@ -41,7 +41,8 @@ class Peaker {
         appStore.observed.$state
             .removeDuplicates()
             .sink { (value: AppState) in
-            print("[Peaker] Active connections: \(value.connectedClients)")
+                print("[Peaker] Active connections: \(value.connectedClients)")
+                print("[Peaker] Selected packets: \(value.selectedPackets.count)")
         }
         .store(in: &subscriptions)
     }
