@@ -32,5 +32,4 @@ extension LogViewEventHandler: LogViewEventHandling {
         print("packets to select: \(identifiers)")
         selectPacketsUseCase.execute(packets: packets)
     }
-
 }

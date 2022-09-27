@@ -36,3 +36,10 @@ struct HeaderView: View {
         .background(Colors.Background.panelBackground)
     }
 }
+
+struct HeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        HeaderView(domain: createDummyDomain(),
+                   eventHandler: DummyHandler())
+    }
+}

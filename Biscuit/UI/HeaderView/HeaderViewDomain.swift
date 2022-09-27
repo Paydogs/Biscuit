@@ -8,8 +8,8 @@
 import Combine
 
 class HeaderViewDomain: ObservableObject {
-    @Published var projectTitle: String = ""
+    @Published var projectTitle: String = "Project"
     @Published var projectList: [StandardPicker.PickerItem] = []
-    @Published var deviceTitle: String = ""
+    @Published var deviceTitle: String = "Device"
     @Published var deviceList: [StandardPicker.PickerItem] = []
 }

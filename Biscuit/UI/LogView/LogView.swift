@@ -34,3 +34,10 @@ struct LogView: View {
         }
     }
 }
+
+struct LogView_Previews: PreviewProvider {
+    static var previews: some View {
+        LogView(domain: createDummyDomain(),
+                eventHandler: DummyHandler())
+    }
+}

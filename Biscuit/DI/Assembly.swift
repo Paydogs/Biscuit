@@ -38,8 +38,10 @@ extension BiscuitContainer {
 extension BiscuitContainer {
     static let headerViewDataProvider = Factory { HeaderViewDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
                                                                          packetState: BiscuitContainer.packetStore.resolve().observed) }
-    static let logViewEventProvider = Factory { LogViewDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
+    static let logViewDataProvider = Factory { LogViewDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
                                                                     packetState: BiscuitContainer.packetStore.resolve().observed) }
+    static let packetViewDataProvider = Factory { PacketViewDataProvider(appState: BiscuitContainer.appStore.resolve().observed,
+                                                                         packetState: BiscuitContainer.packetStore.resolve().observed) }
 }
 
 // MARK: - EventHandlers
@@ -50,6 +52,8 @@ extension BiscuitContainer {
     static let logViewEventHandler = Factory { LogViewEventHandler(appState: BiscuitContainer.appStore.resolve().observed,
                                                                    packetState: BiscuitContainer.packetStore.resolve().observed,
                                                                    selectPacketsUseCase: BiscuitContainer.selectPacketsUseCase.resolve()) }
+    static let packetViewEventHandler = Factory { PacketViewEventHandler(appState: BiscuitContainer.appStore.resolve().observed,
+                                                                         packetState: BiscuitContainer.packetStore.resolve().observed) }
 }
 
 // MARK: - Controllers
@@ -57,7 +61,11 @@ extension BiscuitContainer {
     static let headerViewController = Factory { HeaderViewController(dataProvider: BiscuitContainer.headerViewDataProvider.resolve(),
                                                                      eventHandler: BiscuitContainer.headerViewEventHandler.resolve()) }
 
-    static let logViewController = Factory { LogViewController(dataProvider: BiscuitContainer.logViewEventProvider.resolve(),
+    static let logViewController = Factory { LogViewController(dataProvider: BiscuitContainer.logViewDataProvider.resolve(),
                                                                eventHandler: BiscuitContainer.logViewEventHandler.resolve()) }
+
+    static let packetViewController = Factory { PacketViewController(dataProvider: BiscuitContainer.packetViewDataProvider.resolve(),
+                                                                     eventHandler: BiscuitContainer.packetViewEventHandler.resolve()) }
+
 }
 
