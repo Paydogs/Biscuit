@@ -51,7 +51,29 @@ private extension PacketParser {
     func mapResponse(from packet: BagelPacket) -> Response {
         guard let source = packet.requestInfo else { return Response.defaultValue() }
         return .init(headers: source.responseHeaders ?? [:],
-                     body: nil,
+                     body: parseEncodedBodyToDictionary(base64String: source.responseData),
+                     prettyBody: parseEncodedBodyToFormattedString(base64String: source.responseData),
                      rawBody: source.responseData)
+    }
+
+    func parseEncodedBodyToDictionary(base64String: String?) -> [String:AnyObject]? {
+        guard let data = base64String?.base64Data,
+              let text = String(data: data, encoding: .utf8) else { return nil }
+
+        let clean = text.replacingOccurrences(of: "\n", with: "")
+
+        guard let data = clean.data(using: .utf8),
+              let dictionary = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:AnyObject] else { return nil }
+
+        return dictionary
+    }
+
+    func parseEncodedBodyToFormattedString(base64String: String?) -> NSString? {
+        guard let data = base64String?.base64Data,
+              let object = try? JSONSerialization.jsonObject(with: data, options: []),
+              let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
+              let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
+
+        return prettyPrintedString
     }
 }

@@ -7,16 +7,23 @@
 
 import Foundation
 
-struct Response: Equatable {
+struct Response {
     let headers: [String: String]
-    var body: String?
+    var body: [String: AnyObject]?
+    var prettyBody: NSString?
     var rawBody: String?
+}
+
+extension Response: Equatable {
+    static func == (lhs: Response, rhs: Response) -> Bool {
+        return lhs.headers == rhs.headers && lhs.prettyBody == rhs.prettyBody && lhs.rawBody == rhs.rawBody
+    }
 }
 
 extension Response {
     static func defaultValue() -> Response {
         return .init(headers: [:],
-                     body: nil,
+                     prettyBody: nil,
                      rawBody: nil)
     }
 }
