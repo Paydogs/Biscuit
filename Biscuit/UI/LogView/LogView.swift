@@ -30,6 +30,10 @@ struct LogView: View {
             TableColumn("Date", value: \.date)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+        .contextMenu {
+            Button("Export", action: { print("Fuck yeah, exporting: \(Array(selectedPacket))") })
+                .disabled(selectedPacket.isEmpty)
+        }
         .onChange(of: selectedPacket) { selected in
             eventHandler.selectPackets(identifiers: Array(selected))
         }
