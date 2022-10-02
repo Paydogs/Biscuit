@@ -29,6 +29,7 @@ struct LogView: View {
             TableColumn("Url", value: \.url)
             TableColumn("Date", value: \.date)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .onChange(of: selectedPacket) { selected in
             eventHandler.selectPackets(identifiers: Array(selected))
         }

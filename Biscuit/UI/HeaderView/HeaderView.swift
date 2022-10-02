@@ -33,7 +33,7 @@ struct HeaderView: View {
 
             Spacer()
         }
-        .background(Colors.Background.panelBackground)
+        .background(Colors.Background.panelBackground.opacity(0.2))
     }
 }
 

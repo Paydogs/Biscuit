@@ -16,19 +16,21 @@ struct MainWindow: View {
     @Injected(BiscuitContainer.packetViewController) var packetViewController
 
     var body: some View {
-        VStack {
-            HeaderView(domain: headerViewController.domain,
-                       eventHandler: headerViewController.eventHandler)
-            HSplitView {
-                VStack {
-                    LogView(domain: logViewController.domain,
-                            eventHandler: logViewController.eventHandler)
+        HSplitView {
+            VStack {
+                HeaderView(domain: headerViewController.domain,
+                           eventHandler: headerViewController.eventHandler)
+                .background(BlurView(material: .headerView))
+                    VStack {
+                        LogView(domain: logViewController.domain,
+                                eventHandler: logViewController.eventHandler)
+                    }
+                    .layoutPriority(1)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-                PacketView(domain: packetViewController.domain,
-                           eventHandler: packetViewController.eventHandler)
-            }
-            .frame(minWidth: 800, minHeight: 480)
+            PacketView(domain: packetViewController.domain,
+                       eventHandler: packetViewController.eventHandler)
+            .background(BlurView(material: .sidebar))
         }
+        .frame(minWidth: 800, minHeight: 480)
     }
 }

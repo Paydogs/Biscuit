@@ -12,31 +12,36 @@ import Factory
 struct PacketView: View {
     @ObservedObject var domain: PacketViewDomain
     var eventHandler: PacketViewEventHandling
+    let tabs: [Tab] = [.overview, .request, .response]
 
-    @State private var selectedTab: String = ""
-
+    @State private var selectedTab: Tab = .overview
     var body: some View {
         VStack {
             Picker("", selection: $selectedTab) {
-                Text("Response")
-                Text("Request")
+                ForEach(tabs, id:\.self) { tab in
+                    Text(tab.rawValue)
+                }
             }
             .pickerStyle(.segmented)
             .labelsHidden()
-            .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-            .frame(height: 25, alignment: .top)
-            Picker("", selection: $selectedTab) {
-                Text("Body")
-                Text("Headers")
-                Text("Parameters")
+            .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
+            ZStack {
+                switch selectedTab {
+                    case .overview: Overview()
+                    case .request: RequestView()
+                    case .response: ResponseView()
+                }
             }
-            .pickerStyle(.segmented)
-            .labelsHidden()
-            .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-            .frame(height: 25, alignment: .top)
-            Spacer()
         }
-        .frame(idealWidth: 300)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+    }
+}
+
+extension PacketView {
+    enum Tab: String {
+        case overview = "Overview"
+        case request = "Request"
+        case response = "Response"
     }
 }
 
