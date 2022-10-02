@@ -27,6 +27,10 @@ class PacketViewDataProvider {
     }
 
     func subscribe() {
-
+        appState.$state.map(\.selectedPackets.first)
+            .sink(receiveValue: { [weak self] value in
+                self?.domain.selectedPacket = value
+            })
+            .store(in: &subscriptions)
     }
 }
