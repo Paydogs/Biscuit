@@ -27,7 +27,7 @@ struct PacketView: View {
             .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packet: domain.selectedPacket)
+                    case .overview: Overview(packetBody: String(domain.selectedPacket?.response.prettyBody ?? ""))
                     case .request: RequestView()
                     case .response: ResponseView()
                 }

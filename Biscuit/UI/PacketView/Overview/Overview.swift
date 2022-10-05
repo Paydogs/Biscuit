@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct Overview: View {
-    var packet: Packet?
+    var packetBody: String?
     var body: some View {
-        VStack {
-            Text(String(packet?.response.prettyBody ?? ""))
-            Spacer()
+        ScrollView([.vertical]) {
+            Text(String(packetBody ?? ""))
+                .textSelection(EnabledTextSelectability.enabled)
+                .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
     }
@@ -20,6 +21,6 @@ struct Overview: View {
 
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
-        Overview(packet: nil)
+        Overview(packetBody: "Some text")
     }
 }
