@@ -7,15 +7,24 @@
 
 import SwiftUI
 
-struct Overview: View {
-    var packetBody: String?
-    var body: some View {
-        ScrollView([.vertical]) {
-            Text(String(packetBody ?? ""))
-                .textSelection(EnabledTextSelectability.enabled)
-                .frame(maxWidth: .infinity)
+extension NSTextView {
+    open override var frame: CGRect {
+        didSet {
+            backgroundColor = .clear
+            drawsBackground = true
         }
-        .frame(maxWidth: .infinity)
+
+    }
+}
+
+struct Overview: View {
+    var packetBody: String
+
+    var body: some View {
+        TextEditor(text: .constant(packetBody))
+            .textSelection(EnabledTextSelectability.enabled)
+            .textFieldStyle(PlainTextFieldStyle())
+            .padding()
     }
 }
 

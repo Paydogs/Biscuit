@@ -57,7 +57,7 @@ private extension AppStore {
 
     func handleDidSelectPackets(packets: [Packet]) {
         update { state in
-            print("[APPSTORE MANIP] packets selected: \(String(describing: packets))")
+            print("[APPSTORE MANIP] packets selected: \(packets.map(\.bagelPacketId))")
             state.selectedPackets = packets
         }
     }
