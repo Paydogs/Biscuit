@@ -10,6 +10,7 @@ import SwiftUI
 import Factory
 
 struct LogView: View {
+    @EnvironmentObject var appController: AppController
     @ObservedObject var domain: LogViewDomain
     var eventHandler: LogViewEventHandling
     @State private var selectedPacket = Set<PacketTableRow.ID>()
@@ -31,8 +32,10 @@ struct LogView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .contextMenu {
-            Button("Export", action: { print("Fuck yeah, exporting: \(Array(selectedPacket))") })
-                .disabled(selectedPacket.isEmpty)
+            Button("Export", action: {
+                appController.exportPackets()
+            })
+            .disabled(selectedPacket.isEmpty)
         }
         .onChange(of: selectedPacket) { selected in
             eventHandler.selectPackets(identifiers: Array(selected))

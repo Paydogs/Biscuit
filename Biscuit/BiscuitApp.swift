@@ -35,5 +35,13 @@ struct BiscuitApp: App {
                     print("[BiscuitApp] unknown default")
             }
         })
+        .commands {
+            CommandGroup(after: .newItem) {
+                Divider()
+                Button(action: { appController.exportPackets() }) {
+                    Text("Export selected")
+                }
+            }
+        }
     }
 }
