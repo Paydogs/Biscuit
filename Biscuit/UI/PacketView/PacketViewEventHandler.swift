@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import AppKit
 
 protocol PacketViewEventHandling {
-
+    func copyBodyToClipboard(packet: Packet?)
 }
 
 struct PacketViewEventHandler {
@@ -23,4 +24,11 @@ struct PacketViewEventHandler {
 }
 
 extension PacketViewEventHandler: PacketViewEventHandling {
+    func copyBodyToClipboard(packet: Packet?) {
+        if let prettyBody = packet?.response.prettyBody {
+            let pasteboard = NSPasteboard.general
+            pasteboard.declareTypes([.string], owner: nil)
+            pasteboard.setString(String(prettyBody), forType: .string)
+        }
+    }
 }

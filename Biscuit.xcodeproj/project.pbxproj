@@ -100,6 +100,7 @@
 		BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */; };
 		BE88A63528E0C15800406E79 /* SelectPacketsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE88A63428E0C15800406E79 /* SelectPacketsUseCase.swift */; };
 		BE88A63728E0C16A00406E79 /* SelectPacketsUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE88A63628E0C16A00406E79 /* SelectPacketsUseCaseInterface.swift */; };
+		BE6CD46C28F227960064C777 /* SmallActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CD46B28F227960064C777 /* SmallActionButton.swift */; };
 		BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44B28C40BFB00791897 /* StandardPicker.swift */; };
 		BEEE4D1F28B42AB700402219 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE4D1E28B42AB700402219 /* Status.swift */; };
 		BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE88A63028DFD39800406E79 /* StatusCode.swift */; };
@@ -217,6 +218,7 @@
 		BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleButton.swift; sourceTree = "<group>"; };
 		BE88A63428E0C15800406E79 /* SelectPacketsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPacketsUseCase.swift; sourceTree = "<group>"; };
 		BE88A63628E0C16A00406E79 /* SelectPacketsUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPacketsUseCaseInterface.swift; sourceTree = "<group>"; };
+		BE6CD46B28F227960064C777 /* SmallActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallActionButton.swift; sourceTree = "<group>"; };
 		BE44C44B28C40BFB00791897 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		BEEE4D1E28B42AB700402219 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BE88A63028DFD39800406E79 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 			children = (
 				BE5443D428E911AB00DD9DCB /* BlurView.swift */,
 				BE9001BF28B2F8CD000B7C0E /* SampleButton.swift */,
+				BE6CD46B28F227960064C777 /* SmallActionButton.swift */,
 				BE44C44B28C40BFB00791897 /* StandardPicker.swift */,
 			);
 			path = Components;
@@ -836,6 +839,7 @@
 				BE9001C028B2F8CD000B7C0E /* SampleButton.swift in Sources */,
 				BE88A63528E0C15800406E79 /* SelectPacketsUseCase.swift in Sources */,
 				BE88A63728E0C16A00406E79 /* SelectPacketsUseCaseInterface.swift in Sources */,
+				BE6CD46C28F227960064C777 /* SmallActionButton.swift in Sources */,
 				BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */,
 				BEEE4D1F28B42AB700402219 /* Status.swift in Sources */,
 				BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */,

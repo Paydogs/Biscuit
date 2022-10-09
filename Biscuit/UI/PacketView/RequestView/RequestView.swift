@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RequestView: View {
     let tabs: [Tab] = [.body, .headers, .parameters]
-
+    
     @State private var selectedTab: Tab = .body
 
     var body: some View {

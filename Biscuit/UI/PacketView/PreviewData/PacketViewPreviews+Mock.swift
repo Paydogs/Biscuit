@@ -19,7 +19,7 @@ extension PacketView_Previews {
                      response: Response.defaultValue())
     }
     struct DummyHandler: PacketViewEventHandling {
-
+        func copyBodyToClipboard(packet: Packet?) { }
     }
 
     static func createDummyDomain() -> PacketViewDomain {

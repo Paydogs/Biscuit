@@ -12,7 +12,6 @@ import Factory
 struct PacketView: View {
     @ObservedObject var domain: PacketViewDomain
     var eventHandler: PacketViewEventHandling
-    let tabs: [Tab] = [.overview, .request, .response]
 
     @State private var selectedTab: Tab = .overview
     var body: some View {
@@ -25,12 +24,20 @@ struct PacketView: View {
             .pickerStyle(.segmented)
             .labelsHidden()
             .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
+
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packetBody: String(domain.selectedPacket?.response.prettyBody ?? "Nothing selected"))
+                    case .overview: Overview(packetBody: String(domain.selectedPacket?.response.prettyBody ?? "Nothing to show"))
                     case .request: RequestView()
                     case .response: ResponseView()
                 }
+            }
+
+            HStack {
+                SmallActionButton(data: copyBodyToClipboardButtonData,
+                                  event: SmallActionButton.Event(action: { eventHandler.copyBodyToClipboard(packet: domain.selectedPacket) }))
+                Spacer()
+                .frame(alignment: .leading)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
@@ -42,6 +49,15 @@ extension PacketView {
         case overview = "Overview"
         case request = "Request"
         case response = "Response"
+    }
+
+    var tabs: [Tab] {
+        [.overview, .request, .response]
+    }
+
+    var copyBodyToClipboardButtonData: SmallActionButton.Data {
+        SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+                               help: "Copy body to Clipboard")
     }
 }
 

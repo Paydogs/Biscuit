@@ -27,7 +27,7 @@ struct MainWindow: View {
                     }
                     .layoutPriority(1)
                 }
-            PacketView(domain: packetViewController.domain,
+            PacketView(domain: packetViewController.dataProvider.domain,
                        eventHandler: packetViewController.eventHandler)
             .background(BlurView(material: .sidebar))
         }

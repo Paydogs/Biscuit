@@ -22,7 +22,7 @@ class PacketViewDataProvider {
         self.appState = appState
         self.packetState = packetState
 
-        domain =  PacketViewDomain()
+        domain = PacketViewDomain()
         subscribe()
     }
 

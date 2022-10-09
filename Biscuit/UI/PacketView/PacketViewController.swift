@@ -10,8 +10,6 @@ import Factory
 import Combine
 
 class PacketViewController {
-    @ObservedObject var domain: PacketViewDomain
-
     var dataProvider: PacketViewDataProvider
     var eventHandler: PacketViewEventHandling
 
@@ -19,6 +17,5 @@ class PacketViewController {
          eventHandler: PacketViewEventHandling) {
         self.dataProvider = dataProvider
         self.eventHandler = eventHandler
-        domain = dataProvider.domain
     }
 }
