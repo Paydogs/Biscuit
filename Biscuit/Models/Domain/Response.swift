@@ -9,7 +9,7 @@ import Foundation
 
 struct Response {
     let headers: [String: String]
-    var body: [String: AnyObject]?
+    var body: [String: Any]?
     var prettyBody: NSString?
     var rawBody: String?
 }

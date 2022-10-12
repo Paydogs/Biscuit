@@ -11,17 +11,17 @@ import Factory
 struct BiscuitCore {
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
 
-    private let peaker: Peaker
+    private let nosy: Nosy
 
     init() {
         print("[BiscuitCore] init")
-        self.peaker = Peaker()
+        self.nosy = Nosy()
     }
 
     func startup() {
         print("[BiscuitCore] startup")
         registerStores()
-        peaker.startPeaking()
+        nosy.startPeaking()
     }
 }
 

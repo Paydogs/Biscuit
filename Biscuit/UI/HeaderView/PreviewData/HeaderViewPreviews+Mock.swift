@@ -10,7 +10,6 @@ import Foundation
 extension HeaderView_Previews {
     struct DummyHandler: HeaderViewEventHandling {
         func projectSelected(identifier: String) { }
-
         func deviceSelected(identifier: String) { }
     }
 

@@ -27,7 +27,7 @@ struct PacketView: View {
 
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packetBody: String(domain.selectedPacket?.response.prettyBody ?? "Nothing to show"))
+                    case .overview: Overview(packetBody: String(domain.selectedPacket?.overviewDescription ?? "Nothing to show"))
                     case .request: RequestView()
                     case .response: ResponseView()
                 }
@@ -52,7 +52,7 @@ extension PacketView {
     }
 
     var tabs: [Tab] {
-        [.overview, .request, .response]
+        [.overview, .response, .request]
     }
 
     var copyBodyToClipboardButtonData: SmallActionButton.Data {

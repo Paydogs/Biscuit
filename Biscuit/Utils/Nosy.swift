@@ -1,5 +1,5 @@
 //
-//  Peaker.swift
+//  Nosy.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 09. 10..
@@ -8,31 +8,31 @@
 import Combine
 import Factory
 
-class Peaker {
+class Nosy {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
 
     var subscriptions: Set<AnyCancellable> = []
 
     init() {
-        print("[Peaker] initing")
+        print("[Nosy] initing")
     }
 
     deinit {
-        print("[Peaker] deiniting")
+        print("[Nosy] deiniting")
     }
 
     func startPeaking() {
         packetStore.observed.$state
             .removeDuplicates()
             .sink { (state: PacketState) in
-            print("     [Peaker] PacketState changed")
-            print("     [Peaker] Project: \(state.projects.count)")
+            print("     [Nosy] PacketState changed")
+            print("     [Nosy] Project: \(state.projects.count)")
             for project in state.projects {
-                print("     [Peaker] Project: \(project.descriptor.name), devices: \(project.devices.count)")
+                print("     [Nosy] Project: \(project.descriptor.name), devices: \(project.devices.count)")
                 for device in project.devices {
-                    print("     [Peaker] Device: \(device.descriptor.description), packets: \(device.packets.count)")
-                    device.packets.forEach { print("     [Peaker] \($0.bagelPacketId) \($0.url)") }
+                    print("     [Nosy] Device: \(device.descriptor.description), packets: \(device.packets.count)")
+                    device.packets.forEach { print("     [Nosy] \($0.bagelPacketId) \($0.url)") }
                 }
             }
         }
@@ -41,8 +41,8 @@ class Peaker {
         appStore.observed.$state
             .removeDuplicates()
             .sink { (value: AppState) in
-                print("[Peaker] Active connections: \(value.connectedClients)")
-                print("[Peaker] Selected packets: \(value.selectedPackets.count)")
+                print("[Nosy] Active connections: \(value.connectedClients)")
+                print("[Nosy] Selected packets: \(value.selectedPackets.count)")
         }
         .store(in: &subscriptions)
     }
