@@ -8,6 +8,7 @@
 import Combine
 import SwiftUI
 import Factory
+import Highlight
 
 struct PacketView: View {
     @ObservedObject var domain: PacketViewDomain
@@ -25,9 +26,11 @@ struct PacketView: View {
             .labelsHidden()
             .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
 
+            let body = JsonSyntaxHighlightProvider.init(theme: BiscuitJsonSyntaxHighlightingTheme()).highlight(String(domain.selectedPacket?.response.prettyBody ?? "Nothing to show"), as: .json)
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packetBody: String(domain.selectedPacket?.overviewDescription ?? "Nothing to show"))
+                    case .overview: Overview(packetBody: String(domain.selectedPacket?.overviewDescription ?? "Nothing to show"),
+                                             packetBody2: body)
                     case .request: RequestView()
                     case .response: ResponseView()
                 }

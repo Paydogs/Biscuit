@@ -19,17 +19,17 @@ extension NSTextView {
 
 struct Overview: View {
     var packetBody: String
+    var packetBody2: NSAttributedString
 
     var body: some View {
-        TextEditor(text: .constant(packetBody))
-            .textSelection(EnabledTextSelectability.enabled)
-            .textFieldStyle(PlainTextFieldStyle())
+        AttributedTextView(attributedText: packetBody2)
             .padding()
     }
 }
 
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
-        Overview(packetBody: "Some text")
+        Overview(packetBody: "Some text",
+                 packetBody2: NSAttributedString(string: "Some text"))
     }
 }

@@ -29,6 +29,15 @@ enum Colors {
         public static let put = Color(biscuitName: "RequestMethodPut")
         public static let defaultColor = Color(biscuitName: "RequestMethodDefault")
     }
+    enum JSON {
+        public static let memberKeyColor = Color(biscuitName: "MemberKeyColor")
+        public static let whitespaceColor = Color(biscuitName: "WhitespaceColor")
+        public static let operatorColor = Color(biscuitName: "OperatorColor")
+        public static let numericValueColor = Color(biscuitName: "NumericValueColor")
+        public static let stringValueColor = Color(biscuitName: "StringValueColor")
+        public static let literalColor = Color(biscuitName: "LiteralColor")
+        public static let unknownColor = Color(biscuitName: "UnknownColor")
+    }
 }
 
 extension Color {
