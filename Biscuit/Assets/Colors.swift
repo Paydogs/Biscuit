@@ -38,10 +38,20 @@ enum Colors {
         public static let literalColor = Color(biscuitName: "LiteralColor")
         public static let unknownColor = Color(biscuitName: "UnknownColor")
     }
+    enum Overview {
+        public static let category = Color(biscuitName: "Category")
+        public static let headerKey = Color(biscuitName: "HeaderKey")
+        public static let headerValue = Color(biscuitName: "HeaderValue")
+        public static let requestMethod = Color(biscuitName: "RequestMethod")
+    }
 }
 
 extension Color {
     init(biscuitName: String) {
         self = Color.init(biscuitName, bundle: Bundle(identifier: "Colors"))
+    }
+
+    var nsColor: NSColor {
+        return NSColor(self)
     }
 }

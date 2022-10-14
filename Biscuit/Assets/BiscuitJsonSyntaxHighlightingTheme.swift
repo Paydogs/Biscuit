@@ -7,7 +7,6 @@
 
 import CoreGraphics
 import Highlight
-import AppKit
 
 public struct BiscuitJsonSyntaxHighlightingTheme: JsonSyntaxHighlightingTheme {
 
@@ -20,29 +19,29 @@ public struct BiscuitJsonSyntaxHighlightingTheme: JsonSyntaxHighlightingTheme {
         unknownFont = .monospacedSystemFont(ofSize: size, weight: .medium)
     }
 
-    public var memberKeyColor: Color = NSColor(Colors.JSON.memberKeyColor)
+    public var memberKeyColor: Color = Colors.JSON.memberKeyColor.nsColor
 
-    public var whitespaceColor: Color = NSColor(Colors.JSON.whitespaceColor)
+    public var whitespaceColor: Color = Colors.JSON.whitespaceColor.nsColor
 
     public var whitespaceFont: Font
 
-    public var operatorColor: Color = NSColor(Colors.JSON.operatorColor)
+    public var operatorColor: Color = Colors.JSON.operatorColor.nsColor
 
     public var operatorFont: Font
 
-    public var numericValueColor: Color = NSColor(Colors.JSON.numericValueColor)
+    public var numericValueColor: Color = Colors.JSON.numericValueColor.nsColor
 
     public var numericValueFont: Font
 
-    public var stringValueColor: Color = NSColor(Colors.JSON.stringValueColor)
+    public var stringValueColor: Color = Colors.JSON.stringValueColor.nsColor
 
     public var stringValueFont: Font
 
-    public var literalColor: Color = NSColor(Colors.JSON.literalColor)
+    public var literalColor: Color = Colors.JSON.literalColor.nsColor
 
     public var literalFont: Font
 
-    public var unknownColor: Color = NSColor(Colors.JSON.unknownColor)
+    public var unknownColor: Color = Colors.JSON.unknownColor.nsColor
 
     public var unknownFont: Font
 }

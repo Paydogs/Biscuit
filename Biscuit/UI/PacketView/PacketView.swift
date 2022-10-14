@@ -27,10 +27,12 @@ struct PacketView: View {
             .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
 
             let body = JsonSyntaxHighlightProvider.init(theme: BiscuitJsonSyntaxHighlightingTheme()).highlight(String(domain.selectedPacket?.response.prettyBody ?? "Nothing to show"), as: .json)
+            let body2 = domain.selectedPacket?.colorizedOverviewDescription ?? NSAttributedString(string: "Nothing to show")
+
             ZStack {
                 switch selectedTab {
                     case .overview: Overview(packetBody: String(domain.selectedPacket?.overviewDescription ?? "Nothing to show"),
-                                             packetBody2: body)
+                                             packetBody2: body2)
                     case .request: RequestView()
                     case .response: ResponseView()
                 }
