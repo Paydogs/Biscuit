@@ -43,8 +43,11 @@
 		BEF7BD8D28A847D1002E825A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF7BD8C28A847D1002E825A /* Colors.xcassets */; };
 		BE682F93288CBADF0096346F /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F92288CBADF0096346F /* Connector.swift */; };
 		BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8FD288F48C40042F376 /* Data+Utils.swift */; };
-		BEC2C47E28FB638900679083 /* DefaultColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEC2C47D28FB638900679083 /* DefaultColors.plist */; };
+		BEC2C47E28FB638900679083 /* DefaultDarkColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEC2C47D28FB638900679083 /* DefaultDarkColors.plist */; };
+		BEEBDD1128FCEBA8001BC0E6 /* DefaultDarkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEBDD0F28FCEBA8001BC0E6 /* DefaultDarkColors.swift */; };
 		BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */; };
+		BEEBDD0C28FCE651001BC0E6 /* DefaultLightColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEEBDD0B28FCE651001BC0E6 /* DefaultLightColors.plist */; };
+		BEEBDD1228FCEBA8001BC0E6 /* DefaultLightColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEBDD1028FCEBA8001BC0E6 /* DefaultLightColors.swift */; };
 		BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */; };
 		BE9001A328B0F3FA000B7C0E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A228B0F3FA000B7C0E /* Device.swift */; };
 		BE27F906288F52080042F376 /* DeviceDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F905288F52080042F376 /* DeviceDescriptor.swift */; };
@@ -173,8 +176,11 @@
 		BEF7BD8C28A847D1002E825A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BE682F92288CBADF0096346F /* Connector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		BE27F8FD288F48C40042F376 /* Data+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Utils.swift"; sourceTree = "<group>"; };
-		BEC2C47D28FB638900679083 /* DefaultColors.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultColors.plist; sourceTree = "<group>"; };
+		BEC2C47D28FB638900679083 /* DefaultDarkColors.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultDarkColors.plist; sourceTree = "<group>"; };
+		BEEBDD0F28FCEBA8001BC0E6 /* DefaultDarkColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDarkColors.swift; sourceTree = "<group>"; };
 		BE6F8124289DD99B00D28F49 /* DefaultInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultInitializer.swift; sourceTree = "<group>"; };
+		BEEBDD0B28FCE651001BC0E6 /* DefaultLightColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultLightColors.plist; sourceTree = "<group>"; };
+		BEEBDD1028FCEBA8001BC0E6 /* DefaultLightColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLightColors.swift; sourceTree = "<group>"; };
 		BE9001B128B159D7000B7C0E /* DescriptionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionUtils.swift; sourceTree = "<group>"; };
 		BE9001A228B0F3FA000B7C0E /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BE27F905288F52080042F376 /* DeviceDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDescriptor.swift; sourceTree = "<group>"; };
@@ -494,7 +500,10 @@
 				BEC9507C28F8D17800809C05 /* BiscuitJsonSyntaxHighlightingTheme.swift */,
 				BEF7BD8A28A847B8002E825A /* Colors.swift */,
 				BEF7BD8C28A847D1002E825A /* Colors.xcassets */,
-				BEC2C47D28FB638900679083 /* DefaultColors.plist */,
+				BEC2C47D28FB638900679083 /* DefaultDarkColors.plist */,
+				BEEBDD0F28FCEBA8001BC0E6 /* DefaultDarkColors.swift */,
+				BEEBDD0B28FCE651001BC0E6 /* DefaultLightColors.plist */,
+				BEEBDD1028FCEBA8001BC0E6 /* DefaultLightColors.swift */,
 				BE6CD46D28F2CFB10064C777 /* DummyObjectLibrary.swift */,
 				BED81E1E28F8E7D3001E8E50 /* Fonts.swift */,
 			);
@@ -665,6 +674,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BEEBDD0D28FCE7F4001BC0E6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		BE32D63228A1E0E500EADEF7 /* BiscuitTests */ = {
 			isa = PBXNativeTarget;
@@ -692,9 +711,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE682F6E288C31020096346F /* Build configuration list for PBXNativeTarget "Biscuit" */;
 			buildPhases = (
+				BEEBDD0D28FCE7F4001BC0E6 /* Headers */,
 				BE682F5B288C31010096346F /* Sources */,
 				BE682F5C288C31010096346F /* Frameworks */,
 				BE682F5D288C31010096346F /* Resources */,
+				BEEBDD0E28FCE86B001BC0E6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -766,12 +787,33 @@
 			files = (
 				BE682F67288C31020096346F /* Assets.xcassets in Resources */,
 				BEF7BD8D28A847D1002E825A /* Colors.xcassets in Resources */,
-				BEC2C47E28FB638900679083 /* DefaultColors.plist in Resources */,
+				BEC2C47E28FB638900679083 /* DefaultDarkColors.plist in Resources */,
+				BEEBDD0C28FCE651001BC0E6 /* DefaultLightColors.plist in Resources */,
 				BE682F6A288C31020096346F /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BEEBDD0E28FCE86B001BC0E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo ${SRCROOT}\necho \"${SRCROOT}/Biscuit/Assets/DefaultDarkColors.plist\"\nif [[ -f \"${SRCROOT}/Tools/SwiftGen/bin/swiftgen\" ]]; then\n  \"${SRCROOT}/Tools/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed.\"\nfi \n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE32D62F28A1E0E500EADEF7 /* Sources */ = {
@@ -821,7 +863,9 @@
 				BEF7BD8B28A847B8002E825A /* Colors.swift in Sources */,
 				BE682F93288CBADF0096346F /* Connector.swift in Sources */,
 				BE27F8FE288F48C40042F376 /* Data+Utils.swift in Sources */,
+				BEEBDD1128FCEBA8001BC0E6 /* DefaultDarkColors.swift in Sources */,
 				BE6F8125289DD99B00D28F49 /* DefaultInitializer.swift in Sources */,
+				BEEBDD1228FCEBA8001BC0E6 /* DefaultLightColors.swift in Sources */,
 				BE9001B228B159D7000B7C0E /* DescriptionUtils.swift in Sources */,
 				BE9001A328B0F3FA000B7C0E /* Device.swift in Sources */,
 				BE27F906288F52080042F376 /* DeviceDescriptor.swift in Sources */,

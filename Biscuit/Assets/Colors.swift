@@ -51,6 +51,10 @@ extension Color {
         self = Color.init(biscuitName, bundle: Bundle(identifier: "Colors"))
     }
 
+    init(defaultName: String) {
+        self = Color(hex: DefaultDarkColors.requestMethod[""] ?? "ffffff") ?? .white
+    }
+
     var nsColor: NSColor {
         return NSColor(self)
     }

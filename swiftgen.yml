@@ -1,0 +1,13 @@
+plist:
+  - inputs: Biscuit/Assets/DefaultDarkColors.plist
+    outputs:
+      templatePath: Tools/Swiftgen/bin/inline-swift5-stringToString.stencil
+      output: Biscuit/Assets/DefaultDarkColors.swift
+      params:
+        enumName: DefaultDarkColors
+  - inputs: Biscuit/Assets/DefaultLightColors.plist
+    outputs:
+      templatePath: Tools/Swiftgen/bin/inline-swift5-stringToString.stencil
+      output: Biscuit/Assets/DefaultLightColors.swift
+      params:
+        enumName: DefaultLightColors
