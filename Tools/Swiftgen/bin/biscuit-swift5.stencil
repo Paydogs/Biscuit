@@ -1,0 +1,32 @@
+//
+// Generated Colors
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+// No point of editing this file manually :)
+//
+{% macro documentParser data metadata %}
+   {% if metadata.type == "Dictionary" %}
+      {% for key,value in metadata.properties %}
+         {% filter indent:2," ",true %}{%+ call contentParser key value.type value data[key] %}{% endfilter %}
+      {% endfor %}
+   {% endif %}
+{% endmacro %}
+{% macro contentParser contentKey contentType contentMetadata contentData %}
+{% if contentType == "Dictionary" %}
+enum {{contentKey}} {
+   {% for key,value in contentMetadata.properties %}
+   {% filter indent:2," ",true %}{%+ call contentParser key value.type value contentData[key] %}{% endfilter %}
+   {% endfor %}
+}
+{% endif %}
+{% if contentType == "String" %}
+public static let {{contentKey}} = Color(hex:"{{contentData}}") 
+{% endif %}
+{% endmacro %}
+
+import SwiftUI
+
+{% for file in files %}
+enum {{file.name}} {
+   {% call documentParser file.document.data file.document.metadata %}
+}
+{% endfor %}

@@ -61,15 +61,15 @@
 	<dict>
 		<key>Default</key>
 		<string>8a8a8a</string>
-		<key>100-Informational</key>
+		<key>Http1xx</key>
 		<string>8a8a8a</string>
-		<key>200-Successful</key>
+		<key>Http2xx</key>
 		<string>2cc55d</string>
-		<key>300-Redirection</key>
+		<key>Http3xx</key>
 		<string>ecb910</string>
-		<key>400-ClientError</key>
+		<key>Http4xx</key>
 		<string>de342e</string>
-		<key>500-ServerError</key>
+		<key>Http5xx</key>
 		<string>de342e</string>
 	</dict>
 </dict>

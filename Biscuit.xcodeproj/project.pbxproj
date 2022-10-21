@@ -475,6 +475,7 @@
 				BE27F8FA288F415D0042F376 /* Api */,
 				BE27F90B288F59A50042F376 /* Domain */,
 				BE27F8EE288F35B80042F376 /* Parser */,
+				BE6CD46D28F2CFB10064C777 /* DummyObjectLibrary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -496,15 +497,11 @@
 			isa = PBXGroup;
 			children = (
 				BE682F68288C31020096346F /* Preview Content */,
-				BE682F66288C31020096346F /* Assets.xcassets */,
+				BE79ABAE28FE0D7000301D7C /* Sources */,
 				BEC9507C28F8D17800809C05 /* BiscuitJsonSyntaxHighlightingTheme.swift */,
 				BEF7BD8A28A847B8002E825A /* Colors.swift */,
-				BEF7BD8C28A847D1002E825A /* Colors.xcassets */,
-				BEC2C47D28FB638900679083 /* DefaultDarkColors.plist */,
 				BEEBDD0F28FCEBA8001BC0E6 /* DefaultDarkColors.swift */,
-				BEEBDD0B28FCE651001BC0E6 /* DefaultLightColors.plist */,
 				BEEBDD1028FCEBA8001BC0E6 /* DefaultLightColors.swift */,
-				BE6CD46D28F2CFB10064C777 /* DummyObjectLibrary.swift */,
 				BED81E1E28F8E7D3001E8E50 /* Fonts.swift */,
 			);
 			path = Assets;
@@ -560,6 +557,17 @@
 				BE92892228D792DD0008E116 /* LogViewEventHandler.swift */,
 			);
 			path = LogView;
+			sourceTree = "<group>";
+		};
+		BE79ABAE28FE0D7000301D7C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BE682F66288C31020096346F /* Assets.xcassets */,
+				BEF7BD8C28A847D1002E825A /* Colors.xcassets */,
+				BEC2C47D28FB638900679083 /* DefaultDarkColors.plist */,
+				BEEBDD0B28FCE651001BC0E6 /* DefaultLightColors.plist */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		BE90019128B0F22D000B7C0E /* Packet */ = {
@@ -811,7 +819,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo ${SRCROOT}\necho \"${SRCROOT}/Biscuit/Assets/DefaultDarkColors.plist\"\nif [[ -f \"${SRCROOT}/Tools/SwiftGen/bin/swiftgen\" ]]; then\n  \"${SRCROOT}/Tools/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed.\"\nfi \n";
+			shellScript = "if [[ -f \"${SRCROOT}/Tools/SwiftGen/bin/swiftgen\" ]]; then\n  \"${SRCROOT}/Tools/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed.\"\nfi \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

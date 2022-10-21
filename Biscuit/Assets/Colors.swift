@@ -18,7 +18,8 @@ enum Colors {
         public static let offlineStatus = Color(biscuitName: "StatusOffline")
     }
     enum StatusCode {
-        public static let http2xx = Color(biscuitName: "StatusCodeGreen")
+        public static let http2xx = Color(defaultName: "200-Successful")
+//        public static let http2xx = Color(biscuitName: "StatusCodeGreen")
         public static let http4xx = Color(biscuitName: "StatusCodeRed")
         public static let defaultColor = Color(biscuitName: "StatusCodeDefault")
     }
@@ -52,7 +53,8 @@ extension Color {
     }
 
     init(defaultName: String) {
-        self = Color(hex: DefaultDarkColors.requestMethod[""] ?? "ffffff") ?? .white
+        print("scheme: \(NSApp.effectiveAppearance.name)")
+        self = .white
     }
 
     var nsColor: NSColor {
