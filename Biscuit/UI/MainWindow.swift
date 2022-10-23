@@ -10,7 +10,6 @@ import Factory
 import Combine
 
 struct MainWindow: View {
-    @EnvironmentObject var appController: AppController
     @Injected(BiscuitContainer.headerViewController) var headerViewController
     @Injected(BiscuitContainer.logViewController) var logViewController
     @Injected(BiscuitContainer.packetViewController) var packetViewController
@@ -20,7 +19,7 @@ struct MainWindow: View {
             VStack {
                 HeaderView(domain: headerViewController.domain,
                            eventHandler: headerViewController.eventHandler)
-                .background(BlurView(material: .headerView))
+                .background(BlurView(material: .titlebar))
                     VStack {
                         LogView(domain: logViewController.domain,
                                 eventHandler: logViewController.eventHandler)
@@ -29,7 +28,7 @@ struct MainWindow: View {
                 }
             PacketView(domain: packetViewController.dataProvider.domain,
                        eventHandler: packetViewController.eventHandler)
-            .background(BlurView(material: .sidebar))
+            .background(BlurView(material: .underPageBackground))
         }
         .frame(minWidth: 800, minHeight: 480)
     }

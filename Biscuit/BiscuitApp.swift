@@ -21,7 +21,6 @@ struct BiscuitApp: App {
     var body: some Scene {
         WindowGroup {
             MainWindow()
-                .environmentObject(appController)
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {
@@ -39,7 +38,7 @@ struct BiscuitApp: App {
             CommandGroup(after: .newItem) {
                 Divider()
                 Button(action: { appController.exportPackets() }) {
-                    Text("Export selected")
+                    Text(Localizable.MenuItem.exportPackets)
                 }
             }
         }

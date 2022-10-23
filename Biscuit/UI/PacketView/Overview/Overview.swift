@@ -18,18 +18,16 @@ extension NSTextView {
 }
 
 struct Overview: View {
-    var packetBody: String
-    var packetBody2: NSAttributedString
+    var packetBody: NSAttributedString
 
     var body: some View {
-        AttributedTextView(attributedText: packetBody2)
+        AttributedTextView(attributedText: packetBody)
             .padding()
     }
 }
 
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
-        Overview(packetBody: "Some text",
-                 packetBody2: NSAttributedString(string: "Some text"))
+        Overview(packetBody: NSAttributedString(string: "Some text"))
     }
 }

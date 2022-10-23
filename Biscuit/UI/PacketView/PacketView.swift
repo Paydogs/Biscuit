@@ -13,9 +13,12 @@ import Highlight
 struct PacketView: View {
     @ObservedObject var domain: PacketViewDomain
     var eventHandler: PacketViewEventHandling
-
     @State private var selectedTab: Tab = .overview
+
     var body: some View {
+        let body: NSAttributedString = domain.selectedPacket?.colorizedOverviewDescription ??
+        Localizable.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
+
         VStack {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
@@ -26,13 +29,9 @@ struct PacketView: View {
             .labelsHidden()
             .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
 
-            let body = JsonSyntaxHighlightProvider.init(theme: BiscuitJsonSyntaxHighlightingTheme()).highlight(String(domain.selectedPacket?.response.prettyBody ?? "Nothing to show"), as: .json)
-            let body2 = domain.selectedPacket?.colorizedOverviewDescription ?? NSAttributedString(string: "Nothing to show")
-
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packetBody: String(domain.selectedPacket?.overviewDescription ?? "Nothing to show"),
-                                             packetBody2: body2)
+                    case .overview: Overview(packetBody: body)
                     case .request: RequestView()
                     case .response: ResponseView()
                 }

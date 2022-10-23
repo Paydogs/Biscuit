@@ -10,6 +10,7 @@ import SwiftUI
 struct StandardPicker: View {
     @State private var selectedIndex: Int?
 
+    typealias PickerAction = (PickerItem)->()
     var data: Content
     var event: Events?
 
@@ -47,6 +48,14 @@ extension StandardPicker {
         var values: [PickerItem]
     }
     struct Events {
-        var itemSelected: (PickerItem)->()
+        var itemSelected: PickerAction
+    }
+}
+
+struct StandardPicker_Previews: PreviewProvider {
+    static var previews: some View {
+        StandardPicker(data: StandardPicker.Content(title: "",
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1"),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2")]))
     }
 }

@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Biscuit
+
+  Created by Andras Olah on 2022. 10. 23..
+*/
+
+"packet_nothing_to_show" = "Nothing to show";
+"packet_nil" = "NIL";
+"packet_request_headers" = "REQUEST HEADERS:";
+"packet_request_body" = "REQUEST BODY:";
+"packet_response_body" = "RESPONSE BODY";
+// Menu items
+"MenuItem.export_packets" = "Export packets";
+// Menu functions
+"SavePanel.exportpacket_title" = "Save packet";
+"SavePanel.exportpacket_message" = "Choose a folder and a name to store the packet.";
+"SavePanel.exportpacket_namefield" = "Packet file name:";

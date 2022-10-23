@@ -34,9 +34,9 @@ private extension AppController {
         savePanel.allowedContentTypes = [.json]
         savePanel.canCreateDirectories = true
         savePanel.isExtensionHidden = false
-        savePanel.title = "Save packet"
-        savePanel.message = "Choose a folder and a name to store the packet."
-        savePanel.nameFieldLabel = "Packet file name:"
+        savePanel.title = Localizable.SavePanel.exportpacketTitle
+        savePanel.message = Localizable.SavePanel.exportpacketMessage
+        savePanel.nameFieldLabel = Localizable.SavePanel.exportpacketNamefield
         if let proposedName = proposedName {
             savePanel.nameFieldStringValue = proposedName
         }

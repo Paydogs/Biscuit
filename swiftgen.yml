@@ -2,7 +2,7 @@ plist:
   - inputs: Biscuit/Assets/Sources/DefaultDarkColors.plist
     outputs:
       templatePath: Tools/Swiftgen/bin/biscuit-swift5.stencil
-      output: Biscuit/Assets/DefaultDarkColors.swift
+      output: Biscuit/Assets/Generated/DefaultDarkColors.swift
       params:
         enumName: DefaultDarkColors
         publicAccess: true
@@ -10,6 +10,15 @@ plist:
   - inputs: Biscuit/Assets/Sources/DefaultLightColors.plist
     outputs:
       templatePath: Tools/Swiftgen/bin/biscuit-swift5.stencil
-      output: Biscuit/Assets/DefaultLightColors.swift
+      output: Biscuit/Assets/Generated/DefaultLightColors.swift
       params:
         enumName: DefaultLightColors
+
+strings:
+  - inputs: Biscuit/Assets/Sources/Localizable/en.lproj
+    outputs:
+      templatePath: Tools/Swiftgen/bin/structured-swift5.stencil
+      output: Biscuit/Assets/Generated/Localizable.swift
+      params:
+        enumName: Localizable
+        publicAccess: true

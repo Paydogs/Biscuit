@@ -21,6 +21,7 @@ class AppController: ObservableObject {
     }
 }
 
+// MARK: - Menu items
 extension AppController {
     func exportPackets() {
         exportPackets(packets: appState.state.selectedPackets)

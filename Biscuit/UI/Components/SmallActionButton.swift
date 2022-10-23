@@ -15,7 +15,6 @@ struct SmallActionButton: View {
 
     var body: some View {
         Button {
-            print("event happened")
             event?.action()
         } label: {
             Image(systemName: data.icon)

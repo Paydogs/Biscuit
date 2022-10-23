@@ -10,63 +10,70 @@ import Highlight
 
 extension Packet {
     var overviewDescription: String {
-        let extraSeparator = "\n"
+        let extraSeparator = Constants.newLine
         let urlValue = "\(self.request.method?.rawValue ?? "") \(self.url)"
-        let requestHeaderTitle = "REQUEST HEADERS:"
+        let requestHeaderTitle = Localizable.packetRequestHeaders
         let requestHeaderValue = self.request.headers.map { (key: String, value: String) -> String in
             return "\(key): \(value)"
         }
-        let requestBodyTitle = "REQUEST BODY:"
-        let requestBodyValue = String(self.request.body ?? "NIL")
-        let bodyTitle = "RESPONSE BODY:"
-        let bodyValue = String(self.response.prettyBody ?? "NIL")
+        let requestBodyTitle = Localizable.packetRequestBody
+        let requestBodyValue = String(self.request.body ?? Localizable.packetNil.nsValue)
+        let bodyTitle = Localizable.packetResponseBody
+        let bodyValue = String(self.response.prettyBody ?? Localizable.packetNil.nsValue)
         let elements: [String?] = [urlValue,
                                    extraSeparator,
                                    requestHeaderTitle,
-                                   requestHeaderValue.joined(separator: "\n"),
+                                   requestHeaderValue.joined(separator: Constants.newLine),
                                    extraSeparator,
                                    requestBodyTitle,
                                    requestBodyValue,
                                    extraSeparator,
                                    bodyTitle,
                                    bodyValue]
-        return elements.compactMap { $0 }.joined(separator: "\n")
+        return elements.compactMap { $0 }.joined(separator: Constants.newLine)
     }
 
     var colorizedOverviewDescription: NSAttributedString {
         let jsonHighlighter = JsonSyntaxHighlightProvider(theme: BiscuitJsonSyntaxHighlightingTheme())
 
-        let extraSeparator =  NSAttributedString(string:"\n")
-        let url = NSMutableAttributedString(string: self.request.method?.rawValue ?? "", attributes: Style.attributes(color: Colors.Overview.requestMethod))
-        url.append(NSAttributedString(" "))
-        url.append(NSMutableAttributedString(string: self.url, attributes: Style.attributes(color: Colors.Overview.headerValue)))
+        let extraSeparator =  Constants.newLine.attributed
+        let url = self.request.method?.rawValue.mutableWithStyle(Constants.requestMethodStyle) ?? NSMutableAttributedString()
+        url.append(" ".mutableAttributed)
+        url.append(self.url.withStyle(Constants.headerKeyStyle))
 
-        let requestHeaderTitle =  NSAttributedString(string:"REQUEST HEADERS:", attributes: Style.attributes(color: Colors.Overview.category,
-                                                                                                             font: Fonts.defaultFont(sized: 15)))
+        let requestHeaderTitle = Localizable.packetRequestHeaders.withStyle(Constants.categoryStyle)
         let requestHeaderValue = self.request.headers.map { (key: String, value: String) -> NSAttributedString in
-            let header = NSMutableAttributedString(string: key, attributes: Style.attributes(color: Colors.Overview.headerKey))
-            header.append(NSAttributedString(string: ": ", attributes: Style.attributes(color: Colors.Overview.headerKey)))
-            header.append(NSMutableAttributedString(string: value, attributes: Style.attributes(color: Colors.Overview.headerValue)))
-
+            let header = key.mutableWithStyle(Constants.headerKeyStyle)
+            header.append(": ".mutableWithStyle(Constants.headerKeyStyle))
+            header.append(value.withStyle(Constants.headerValueStyle))
             return header
         }
-        let requestBodyTitle =  NSAttributedString(string:"REQUEST BODY:", attributes: Style.attributes(color: Colors.Overview.category,
-                                                                                                        font: Fonts.defaultFont(sized: 15)))
-        let requestBodyValue = jsonHighlighter.highlight(String(self.request.body ?? "NIL"), as: .json)
-        let bodyTitle =  NSAttributedString(string:"RESPONSE BODY:", attributes: Style.attributes(color: Colors.Overview.category,
-                                                                                                  font: Fonts.defaultFont(sized: 15)))
-        let bodyValue = jsonHighlighter.highlight(String(self.response.prettyBody ?? "NIL"), as: .json)
+        let requestBodyTitle =  Localizable.packetRequestBody.withStyle(Constants.categoryStyle)
+        let requestBodyValue = jsonHighlighter.highlight(self.request.body ?? Localizable.packetNil.nsValue)
+        let bodyTitle =  Localizable.packetResponseBody.withStyle(Constants.categoryStyle)
+        let bodyValue = jsonHighlighter.highlight(self.response.prettyBody ?? Localizable.packetNil.nsValue)
 
         let elements: [NSAttributedString?] = [url,
-                                               extraSeparator,
-                                               requestHeaderTitle,
-                                               requestHeaderValue.joined(separator: "\n"),
-                                               extraSeparator,
-                                               requestBodyTitle,
-                                               requestBodyValue,
-                                               extraSeparator,
-                                               bodyTitle,
-                                               bodyValue]
-        return elements.compactMap { $0 }.joined(separator: "\n")
+                                extraSeparator,
+                                requestHeaderTitle,
+                                requestHeaderValue.joined(separator: Constants.newLine),
+                                extraSeparator,
+                                requestBodyTitle,
+                                requestBodyValue,
+                                extraSeparator,
+                                bodyTitle,
+                                bodyValue]
+        return elements.compactMap { $0 }.joined(separator: Constants.newLine)
+    }
+}
+
+private extension Packet {
+    enum Constants {
+        static let newLine = "\n"
+        static let categoryStyle = Style(color: Colors.Overview.category,
+                                        font: Fonts.defaultFont(sized: 15))
+        static let requestMethodStyle = Style(color: Colors.Overview.requestMethod)
+        static let headerKeyStyle = Style(color: Colors.Overview.headerKey)
+        static let headerValueStyle = Style(color: Colors.Overview.headerValue)
     }
 }

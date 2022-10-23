@@ -7,6 +7,7 @@
 
 import CoreGraphics
 import Highlight
+import AppKit
 
 public struct BiscuitJsonSyntaxHighlightingTheme: JsonSyntaxHighlightingTheme {
 
@@ -44,4 +45,12 @@ public struct BiscuitJsonSyntaxHighlightingTheme: JsonSyntaxHighlightingTheme {
     public var unknownColor: Color = Colors.JSON.unknownColor.nsColor
 
     public var unknownFont: Font
+}
+
+public extension SyntaxHighlightProvider {
+    func highlight(_ text: NSString) -> NSAttributedString {
+        let result = NSMutableAttributedString(string: String(text))
+        highlight(result, as: .json)
+        return result
+    }
 }
