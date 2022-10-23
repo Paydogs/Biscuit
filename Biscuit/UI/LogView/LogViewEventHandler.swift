@@ -7,6 +7,7 @@
 
 protocol LogViewEventHandling {
     func selectPackets(identifiers: [String])
+    func exportPackets()
 }
 
 struct LogViewEventHandler {
@@ -31,5 +32,9 @@ extension LogViewEventHandler: LogViewEventHandling {
         }
         print("packets to select: \(identifiers)")
         selectPacketsUseCase.execute(packets: packets)
+    }
+
+    func exportPackets() {
+        SavePanel.exportPackets(packets: appState.state.selectedPackets)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 extension LogView_Previews {
     struct DummyHandler: LogViewEventHandling {
         func selectPackets(identifiers: [String]) { }
+        func exportPackets() { }
     }
 
     static func createDummyDomain() -> LogViewDomain {

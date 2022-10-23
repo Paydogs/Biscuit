@@ -1,17 +1,17 @@
 //
-//  AppController.swift
+//  MenuController.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 08. 28..
+//  Created by Andras Olah on 2022. 10. 23..
 //
 
 import SwiftUI
-import Factory
 import Combine
 
-class AppController: ObservableObject {
+struct MenuController {
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
+
     private var subscriptions: Set<AnyCancellable> = []
 
     init(appState: Observed<AppState>,
@@ -22,8 +22,9 @@ class AppController: ObservableObject {
 }
 
 // MARK: - Menu items
-extension AppController {
+extension MenuController {
     func exportPackets() {
-        exportPackets(packets: appState.state.selectedPackets)
+        print("[MenuController] Exporting packets...")
+        SavePanel.exportPackets(packets: appState.state.selectedPackets)
     }
 }

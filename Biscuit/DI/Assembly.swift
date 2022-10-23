@@ -14,8 +14,8 @@ extension BiscuitContainer {
     static let dispatcher = Factory(scope: .singleton, factory: { MainDispatcher() as FluxDispatcher })
     static let core = Factory(scope: .singleton, factory: { BiscuitCore() })
     static let connector = Factory(scope: .singleton, factory: { Connector() })
-    static let appController = Factory(scope: .singleton, factory: { AppController(appState: appStore.resolve().observed,
-                                                                                   packetState: packetStore.resolve().observed) })
+    static let menuController = Factory(scope: .singleton, factory: { MenuController(appState: appStore.resolve().observed,
+                                                                                     packetState: packetStore.resolve().observed) })
 }
 
 // MARK: - Stores

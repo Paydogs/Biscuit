@@ -1,15 +1,14 @@
 //
-//  AppController+MenuHandling.swift
+//  SavePanel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 10. 23..
 //
 
 import AppKit
-struct MenuHandler { }
 
-extension AppController {
-    func exportPackets(packets: [Packet]) {
+struct SavePanel {
+    static func exportPackets(packets: [Packet]) {
         for packet in packets {
             guard let body = packet.response.prettyBody else { return }
 
@@ -28,8 +27,8 @@ extension AppController {
     }
 }
 
-private extension AppController {
-    func showPacketExportPanel(proposedName: String?) -> URL? {
+private extension SavePanel {
+    static func showPacketExportPanel(proposedName: String?) -> URL? {
         let savePanel = NSSavePanel()
         savePanel.allowedContentTypes = [.json]
         savePanel.canCreateDirectories = true

@@ -14,7 +14,7 @@ struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
 
-    @Injected(BiscuitContainer.appController) private var appController
+    @Injected(BiscuitContainer.menuController) private var menuController
 
     init() { }
 
@@ -37,7 +37,7 @@ struct BiscuitApp: App {
         .commands {
             CommandGroup(after: .newItem) {
                 Divider()
-                Button(action: { appController.exportPackets() }) {
+                Button(action: { menuController.exportPackets() }) {
                     Text(Localizable.MenuItem.exportPackets)
                 }
             }

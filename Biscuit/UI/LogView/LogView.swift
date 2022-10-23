@@ -10,7 +10,6 @@ import SwiftUI
 import Factory
 
 struct LogView: View {
-    @EnvironmentObject var appController: AppController
     @ObservedObject var domain: LogViewDomain
     var eventHandler: LogViewEventHandling
     @State private var selectedPacket = Set<PacketTableRow.ID>()
@@ -21,19 +20,19 @@ struct LogView: View {
                 Text(item.status)
                     .foregroundColor(item.statusColor)
             }
-            .width(min: 40, max: 50)
+            .width(min: 45, max: 45)
             TableColumn("Method") { item in
                 Text(item.method)
                     .foregroundColor(item.methodColor)
             }
-            .width(min: 40, max: 50)
+            .width(min: 45, max: 45)
             TableColumn("Url", value: \.url)
             TableColumn("Date", value: \.date)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .contextMenu {
             Button("Export", action: {
-                appController.exportPackets()
+                eventHandler.exportPackets()
             })
             .disabled(selectedPacket.isEmpty)
         }
