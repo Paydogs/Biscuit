@@ -13,7 +13,9 @@ import Highlight
 struct PacketView: View {
     @ObservedObject var domain: PacketViewDomain
     var eventHandler: PacketViewEventHandling
+
     @State private var selectedTab: Tab = .overview
+    let tabs: [Tab] = [.overview, .response, .request]
 
     var body: some View {
         let body: NSAttributedString = domain.selectedPacket?.colorizedOverviewDescription ??
@@ -22,7 +24,11 @@ struct PacketView: View {
         VStack {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
-                    Text(tab.rawValue)
+                    switch tab {
+                        case .overview: Text(Localizable.PacketView.Tab.overview)
+                        case .request: Text(Localizable.PacketView.Tab.request)
+                        case .response: Text(Localizable.PacketView.Tab.response)
+                    }
                 }
             }
             .pickerStyle(.segmented)
@@ -39,7 +45,7 @@ struct PacketView: View {
 
             HStack {
                 SmallActionButton(data: copyBodyToClipboardButtonData,
-                                  event: SmallActionButton.Event(action: { eventHandler.copyBodyToClipboard(packet: domain.selectedPacket) }))
+                                  event: .init(action: {  eventHandler.copyBodyToClipboard(packet: domain.selectedPacket) }))
                 Spacer()
                 .frame(alignment: .leading)
             }
@@ -50,18 +56,16 @@ struct PacketView: View {
 
 extension PacketView {
     enum Tab: String {
-        case overview = "Overview"
-        case request = "Request"
-        case response = "Response"
+        case overview
+        case request
+        case response
     }
+}
 
-    var tabs: [Tab] {
-        [.overview, .response, .request]
-    }
-
+extension PacketView {
     var copyBodyToClipboardButtonData: SmallActionButton.Data {
         SmallActionButton.Data(icon: "doc.on.clipboard.fill",
-                               help: "Copy body to Clipboard")
+                               help: Localizable.PacketView.Button.copyToPasteboard)
     }
 }
 

@@ -24,9 +24,57 @@ public enum Localizable {
   public static let packetRequestHeaders = Localizable.tr("Localizable", "packet_request_headers", fallback: "REQUEST HEADERS:")
   /// RESPONSE BODY
   public static let packetResponseBody = Localizable.tr("Localizable", "packet_response_body", fallback: "RESPONSE BODY")
+  public enum LogView {
+    public enum ContextMenu {
+      /// Export
+      public static let export = Localizable.tr("Localizable", "LogView.contextMenu.export", fallback: "Export")
+    }
+    public enum TableColumn {
+      /// Date
+      public static let date = Localizable.tr("Localizable", "LogView.tableColumn.date", fallback: "Date")
+      /// Method
+      public static let method = Localizable.tr("Localizable", "LogView.tableColumn.method", fallback: "Method")
+      /// Status
+      public static let status = Localizable.tr("Localizable", "LogView.tableColumn.status", fallback: "Status")
+      /// Url
+      public static let url = Localizable.tr("Localizable", "LogView.tableColumn.url", fallback: "Url")
+    }
+  }
   public enum MenuItem {
     /// Export packets
     public static let exportPackets = Localizable.tr("Localizable", "MenuItem.export_packets", fallback: "Export packets")
+  }
+  public enum PacketView {
+    public enum Button {
+      /// Copy body to Clipboard
+      public static let copyToPasteboard = Localizable.tr("Localizable", "PacketView.Button.copyToPasteboard", fallback: "Copy body to Clipboard")
+    }
+    public enum Tab {
+      /// Overview
+      public static let overview = Localizable.tr("Localizable", "PacketView.Tab.overview", fallback: "Overview")
+      /// Request
+      public static let request = Localizable.tr("Localizable", "PacketView.Tab.request", fallback: "Request")
+      /// Response
+      public static let response = Localizable.tr("Localizable", "PacketView.Tab.response", fallback: "Response")
+    }
+  }
+  public enum RequestView {
+    public enum Tab {
+      /// Body
+      public static let body = Localizable.tr("Localizable", "RequestView.Tab.body", fallback: "Body")
+      /// Headers
+      public static let headers = Localizable.tr("Localizable", "RequestView.Tab.headers", fallback: "Headers")
+      /// Parameters
+      public static let parameters = Localizable.tr("Localizable", "RequestView.Tab.parameters", fallback: "Parameters")
+    }
+  }
+  public enum ResponseView {
+    public enum Tab {
+      /// Body
+      public static let body = Localizable.tr("Localizable", "ResponseView.Tab.body", fallback: "Body")
+      /// Headers
+      public static let headers = Localizable.tr("Localizable", "ResponseView.Tab.headers", fallback: "Headers")
+    }
   }
   public enum SavePanel {
     /// Choose a folder and a name to store the packet.

@@ -16,22 +16,22 @@ struct LogView: View {
 
     var body: some View {
         Table(domain.packets, selection: $selectedPacket) {
-            TableColumn("Status") { item in
+            TableColumn(Localizable.LogView.TableColumn.status) { item in
                 Text(item.status)
                     .foregroundColor(item.statusColor)
             }
             .width(min: 45, max: 45)
-            TableColumn("Method") { item in
+            TableColumn(Localizable.LogView.TableColumn.method) { item in
                 Text(item.method)
                     .foregroundColor(item.methodColor)
             }
             .width(min: 45, max: 45)
-            TableColumn("Url", value: \.url)
-            TableColumn("Date", value: \.date)
+            TableColumn(Localizable.LogView.TableColumn.url, value: \.url)
+            TableColumn(Localizable.LogView.TableColumn.date, value: \.date)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .contextMenu {
-            Button("Export", action: {
+            Button(Localizable.LogView.ContextMenu.export, action: {
                 eventHandler.exportPackets()
             })
             .disabled(selectedPacket.isEmpty)

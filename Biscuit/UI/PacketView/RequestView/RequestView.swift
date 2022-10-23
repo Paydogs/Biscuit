@@ -16,7 +16,11 @@ struct RequestView: View {
         VStack {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
-                    Text(tab.rawValue)
+                    switch tab {
+                        case .body: Text(Localizable.RequestView.Tab.body)
+                        case .headers: Text(Localizable.RequestView.Tab.headers)
+                        case .parameters: Text(Localizable.RequestView.Tab.parameters)
+                    }
                 }
             }
             .pickerStyle(.segmented)
@@ -31,9 +35,9 @@ struct RequestView: View {
 
 extension RequestView {
     enum Tab: String {
-        case body = "Body"
-        case headers = "Headers"
-        case parameters = "Parameters"
+        case body
+        case headers
+        case parameters
     }
 }
 

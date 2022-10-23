@@ -16,7 +16,10 @@ struct ResponseView: View {
         VStack {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
-                    Text(tab.rawValue)
+                    switch tab {
+                        case .body: Text(Localizable.ResponseView.Tab.body)
+                        case .headers: Text(Localizable.ResponseView.Tab.headers)
+                    }
                 }
             }
             .pickerStyle(.segmented)
@@ -31,8 +34,8 @@ struct ResponseView: View {
 
 extension ResponseView {
     enum Tab: String {
-        case body = "Body"
-        case headers = "Headers"
+        case body
+        case headers
     }
 }
 
