@@ -10,53 +10,43 @@ import SwiftUI
 
 enum Colors {
     enum Background {
-        public static let panelBackground = Color(biscuitName: "PanelBackground")
-        public static let bubbleBackground = Color(biscuitName: "BubbleBackground")
+        public static let panelBackground = DefaultDarkColors.Backgrounds.PanelBackground
+        public static let bubbleBackground = DefaultDarkColors.Backgrounds.BubbleBackground
     }
     enum DeviceStatus {
-        public static let activeStatus = Color(biscuitName: "StatusActive")
-        public static let offlineStatus = Color(biscuitName: "StatusOffline")
+        public static let activeStatus = DefaultDarkColors.DeviceStatus.StatusActive
+        public static let offlineStatus = DefaultDarkColors.DeviceStatus.StatusOffline
     }
     enum StatusCode {
-        public static let http2xx = Color(defaultName: "200-Successful")
-//        public static let http2xx = Color(biscuitName: "StatusCodeGreen")
-        public static let http4xx = Color(biscuitName: "StatusCodeRed")
-        public static let defaultColor = Color(biscuitName: "StatusCodeDefault")
+        public static let http2xx = DefaultDarkColors.HttpStatusCode.Http2xx
+        public static let http4xx = DefaultDarkColors.HttpStatusCode.Http4xx
+        public static let defaultColor = DefaultDarkColors.HttpStatusCode.Default
     }
     enum RequestMethod {
-        public static let get = Color(biscuitName: "RequestMethodGet")
-        public static let post = Color(biscuitName: "RequestMethodPost")
-        public static let delete = Color(biscuitName: "RequestMethodDelete")
-        public static let put = Color(biscuitName: "RequestMethodPut")
-        public static let defaultColor = Color(biscuitName: "RequestMethodDefault")
+        public static let get = DefaultDarkColors.RequestMethod.RequestMethodGet
+        public static let post = DefaultDarkColors.RequestMethod.RequestMethodPost
+        public static let delete = DefaultDarkColors.RequestMethod.RequestMethodDelete
+        public static let put = DefaultDarkColors.RequestMethod.RequestMethodPut
+        public static let defaultColor = DefaultDarkColors.RequestMethod.RequestMethodDefault
     }
     enum JSON {
-        public static let memberKeyColor = Color(biscuitName: "MemberKeyColor")
-        public static let whitespaceColor = Color(biscuitName: "WhitespaceColor")
-        public static let operatorColor = Color(biscuitName: "OperatorColor")
-        public static let numericValueColor = Color(biscuitName: "NumericValueColor")
-        public static let stringValueColor = Color(biscuitName: "StringValueColor")
-        public static let literalColor = Color(biscuitName: "LiteralColor")
-        public static let unknownColor = Color(biscuitName: "UnknownColor")
+        public static let memberKeyColor = DefaultDarkColors.JSON.MemberKey
+        public static let whitespaceColor = DefaultDarkColors.JSON.Whitespace
+        public static let operatorColor = DefaultDarkColors.JSON.Operator
+        public static let numericValueColor = DefaultDarkColors.JSON.NumericValue
+        public static let stringValueColor = DefaultDarkColors.JSON.StringValue
+        public static let literalColor = DefaultDarkColors.JSON.LiteralValue
+        public static let unknownColor = DefaultDarkColors.JSON.Unknown
     }
     enum Overview {
-        public static let category = Color(biscuitName: "Category")
-        public static let headerKey = Color(biscuitName: "HeaderKey")
-        public static let headerValue = Color(biscuitName: "HeaderValue")
-        public static let requestMethod = Color(biscuitName: "RequestMethod")
+        public static let category = DefaultDarkColors.Overview.Category
+        public static let headerKey = DefaultDarkColors.Overview.HeaderKey
+        public static let headerValue = DefaultDarkColors.Overview.HeaderValue
+        public static let requestMethod = DefaultDarkColors.Overview.RequestMethod
     }
 }
 
 extension Color {
-    init(biscuitName: String) {
-        self = Color.init(biscuitName, bundle: Bundle(identifier: "Colors"))
-    }
-
-    init(defaultName: String) {
-        print("scheme: \(NSApp.effectiveAppearance.name)")
-        self = .white
-    }
-
     var nsColor: NSColor {
         return NSColor(self)
     }
