@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BEED2A8A28A5B32D00EE1E5D /* AppActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A8928A5B32D00EE1E5D /* AppActions.swift */; };
+		BE432ED22904C431004E4CCB /* AppController+MenuHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE432ED12904C431004E4CCB /* AppController+MenuHandling.swift */; };
 		BE7B42F028BAFCD200DB8529 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7B42EF28BAFCD200DB8529 /* AppController.swift */; };
 		BE682F72288C311A0096346F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F71288C311A0096346F /* AppDelegate.swift */; };
 		BEED2A9828A5BD1A00EE1E5D /* AppError+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */; };
@@ -138,6 +139,7 @@
 
 /* Begin PBXFileReference section */
 		BEED2A8928A5B32D00EE1E5D /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
+		BE432ED12904C431004E4CCB /* AppController+MenuHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppController+MenuHandling.swift"; sourceTree = "<group>"; };
 		BE7B42EF28BAFCD200DB8529 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		BE682F71288C311A0096346F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEED2A9728A5BD1A00EE1E5D /* AppError+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppError+UI.swift"; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				BE44C45628C421C700791897 /* HeaderView */,
 				BE69393528CEB1B9007D4E3C /* LogView */,
 				BEF65AC528E3B094001543F6 /* PacketView */,
+				BE432ED12904C431004E4CCB /* AppController+MenuHandling.swift */,
 				BE7B42EF28BAFCD200DB8529 /* AppController.swift */,
 				BE682F64288C31010096346F /* MainWindow.swift */,
 			);
@@ -839,6 +842,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEED2A8A28A5B32D00EE1E5D /* AppActions.swift in Sources */,
+				BE432ED22904C431004E4CCB /* AppController+MenuHandling.swift in Sources */,
 				BE7B42F028BAFCD200DB8529 /* AppController.swift in Sources */,
 				BE682F72288C311A0096346F /* AppDelegate.swift in Sources */,
 				BEED2A9828A5BD1A00EE1E5D /* AppError+UI.swift in Sources */,

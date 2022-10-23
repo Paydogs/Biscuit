@@ -10,6 +10,7 @@ import Factory
 
 struct BiscuitCore {
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
+    @Injected(BiscuitContainer.connector) private var connector
 
     private let nosy: Nosy
 
@@ -21,6 +22,8 @@ struct BiscuitCore {
     func startup() {
         print("[BiscuitCore] startup")
         registerStores()
+        connector.start()
+
         nosy.startPeaking()
     }
 }

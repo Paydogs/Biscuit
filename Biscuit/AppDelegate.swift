@@ -11,15 +11,10 @@ import Factory
 import Combine
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    @Injected(BiscuitContainer.connector) private var connector
     @Injected(BiscuitContainer.core) private var core
 
-    func applicationWillFinishLaunching(_ notification: Notification) {
-        core.startup()
-    }
-
     func applicationDidFinishLaunching(_ notification: Notification) {
-        connector.start()
+        core.startup()
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

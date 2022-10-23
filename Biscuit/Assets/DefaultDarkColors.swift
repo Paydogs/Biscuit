@@ -1,7 +1,7 @@
 //
 // Generated Colors
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
-// No point to edit manually :)
+// No point of editing this file manually :)
 //
 
 import SwiftUI
