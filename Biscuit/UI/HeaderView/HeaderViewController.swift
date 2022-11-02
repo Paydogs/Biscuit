@@ -10,8 +10,6 @@ import Factory
 import Combine
 
 class HeaderViewController {
-    @ObservedObject var domain: HeaderViewDomain
-
     var dataProvider: HeaderViewDataProvider
     var eventHandler: HeaderViewEventHandling
 
@@ -19,6 +17,5 @@ class HeaderViewController {
          eventHandler: HeaderViewEventHandling) {
         self.dataProvider = dataProvider
         self.eventHandler = eventHandler
-        domain = dataProvider.domain
     }
 }

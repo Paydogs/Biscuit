@@ -19,15 +19,15 @@ struct PacketView: View {
 
     var body: some View {
         let body: NSAttributedString = domain.selectedPacket?.colorizedOverviewDescription ??
-        Localizable.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
+        Localized.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
 
         VStack {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
                     switch tab {
-                        case .overview: Text(Localizable.PacketView.Tab.overview)
-                        case .request: Text(Localizable.PacketView.Tab.request)
-                        case .response: Text(Localizable.PacketView.Tab.response)
+                        case .overview: Text(Localized.PacketView.Tab.overview)
+                        case .request: Text(Localized.PacketView.Tab.request)
+                        case .response: Text(Localized.PacketView.Tab.response)
                     }
                 }
             }
@@ -65,7 +65,7 @@ extension PacketView {
 extension PacketView {
     var copyBodyToClipboardButtonData: SmallActionButton.Data {
         SmallActionButton.Data(icon: "doc.on.clipboard.fill",
-                               help: Localizable.PacketView.Button.copyToPasteboard)
+                               help: Localized.PacketView.Button.copyToPasteboard)
     }
 }
 

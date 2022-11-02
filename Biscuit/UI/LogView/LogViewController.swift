@@ -10,8 +10,6 @@ import Factory
 import Combine
 
 class LogViewController {
-    @ObservedObject var domain: LogViewDomain
-
     var dataProvider: LogViewDataProvider
     var eventHandler: LogViewEventHandling
 
@@ -19,6 +17,5 @@ class LogViewController {
          eventHandler: LogViewEventHandling) {
         self.dataProvider = dataProvider
         self.eventHandler = eventHandler
-        domain = dataProvider.domain
     }
 }

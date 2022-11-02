@@ -10,7 +10,7 @@ import Factory
 import Combine
 
 class LogViewDataProvider {
-    @ObservedObject var domain: LogViewDomain
+    @ObservedObject var domain = LogViewDomain()
 
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
@@ -22,7 +22,6 @@ class LogViewDataProvider {
         self.appState = appState
         self.packetState = packetState
 
-        domain =  LogViewDomain()
         subscribe()
     }
 

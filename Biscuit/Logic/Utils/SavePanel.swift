@@ -33,9 +33,9 @@ private extension SavePanel {
         savePanel.allowedContentTypes = [.json]
         savePanel.canCreateDirectories = true
         savePanel.isExtensionHidden = false
-        savePanel.title = Localizable.SavePanel.exportpacketTitle
-        savePanel.message = Localizable.SavePanel.exportpacketMessage
-        savePanel.nameFieldLabel = Localizable.SavePanel.exportpacketNamefield
+        savePanel.title = Localized.SavePanel.exportpacketTitle
+        savePanel.message = Localized.SavePanel.exportpacketMessage
+        savePanel.nameFieldLabel = Localized.SavePanel.exportpacketNamefield
         if let proposedName = proposedName {
             savePanel.nameFieldStringValue = proposedName
         }

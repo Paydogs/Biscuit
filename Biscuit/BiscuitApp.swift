@@ -38,7 +38,7 @@ struct BiscuitApp: App {
             CommandGroup(after: .newItem) {
                 Divider()
                 Button(action: { menuController.exportPackets() }) {
-                    Text(Localizable.MenuItem.exportPackets)
+                    Text(Localized.MenuItem.exportPackets)
                 }
             }
         }

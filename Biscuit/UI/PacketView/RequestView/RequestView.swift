@@ -17,9 +17,9 @@ struct RequestView: View {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
                     switch tab {
-                        case .body: Text(Localizable.RequestView.Tab.body)
-                        case .headers: Text(Localizable.RequestView.Tab.headers)
-                        case .parameters: Text(Localizable.RequestView.Tab.parameters)
+                        case .body: Text(Localized.RequestView.Tab.body)
+                        case .headers: Text(Localized.RequestView.Tab.headers)
+                        case .parameters: Text(Localized.RequestView.Tab.parameters)
                     }
                 }
             }

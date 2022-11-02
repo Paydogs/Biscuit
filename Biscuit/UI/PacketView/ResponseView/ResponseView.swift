@@ -17,8 +17,8 @@ struct ResponseView: View {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
                     switch tab {
-                        case .body: Text(Localizable.ResponseView.Tab.body)
-                        case .headers: Text(Localizable.ResponseView.Tab.headers)
+                        case .body: Text(Localized.ResponseView.Tab.body)
+                        case .headers: Text(Localized.ResponseView.Tab.headers)
                     }
                 }
             }

@@ -12,14 +12,14 @@ extension Packet {
     var overviewDescription: String {
         let extraSeparator = Constants.newLine
         let urlValue = "\(self.request.method?.rawValue ?? "") \(self.url)"
-        let requestHeaderTitle = Localizable.packetRequestHeaders
+        let requestHeaderTitle = Localized.packetRequestHeaders
         let requestHeaderValue = self.request.headers.map { (key: String, value: String) -> String in
             return "\(key): \(value)"
         }
-        let requestBodyTitle = Localizable.packetRequestBody
-        let requestBodyValue = String(self.request.body ?? Localizable.packetNil.nsValue)
-        let bodyTitle = Localizable.packetResponseBody
-        let bodyValue = String(self.response.prettyBody ?? Localizable.packetNil.nsValue)
+        let requestBodyTitle = Localized.packetRequestBody
+        let requestBodyValue = String(self.request.body ?? Localized.packetNil.nsValue)
+        let bodyTitle = Localized.packetResponseBody
+        let bodyValue = String(self.response.prettyBody ?? Localized.packetNil.nsValue)
         let elements: [String?] = [urlValue,
                                    extraSeparator,
                                    requestHeaderTitle,
@@ -41,17 +41,17 @@ extension Packet {
         url.append(" ".mutableAttributed)
         url.append(self.url.withStyle(Constants.headerKeyStyle))
 
-        let requestHeaderTitle = Localizable.packetRequestHeaders.withStyle(Constants.categoryStyle)
+        let requestHeaderTitle = Localized.packetRequestHeaders.withStyle(Constants.categoryStyle)
         let requestHeaderValue = self.request.headers.map { (key: String, value: String) -> NSAttributedString in
             let header = key.mutableWithStyle(Constants.headerKeyStyle)
             header.append(": ".mutableWithStyle(Constants.headerKeyStyle))
             header.append(value.withStyle(Constants.headerValueStyle))
             return header
         }
-        let requestBodyTitle =  Localizable.packetRequestBody.withStyle(Constants.categoryStyle)
-        let requestBodyValue = jsonHighlighter.highlight(self.request.body ?? Localizable.packetNil.nsValue)
-        let bodyTitle =  Localizable.packetResponseBody.withStyle(Constants.categoryStyle)
-        let bodyValue = jsonHighlighter.highlight(self.response.prettyBody ?? Localizable.packetNil.nsValue)
+        let requestBodyTitle =  Localized.packetRequestBody.withStyle(Constants.categoryStyle)
+        let requestBodyValue = jsonHighlighter.highlight(self.request.body ?? Localized.packetNil.nsValue)
+        let bodyTitle =  Localized.packetResponseBody.withStyle(Constants.categoryStyle)
+        let bodyValue = jsonHighlighter.highlight(self.response.prettyBody ?? Localized.packetNil.nsValue)
 
         let elements: [NSAttributedString?] = [url,
                                 extraSeparator,

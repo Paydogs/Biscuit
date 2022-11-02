@@ -10,7 +10,7 @@ import Factory
 import Combine
 
 class HeaderViewDataProvider {
-    @ObservedObject var domain: HeaderViewDomain
+    @ObservedObject var domain = HeaderViewDomain()
 
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
@@ -22,7 +22,6 @@ class HeaderViewDataProvider {
         self.appState = appState
         self.packetState = packetState
 
-        domain =  HeaderViewDomain()
         subscribe()
     }
 

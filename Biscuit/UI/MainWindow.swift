@@ -17,11 +17,11 @@ struct MainWindow: View {
     var body: some View {
         HSplitView {
             VStack {
-                HeaderView(domain: headerViewController.domain,
+                HeaderView(domain: headerViewController.dataProvider.domain,
                            eventHandler: headerViewController.eventHandler)
                 .background(BlurView(material: .titlebar))
                     VStack {
-                        LogView(domain: logViewController.domain,
+                        LogView(domain: logViewController.dataProvider.domain,
                                 eventHandler: logViewController.eventHandler)
                     }
                     .layoutPriority(1)

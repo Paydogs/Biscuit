@@ -20,5 +20,5 @@ strings:
       templatePath: Tools/Swiftgen/bin/structured-swift5.stencil
       output: Biscuit/Assets/Generated/Localizable.swift
       params:
-        enumName: Localizable
+        enumName: Localized
         publicAccess: true

@@ -10,7 +10,7 @@ import Factory
 import Combine
 
 class PacketViewDataProvider {
-    @ObservedObject var domain: PacketViewDomain
+    @ObservedObject var domain = PacketViewDomain()
 
     private let appState: Observed<AppState>
     private let packetState: Observed<PacketState>
@@ -22,7 +22,6 @@ class PacketViewDataProvider {
         self.appState = appState
         self.packetState = packetState
 
-        domain = PacketViewDomain()
         subscribe()
     }
 
