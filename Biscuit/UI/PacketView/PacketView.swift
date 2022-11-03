@@ -11,16 +11,18 @@ import Factory
 import Highlight
 
 struct PacketView: View {
-    @ObservedObject var domain: PacketViewDomain
-    var eventHandler: PacketViewEventHandling
+    @StateObject var domain: PacketViewDomain
+    private let eventHandler: PacketViewEventHandling
+
+    init(controller: PacketViewController) {
+        eventHandler = controller
+        _domain = StateObject(wrappedValue: controller.domain)
+    }
 
     @State private var selectedTab: Tab = .overview
-    let tabs: [Tab] = [.overview, .response, .request]
+    private let tabs: [Tab] = [.overview, .response, .request]
 
     var body: some View {
-        let body: NSAttributedString = domain.selectedPacket?.colorizedOverviewDescription ??
-        Localized.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
-
         VStack {
             Picker("", selection: $selectedTab) {
                 ForEach(tabs, id:\.self) { tab in
@@ -37,7 +39,7 @@ struct PacketView: View {
 
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packetBody: body)
+                    case .overview: Overview(packetBody: packetBody)
                     case .request: RequestView()
                     case .response: ResponseView()
                 }
@@ -47,14 +49,14 @@ struct PacketView: View {
                 SmallActionButton(data: copyBodyToClipboardButtonData,
                                   event: .init(action: {  eventHandler.copyBodyToClipboard(packet: domain.selectedPacket) }))
                 Spacer()
-                .frame(alignment: .leading)
+                    .frame(alignment: .leading)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
     }
 }
 
-extension PacketView {
+private extension PacketView {
     enum Tab: String {
         case overview
         case request
@@ -62,16 +64,13 @@ extension PacketView {
     }
 }
 
-extension PacketView {
+private extension PacketView {
+    var packetBody: NSAttributedString {
+        return domain.selectedPacket?.colorizedOverviewDescription ?? Localized.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
+    }
+
     var copyBodyToClipboardButtonData: SmallActionButton.Data {
         SmallActionButton.Data(icon: "doc.on.clipboard.fill",
                                help: Localized.PacketView.Button.copyToPasteboard)
-    }
-}
-
-struct PacketView_Previews: PreviewProvider {
-    static var previews: some View {
-        PacketView(domain: createDummyDomain(),
-                   eventHandler: DummyHandler())
     }
 }

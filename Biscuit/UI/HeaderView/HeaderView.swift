@@ -10,8 +10,13 @@ import SwiftUI
 import Factory
 
 struct HeaderView: View {
-    @ObservedObject var domain: HeaderViewDomain
-    var eventHandler: HeaderViewEventHandling
+    @StateObject private var domain: HeaderViewDomain
+    private var eventHandler: HeaderViewEventHandling
+
+    init(controller: HeaderViewController) {
+        _domain = StateObject(wrappedValue: controller.domain)
+        eventHandler = controller
+    }
 
     var body: some View {
         HStack {
@@ -22,7 +27,7 @@ struct HeaderView: View {
             }))
             .frame(width: 250, height: 40, alignment: .center)
             .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 0))
-
+                
             StandardPicker(data: StandardPicker.Content(title: domain.deviceTitle,
                                                         values: domain.deviceList),
                            event: StandardPicker.Events(itemSelected: { selected in
@@ -30,16 +35,9 @@ struct HeaderView: View {
             }))
             .frame(width: 250, height: 40, alignment: .center)
             .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
-
+                
             Spacer()
         }
         .background(Colors.Background.panelBackground.opacity(0.2))
-    }
-}
-
-struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderView(domain: createDummyDomain(),
-                   eventHandler: DummyHandler())
     }
 }

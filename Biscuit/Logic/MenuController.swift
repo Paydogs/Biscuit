@@ -7,24 +7,19 @@
 
 import SwiftUI
 import Combine
+import Factory
 
 struct MenuController {
-    private let appState: Observed<AppState>
-    private let packetState: Observed<PacketState>
+    @Injected(BiscuitContainer.appStore) var appStore
+    @Injected(BiscuitContainer.packetStore) var packetStore
 
     private var subscriptions: Set<AnyCancellable> = []
-
-    init(appState: Observed<AppState>,
-         packetState: Observed<PacketState>) {
-        self.appState = appState
-        self.packetState = packetState
-    }
 }
 
 // MARK: - Menu items
 extension MenuController {
     func exportPackets() {
         print("[MenuController] Exporting packets...")
-        SavePanel.exportPackets(packets: appState.state.selectedPackets)
+        SavePanel.exportPackets(packets: appStore.observed.state.selectedPackets)
     }
 }

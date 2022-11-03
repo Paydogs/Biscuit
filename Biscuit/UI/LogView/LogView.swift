@@ -10,8 +10,14 @@ import SwiftUI
 import Factory
 
 struct LogView: View {
-    @ObservedObject var domain: LogViewDomain
-    var eventHandler: LogViewEventHandling
+    @StateObject private var domain: LogViewDomain
+    private var eventHandler: LogViewEventHandling
+
+    init(controller: LogViewController) {
+        _domain = StateObject(wrappedValue: controller.domain)
+        eventHandler = controller
+    }
+
     @State private var selectedPacket = Set<PacketTableRow.ID>()
 
     var body: some View {
@@ -39,12 +45,5 @@ struct LogView: View {
         .onChange(of: selectedPacket) { selected in
             eventHandler.selectPackets(identifiers: Array(selected))
         }
-    }
-}
-
-struct LogView_Previews: PreviewProvider {
-    static var previews: some View {
-        LogView(domain: createDummyDomain(),
-                eventHandler: DummyHandler())
     }
 }
