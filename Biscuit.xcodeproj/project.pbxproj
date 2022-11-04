@@ -65,6 +65,7 @@
 		BE04CE9828B834350057F82A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9728B834350057F82A /* HeaderView.swift */; };
 		BE2DEC7D291361F000F0C109 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2DEC7C291361F000F0C109 /* HeaderViewController.swift */; };
 		BE92892128D78B220008E116 /* HeaderViewDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892028D78B220008E116 /* HeaderViewDomain.swift */; };
+		BE1EE57929149C2600092532 /* HeaderViewMockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1EE57829149C2600092532 /* HeaderViewMockFactory.swift */; };
 		BEC9507928F8C42700809C05 /* Highlight in Frameworks */ = {isa = PBXBuildFile; productRef = BEC9507828F8C42700809C05 /* Highlight */; };
 		BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A828B0F999000B7C0E /* IncomingPacket.swift */; };
 		BEF6A00028DFB44A00B3ECBB /* InvalidPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */; };
@@ -73,6 +74,7 @@
 		BE9001BC28B2F87D000B7C0E /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001BB28B2F87D000B7C0E /* LogView.swift */; };
 		BE69393728CEB1C8007D4E3C /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE69393628CEB1C8007D4E3C /* LogViewController.swift */; };
 		BE92892528D792E80008E116 /* LogViewDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE92892428D792E80008E116 /* LogViewDomain.swift */; };
+		BE1EE57629149C1D00092532 /* LogViewMockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1EE57529149C1D00092532 /* LogViewMockFactory.swift */; };
 		BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
 		BE1EE57029148C1B00092532 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1EE56F29148C1B00092532 /* MainWindowController.swift */; };
@@ -93,6 +95,7 @@
 		BEF65AC728E3B0D4001543F6 /* PacketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF65AC628E3B0D4001543F6 /* PacketView.swift */; };
 		BEF65AD628E3BEF4001543F6 /* PacketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF65AD528E3BEF4001543F6 /* PacketViewController.swift */; };
 		BEF65AD028E3B807001543F6 /* PacketViewDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF65ACF28E3B807001543F6 /* PacketViewDomain.swift */; };
+		BE1EE57329149C1600092532 /* PacketViewMockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1EE57229149C1600092532 /* PacketViewMockFactory.swift */; };
 		BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */; };
 		BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */; };
 		BEF69FFC28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69FFB28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift */; };
@@ -191,12 +194,14 @@
 		BE04CE9728B834350057F82A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BE2DEC7C291361F000F0C109 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		BE92892028D78B220008E116 /* HeaderViewDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewDomain.swift; sourceTree = "<group>"; };
+		BE1EE57829149C2600092532 /* HeaderViewMockFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewMockFactory.swift; sourceTree = "<group>"; };
 		BE9001A828B0F999000B7C0E /* IncomingPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingPacket.swift; sourceTree = "<group>"; };
 		BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidPacket.swift; sourceTree = "<group>"; };
 		BE432EF42904E8B2004E4CCB /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		BE9001BB28B2F87D000B7C0E /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		BE69393628CEB1C8007D4E3C /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		BE92892428D792E80008E116 /* LogViewDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewDomain.swift; sourceTree = "<group>"; };
+		BE1EE57529149C1D00092532 /* LogViewMockFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewMockFactory.swift; sourceTree = "<group>"; };
 		BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		BE1EE56F29148C1B00092532 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
@@ -217,6 +222,7 @@
 		BEF65AC628E3B0D4001543F6 /* PacketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketView.swift; sourceTree = "<group>"; };
 		BEF65AD528E3BEF4001543F6 /* PacketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketViewController.swift; sourceTree = "<group>"; };
 		BEF65ACF28E3B807001543F6 /* PacketViewDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketViewDomain.swift; sourceTree = "<group>"; };
+		BE1EE57229149C1600092532 /* PacketViewMockFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketViewMockFactory.swift; sourceTree = "<group>"; };
 		BEED2A9328A5BB2900EE1E5D /* PostAppErrorUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCase.swift; sourceTree = "<group>"; };
 		BEED2A9528A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppErrorUseCaseInterface.swift; sourceTree = "<group>"; };
 		BEF69FFB28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInvalidPacketUseCase.swift; sourceTree = "<group>"; };
@@ -265,6 +271,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE1EE57129149C1600092532 /* PreviewData */ = {
+			isa = PBXGroup;
+			children = (
+				BE1EE57229149C1600092532 /* PacketViewMockFactory.swift */,
+			);
+			path = PreviewData;
+			sourceTree = "<group>";
+		};
+		BE1EE57429149C1D00092532 /* PreviewData */ = {
+			isa = PBXGroup;
+			children = (
+				BE1EE57529149C1D00092532 /* LogViewMockFactory.swift */,
+			);
+			path = PreviewData;
+			sourceTree = "<group>";
+		};
+		BE1EE57729149C2600092532 /* PreviewData */ = {
+			isa = PBXGroup;
+			children = (
+				BE1EE57829149C2600092532 /* HeaderViewMockFactory.swift */,
+			);
+			path = PreviewData;
+			sourceTree = "<group>";
+		};
 		BE27F8EE288F35B80042F376 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +420,7 @@
 		BE44C45628C421C700791897 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
+				BE1EE57729149C2600092532 /* PreviewData */,
 				BE04CE9728B834350057F82A /* HeaderView.swift */,
 				BE2DEC7C291361F000F0C109 /* HeaderViewController.swift */,
 				BE92892028D78B220008E116 /* HeaderViewDomain.swift */,
@@ -554,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE7190828BC16C3000F147B /* Models */,
+				BE1EE57429149C1D00092532 /* PreviewData */,
 				BE9001BB28B2F87D000B7C0E /* LogView.swift */,
 				BE69393628CEB1C8007D4E3C /* LogViewController.swift */,
 				BE92892428D792E80008E116 /* LogViewDomain.swift */,
@@ -653,6 +685,7 @@
 			isa = PBXGroup;
 			children = (
 				BE5443D128E9096D00DD9DCB /* Overview */,
+				BE1EE57129149C1600092532 /* PreviewData */,
 				BE5443CB28E908A500DD9DCB /* RequestView */,
 				BE5443CC28E908B400DD9DCB /* ResponseView */,
 				BEF65AC628E3B0D4001543F6 /* PacketView.swift */,
@@ -873,12 +906,14 @@
 				BE04CE9828B834350057F82A /* HeaderView.swift in Sources */,
 				BE2DEC7D291361F000F0C109 /* HeaderViewController.swift in Sources */,
 				BE92892128D78B220008E116 /* HeaderViewDomain.swift in Sources */,
+				BE1EE57929149C2600092532 /* HeaderViewMockFactory.swift in Sources */,
 				BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */,
 				BEF6A00028DFB44A00B3ECBB /* InvalidPacket.swift in Sources */,
 				BE432EF52904E8B2004E4CCB /* Localizable.swift in Sources */,
 				BE9001BC28B2F87D000B7C0E /* LogView.swift in Sources */,
 				BE69393728CEB1C8007D4E3C /* LogViewController.swift in Sources */,
 				BE92892528D792E80008E116 /* LogViewDomain.swift in Sources */,
+				BE1EE57629149C1D00092532 /* LogViewMockFactory.swift in Sources */,
 				BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
 				BE1EE57029148C1B00092532 /* MainWindowController.swift in Sources */,
@@ -898,6 +933,7 @@
 				BEF65AC728E3B0D4001543F6 /* PacketView.swift in Sources */,
 				BEF65AD628E3BEF4001543F6 /* PacketViewController.swift in Sources */,
 				BEF65AD028E3B807001543F6 /* PacketViewDomain.swift in Sources */,
+				BE1EE57329149C1600092532 /* PacketViewMockFactory.swift in Sources */,
 				BEED2A9428A5BB2900EE1E5D /* PostAppErrorUseCase.swift in Sources */,
 				BEED2A9628A5BB3500EE1E5D /* PostAppErrorUseCaseInterface.swift in Sources */,
 				BEF69FFC28DFB3AA00B3ECBB /* PostInvalidPacketUseCase.swift in Sources */,

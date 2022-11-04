@@ -21,7 +21,12 @@ struct BiscuitApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainWindow(controller: windowController)
+            MainWindow(headerViewDomain: windowController.headerViewController.domain,
+                       headerViewEventHandler: windowController.headerViewController,
+                       logViewDomain: windowController.logViewController.domain,
+                       logViewEventHandler: windowController.logViewController,
+                       packetViewDomain: windowController.packetViewController.domain,
+                       packetViewEventHandler: windowController.packetViewController)
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {

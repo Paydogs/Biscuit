@@ -7,16 +7,15 @@
 
 import Foundation
 
-class BaseStore<T: FluxState>: FluxStore {
-    typealias BoundedContext = T
-    typealias TransformState = (inout T) -> Void
+class BaseStore<State: FluxState>: FluxStore {
+    typealias TransformState = (inout State) -> Void
 
-    private var _state: T
-    let observed: Observed<T>
+    private var _state: State
+    let observed: Observed<State>
 
-    init(state: T) {
+    init(state: State) {
         _state = state
-        self.observed = Observed<T>(state: state)
+        self.observed = Observed<State>(state: state)
     }
 
     func handleAction(action: FluxAction) {
@@ -33,10 +32,10 @@ extension BaseStore {
     }
 }
 
-class Observed<T: FluxState>: ObservableObject {
-    @Published fileprivate(set) var state: T
+class Observed<State: FluxState>: ObservableObject {
+    @Published fileprivate(set) var state: State
 
-    init(state: T) {
+    init(state: State) {
         self.state = state
     }
 }

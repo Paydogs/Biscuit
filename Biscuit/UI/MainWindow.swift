@@ -10,25 +10,51 @@ import Factory
 import Combine
 
 struct MainWindow: View {
-    private let controller: MainWindowController
+    private let headerViewDomain: HeaderViewDomain
+    private let headerViewEventHandler: HeaderViewEventHandling
+    private let logViewDomain: LogViewDomain
+    private let logViewEventHandler: LogViewEventHandling
+    private let packetViewDomain: PacketViewDomain
+    private let packetViewEventHandler: PacketViewEventHandling
 
-    init(controller: MainWindowController) {
-        self.controller = controller
+    init(headerViewDomain: HeaderViewDomain,
+         headerViewEventHandler: HeaderViewEventHandling,
+         logViewDomain: LogViewDomain,
+         logViewEventHandler: LogViewEventHandling,
+         packetViewDomain: PacketViewDomain,
+         packetViewEventHandler: PacketViewEventHandling) {
+        self.headerViewDomain = headerViewDomain
+        self.headerViewEventHandler = headerViewEventHandler
+        self.logViewDomain = logViewDomain
+        self.logViewEventHandler = logViewEventHandler
+        self.packetViewDomain = packetViewDomain
+        self.packetViewEventHandler = packetViewEventHandler
     }
 
     var body: some View {
         HSplitView {
             VStack {
-                HeaderView(controller: controller.headerViewController)
+                HeaderView(domain: headerViewDomain, eventHandler: headerViewEventHandler)
                     .background(BlurView(material: .titlebar))
                 VStack {
-                    LogView(controller: controller.logViewController)
+                    LogView(domain: logViewDomain, eventHandler: logViewEventHandler)
                 }
                 .layoutPriority(1)
             }
-            PacketView(controller: controller.packetViewController)
+            PacketView(domain: packetViewDomain, eventHandler: packetViewEventHandler)
                 .background(BlurView(material: .underPageBackground))
         }
         .frame(minWidth: 800, minHeight: 480)
+    }
+}
+
+struct MainWindow_Previews: PreviewProvider {
+    static var previews: some View {
+        MainWindow(headerViewDomain: HeaderViewMockFactory.createDummyDomain(),
+                   headerViewEventHandler: HeaderViewMockFactory.createDummyHandler(),
+                   logViewDomain: LogViewMockFactory.createDummyDomain(),
+                   logViewEventHandler: LogViewMockFactory.createDummyHandler(),
+                   packetViewDomain: PacketViewMockFactory.createDummyDomain(),
+                   packetViewEventHandler: PacketViewMockFactory.createDummyHandler())
     }
 }

@@ -11,16 +11,11 @@ import Factory
 import Highlight
 
 struct PacketView: View {
-    @StateObject var domain: PacketViewDomain
-    private let eventHandler: PacketViewEventHandling
-
-    init(controller: PacketViewController) {
-        eventHandler = controller
-        _domain = StateObject(wrappedValue: controller.domain)
-    }
+    @ObservedObject var domain: PacketViewDomain
+    var eventHandler: PacketViewEventHandling
 
     @State private var selectedTab: Tab = .overview
-    private let tabs: [Tab] = [.overview, .response, .request]
+    let tabs: [Tab] = [.overview, .response, .request]
 
     var body: some View {
         VStack {
@@ -49,14 +44,14 @@ struct PacketView: View {
                 SmallActionButton(data: copyBodyToClipboardButtonData,
                                   event: .init(action: {  eventHandler.copyBodyToClipboard(packet: domain.selectedPacket) }))
                 Spacer()
-                    .frame(alignment: .leading)
+                .frame(alignment: .leading)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
     }
 }
 
-private extension PacketView {
+extension PacketView {
     enum Tab: String {
         case overview
         case request
@@ -70,7 +65,14 @@ private extension PacketView {
     }
 
     var copyBodyToClipboardButtonData: SmallActionButton.Data {
-        SmallActionButton.Data(icon: "doc.on.clipboard.fill",
-                               help: Localized.PacketView.Button.copyToPasteboard)
+        return SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+                                      help: Localized.PacketView.Button.copyToPasteboard)
+    }
+}
+
+struct PacketView_Previews: PreviewProvider {
+    static var previews: some View {
+        PacketView(domain: PacketViewMockFactory.createDummyDomain(),
+                   eventHandler: PacketViewMockFactory.createDummyHandler())
     }
 }
