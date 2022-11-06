@@ -24,6 +24,12 @@ public enum Localized {
   public static let packetRequestHeaders = Localized.tr("Localizable", "packet_request_headers", fallback: "REQUEST HEADERS:")
   /// RESPONSE BODY
   public static let packetResponseBody = Localized.tr("Localizable", "packet_response_body", fallback: "RESPONSE BODY")
+  public enum HeaderView {
+    /// Device
+    public static let deviceTitle = Localized.tr("Localizable", "HeaderView.deviceTitle", fallback: "Device")
+    /// Project
+    public static let projectTitle = Localized.tr("Localizable", "HeaderView.projectTitle", fallback: "Project")
+  }
   public enum LogView {
     public enum ContextMenu {
       /// Export
@@ -83,6 +89,10 @@ public enum Localized {
     public static let exportpacketNamefield = Localized.tr("Localizable", "SavePanel.exportpacket_namefield", fallback: "Packet file name:")
     /// Save packet
     public static let exportpacketTitle = Localized.tr("Localizable", "SavePanel.exportpacket_title", fallback: "Save packet")
+  }
+  public enum StandardPicker {
+    /// None
+    public static let noneSelected = Localized.tr("Localizable", "StandardPicker.noneSelected", fallback: "None")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

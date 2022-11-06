@@ -9,13 +9,16 @@ import Combine
 import SwiftUI
 import Factory
 
-struct LogView: View {
-    @ObservedObject var domain: LogViewDomain
-    var eventHandler: LogViewEventHandling
+struct LogView<ViewModel: LogViewViewModelInterface>: View {
+    @StateObject var viewModel: ViewModel
     @State private var selectedPacket = Set<PacketTableRow.ID>()
 
+    init(viewModel: ViewModel = LogViewViewModel()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
-        Table(domain.packets, selection: $selectedPacket) {
+        Table(viewModel.packets, selection: $selectedPacket) {
             TableColumn(Localized.LogView.TableColumn.status) { item in
                 Text(item.status)
                     .foregroundColor(item.statusColor)
@@ -32,19 +35,18 @@ struct LogView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .contextMenu {
             Button(Localized.LogView.ContextMenu.export, action: {
-                eventHandler.exportPackets()
+                viewModel.exportPackets()
             })
             .disabled(selectedPacket.isEmpty)
         }
         .onChange(of: selectedPacket) { selected in
-            eventHandler.selectPackets(identifiers: Array(selected))
+            viewModel.selectPackets(identifiers: Array(selected))
         }
     }
 }
 
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
-        LogView(domain: LogViewMockFactory.createDummyDomain(),
-                eventHandler: LogViewMockFactory.createDummyHandler())
+        LogView(viewModel: MockLogViewViewModel())
     }
 }

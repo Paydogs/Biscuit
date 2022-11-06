@@ -1,41 +1,35 @@
 //
-//  HeaderViewController.swift
+//  HeaderViewViewModel.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 09. 04..
+//  Created by Andras Olah on 2022. 11. 06..
 //
 
-import SwiftUI
+import Foundation
+import AppKit
 import Factory
 import Combine
+import SwiftUI
 
-protocol HeaderViewEventHandling {
+protocol HeaderViewViewModelInterface: ObservableObject {
+    var projectList: [StandardPicker.PickerItem]  { get }
+    var deviceList: [StandardPicker.PickerItem] { get }
+
     func projectSelected(identifier: String)
     func deviceSelected(identifier: String)
 }
 
-class HeaderViewController {
-    @ObservedObject var domain = HeaderViewDomain()
-
-    private let appState: Observed<AppState>
-    private let packetState: Observed<PacketState>
-    private let updateFilterUseCase: UpdateFilterUseCaseInterface
+class HeaderViewViewModel: HeaderViewViewModelInterface {
+    @Injected(BiscuitContainer.appStore) private var appStore
+    @Injected(BiscuitContainer.packetStore) private var packetStore
+    @Injected(BiscuitContainer.updateFilterUseCase) private var updateFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
-    init(appState: Observed<AppState>,
-         packetState: Observed<PacketState>,
-         updateFilterUseCase: UpdateFilterUseCaseInterface) {
-        self.appState = appState
-        self.packetState = packetState
-        self.updateFilterUseCase = updateFilterUseCase
+    @Published var projectList: [StandardPicker.PickerItem] = []
+    @Published var deviceList: [StandardPicker.PickerItem] = []
 
-        bind()
-    }
-}
-
-private extension HeaderViewController {
-    func bind() {
-        packetState.$state
+    init() {
+        packetStore.observed.$state
             .map(\.projects)
             .map { projects in
                 projects.sorted().map { project in
@@ -43,29 +37,30 @@ private extension HeaderViewController {
                 }
             }
             .sink(receiveValue: { [weak self] value in
-                self?.domain.projectList = value
+                self?.projectList = value
             })
             .store(in: &subscriptions)
 
-        packetState.$state.map(\.projects)
-            .combineLatest(appState.$state.map(\.filter))
+        packetStore.observed.$state.map(\.projects)
+            .combineLatest(appStore.observed.$state.map(\.filter))
             .map { (projects: Set<Project>, filter: Filter) in
                 projects.filterDevices(filter: filter).map { device in
                     StandardPicker.PickerItem(id: device.id, text: device.descriptor.name)
                 }
             }
             .sink(receiveValue: { [weak self] value in
-                self?.domain.deviceList = value
+                self?.deviceList = value
             })
             .store(in: &subscriptions)
     }
 }
 
-extension HeaderViewController: HeaderViewEventHandling {
+// MARK: - Event handling
+extension HeaderViewViewModel {
     func projectSelected(identifier: String) {
         var filter = Filter(project: identifier)
         print("Picker selected: \(identifier)")
-        let devices = packetState.state.projects.filterDevices(filter: filter)
+        let devices = packetStore.observed.state.projects.filterDevices(filter: filter)
         filter.deviceId = devices.first?.id
         updateFilterUseCase.execute(filter: filter)
     }

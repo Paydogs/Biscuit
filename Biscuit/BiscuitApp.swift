@@ -14,19 +14,13 @@ struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
 
-    @Injected(BiscuitContainer.windowController) var windowController
     @Injected(BiscuitContainer.menuController) var menuController
 
     init() { }
 
     var body: some Scene {
         WindowGroup {
-            MainWindow(headerViewDomain: windowController.headerViewController.domain,
-                       headerViewEventHandler: windowController.headerViewController,
-                       logViewDomain: windowController.logViewController.domain,
-                       logViewEventHandler: windowController.logViewController,
-                       packetViewDomain: windowController.packetViewController.domain,
-                       packetViewEventHandler: windowController.packetViewController)
+            MainWindow()
         }
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {

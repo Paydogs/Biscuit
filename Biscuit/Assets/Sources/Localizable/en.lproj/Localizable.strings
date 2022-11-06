@@ -29,9 +29,14 @@
 "LogView.tableColumn.url" = "Url";
 "LogView.tableColumn.date" = "Date";
 "LogView.contextMenu.export" = "Export";
+// Headerview strings
+"HeaderView.projectTitle" = "Project";
+"HeaderView.deviceTitle" = "Device";
 // Menu items
 "MenuItem.export_packets" = "Export packets";
 // Menu functions
 "SavePanel.exportpacket_title" = "Save packet";
 "SavePanel.exportpacket_message" = "Choose a folder and a name to store the packet.";
 "SavePanel.exportpacket_namefield" = "Packet file name:";
+// Component strings
+"StandardPicker.noneSelected" = "None";

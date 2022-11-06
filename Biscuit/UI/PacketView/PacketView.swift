@@ -10,12 +10,15 @@ import SwiftUI
 import Factory
 import Highlight
 
-struct PacketView: View {
-    @ObservedObject var domain: PacketViewDomain
-    var eventHandler: PacketViewEventHandling
-
+struct PacketView<ViewModel: PacketViewViewModelInterface>: View {
+    @StateObject var viewModel: ViewModel
     @State private var selectedTab: Tab = .overview
-    let tabs: [Tab] = [.overview, .response, .request]
+
+    init(viewModel: ViewModel = PacketViewViewModel()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
+//    let tabs: [Tab] = [.overview, .response, .request]
 
     var body: some View {
         VStack {
@@ -42,7 +45,7 @@ struct PacketView: View {
 
             HStack {
                 SmallActionButton(data: copyBodyToClipboardButtonData,
-                                  event: .init(action: {  eventHandler.copyBodyToClipboard(packet: domain.selectedPacket) }))
+                                  event: .init(action: {  viewModel.copyBodyToClipboard(packet: viewModel.selectedPacket) }))
                 Spacer()
                 .frame(alignment: .leading)
             }
@@ -60,8 +63,11 @@ extension PacketView {
 }
 
 private extension PacketView {
+    var tabs: [Tab] {
+        [.overview, .response, .request]
+    }
     var packetBody: NSAttributedString {
-        return domain.selectedPacket?.colorizedOverviewDescription ?? Localized.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
+        return viewModel.selectedPacket?.colorizedOverviewDescription ?? Localized.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
     }
 
     var copyBodyToClipboardButtonData: SmallActionButton.Data {
@@ -72,7 +78,6 @@ private extension PacketView {
 
 struct PacketView_Previews: PreviewProvider {
     static var previews: some View {
-        PacketView(domain: PacketViewMockFactory.createDummyDomain(),
-                   eventHandler: PacketViewMockFactory.createDummyHandler())
+        PacketView(viewModel: MockPacketViewViewModel())
     }
 }

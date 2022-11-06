@@ -1,42 +1,34 @@
 //
-//  LogViewController.swift
+//  LogViewViewModel.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 09. 12..
+//  Created by Andras Olah on 2022. 11. 06..
 //
 
-import SwiftUI
+import Foundation
+import AppKit
 import Factory
 import Combine
+import SwiftUI
 
-protocol LogViewEventHandling {
+protocol LogViewViewModelInterface: ObservableObject {
+    var packets: [PacketTableRow] { get }
+
     func selectPackets(identifiers: [String])
     func exportPackets()
 }
 
-class LogViewController {
-    @ObservedObject var domain = LogViewDomain()
-
-    private let appState: Observed<AppState>
-    private let packetState: Observed<PacketState>
-    private let selectPacketsUseCase: SelectPacketsUseCaseInterface
+class LogViewViewModel: LogViewViewModelInterface {
+    @Injected(BiscuitContainer.appStore) private var appStore
+    @Injected(BiscuitContainer.packetStore) private var packetStore
+    @Injected(BiscuitContainer.selectPacketsUseCase) private var selectPacketsUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
-    init(appState: Observed<AppState>,
-         packetState: Observed<PacketState>,
-         selectPacketsUseCase: SelectPacketsUseCaseInterface) {
-        self.appState = appState
-        self.packetState = packetState
-        self.selectPacketsUseCase = selectPacketsUseCase
-        bind()
-    }
-}
+    @Published var packets: [PacketTableRow] = []
 
-// MARK: - Data providing
-private extension LogViewController {
-    func bind() {
-        packetState.$state.map(\.projects)
-            .combineLatest(appState.$state.map(\.filter))
+    init() {
+        packetStore.observed.$state.map(\.projects)
+            .combineLatest(appStore.observed.$state.map(\.filter))
             .map { (projects: Set<Project>, filter: Filter) in
                 projects.filterPackets(filter: filter)
                     .sorted()
@@ -46,11 +38,13 @@ private extension LogViewController {
                 }
             }
             .sink(receiveValue: { [weak self] value in
-                self?.domain.packets = value
+                self?.packets = value
             })
             .store(in: &subscriptions)
     }
+}
 
+private extension LogViewViewModel {
     func mapPacket(packet: Packet) -> PacketTableRow {
         return .init(id: packet.bagelPacketId,
                      status: String(packet.statusCode.code),
@@ -62,11 +56,11 @@ private extension LogViewController {
     }
 }
 
-// MARK: - Event listening
-extension LogViewController: LogViewEventHandling {
+// MARK: - Event handling
+extension LogViewViewModel {
     func selectPackets(identifiers: [String]) {
         print("Selecting: \(identifiers)")
-        let packets = packetState.state.projects.filterPackets(filter: appState.state.filter).filter { packet in
+        let packets = packetStore.observed.state.projects.filterPackets(filter: appStore.observed.state.filter).filter { packet in
             identifiers.contains(packet.id)
         }
         print("packets to select: \(identifiers)")
@@ -74,6 +68,6 @@ extension LogViewController: LogViewEventHandling {
     }
 
     func exportPackets() {
-        SavePanel.exportPackets(packets: appState.state.selectedPackets)
+        SavePanel.exportPackets(packets: appStore.observed.state.selectedPackets)
     }
 }

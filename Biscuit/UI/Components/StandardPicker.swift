@@ -14,10 +14,22 @@ struct StandardPicker: View {
     var data: Content
     var event: Events?
 
+    init(selectedIndex: Int? = nil, data: Content, event: Events? = nil) {
+        self.selectedIndex = selectedIndex
+        self.data = data
+        self.event = event
+
+        if let selectedId = data.selectedId {
+            _selectedIndex = State(initialValue: data.values.firstIndex(where: { (item: PickerItem) in
+                item.id == selectedId
+            }))
+        }
+    }
+
     var body: some View {
         Picker(data.title, selection: $selectedIndex) {
             if data.values.isEmpty {
-                Text("None").tag(nil as Int?)
+                Text(Localized.StandardPicker.noneSelected).tag(nil as Int?)
             } else {
                 ForEach(Array(data.values.enumerated()), id: \.element) { index, element in
                     Text(element.text).tag(index as Int?)
@@ -46,6 +58,7 @@ extension StandardPicker {
     struct Content {
         var title: String
         var values: [PickerItem]
+        var selectedId: String?
     }
     struct Events {
         var itemSelected: PickerAction
@@ -54,8 +67,11 @@ extension StandardPicker {
 
 struct StandardPicker_Previews: PreviewProvider {
     static var previews: some View {
-        StandardPicker(data: StandardPicker.Content(title: "",
-                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1"),
-                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2")]))
+            StandardPicker(data: StandardPicker.Content(title: "Standard picker 1:",
+                                                        values: []))
+            StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
+                                                        values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1"),
+                                                                 StandardPicker.PickerItem(id: "Item2", text: "Item 2")],
+                                                        selectedId: "Item2"))
     }
 }
