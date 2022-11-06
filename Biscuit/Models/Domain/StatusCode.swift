@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct StatusCode {
+struct StatusCode: Equatable {
     let code: Int
 }

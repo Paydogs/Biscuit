@@ -31,6 +31,8 @@ extension BiscuitContainer {
     static let clientConnectedUseCase = Factory { ClientConnectedUseCase() as ClientConnectedUseCaseInterface }
     static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
     static let selectPacketsUseCase = Factory { SelectPacketsUseCase() as SelectPacketsUseCaseInterface }
-    static let updateFilterUseCase = Factory { UpdateFilterUseCase() as UpdateFilterUseCaseInterface }
+    static let updateBuildFilterUseCase = Factory { UpdateBuildFilterUseCase() as UpdateBuildFilterUseCaseInterface }
+    static let updatePacketFilterUseCase = Factory { UpdatePacketFilterUseCase() as UpdatePacketFilterUseCaseInterface }
+    static let resetPacketFilterUseCase = Factory { ResetPacketFilterUseCase() as ResetPacketFilterUseCaseInterface }
 }
 

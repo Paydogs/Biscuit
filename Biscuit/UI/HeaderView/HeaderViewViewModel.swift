@@ -22,7 +22,7 @@ protocol HeaderViewViewModelInterface: ObservableObject {
 class HeaderViewViewModel: HeaderViewViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
-    @Injected(BiscuitContainer.updateFilterUseCase) private var updateFilterUseCase
+    @Injected(BiscuitContainer.updateBuildFilterUseCase) private var updateBuildFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var projectList: [StandardPicker.PickerItem] = []
@@ -42,8 +42,8 @@ class HeaderViewViewModel: HeaderViewViewModelInterface {
             .store(in: &subscriptions)
 
         packetStore.observed.$state.map(\.projects)
-            .combineLatest(appStore.observed.$state.map(\.filter))
-            .map { (projects: Set<Project>, filter: Filter) in
+            .combineLatest(appStore.observed.$state.map(\.buildFilter))
+            .map { (projects: Set<Project>, filter: BuildFilter) in
                 projects.filterDevices(filter: filter).map { device in
                     StandardPicker.PickerItem(id: device.id, text: device.descriptor.name)
                 }
@@ -58,15 +58,15 @@ class HeaderViewViewModel: HeaderViewViewModelInterface {
 // MARK: - Event handling
 extension HeaderViewViewModel {
     func projectSelected(identifier: String) {
-        var filter = Filter(project: identifier)
+        var filter = BuildFilter(project: identifier)
         print("Picker selected: \(identifier)")
         let devices = packetStore.observed.state.projects.filterDevices(filter: filter)
         filter.deviceId = devices.first?.id
-        updateFilterUseCase.execute(filter: filter)
+        updateBuildFilterUseCase.execute(filter: filter)
     }
 
     func deviceSelected(identifier: String) {
         print("Device selected: \(identifier)")
-        updateFilterUseCase.execute(filter: Filter(deviceId: identifier))
+        updateBuildFilterUseCase.execute(filter: BuildFilter(deviceId: identifier))
     }
 }

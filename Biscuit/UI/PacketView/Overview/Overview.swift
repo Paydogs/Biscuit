@@ -13,21 +13,38 @@ extension NSTextView {
             backgroundColor = .clear
             drawsBackground = true
         }
-
     }
 }
 
-struct Overview: View {
-    var packetBody: NSAttributedString
+struct Overview<ViewModel: OverviewViewModelInterface>: View {
+    @StateObject var viewModel: ViewModel
+
+    init(viewModel: ViewModel = OverviewViewModel()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
-        AttributedTextView(attributedText: packetBody)
-            .padding()
+        VStack(spacing: 0) {
+            AttributedTextView(attributedText: viewModel.packetBody)
+            Divider()
+            HStack {
+                SmallActionButton(data: copyBodyToClipboardButtonData,
+                                  event: .init(action: {  viewModel.copyBodyToClipboard(packet: viewModel.selectedPacket) }))
+                Spacer()
+            }
+        }
+    }
+}
+
+private extension Overview {
+    var copyBodyToClipboardButtonData: SmallActionButton.Data {
+        return SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+                                      help: Localized.PacketView.Button.copyToPasteboard)
     }
 }
 
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
-        Overview(packetBody: NSAttributedString(string: "Some text"))
+        Overview(viewModel: MockOverviewViewModel())
     }
 }

@@ -18,8 +18,6 @@ struct PacketView<ViewModel: PacketViewViewModelInterface>: View {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
-//    let tabs: [Tab] = [.overview, .response, .request]
-
     var body: some View {
         VStack {
             Picker("", selection: $selectedTab) {
@@ -33,21 +31,14 @@ struct PacketView<ViewModel: PacketViewViewModelInterface>: View {
             }
             .pickerStyle(.segmented)
             .labelsHidden()
-            .padding(EdgeInsets(top: 10, leading: 25, bottom: 1, trailing: 25))
+            .padding(EdgeInsets(top: 10, leading: 5, bottom: 1, trailing: 5))
 
             ZStack {
                 switch selectedTab {
-                    case .overview: Overview(packetBody: packetBody)
+                    case .overview: Overview()
                     case .request: RequestView()
                     case .response: ResponseView()
                 }
-            }
-
-            HStack {
-                SmallActionButton(data: copyBodyToClipboardButtonData,
-                                  event: .init(action: {  viewModel.copyBodyToClipboard(packet: viewModel.selectedPacket) }))
-                Spacer()
-                .frame(alignment: .leading)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
@@ -65,14 +56,6 @@ extension PacketView {
 private extension PacketView {
     var tabs: [Tab] {
         [.overview, .response, .request]
-    }
-    var packetBody: NSAttributedString {
-        return viewModel.selectedPacket?.colorizedOverviewDescription ?? Localized.packetNothingToShow.withStyle(Style(color: Colors.JSON.unknownColor))
-    }
-
-    var copyBodyToClipboardButtonData: SmallActionButton.Data {
-        return SmallActionButton.Data(icon: "doc.on.clipboard.fill",
-                                      help: Localized.PacketView.Button.copyToPasteboard)
     }
 }
 

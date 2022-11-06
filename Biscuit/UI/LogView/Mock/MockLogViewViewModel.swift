@@ -17,4 +17,5 @@ class MockLogViewViewModel: LogViewViewModelInterface {
 
     func selectPackets(identifiers: [String]) { }
     func exportPackets() { }
+    func filterUrl(url: String) { }
 }

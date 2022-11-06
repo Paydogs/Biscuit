@@ -11,5 +11,7 @@ enum AppActions: FluxAction {
     case didReceivedErrors([AppError])
     case didReceivedInvalidPacket(InvalidPacket)
     case didSelectPackets([Packet])
-    case didModifiedFilter(Filter)
+    case didModifiedBuildFilter(BuildFilter)
+    case didModifiedPacketFilter(PacketFilter)
+    case didResetPacketFilter
 }

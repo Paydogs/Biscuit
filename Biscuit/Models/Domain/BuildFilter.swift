@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct Filter: Equatable {
+struct BuildFilter: Equatable {
     var project: String?
     var deviceId: String?
-    var from: Date?
-    var to: Date?
 }

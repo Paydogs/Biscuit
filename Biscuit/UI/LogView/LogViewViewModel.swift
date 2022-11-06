@@ -16,26 +16,31 @@ protocol LogViewViewModelInterface: ObservableObject {
 
     func selectPackets(identifiers: [String])
     func exportPackets()
+    func filterUrl(url: String)
 }
 
 class LogViewViewModel: LogViewViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.selectPacketsUseCase) private var selectPacketsUseCase
+    @Injected(BiscuitContainer.updatePacketFilterUseCase) private var updatePacketFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var packets: [PacketTableRow] = []
 
     init() {
         packetStore.observed.$state.map(\.projects)
-            .combineLatest(appStore.observed.$state.map(\.filter))
-            .map { (projects: Set<Project>, filter: Filter) in
-                projects.filterPackets(filter: filter)
-                    .sorted()
-                    .compactMap { [weak self] packet -> PacketTableRow? in
-                    guard let self = self else { return nil }
-                    return self.mapPacket(packet: packet)
-                }
+            .combineLatest(appStore.observed.$state.map(\.buildFilter))
+            .map { (projects: Set<Project>, buildFilter: BuildFilter) -> [Packet] in
+                projects.filterDevices(filter: buildFilter).first?.packets.sorted() ?? []
+            }
+            .combineLatest(appStore.observed.$state.map(\.packetFilter))
+            .map { (devicePackets: [Packet], packetFilter: PacketFilter) -> [Packet] in
+                return devicePackets.filteredPackets(filter: packetFilter)
+            }
+            .map { [weak self] (filteredPackets: [Packet]) -> [PacketTableRow] in
+                guard let self = self else { return [] }
+                return filteredPackets.compactMap(self.mapPacket(packet:))
             }
             .sink(receiveValue: { [weak self] value in
                 self?.packets = value
@@ -60,14 +65,18 @@ private extension LogViewViewModel {
 extension LogViewViewModel {
     func selectPackets(identifiers: [String]) {
         print("Selecting: \(identifiers)")
-        let packets = packetStore.observed.state.projects.filterPackets(filter: appStore.observed.state.filter).filter { packet in
-            identifiers.contains(packet.id)
-        }
+        let allPackets = packetStore.observed.state.projects.allPackets()
+        let packets = allPackets.filter { (packet: Packet) in identifiers.contains(packet.id) }
         print("packets to select: \(identifiers)")
         selectPacketsUseCase.execute(packets: packets)
     }
 
     func exportPackets() {
         SavePanel.exportPackets(packets: appStore.observed.state.selectedPackets)
+    }
+
+    func filterUrl(url: String) {
+        print("Filtering: \(url)")
+        updatePacketFilterUseCase.execute(filter: PacketFilter(url: url))
     }
 }

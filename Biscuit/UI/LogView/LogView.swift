@@ -12,25 +12,41 @@ import Factory
 struct LogView<ViewModel: LogViewViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
     @State private var selectedPacket = Set<PacketTableRow.ID>()
+    @State private var filterUrl: String = ""
+    @State var urlFilterDisabled: Bool = true // Bug workaround
 
     init(viewModel: ViewModel = LogViewViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        Table(viewModel.packets, selection: $selectedPacket) {
-            TableColumn(Localized.LogView.TableColumn.status) { item in
-                Text(item.status)
-                    .foregroundColor(item.statusColor)
+        VStack(spacing: 0) {
+            Table(viewModel.packets, selection: $selectedPacket) {
+                TableColumn(Localized.LogView.TableColumn.status) { item in
+                    Text(item.status)
+                        .foregroundColor(item.statusColor)
+                }
+                .width(min: 45, max: 45)
+                TableColumn(Localized.LogView.TableColumn.method) { item in
+                    Text(item.method)
+                        .foregroundColor(item.methodColor)
+                }
+                .width(min: 45, max: 45)
+                TableColumn(Localized.LogView.TableColumn.url, value: \.url)
+                TableColumn(Localized.LogView.TableColumn.date, value: \.date)
             }
-            .width(min: 45, max: 45)
-            TableColumn(Localized.LogView.TableColumn.method) { item in
-                Text(item.method)
-                    .foregroundColor(item.methodColor)
+            Divider()
+            HStack {
+                Text("Filter:")
+                    .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 5))
+                TextField("Url", text: $filterUrl)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 10))
+                    .disabled(urlFilterDisabled)
+                    .onAppear {
+                        DispatchQueue.main.async { urlFilterDisabled = false }
+                     }
             }
-            .width(min: 45, max: 45)
-            TableColumn(Localized.LogView.TableColumn.url, value: \.url)
-            TableColumn(Localized.LogView.TableColumn.date, value: \.date)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .contextMenu {
@@ -41,6 +57,9 @@ struct LogView<ViewModel: LogViewViewModelInterface>: View {
         }
         .onChange(of: selectedPacket) { selected in
             viewModel.selectPackets(identifiers: Array(selected))
+        }
+        .onChange(of: filterUrl) { url in
+            viewModel.filterUrl(url: url)
         }
     }
 }

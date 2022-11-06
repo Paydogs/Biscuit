@@ -20,8 +20,12 @@ class AppStore: BaseStore<AppState> {
                 handleDidReceivedInvalidPacket(packet: packet)
             case .didSelectPackets(let packets):
                 handleDidSelectPackets(packets: packets)
-            case .didModifiedFilter(let filter):
-                handleDidModifiedFilter(filter: filter)
+            case .didModifiedBuildFilter(let filter):
+                handleDidModifiedBuildFilter(filter: filter)
+            case .didModifiedPacketFilter(let filter):
+                handleDidModifiedPacketFilter(filter: filter)
+            case .didResetPacketFilter:
+                handleDidResetPacketFilter()
         }
     }
 }
@@ -62,21 +66,38 @@ private extension AppStore {
         }
     }
 
-    func handleDidModifiedFilter(filter: Filter) {
+    func handleDidModifiedBuildFilter(filter: BuildFilter) {
         update { state in
-            print("[APPSTORE MANIP] filter changed: \(filter)")
+            print("[APPSTORE MANIP] build filter changed: \(filter)")
             if let project = filter.project {
-                state.filter.project = project
+                state.buildFilter.project = project
             }
             if let device = filter.deviceId {
-                state.filter.deviceId = device
+                state.buildFilter.deviceId = device
             }
+        }
+    }
+    func handleDidModifiedPacketFilter(filter: PacketFilter) {
+        update { state in
+            print("[APPSTORE MANIP] packet filter changed: \(filter)")
             if let from = filter.from {
-                state.filter.from = from
+                state.packetFilter.from = from
             }
             if let to = filter.to {
-                state.filter.to = to
+                state.packetFilter.to = to
             }
+            if let statusCode = filter.statusCode {
+                state.packetFilter.statusCode = statusCode
+            }
+            if let url = filter.url {
+                state.packetFilter.url = url
+            }
+        }
+    }
+    func handleDidResetPacketFilter() {
+        update { state in
+            print("[APPSTORE MANIP] packet filter reseted")
+            state.packetFilter = PacketFilter()
         }
     }
 }
