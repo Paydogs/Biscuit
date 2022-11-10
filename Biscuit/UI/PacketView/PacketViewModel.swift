@@ -1,5 +1,5 @@
 //
-//  PacketViewViewModel.swift
+//  PacketViewModel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 11. 06..
@@ -10,13 +10,13 @@ import AppKit
 import Factory
 import Combine
 
-protocol PacketViewViewModelInterface: ObservableObject {
+protocol PacketViewModelInterface: ObservableObject {
     var selectedPacket: Packet? { get }
 
     func copyBodyToClipboard(packet: Packet?)
 }
 
-class PacketViewViewModel: PacketViewViewModelInterface {
+class PacketViewModel: PacketViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     private var subscriptions: Set<AnyCancellable> = []
 
@@ -33,7 +33,7 @@ class PacketViewViewModel: PacketViewViewModelInterface {
 }
 
 // MARK: - Event handling
-extension PacketViewViewModel {
+extension PacketViewModel {
     func copyBodyToClipboard(packet: Packet?) {
         if let prettyBody = packet?.response.prettyBody {
             let pasteboard = NSPasteboard.general

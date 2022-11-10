@@ -1,11 +1,11 @@
 //
-//  MockHeaderViewViewModel.swift
+//  MockHeaderViewModel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 09. 28..
 //
 
-class MockHeaderViewViewModel: HeaderViewViewModelInterface {
+class MockHeaderViewModel: HeaderViewModelInterface {
     var projectList: [StandardPicker.PickerItem] {
         [.init(id: "Project_1", text: "Project 1"),
          .init(id: "Project_2", text: "Project 2")]

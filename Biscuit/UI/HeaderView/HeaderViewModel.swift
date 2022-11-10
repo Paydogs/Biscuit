@@ -1,5 +1,5 @@
 //
-//  HeaderViewViewModel.swift
+//  HeaderViewModel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 11. 06..
@@ -11,7 +11,7 @@ import Factory
 import Combine
 import SwiftUI
 
-protocol HeaderViewViewModelInterface: ObservableObject {
+protocol HeaderViewModelInterface: ObservableObject {
     var projectList: [StandardPicker.PickerItem]  { get }
     var deviceList: [StandardPicker.PickerItem] { get }
 
@@ -19,7 +19,7 @@ protocol HeaderViewViewModelInterface: ObservableObject {
     func deviceSelected(identifier: String)
 }
 
-class HeaderViewViewModel: HeaderViewViewModelInterface {
+class HeaderViewModel: HeaderViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.updateBuildFilterUseCase) private var updateBuildFilterUseCase
@@ -56,7 +56,7 @@ class HeaderViewViewModel: HeaderViewViewModelInterface {
 }
 
 // MARK: - Event handling
-extension HeaderViewViewModel {
+extension HeaderViewModel {
     func projectSelected(identifier: String) {
         var filter = BuildFilter(project: identifier)
         print("Picker selected: \(identifier)")

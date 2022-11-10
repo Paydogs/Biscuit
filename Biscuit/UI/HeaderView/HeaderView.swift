@@ -9,10 +9,10 @@ import Combine
 import SwiftUI
 import Factory
 
-struct HeaderView<ViewModel: HeaderViewViewModelInterface>: View {
+struct HeaderView<ViewModel: HeaderViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
 
-    init(viewModel: ViewModel = HeaderViewViewModel()) {
+    init(viewModel: ViewModel = HeaderViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -42,6 +42,6 @@ struct HeaderView<ViewModel: HeaderViewViewModelInterface>: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(viewModel: MockHeaderViewViewModel())
+        HeaderView(viewModel: MockHeaderViewModel())
     }
 }

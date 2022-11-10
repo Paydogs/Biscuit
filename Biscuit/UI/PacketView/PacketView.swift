@@ -10,11 +10,11 @@ import SwiftUI
 import Factory
 import Highlight
 
-struct PacketView<ViewModel: PacketViewViewModelInterface>: View {
+struct PacketView<ViewModel: PacketViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
     @State private var selectedTab: Tab = .overview
 
-    init(viewModel: ViewModel = PacketViewViewModel()) {
+    init(viewModel: ViewModel = PacketViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -61,6 +61,6 @@ private extension PacketView {
 
 struct PacketView_Previews: PreviewProvider {
     static var previews: some View {
-        PacketView(viewModel: MockPacketViewViewModel())
+        PacketView(viewModel: MockPacketViewModel())
     }
 }

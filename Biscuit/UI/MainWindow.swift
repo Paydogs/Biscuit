@@ -23,6 +23,12 @@ struct MainWindow: View {
             PacketView()
                 .background(BlurView(material: .underPageBackground))
         }
+        .overlay(alignment: .center, content: {
+            ErrorView()
+        })
+        .overlay(alignment: .bottom, content: {
+            ToastMessageView()
+        })
         .frame(minWidth: 800, minHeight: 480)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  LogViewViewModel.swift
+//  LogViewModel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 11. 06..
@@ -11,7 +11,7 @@ import Factory
 import Combine
 import SwiftUI
 
-protocol LogViewViewModelInterface: ObservableObject {
+protocol LogViewModelInterface: ObservableObject {
     var packets: [PacketTableRow] { get }
 
     func selectPackets(identifiers: [String])
@@ -19,7 +19,7 @@ protocol LogViewViewModelInterface: ObservableObject {
     func filterUrl(url: String)
 }
 
-class LogViewViewModel: LogViewViewModelInterface {
+class LogViewModel: LogViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.selectPacketsUseCase) private var selectPacketsUseCase
@@ -49,7 +49,7 @@ class LogViewViewModel: LogViewViewModelInterface {
     }
 }
 
-private extension LogViewViewModel {
+private extension LogViewModel {
     func mapPacket(packet: Packet) -> PacketTableRow {
         return .init(id: packet.bagelPacketId,
                      status: String(packet.statusCode.code),
@@ -62,7 +62,7 @@ private extension LogViewViewModel {
 }
 
 // MARK: - Event handling
-extension LogViewViewModel {
+extension LogViewModel {
     func selectPackets(identifiers: [String]) {
         print("Selecting: \(identifiers)")
         let allPackets = packetStore.observed.state.projects.allPackets()

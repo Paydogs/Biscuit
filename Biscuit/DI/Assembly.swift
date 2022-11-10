@@ -34,5 +34,6 @@ extension BiscuitContainer {
     static let updateBuildFilterUseCase = Factory { UpdateBuildFilterUseCase() as UpdateBuildFilterUseCaseInterface }
     static let updatePacketFilterUseCase = Factory { UpdatePacketFilterUseCase() as UpdatePacketFilterUseCaseInterface }
     static let resetPacketFilterUseCase = Factory { ResetPacketFilterUseCase() as ResetPacketFilterUseCaseInterface }
+    static let postMessageUseCase = Factory { PostMessageUseCase() as PostMessageUseCaseInterface }
 }
 

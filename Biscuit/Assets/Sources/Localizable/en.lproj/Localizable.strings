@@ -40,3 +40,7 @@
 "SavePanel.exportpacket_namefield" = "Packet file name:";
 // Component strings
 "StandardPicker.noneSelected" = "None";
+// Messages
+"Messages.CopyToPasteboard.nopacket" = "Nothing selected";
+"Messages.CopyToPasteboard.success" = "Response body copied to Pasteboard";
+"Messages.CopyToPasteboard.emptybody" = "No response body";

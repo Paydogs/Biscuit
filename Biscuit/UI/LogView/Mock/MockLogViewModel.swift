@@ -1,12 +1,12 @@
 //
-//  MockLogViewViewModel.swift
+//  MockLogViewModel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 09. 28..
 //
 import Foundation
 
-class MockLogViewViewModel: LogViewViewModelInterface {
+class MockLogViewModel: LogViewModelInterface {
     var packets: [PacketTableRow] {
         [.init(id: "Test1111", status: "200", statusColor: Colors.StatusCode.http2xx, method: "GET", methodColor: Colors.RequestMethod.get, url: "http://0.0.0.0:8882/api/v10/login/fingerprint/ios", date: Date.now.formatted()),
          .init(id: "Test1112", status: "402", statusColor: Colors.StatusCode.http4xx, method: "POST", methodColor: Colors.RequestMethod.post, url: "http://0.0.0.0:8882/api/v10/login/fingerprint/ios", date: Date.now.formatted()),

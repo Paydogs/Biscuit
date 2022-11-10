@@ -9,13 +9,13 @@ import Combine
 import SwiftUI
 import Factory
 
-struct LogView<ViewModel: LogViewViewModelInterface>: View {
+struct LogView<ViewModel: LogViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
     @State private var selectedPacket = Set<PacketTableRow.ID>()
     @State private var filterUrl: String = ""
     @State var urlFilterDisabled: Bool = true // Bug workaround
 
-    init(viewModel: ViewModel = LogViewViewModel()) {
+    init(viewModel: ViewModel = LogViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -66,6 +66,6 @@ struct LogView<ViewModel: LogViewViewModelInterface>: View {
 
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
-        LogView(viewModel: MockLogViewViewModel())
+        LogView(viewModel: MockLogViewModel())
     }
 }

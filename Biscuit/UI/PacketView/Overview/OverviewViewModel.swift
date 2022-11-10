@@ -19,6 +19,7 @@ protocol OverviewViewModelInterface: ObservableObject {
 
 class OverviewViewModel: OverviewViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
+    @Injected(BiscuitContainer.postMessageUseCase) private var postMessageUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var selectedPacket: Packet?
@@ -38,10 +39,17 @@ class OverviewViewModel: OverviewViewModelInterface {
 // MARK: - Event handling
 extension OverviewViewModel {
     func copyBodyToClipboard(packet: Packet?) {
-        if let prettyBody = packet?.response.prettyBody {
-            let pasteboard = NSPasteboard.general
-            pasteboard.declareTypes([.string], owner: nil)
-            pasteboard.setString(String(prettyBody), forType: .string)
+        guard let packet = packet else {
+            postMessageUseCase.execute(message: Localized.Messages.CopyToPasteboard.nopacket)
+            return
         }
+        guard let prettyBody = packet.response.prettyBody else {
+            postMessageUseCase.execute(message: Localized.Messages.CopyToPasteboard.emptybody)
+            return
+        }
+        let pasteboard = NSPasteboard.general
+        pasteboard.declareTypes([.string], owner: nil)
+        pasteboard.setString(String(prettyBody), forType: .string)
+        postMessageUseCase.execute(message: Localized.Messages.CopyToPasteboard.success)
     }
 }

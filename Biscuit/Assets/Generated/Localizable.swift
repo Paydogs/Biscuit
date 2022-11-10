@@ -50,6 +50,16 @@ public enum Localized {
     /// Export packets
     public static let exportPackets = Localized.tr("Localizable", "MenuItem.export_packets", fallback: "Export packets")
   }
+  public enum Messages {
+    public enum CopyToPasteboard {
+      /// No response body
+      public static let emptybody = Localized.tr("Localizable", "Messages.CopyToPasteboard.emptybody", fallback: "No response body")
+      /// Nothing selected
+      public static let nopacket = Localized.tr("Localizable", "Messages.CopyToPasteboard.nopacket", fallback: "Nothing selected")
+      /// Response body copied to Pasteboard
+      public static let success = Localized.tr("Localizable", "Messages.CopyToPasteboard.success", fallback: "Response body copied to Pasteboard")
+    }
+  }
   public enum PacketView {
     public enum Button {
       /// Copy body to Clipboard

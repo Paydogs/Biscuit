@@ -5,6 +5,8 @@
 //  Created by Andras Olah on 2022. 08. 11..
 //
 
+import Foundation
+
 class AppStore: BaseStore<AppState> {
     override func handleAction(action: FluxAction) {
         guard let action = action as? AppActions else { return }
@@ -26,6 +28,10 @@ class AppStore: BaseStore<AppState> {
                 handleDidModifiedPacketFilter(filter: filter)
             case .didResetPacketFilter:
                 handleDidResetPacketFilter()
+            case .didSendMessage(let message):
+                handleDidSendMessage(message: message)
+            case .didRemoveLastMessage:
+                handleDidRemoveLastMessage()
         }
     }
 }
@@ -98,6 +104,18 @@ private extension AppStore {
         update { state in
             print("[APPSTORE MANIP] packet filter reseted")
             state.packetFilter = PacketFilter()
+        }
+    }
+    func handleDidSendMessage(message: String) {
+        update { state in
+            print("[APPSTORE MANIP] received message")
+            state.messages.append(message)
+        }
+    }
+    func handleDidRemoveLastMessage() {
+        update { state in
+            print("[APPSTORE MANIP] removing message")
+            state.messages.removeFirst()
         }
     }
 }

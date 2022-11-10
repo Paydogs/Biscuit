@@ -6,10 +6,10 @@
 //
 
 extension AppError {
-    func alertText() -> String {
+    func localizedMessage() -> String {
         switch self {
             case .cannotConnect:
-            return "Error during connection. Is the port open?"
+            return "Error during connection. Is the port open? Maybe Bagel is running"
         }
     }
 }

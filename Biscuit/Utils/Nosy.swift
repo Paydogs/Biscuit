@@ -43,6 +43,7 @@ class Nosy {
             .sink { (value: AppState) in
                 print("[Nosy] Active connections: \(value.connectedClients)")
                 print("[Nosy] Selected packets: \(value.selectedPackets.count)")
+                print("[Nosy] Messages: \(value.messages)")
         }
         .store(in: &subscriptions)
     }
