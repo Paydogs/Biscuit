@@ -1,5 +1,5 @@
 //
-//  Color+Hex.swift
+//  Color+Utils.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 10. 17..
@@ -39,5 +39,11 @@ extension Color {
         }
 
         self.init(red: r, green: g, blue: b, opacity: a)
+    }
+}
+
+extension Color {
+    var nsColor: NSColor {
+        return NSColor(self)
     }
 }

@@ -62,5 +62,8 @@ private extension PacketView {
 struct PacketView_Previews: PreviewProvider {
     static var previews: some View {
         PacketView(viewModel: MockPacketViewModel())
+            .darkPreview(title: "Dark")
+        PacketView(viewModel: MockPacketViewModel())
+            .lightPreview(title: "Light")
     }
 }

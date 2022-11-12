@@ -22,6 +22,7 @@ struct BiscuitApp: App {
         WindowGroup {
             MainWindow()
         }
+        .windowStyle(.hiddenTitleBar)
         .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
             switch phase {
                 case .background:

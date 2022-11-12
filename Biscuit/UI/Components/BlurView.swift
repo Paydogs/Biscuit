@@ -26,5 +26,8 @@ struct BlurView: NSViewRepresentable {
 struct BlurView_Previews: PreviewProvider {
     static var previews: some View {
         BlurView(material: .headerView)
+            .darkPreview(title: "Dark")
+        BlurView(material: .headerView)
+            .lightPreview(title: "Light")
     }
 }

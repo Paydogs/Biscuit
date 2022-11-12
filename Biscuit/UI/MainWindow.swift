@@ -36,5 +36,8 @@ struct MainWindow: View {
 struct MainWindow_Previews: PreviewProvider {
     static var previews: some View {
         MainWindow()
+            .darkPreview(title: "Dark")
+        MainWindow()
+            .lightPreview(title: "Light")
     }
 }

@@ -36,12 +36,15 @@ struct HeaderView<ViewModel: HeaderViewModelInterface>: View {
 
             Spacer()
         }
-        .background(Colors.Background.panelBackground.opacity(0.2))
+        .background(Colors.HeaderView.background)
     }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HeaderView(viewModel: MockHeaderViewModel())
+            .darkPreview(title: "Dark")
+        HeaderView(viewModel: MockHeaderViewModel())
+            .lightPreview(title: "Light")
     }
 }

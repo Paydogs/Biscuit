@@ -42,5 +42,8 @@ extension ResponseView {
 struct ResponseView_Previews: PreviewProvider {
     static var previews: some View {
         ResponseView()
+            .darkPreview(title: "Dark")
+        ResponseView()
+            .lightPreview(title: "Light")
     }
 }

@@ -44,5 +44,8 @@ extension RequestView {
 struct RequestView_Previews: PreviewProvider {
     static var previews: some View {
         RequestView()
+            .darkPreview(title: "Dark")
+        RequestView()
+            .lightPreview(title: "Light")
     }
 }

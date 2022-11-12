@@ -31,5 +31,8 @@ struct ErrorView<ViewModel: ErrorViewModelInterface>: View {
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
         ErrorView()
+            .darkPreview(title: "Dark")
+        ErrorView()
+            .lightPreview(title: "Light")
     }
 }

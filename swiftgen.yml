@@ -2,7 +2,7 @@ plist:
   - inputs: Biscuit/Assets/Sources/DefaultDarkColors.plist
     outputs:
       templatePath: Tools/Swiftgen/bin/biscuit-swift5.stencil
-      output: Biscuit/Assets/Generated/DefaultDarkColors.swift
+      output: Biscuit/Assets/Generated/DefaultDarkColors.generated.swift
       params:
         enumName: DefaultDarkColors
         publicAccess: true
@@ -10,15 +10,25 @@ plist:
   - inputs: Biscuit/Assets/Sources/DefaultLightColors.plist
     outputs:
       templatePath: Tools/Swiftgen/bin/biscuit-swift5.stencil
-      output: Biscuit/Assets/Generated/DefaultLightColors.swift
+      output: Biscuit/Assets/Generated/DefaultLightColors.generated.swift
       params:
         enumName: DefaultLightColors
 
 strings:
   - inputs: Biscuit/Assets/Sources/Localizable/en.lproj
     outputs:
-      templatePath: Tools/Swiftgen/bin/structured-swift5.stencil
-      output: Biscuit/Assets/Generated/Localizable.swift
+      templatePath: Tools/Swiftgen/bin/strings-structured-swift5.stencil
+      output: Biscuit/Assets/Generated/Localizable.generated.swift
       params:
         enumName: Localized
         publicAccess: true
+
+xcassets:
+  - inputs: Biscuit/Assets/Sources/DefaultColors.xcassets
+    outputs:
+      templatePath: Tools/Swiftgen/bin/xcassets-swift5.stencil
+      output: Biscuit/Assets/Generated/Colors.generated.swift
+      params:
+        enumName: GeneratedColors
+        publicAccess: true
+        forceProvidesNamespaces: true

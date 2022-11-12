@@ -67,5 +67,8 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
         LogView(viewModel: MockLogViewModel())
+            .darkPreview(title: "Dark")
+        LogView(viewModel: MockLogViewModel())
+            .lightPreview(title: "Light")
     }
 }

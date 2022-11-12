@@ -45,5 +45,10 @@ struct SmallActionButton_Previews: PreviewProvider {
     static var previews: some View {
         SmallActionButton(data: SmallActionButton.Data(icon: "doc.on.clipboard.fill",
                                                        help: "Help"))
+        .darkPreview(title: "Dark")
+        SmallActionButton(data: SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+                                                       help: "Help"))
+        .lightPreview(title: "Light")
+
     }
 }

@@ -2,52 +2,57 @@
 //  Colors.swift
 //  Biscuit
 //
-//  Created by Andras Olah on 2022. 08. 13..
+//  Created by Andras Olah on 2022. 11. 12..
 //
 
 import AppKit
 import SwiftUI
 
 enum Colors {
-    enum Background {
-        public static let panelBackground = DefaultDarkColors.Backgrounds.PanelBackground
-        public static let bubbleBackground = DefaultDarkColors.Backgrounds.BubbleBackground
+    enum Default {
+        public static let primaryText = GeneratedColors.Text.primary.swiftUIColor
+        public static let secondaryText = GeneratedColors.Text.secondary.swiftUIColor
+    }
+    enum View {
+        public static let mainBackground = GeneratedColors.View.mainBackground.swiftUIColor
     }
     enum DeviceStatus {
-        public static let activeStatus = DefaultDarkColors.DeviceStatus.StatusActive
-        public static let offlineStatus = DefaultDarkColors.DeviceStatus.StatusOffline
+        public static let activeStatus = GeneratedColors.DeviceStatus.statusActive.swiftUIColor
+        public static let offlineStatus = GeneratedColors.DeviceStatus.statusOffline.swiftUIColor
     }
     enum StatusCode {
-        public static let http2xx = DefaultDarkColors.HttpStatusCode.Http2xx
-        public static let http4xx = DefaultDarkColors.HttpStatusCode.Http4xx
-        public static let defaultColor = DefaultDarkColors.HttpStatusCode.Default
+        public static let http2xx = GeneratedColors.HttpStatusCode.http2xx.swiftUIColor
+        public static let http4xx = GeneratedColors.HttpStatusCode.http4xx.swiftUIColor
+        public static let defaultColor = GeneratedColors.HttpStatusCode.httpDefault.swiftUIColor
     }
     enum RequestMethod {
-        public static let get = DefaultDarkColors.RequestMethod.RequestMethodGet
-        public static let post = DefaultDarkColors.RequestMethod.RequestMethodPost
-        public static let delete = DefaultDarkColors.RequestMethod.RequestMethodDelete
-        public static let put = DefaultDarkColors.RequestMethod.RequestMethodPut
-        public static let defaultColor = DefaultDarkColors.RequestMethod.RequestMethodDefault
+        public static let get = GeneratedColors.RequestMethod.requestMethodGet.swiftUIColor
+        public static let post = GeneratedColors.RequestMethod.requestMethodPost.swiftUIColor
+        public static let delete = GeneratedColors.RequestMethod.requestMethodDelete.swiftUIColor
+        public static let put = GeneratedColors.RequestMethod.requestMethodPut.swiftUIColor
+        public static let defaultColor = GeneratedColors.RequestMethod.requestMethodDefault.swiftUIColor
     }
     enum JSON {
-        public static let memberKeyColor = DefaultDarkColors.JSON.MemberKey
-        public static let whitespaceColor = DefaultDarkColors.JSON.Whitespace
-        public static let operatorColor = DefaultDarkColors.JSON.Operator
-        public static let numericValueColor = DefaultDarkColors.JSON.NumericValue
-        public static let stringValueColor = DefaultDarkColors.JSON.StringValue
-        public static let literalColor = DefaultDarkColors.JSON.LiteralValue
-        public static let unknownColor = DefaultDarkColors.JSON.Unknown
+        public static let memberKeyColor = GeneratedColors.Json.memberKey.swiftUIColor
+        public static let whitespaceColor = GeneratedColors.Json.whitespace.swiftUIColor
+        public static let operatorColor = GeneratedColors.Json.operator.swiftUIColor
+        public static let numericValueColor = GeneratedColors.Json.numericValue.swiftUIColor
+        public static let stringValueColor = GeneratedColors.Json.stringValue.swiftUIColor
+        public static let literalColor = GeneratedColors.Json.literalValue.swiftUIColor
+        public static let unknownColor = GeneratedColors.Json.unknown.swiftUIColor
     }
     enum Overview {
-        public static let category = DefaultDarkColors.Overview.Category
-        public static let headerKey = DefaultDarkColors.Overview.HeaderKey
-        public static let headerValue = DefaultDarkColors.Overview.HeaderValue
-        public static let requestMethod = DefaultDarkColors.Overview.RequestMethod
+        public static let background = GeneratedColors.Text.textBackground.swiftUIColor
+        public static let category = GeneratedColors.Defaults.orange.swiftUIColor
+        public static let headerKey = GeneratedColors.Text.secondary.swiftUIColor
+        public static let headerValue = GeneratedColors.Text.primary.swiftUIColor
+        public static let requestMethod = GeneratedColors.Defaults.orange.swiftUIColor
     }
-}
-
-extension Color {
-    var nsColor: NSColor {
-        return NSColor(self)
+    enum ErrorView {
+        public static let background = GeneratedColors.Defaults.red.swiftUIColor
+        public static let foreground = GeneratedColors.Text.primary.swiftUIColor
+    }
+    enum HeaderView {
+        public static let background = GeneratedColors.HeaderView.headerBackground.swiftUIColor
     }
 }

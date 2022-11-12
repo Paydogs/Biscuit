@@ -67,11 +67,23 @@ extension StandardPicker {
 
 struct StandardPicker_Previews: PreviewProvider {
     static var previews: some View {
-            StandardPicker(data: StandardPicker.Content(title: "Standard picker 1:",
-                                                        values: []))
-            StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
-                                                        values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1"),
-                                                                 StandardPicker.PickerItem(id: "Item2", text: "Item 2")],
-                                                        selectedId: "Item2"))
+        StandardPicker(data: StandardPicker.Content(title: "Standard picker 1:",
+                                                    values: []))
+        .darkPreview(title: "Dark Empty")
+        StandardPicker(data: StandardPicker.Content(title: "Standard picker 1:",
+                                                    values: []))
+        .lightPreview(title: "Light Empty")
+
+        StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1"),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2")],
+                                                    selectedId: "Item2"))
+        .darkPreview(title: "Dark Filled")
+        StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1"),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2")],
+                                                    selectedId: "Item2"))
+        .lightPreview(title: "Light Filled")
+
     }
 }

@@ -12,7 +12,7 @@ struct PostMessageUseCase: PostMessageUseCaseInterface {
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
 
     func execute(message: String) {
-        execute(message: message, duration: 1.5)
+        execute(message: message, duration: 2)
     }
 
     func execute(message: String, duration: Double) {

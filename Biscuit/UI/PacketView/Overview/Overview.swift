@@ -26,6 +26,7 @@ struct Overview<ViewModel: OverviewViewModelInterface>: View {
     var body: some View {
         VStack(spacing: 0) {
             AttributedTextView(attributedText: viewModel.packetBody)
+                .background(Colors.Overview.background)
             Divider()
             HStack {
                 SmallActionButton(data: copyBodyToClipboardButtonData,
@@ -46,5 +47,8 @@ private extension Overview {
 struct Overview_Previews: PreviewProvider {
     static var previews: some View {
         Overview(viewModel: MockOverviewViewModel())
+            .darkPreview(title: "Dark")
+        Overview(viewModel: MockOverviewViewModel())
+            .lightPreview(title: "Light")
     }
 }
