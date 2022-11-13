@@ -15,6 +15,7 @@ struct AppState: FluxState {
     var selectedPackets: [Packet]
     var buildFilter: BuildFilter
     var packetFilter: PacketFilter
+    var isSidebarOpen: Bool
 }
 
 extension AppState: DefaultInitializer {
@@ -25,6 +26,7 @@ extension AppState: DefaultInitializer {
                      invalidPackets: [],
                      selectedPackets: [],
                      buildFilter: BuildFilter(),
-                     packetFilter: PacketFilter())
+                     packetFilter: PacketFilter(),
+                     isSidebarOpen: true)
     }
 }

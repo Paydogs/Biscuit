@@ -32,6 +32,8 @@ class AppStore: BaseStore<AppState> {
                 handleDidSendMessage(message: message)
             case .didRemoveLastMessage:
                 handleDidRemoveLastMessage()
+            case .toggleSidebar:
+                handleToggleSidebar()
         }
     }
 }
@@ -116,6 +118,12 @@ private extension AppStore {
         update { state in
             print("[APPSTORE MANIP] removing message")
             state.messages.removeFirst()
+        }
+    }
+    func handleToggleSidebar() {
+        update { state in
+            print("[APPSTORE MANIP] removing message")
+            state.isSidebarOpen.toggle()
         }
     }
 }

@@ -9,7 +9,13 @@ import SwiftUI
 import Factory
 import Combine
 
-struct MainWindow: View {
+struct MainWindow<ViewModel: MainWindowViewModelInterface>: View {
+    @StateObject var viewModel: ViewModel
+
+    init(viewModel: ViewModel = MainWindowViewModel()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         HSplitView {
             VStack {
@@ -22,6 +28,7 @@ struct MainWindow: View {
             }
             PacketView()
                 .background(BlurView(material: .underPageBackground))
+                .frame(width: viewModel.isSidebarVisible ? .infinity : 0)
         }
         .overlay(alignment: .center, content: {
             ErrorView()

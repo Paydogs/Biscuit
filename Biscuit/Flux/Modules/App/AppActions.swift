@@ -16,4 +16,5 @@ enum AppActions: FluxAction {
     case didModifiedBuildFilter(BuildFilter)
     case didModifiedPacketFilter(PacketFilter)
     case didResetPacketFilter
+    case toggleSidebar
 }

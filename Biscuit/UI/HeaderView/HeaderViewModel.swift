@@ -17,11 +17,13 @@ protocol HeaderViewModelInterface: ObservableObject {
 
     func projectSelected(identifier: String)
     func deviceSelected(identifier: String)
+    func toggleSidebar()
 }
 
 class HeaderViewModel: HeaderViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
+    @Injected(BiscuitContainer.dispatcher) private var dispatcher
     @Injected(BiscuitContainer.updateBuildFilterUseCase) private var updateBuildFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
@@ -68,5 +70,9 @@ extension HeaderViewModel {
     func deviceSelected(identifier: String) {
         print("Device selected: \(identifier)")
         updateBuildFilterUseCase.execute(filter: BuildFilter(deviceId: identifier))
+    }
+
+    func toggleSidebar() {
+        dispatcher.dispatch(action: AppActions.toggleSidebar)
     }
 }

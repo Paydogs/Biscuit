@@ -35,6 +35,11 @@ struct HeaderView<ViewModel: HeaderViewModelInterface>: View {
             .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
 
             Spacer()
+            SmallActionButton(data: SmallActionButton.Data(icon: "sidebar.right",
+                                                           help: "Toggle"),
+                              event: SmallActionButton.Event(action: {
+                viewModel.toggleSidebar()
+                }))
         }
         .background(Colors.HeaderView.background)
     }

@@ -79,6 +79,7 @@
 		BE25441E29185495007904DC /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE25441D29185495007904DC /* LogViewModel.swift */; };
 		BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */; };
 		BE682F65288C31010096346F /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE682F64288C31010096346F /* MainWindow.swift */; };
+		BE5B09E129206E1800037002 /* MainWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5B09E029206E1800037002 /* MainWindowViewModel.swift */; };
 		BEC80076290561AC0088AC06 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC80075290561AC0088AC06 /* MenuController.swift */; };
 		BE37C1E6291C5C47007C7DE3 /* MockErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE37C1E5291C5C47007C7DE3 /* MockErrorViewModel.swift */; };
 		BE1EE57929149C2600092532 /* MockHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1EE57829149C2600092532 /* MockHeaderViewModel.swift */; };
@@ -223,6 +224,7 @@
 		BE25441D29185495007904DC /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
 		BE6F811E289DD68B00D28F49 /* MainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDispatcher.swift; sourceTree = "<group>"; };
 		BE682F64288C31010096346F /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		BE5B09E029206E1800037002 /* MainWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowViewModel.swift; sourceTree = "<group>"; };
 		BEC80075290561AC0088AC06 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		BE37C1E5291C5C47007C7DE3 /* MockErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorViewModel.swift; sourceTree = "<group>"; };
 		BE1EE57829149C2600092532 /* MockHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 				BEF65AC528E3B094001543F6 /* PacketView */,
 				BEE3B293291C735800927AAD /* ToastMessageView */,
 				BE682F64288C31010096346F /* MainWindow.swift */,
+				BE5B09E029206E1800037002 /* MainWindowViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1009,6 +1012,7 @@
 				BE25441E29185495007904DC /* LogViewModel.swift in Sources */,
 				BE6F811F289DD68B00D28F49 /* MainDispatcher.swift in Sources */,
 				BE682F65288C31010096346F /* MainWindow.swift in Sources */,
+				BE5B09E129206E1800037002 /* MainWindowViewModel.swift in Sources */,
 				BEC80076290561AC0088AC06 /* MenuController.swift in Sources */,
 				BE37C1E6291C5C47007C7DE3 /* MockErrorViewModel.swift in Sources */,
 				BE1EE57929149C2600092532 /* MockHeaderViewModel.swift in Sources */,
