@@ -1,5 +1,5 @@
 //
-//  PostMessageUseCase.swift
+//  PostMessageTask.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 11. 10..
@@ -8,7 +8,7 @@
 import Factory
 import Foundation
 
-struct PostMessageUseCase: PostMessageUseCaseInterface {
+struct PostMessageTask: PostMessageTaskInterface {
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
 
     func execute(message: String) {

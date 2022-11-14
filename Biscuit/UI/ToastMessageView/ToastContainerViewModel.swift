@@ -1,5 +1,5 @@
 //
-//  ToastMessageViewModel.swift
+//  ToastContainerViewModel.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 11. 10..
@@ -8,11 +8,11 @@
 import Factory
 import Combine
 
-protocol ToastMessageViewModelInterface: ObservableObject {
+protocol ToastContainerViewModelInterface: ObservableObject {
     var messageList: [String]  { get }
 }
 
-class ToastMessageViewModel: ToastMessageViewModelInterface {
+class ToastContainerViewModel: ToastContainerViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     private var subscriptions: Set<AnyCancellable> = []
 

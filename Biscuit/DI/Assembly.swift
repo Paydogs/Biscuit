@@ -23,17 +23,8 @@ extension BiscuitContainer {
     static let packetStore = Factory(scope: .singleton, factory: { PacketStore(state: PacketState.defaultValue()) })
 }
 
-// MARK: - UseCases
+// MARK: - Tasks
 extension BiscuitContainer {
-    static let postAppErrorUseCase = Factory { PostAppErrorUseCase() as PostAppErrorUseCaseInterface }
-    static let storePacketUseCase = Factory { StorePacketUseCase() as StorePacketUseCaseInterface }
-    static let postInvalidPacketUseCase = Factory { PostInvalidPacketUseCase() as PostInvalidPacketUseCaseInterface }
-    static let clientConnectedUseCase = Factory { ClientConnectedUseCase() as ClientConnectedUseCaseInterface }
-    static let clientDisconnectedUseCase = Factory { ClientDisconnectedUseCase() as ClientDisconnectedUseCaseInterface }
-    static let selectPacketsUseCase = Factory { SelectPacketsUseCase() as SelectPacketsUseCaseInterface }
-    static let updateBuildFilterUseCase = Factory { UpdateBuildFilterUseCase() as UpdateBuildFilterUseCaseInterface }
-    static let updatePacketFilterUseCase = Factory { UpdatePacketFilterUseCase() as UpdatePacketFilterUseCaseInterface }
-    static let resetPacketFilterUseCase = Factory { ResetPacketFilterUseCase() as ResetPacketFilterUseCaseInterface }
-    static let postMessageUseCase = Factory { PostMessageUseCase() as PostMessageUseCaseInterface }
+    static let postMessageTask = Factory { PostMessageTask() as PostMessageTaskInterface }
 }
 

@@ -14,8 +14,8 @@ class AppStore: BaseStore<AppState> {
         switch action {
             case .didConnectClient(let client):
                 handleDidConnectClient(client: client)
-            case .didDisconnectClient(let client):
-                handleDidDisconnectClient(client: client)
+            case .didDisconnectClientId(let clientId):
+                handleDidDisconnectClient(clientId: clientId)
             case .didReceivedErrors(let error):
                 handleDidReceivedErrors(errors: error)
             case .didReceivedInvalidPacket(let packet):
@@ -46,10 +46,12 @@ private extension AppStore {
         }
     }
 
-    func handleDidDisconnectClient(client: Client) {
+    func handleDidDisconnectClient(clientId: String) {
         update { state in
-            print("[APPSTORE MANIP] Client disconnected: \(client)")
-            state.connectedClients.removeAll(where: { (connectedClient: Client) in connectedClient == client })
+            print("[APPSTORE MANIP] Client disconnected: \(clientId)")
+            state.connectedClients.removeAll { client in
+                client.id == clientId
+            }
         }
     }
 

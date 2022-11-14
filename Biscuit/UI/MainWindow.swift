@@ -11,6 +11,7 @@ import Combine
 
 struct MainWindow<ViewModel: MainWindowViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
+    @State var width: CGFloat = .infinity
 
     init(viewModel: ViewModel = MainWindowViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -28,13 +29,13 @@ struct MainWindow<ViewModel: MainWindowViewModelInterface>: View {
             }
             PacketView()
                 .background(BlurView(material: .underPageBackground))
-                .frame(width: viewModel.isSidebarVisible ? .infinity : 0)
+                .frame(maxWidth: viewModel.isSidebarVisible ? .infinity : 0)
         }
         .overlay(alignment: .center, content: {
             ErrorView()
         })
         .overlay(alignment: .bottom, content: {
-            ToastMessageView()
+            ToastContainerView()
         })
         .frame(minWidth: 800, minHeight: 480)
     }

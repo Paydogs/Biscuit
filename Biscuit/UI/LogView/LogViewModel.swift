@@ -22,8 +22,9 @@ protocol LogViewModelInterface: ObservableObject {
 class LogViewModel: LogViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
-    @Injected(BiscuitContainer.selectPacketsUseCase) private var selectPacketsUseCase
-    @Injected(BiscuitContainer.updatePacketFilterUseCase) private var updatePacketFilterUseCase
+    @Injected(BiscuitContainer.dispatcher) private var dispatcher
+//    @Injected(BiscuitContainer.selectPacketsUseCase) private var selectPacketsUseCase
+//    @Injected(BiscuitContainer.updatePacketFilterUseCase) private var updatePacketFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var packets: [PacketTableRow] = []
@@ -68,7 +69,8 @@ extension LogViewModel {
         let allPackets = packetStore.observed.state.projects.allPackets()
         let packets = allPackets.filter { (packet: Packet) in identifiers.contains(packet.id) }
         print("packets to select: \(identifiers)")
-        selectPacketsUseCase.execute(packets: packets)
+        let action = AppActions.didSelectPackets(packets)
+        dispatcher.dispatch(action: action)
     }
 
     func exportPackets() {
@@ -77,6 +79,7 @@ extension LogViewModel {
 
     func filterUrl(url: String) {
         print("Filtering: \(url)")
-        updatePacketFilterUseCase.execute(filter: PacketFilter(url: url))
+        let action = AppActions.didModifiedPacketFilter(PacketFilter(url: url))
+        dispatcher.dispatch(action: action)
     }
 }

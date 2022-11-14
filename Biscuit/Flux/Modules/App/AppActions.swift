@@ -7,7 +7,7 @@
 
 enum AppActions: FluxAction {
     case didConnectClient(Client)
-    case didDisconnectClient(Client)
+    case didDisconnectClientId(String)
     case didReceivedErrors([AppError])
     case didSendMessage(String)
     case didRemoveLastMessage

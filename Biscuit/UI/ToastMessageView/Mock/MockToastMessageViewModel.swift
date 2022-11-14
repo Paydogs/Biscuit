@@ -5,7 +5,7 @@
 //  Created by Andras Olah on 2022. 11. 10..
 //
 
-class MockToastMessageViewModel: ToastMessageViewModelInterface {
+class MockToastContainerViewModel: ToastContainerViewModelInterface {
     var messageList: [String] {
         ["Some message...",
          "A much longer message, which can be interesting",

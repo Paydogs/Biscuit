@@ -1,5 +1,5 @@
 //
-//  ToastMessageView.swift
+//  ToastContainerView.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 11. 10..
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ToastMessageView<ViewModel: ToastMessageViewModelInterface>: View {
+struct ToastContainerView<ViewModel: ToastContainerViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
     @State var opacity: Double = 1
 
-    init(viewModel: ViewModel = ToastMessageViewModel()) {
+    init(viewModel: ViewModel = ToastContainerViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
@@ -37,19 +37,18 @@ struct ToastMessageItem: View {
             .font(Fonts.defaultFont(sized: 20).swiftUIFont)
             .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
             .background {
-                Colors.View.mainBackground
+                Colors.View.mainBackground.opacity(0.7)
             }
             .cornerRadius(10)
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-//            .transition(AnyTransition.opacity.animation(.easeInOut(duration:0.2)))
     }
 }
 
-struct ToastMessageView_Previews: PreviewProvider {
+struct ToastContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        ToastMessageView(viewModel: MockToastMessageViewModel())
+        ToastContainerView(viewModel: MockToastContainerViewModel())
             .darkPreview(title: "Dark")
-        ToastMessageView(viewModel: MockToastMessageViewModel())
+        ToastContainerView(viewModel: MockToastContainerViewModel())
             .lightPreview(title: "Light")
     }
 }

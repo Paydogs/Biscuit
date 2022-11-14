@@ -24,7 +24,7 @@ class HeaderViewModel: HeaderViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
-    @Injected(BiscuitContainer.updateBuildFilterUseCase) private var updateBuildFilterUseCase
+//    @Injected(BiscuitContainer.updateBuildFilterUseCase) private var updateBuildFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var projectList: [StandardPicker.PickerItem] = []
@@ -64,12 +64,14 @@ extension HeaderViewModel {
         print("Picker selected: \(identifier)")
         let devices = packetStore.observed.state.projects.filterDevices(filter: filter)
         filter.deviceId = devices.first?.id
-        updateBuildFilterUseCase.execute(filter: filter)
+        let action = AppActions.didModifiedBuildFilter(filter)
+        dispatcher.dispatch(action: action)
     }
 
     func deviceSelected(identifier: String) {
         print("Device selected: \(identifier)")
-        updateBuildFilterUseCase.execute(filter: BuildFilter(deviceId: identifier))
+        let action = AppActions.didModifiedBuildFilter(BuildFilter(deviceId: identifier))
+        dispatcher.dispatch(action: action)
     }
 
     func toggleSidebar() {

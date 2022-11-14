@@ -17,11 +17,7 @@ class Connector {
     let bagelPacketParser = BagelPacketParser()
     let packetParser = PacketParser()
 
-    @Injected(BiscuitContainer.postAppErrorUseCase) private var postAppErrorUseCase
-    @Injected(BiscuitContainer.storePacketUseCase) private var storePacketUseCase
-    @Injected(BiscuitContainer.postInvalidPacketUseCase) private var postInvalidPacketUseCase
-    @Injected(BiscuitContainer.clientConnectedUseCase) private var clientConnectedUseCase
-    @Injected(BiscuitContainer.clientDisconnectedUseCase) private var clientDisconnectedUseCase
+    @Injected(BiscuitContainer.dispatcher) private var dispatcher
 
     func start() {
         print("[Connector] Starting new connector")
@@ -51,7 +47,8 @@ private extension Connector {
         case .failed(let error):
             listener.cancel()
             print("[Connector] Failed to connect listener: \(error.localizedDescription)")
-            postAppErrorUseCase.execute(errors: [.cannotConnect])
+            let action = AppActions.didReceivedErrors([.cannotConnect])
+            dispatcher.dispatch(action: action)
         default:
             break
         }
@@ -60,15 +57,17 @@ private extension Connector {
     func didAcceptConnection(_ connection: NetworkConnection) {
         print("[Connector] New connection accepted from \(connection.connection.endpoint)")
         activeConnections.insert(connection)
-        clientConnectedUseCase.execute(client: Client(id: connection.id,
-                                                      ip: connection.connection.endpoint.debugDescription))
+        let action = AppActions.didConnectClient(Client(id: connection.id,
+                                                        ip: connection.connection.endpoint.debugDescription))
+        dispatcher.dispatch(action: action)
         print("[Connector] Number of active connections: \(activeConnections.count)")
         connection.start()
     }
 
     func didStopConnection(_ connection: NetworkConnection) {
         activeConnections.remove(connection)
-        clientDisconnectedUseCase.execute(clientId: connection.id)
+        let action = AppActions.didDisconnectClientId(connection.id)
+        dispatcher.dispatch(action: action)
         print("[Connector] Connection closed from \(connection.connection.endpoint)")
         print("[Connector] Number of active connections: \(activeConnections.count)")
     }
@@ -98,13 +97,16 @@ private extension Connector {
                 guard let self = self else { return }
                 guard let bagelPacket = self.bagelPacketParser.parseData(data) else {
                     print("[Connector] WRONG DATA... INVALID, UNKNOWN")
-                    self.postInvalidPacketUseCase.execute(packet: InvalidPacket(body: data))
+                    let action = AppActions.didReceivedInvalidPacket(InvalidPacket(body: data))
+                    self.dispatcher.dispatch(action: action)
                     return
                 }
 
                 let packet = self.packetParser.parsePacket(bagelPacket, client: connection.connection.endpoint.debugDescription)
                 print("[Connector] Got packet: \(packet.device.ip): \(packet.packet.url)")
-                self.storePacketUseCase.execute(packet: packet)
+                let action = PacketActions.storePacket(packet)
+                self.dispatcher.dispatch(action: action)
+//                self.storePacketUseCase.execute(packet: packet)
             }
         }
 
