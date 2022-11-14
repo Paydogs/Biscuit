@@ -18,4 +18,6 @@ class MockLogViewModel: LogViewModelInterface {
     func selectPackets(identifiers: [String]) { }
     func exportPackets() { }
     func filterUrl(url: String) { }
+    func clearLogs() { }
+    func undoClearLogs() { }
 }

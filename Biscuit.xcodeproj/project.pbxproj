@@ -115,8 +115,6 @@
 		BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44B28C40BFB00791897 /* StandardPicker.swift */; };
 		BEEE4D1F28B42AB700402219 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE4D1E28B42AB700402219 /* Status.swift */; };
 		BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE88A63028DFD39800406E79 /* StatusCode.swift */; };
-		BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */; };
-		BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
 		BEC2C47A28FB5AA700679083 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC2C47928FB5AA700679083 /* Style.swift */; };
 		BECCCB9828A2024A00BD65BB /* SwiftyMocky in Frameworks */ = {isa = PBXBuildFile; productRef = BECCCB9728A2024A00BD65BB /* SwiftyMocky */; };
@@ -244,8 +242,6 @@
 		BE44C44B28C40BFB00791897 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
 		BEEE4D1E28B42AB700402219 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BE88A63028DFD39800406E79 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
-		BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCase.swift; sourceTree = "<group>"; };
-		BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePacketUseCaseInterface.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		BEC2C47928FB5AA700679083 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		BEE3B294291C738600927AAD /* ToastContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainerView.swift; sourceTree = "<group>"; };
@@ -592,15 +588,6 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		BE69393028CE2616007D4E3C /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				BE90019828B0F26C000B7C0E /* StorePacketUseCase.swift */,
-				BE90019A28B0F276000B7C0E /* StorePacketUseCaseInterface.swift */,
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
 		BE69393528CEB1B9007D4E3C /* LogView */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,7 +614,6 @@
 		BE90019128B0F22D000B7C0E /* Packet */ = {
 			isa = PBXGroup;
 			children = (
-				BE69393028CE2616007D4E3C /* UseCases */,
 				BE90019228B0F242000B7C0E /* PacketActions.swift */,
 				BE90019428B0F24A000B7C0E /* PacketState.swift */,
 				BE90019628B0F257000B7C0E /* PacketStore.swift */,
@@ -999,8 +985,6 @@
 				BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */,
 				BEEE4D1F28B42AB700402219 /* Status.swift in Sources */,
 				BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */,
-				BE90019928B0F26C000B7C0E /* StorePacketUseCase.swift in Sources */,
-				BE90019B28B0F276000B7C0E /* StorePacketUseCaseInterface.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
 				BEC2C47A28FB5AA700679083 /* Style.swift in Sources */,
 				BEE3B295291C738600927AAD /* ToastContainerView.swift in Sources */,

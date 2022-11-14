@@ -24,7 +24,6 @@ class HeaderViewModel: HeaderViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
-//    @Injected(BiscuitContainer.updateBuildFilterUseCase) private var updateBuildFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var projectList: [StandardPicker.PickerItem] = []
@@ -34,7 +33,7 @@ class HeaderViewModel: HeaderViewModelInterface {
         packetStore.observed.$state
             .map(\.projects)
             .map { projects in
-                projects.sorted().map { project in
+                projects.map { project in
                     StandardPicker.PickerItem(id: project.id, text: project.descriptor.name)
                 }
             }
@@ -46,7 +45,7 @@ class HeaderViewModel: HeaderViewModelInterface {
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
             .map { (projects: Set<Project>, filter: BuildFilter) in
-                projects.filterDevices(filter: filter).map { device in
+                projects.devices(filter: filter).map { device in
                     StandardPicker.PickerItem(id: device.id, text: device.descriptor.name)
                 }
             }
@@ -62,7 +61,7 @@ extension HeaderViewModel {
     func projectSelected(identifier: String) {
         var filter = BuildFilter(project: identifier)
         print("Picker selected: \(identifier)")
-        let devices = packetStore.observed.state.projects.filterDevices(filter: filter)
+        let devices = packetStore.observed.state.projects.devices(filter: filter)
         filter.deviceId = devices.first?.id
         let action = AppActions.didModifiedBuildFilter(filter)
         dispatcher.dispatch(action: action)

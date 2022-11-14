@@ -46,6 +46,13 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                     .onAppear {
                         DispatchQueue.main.async { urlFilterDisabled = false }
                      }
+                SmallActionButton(data: SmallActionButton.Data(icon: "trash", help: "Clear"),
+                                  event: SmallActionButton.Event(action: { viewModel.clearLogs() }))
+                .contextMenu {
+                    Button("Reset", action: {
+                        viewModel.undoClearLogs()
+                    })
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)

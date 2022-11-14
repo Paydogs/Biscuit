@@ -90,11 +90,17 @@ private extension AppStore {
     func handleDidModifiedPacketFilter(filter: PacketFilter) {
         update { state in
             print("[APPSTORE MANIP] packet filter changed: \(filter)")
-            if let from = filter.from {
-                state.packetFilter.from = from
+            if case .reset = filter.from {
+                state.packetFilter.from = .unmodified
             }
-            if let to = filter.to {
-                state.packetFilter.to = to
+            if case let .date(date) = filter.from {
+                state.packetFilter.from = .date(date)
+            }
+            if case .reset = filter.to {
+                state.packetFilter.to = .unmodified
+            }
+            if case let .date(date) = filter.to {
+                state.packetFilter.to = .date(date)
             }
             if let statusCode = filter.statusCode {
                 state.packetFilter.statusCode = statusCode

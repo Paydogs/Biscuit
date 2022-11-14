@@ -40,10 +40,11 @@ class Nosy {
 
         appStore.observed.$state
             .removeDuplicates()
-            .sink { (value: AppState) in
-                print("[Nosy] Active connections: \(value.connectedClients)")
-                print("[Nosy] Selected packets: \(value.selectedPackets.count)")
-                print("[Nosy] Messages: \(value.messages)")
+            .sink { (state: AppState) in
+                print("[Nosy] Active connections: \(state.connectedClients)")
+                print("[Nosy] Selected packets: \(state.selectedPackets.count)")
+                print("[Nosy] Messages: \(state.messages)")
+                print("[Nosy] SelectedProject: \(state.buildFilter.project), SelectedDevice: \(state.buildFilter.deviceId)")
         }
         .store(in: &subscriptions)
     }

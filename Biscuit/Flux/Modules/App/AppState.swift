@@ -10,8 +10,6 @@ struct AppState: FluxState {
     var errors: [AppError]
     var messages: [String]
     var invalidPackets: [InvalidPacket]
-    var selectedProject: Project?
-    var selectedDevice: Device?
     var selectedPackets: [Packet]
     var buildFilter: BuildFilter
     var packetFilter: PacketFilter

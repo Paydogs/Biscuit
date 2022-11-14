@@ -16,7 +16,7 @@ struct PostMessageTask: PostMessageTaskInterface {
     }
 
     func execute(message: String, duration: Double) {
-        print("[PostMessageUseCase] sending action")
+        print("[PostMessageTask] sending action")
         let action: AppActions = .didSendMessage(message)
         dispatcher.dispatch(action: action)
 

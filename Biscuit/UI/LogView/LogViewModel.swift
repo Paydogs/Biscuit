@@ -17,14 +17,14 @@ protocol LogViewModelInterface: ObservableObject {
     func selectPackets(identifiers: [String])
     func exportPackets()
     func filterUrl(url: String)
+    func clearLogs()
+    func undoClearLogs()
 }
 
 class LogViewModel: LogViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
-//    @Injected(BiscuitContainer.selectPacketsUseCase) private var selectPacketsUseCase
-//    @Injected(BiscuitContainer.updatePacketFilterUseCase) private var updatePacketFilterUseCase
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var packets: [PacketTableRow] = []
@@ -33,7 +33,7 @@ class LogViewModel: LogViewModelInterface {
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
             .map { (projects: Set<Project>, buildFilter: BuildFilter) -> [Packet] in
-                projects.filterDevices(filter: buildFilter).first?.packets.sorted() ?? []
+                projects.packetsOfDeviceInFilter(filter: buildFilter).sorted()
             }
             .combineLatest(appStore.observed.$state.map(\.packetFilter))
             .map { (devicePackets: [Packet], packetFilter: PacketFilter) -> [Packet] in
@@ -80,6 +80,18 @@ extension LogViewModel {
     func filterUrl(url: String) {
         print("Filtering: \(url)")
         let action = AppActions.didModifiedPacketFilter(PacketFilter(url: url))
+        dispatcher.dispatch(action: action)
+    }
+
+    func clearLogs() {
+        print("Clearing logs")
+        let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .date(Double(Date().timeIntervalSince1970))))
+        dispatcher.dispatch(action: action)
+    }
+
+    func undoClearLogs() {
+        print("Undoing Clearing logs")
+        let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .reset))
         dispatcher.dispatch(action: action)
     }
 }
