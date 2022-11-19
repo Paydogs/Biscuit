@@ -16,6 +16,9 @@ private enum Stage {
 class NetworkConnection {
     let connection: NWConnection
     let id: String
+    var client: Client {
+        Client(id: id, ip: connection.endpoint.debugDescription)
+    }
 
     var didStartConnection: ((NetworkConnection) -> Void)? = nil
     var didReceivedData: ((NetworkConnection, Data) -> Void)? = nil

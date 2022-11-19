@@ -8,7 +8,7 @@
 import Foundation
 
 struct PacketParser {
-    func parsePacket(_ packet: BagelPacket, client: String) -> IncomingPacket {
+    func parsePacket(_ packet: BagelPacket, client: Client) -> IncomingPacket {
         .init(project: mapProject(model: packet.project),
               device: mapDevice(packet.device, client: client),
               packet: mapPacket(packet))
@@ -22,12 +22,13 @@ private extension PacketParser {
         return ProjectDescriptor(id: projectName, name: projectName)
     }
 
-    func mapDevice(_ device: BagelDeviceModel?, client: String) -> DeviceDescriptor {
+    func mapDevice(_ device: BagelDeviceModel?, client: Client) -> DeviceDescriptor {
         guard let device = device else { return DeviceDescriptor.defaultValue() }
-        return .init(deviceId: device.deviceId ?? "",
+        return .init(deviceId: "\(device.deviceId ?? "")-\(client.id)" ,
                      name: device.deviceName ?? "",
                      description: device.deviceDescription ?? "",
-                     ip: client)
+                     ip: client.ip,
+                     online: true)
     }
 
     func mapPacket(_ packet: BagelPacket) -> Packet {

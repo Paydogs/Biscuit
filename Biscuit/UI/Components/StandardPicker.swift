@@ -31,7 +31,7 @@ struct StandardPicker: View {
             if data.values.isEmpty {
                 Text(Localized.StandardPicker.noneSelected).tag(nil as Int?)
             } else {
-                ForEach(Array(data.values.enumerated()), id: \.element) { index, element in
+                ForEach(Array(data.values.enumerated()), id: \.element.id) { index, element in
                     Text(element.text).tag(index as Int?)
                 }
             }

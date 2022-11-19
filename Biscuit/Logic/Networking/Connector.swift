@@ -57,8 +57,7 @@ private extension Connector {
     func didAcceptConnection(_ connection: NetworkConnection) {
         print("[Connector] New connection accepted from \(connection.connection.endpoint)")
         activeConnections.insert(connection)
-        let action = AppActions.didConnectClient(Client(id: connection.id,
-                                                        ip: connection.connection.endpoint.debugDescription))
+        let action = AppActions.didConnectClient(connection.client)
         dispatcher.dispatch(action: action)
         print("[Connector] Number of active connections: \(activeConnections.count)")
         connection.start()
@@ -66,8 +65,10 @@ private extension Connector {
 
     func didStopConnection(_ connection: NetworkConnection) {
         activeConnections.remove(connection)
-        let action = AppActions.didDisconnectClientId(connection.id)
+        let action = AppActions.didDisconnectClientId(connection.client.id)
         dispatcher.dispatch(action: action)
+        let packetAction = PacketActions.didClientWentOffline(connection.client)
+        dispatcher.dispatch(action: packetAction)
         print("[Connector] Connection closed from \(connection.connection.endpoint)")
         print("[Connector] Number of active connections: \(activeConnections.count)")
     }
@@ -102,11 +103,10 @@ private extension Connector {
                     return
                 }
 
-                let packet = self.packetParser.parsePacket(bagelPacket, client: connection.connection.endpoint.debugDescription)
+                let packet = self.packetParser.parsePacket(bagelPacket, client: connection.client)
                 print("[Connector] Got packet: \(packet.device.ip): \(packet.packet.url)")
-                let action = PacketActions.storePacket(packet)
+                let action = PacketActions.didStorePacket(packet)
                 self.dispatcher.dispatch(action: action)
-//                self.storePacketUseCase.execute(packet: packet)
             }
         }
 

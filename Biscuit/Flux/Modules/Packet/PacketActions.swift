@@ -6,5 +6,6 @@
 //
 
 enum PacketActions: FluxAction {
-    case storePacket(IncomingPacket)
+    case didStorePacket(IncomingPacket)
+    case didClientWentOffline(Client)
 }
