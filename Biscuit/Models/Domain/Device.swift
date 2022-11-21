@@ -8,6 +8,7 @@
 struct Device: Identifiable {
     var descriptor: DeviceDescriptor
     var packets: Set<Packet>
+    var online: Bool
     var id: String {
         descriptor.deviceId
     }

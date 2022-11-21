@@ -8,7 +8,7 @@
 import Foundation
 
 struct IncomingPacket {
-    let project: ProjectDescriptor
-    let device: DeviceDescriptor
+    let projectDescriptor: ProjectDescriptor
+    let deviceDescriptor: DeviceDescriptor
     let packet: Packet
 }

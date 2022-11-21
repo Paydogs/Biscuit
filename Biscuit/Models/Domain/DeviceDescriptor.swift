@@ -12,7 +12,6 @@ struct DeviceDescriptor: Equatable, Hashable {
     var name: String
     var description: String
     var ip: String
-    var online: Bool
 }
 
 extension DeviceDescriptor {
@@ -20,7 +19,6 @@ extension DeviceDescriptor {
         return .init(deviceId: "UNKNOWN",
                      name: "UNKNOWN",
                      description: "UNKNOWN",
-                     ip: "UNKNOWN",
-                     online: false)
+                     ip: "UNKNOWN")
     }
 }

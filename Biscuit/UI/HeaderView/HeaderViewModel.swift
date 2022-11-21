@@ -45,15 +45,9 @@ class HeaderViewModel: HeaderViewModelInterface {
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
             .map { (projects: Set<Project>, filter: BuildFilter) in
-                let asd = projects.first { proj in
-                    proj.id == filter.project
-                }
-                asd?.devices.map { aDev in
-                    print("FUCK2 dev: \(aDev.descriptor.deviceId), \(aDev.descriptor.online)")
-                }
                 return projects.devices(filter: filter).map { device in
-                    print("FUCK device: \(device.descriptor.name), online: \(device.descriptor.online)")
-                    return StandardPicker.PickerItem(id: device.id, text: device.descriptor.name)
+                    let icon = device.online ? "iphone" : "iphone.slash"
+                    return StandardPicker.PickerItem(id: device.id, text: device.descriptor.name, icon: icon)
                 }
             }
             .sink(receiveValue: { [weak self] value in

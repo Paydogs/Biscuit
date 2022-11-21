@@ -22,7 +22,7 @@ extension Project {
 
 extension Device {
     func describe() {
-        print("[DESCRIPTION][PROJECT][DEVICE] \(self.descriptor.name), deviceID: \(self.id), packets: \(self.packets.count), online: \(self.descriptor.online)")
+        print("[DESCRIPTION][PROJECT][DEVICE] \(self.descriptor.name), deviceID: \(self.id), packets: \(self.packets.count), online: \(self.online)")
         self.packets.forEach { packet in packet.describe() }
     }
 }

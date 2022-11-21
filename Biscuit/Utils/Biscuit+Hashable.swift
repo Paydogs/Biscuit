@@ -11,7 +11,7 @@ extension Device: Equatable, Hashable {
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(descriptor)
+        hasher.combine(descriptor.deviceId)
     }
 }
 
@@ -21,7 +21,7 @@ extension Project: Equatable, Hashable {
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(descriptor)
+        hasher.combine(descriptor.id)
     }
 }
 

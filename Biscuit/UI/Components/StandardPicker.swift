@@ -32,7 +32,12 @@ struct StandardPicker: View {
                 Text(Localized.StandardPicker.noneSelected).tag(nil as Int?)
             } else {
                 ForEach(Array(data.values.enumerated()), id: \.element.id) { index, element in
-                    Text(element.text).tag(index as Int?)
+                    HStack {
+                        if let icon = element.icon {
+                            Image(systemName: icon)
+                        }
+                        Text(element.text)
+                    }.tag(index as Int?)
                 }
             }
         }
@@ -51,10 +56,13 @@ struct StandardPicker: View {
 }
 
 extension StandardPicker {
+    // Single picker item
     struct PickerItem: Equatable, Hashable {
         var id: String
         var text: String
+        var icon: String? = nil
     }
+    // The whole component
     struct Content {
         var title: String
         var values: [PickerItem]
@@ -84,6 +92,17 @@ struct StandardPicker_Previews: PreviewProvider {
                                                              StandardPicker.PickerItem(id: "Item2", text: "Item 2")],
                                                     selectedId: "Item2"))
         .lightPreview(title: "Light Filled")
+        StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1", icon: "iphone"),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2", icon: "iphone.slash")],
+                                                    selectedId: "Item2"))
+        .darkPreview(title: "Dark Filled and icon")
+        StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1", icon: "iphone"),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2", icon: "iphone.slash")],
+                                                    selectedId: "Item2"))
+        .lightPreview(title: "Light Filled and icon")
+
 
     }
 }

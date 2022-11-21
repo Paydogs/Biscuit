@@ -23,16 +23,19 @@ extension DummyObjectLibrary {
 // MARK: - Devices
 extension DummyObjectLibrary {
     static func createDeviceiPhone13() -> Device {
-        return Device(descriptor: DeviceDescriptor(deviceId: "iPhone 13", name: "iPhone 13", description: "iPhone iOS 15.4", ip: "127.0.0.1:1234", online: true),
-                      packets: [createPacketBodyless()])
+        return Device(descriptor: DeviceDescriptor(deviceId: "iPhone 13", name: "iPhone 13", description: "iPhone iOS 15.4", ip: "127.0.0.1:1234"),
+                      packets: [createPacketBodyless()],
+                      online: true)
     }
     static func createDeviceiPhone13Pro() -> Device {
-        return Device(descriptor: DeviceDescriptor(deviceId: "iPhone 13 Pro", name: "iPhone 13 Pro", description: "iPhone iOS 15.4", ip: "127.0.0.1:1235", online: false),
-                      packets: [createPacketBodyless()])
+        return Device(descriptor: DeviceDescriptor(deviceId: "iPhone 13 Pro", name: "iPhone 13 Pro", description: "iPhone iOS 15.4", ip: "127.0.0.1:1235"),
+                      packets: [createPacketBodyless()],
+                      online: false)
     }
     static func createDeviceiPhone14() -> Device {
-        return Device(descriptor: DeviceDescriptor(deviceId: "iPhone 14", name: "iPhone 14", description: "iPhone iOS 16.0", ip: "127.0.0.1:1237", online: true),
-                      packets: [createPacketBodyless()])
+        return Device(descriptor: DeviceDescriptor(deviceId: "iPhone 14", name: "iPhone 14", description: "iPhone iOS 16.0", ip: "127.0.0.1:1237"),
+                      packets: [createPacketBodyless()],
+                      online: true)
     }
 }
 // MARK: - Packets

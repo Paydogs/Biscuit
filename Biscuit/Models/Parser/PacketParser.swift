@@ -9,8 +9,8 @@ import Foundation
 
 struct PacketParser {
     func parsePacket(_ packet: BagelPacket, client: Client) -> IncomingPacket {
-        .init(project: mapProject(model: packet.project),
-              device: mapDevice(packet.device, client: client),
+        .init(projectDescriptor: mapProject(model: packet.project),
+              deviceDescriptor: mapDevice(packet.device, client: client),
               packet: mapPacket(packet))
     }
 }
@@ -27,8 +27,7 @@ private extension PacketParser {
         return .init(deviceId: "\(device.deviceId ?? "")-\(client.id)" ,
                      name: device.deviceName ?? "",
                      description: device.deviceDescription ?? "",
-                     ip: client.ip,
-                     online: true)
+                     ip: client.ip)
     }
 
     func mapPacket(_ packet: BagelPacket) -> Packet {

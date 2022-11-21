@@ -104,7 +104,7 @@ private extension Connector {
                 }
 
                 let packet = self.packetParser.parsePacket(bagelPacket, client: connection.client)
-                print("[Connector] Got packet: \(packet.device.ip): \(packet.packet.url)")
+                print("[Connector] Got packet: \(packet.deviceDescriptor.ip): \(packet.packet.url)")
                 let action = PacketActions.didStorePacket(packet)
                 self.dispatcher.dispatch(action: action)
             }
