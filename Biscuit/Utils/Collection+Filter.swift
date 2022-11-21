@@ -29,10 +29,11 @@ extension Set where Element == Device {
 extension Collection where Element == Packet {
     func filteredPackets(filter: PacketFilter) -> [Packet] {
         return self.compactMap { packet -> Packet? in
+            if let url = filter.url, !url.isEmpty, !packet.url.contains(url) { return nil }
+            if packet.pinned { return packet }
             if case let .date(fromDate) = filter.from, packet.received < fromDate { return nil }
             if case let .date(toDate) = filter.to, packet.received > toDate { return nil }
             if let statusCode = filter.statusCode, packet.statusCode != statusCode { return nil }
-            if let url = filter.url, !url.isEmpty, !packet.url.contains(url) { return nil }
             return packet
         }.sorted { (lhs:Packet, rhs: Packet) in
             lhs.startDate < rhs.startDate

@@ -43,10 +43,10 @@ extension SmallActionButton {
 
 struct SmallActionButton_Previews: PreviewProvider {
     static var previews: some View {
-        SmallActionButton(data: SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+        SmallActionButton(data: SmallActionButton.Data(icon: IconName.clipboardIcon,
                                                        help: "Help"))
         .darkPreview(title: "Dark")
-        SmallActionButton(data: SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+        SmallActionButton(data: SmallActionButton.Data(icon: IconName.clipboardIcon,
                                                        help: "Help"))
         .lightPreview(title: "Light")
 

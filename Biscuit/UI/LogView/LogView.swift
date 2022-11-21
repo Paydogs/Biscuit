@@ -22,6 +22,17 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
     var body: some View {
         VStack(spacing: 0) {
             Table(viewModel.packets, selection: $selectedPacket) {
+                TableColumn("") { item in
+                    Button {
+                        viewModel.pinPackets(identifiers: [item.id])
+                    } label: {
+                        Image(systemName: item.pinned ? IconName.pinOn : IconName.pinOff)
+                            .foregroundColor(item.pinned ? Colors.StatusCode.http4xx : Colors.Text.primaryText)
+                            .opacity(item.pinned ? 1 : 0.2)
+                    }
+                    .buttonStyle(BorderlessButtonStyle())
+                }
+                .width(min: 15, max: 15)
                 TableColumn(Localized.LogView.TableColumn.status) { item in
                     Text(item.status)
                         .foregroundColor(item.statusColor)
@@ -31,25 +42,25 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                     Text(item.method)
                         .foregroundColor(item.methodColor)
                 }
-                .width(min: 45, max: 45)
+                .width(min: 55, max: 55)
                 TableColumn(Localized.LogView.TableColumn.url, value: \.url)
                 TableColumn(Localized.LogView.TableColumn.date, value: \.date)
             }
             Divider()
             HStack {
-                Text("Filter:")
+                Text(Localized.LogView.filterTitle)
                     .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 5))
-                TextField("Url", text: $filterUrl)
+                TextField(Localized.LogView.filterPlaceholder, text: $filterUrl)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 10))
                     .disabled(urlFilterDisabled)
                     .onAppear {
                         DispatchQueue.main.async { urlFilterDisabled = false }
                      }
-                SmallActionButton(data: SmallActionButton.Data(icon: "trash", help: "Clear"),
+                SmallActionButton(data: SmallActionButton.Data(icon: IconName.trash, help: Localized.LogView.clearButtonHelp),
                                   event: SmallActionButton.Event(action: { viewModel.clearLogs() }))
                 .contextMenu {
-                    Button("Reset", action: {
+                    Button(Localized.LogView.clearButtonContextReset, action: {
                         viewModel.undoClearLogs()
                     })
                 }

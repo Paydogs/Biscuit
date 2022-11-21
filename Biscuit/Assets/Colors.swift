@@ -9,9 +9,20 @@ import AppKit
 import SwiftUI
 
 enum Colors {
-    enum Default {
+    enum Text {
         public static let primaryText = GeneratedColors.Text.primary.swiftUIColor
         public static let secondaryText = GeneratedColors.Text.secondary.swiftUIColor
+    }
+    enum Defaults {
+        public static let white = GeneratedColors.Defaults.white.swiftUIColor
+        public static let green = GeneratedColors.Defaults.green.swiftUIColor
+        public static let indigo = GeneratedColors.Defaults.indigo.swiftUIColor
+        public static let lightBlue = GeneratedColors.Defaults.lightBlue.swiftUIColor
+        public static let mediumBlue = GeneratedColors.Defaults.mediumBlue.swiftUIColor
+        public static let orange = GeneratedColors.Defaults.orange.swiftUIColor
+        public static let purple = GeneratedColors.Defaults.purple.swiftUIColor
+        public static let red = GeneratedColors.Defaults.red.swiftUIColor
+        public static let yellow = GeneratedColors.Defaults.yellow.swiftUIColor
     }
     enum View {
         public static let mainBackground = GeneratedColors.View.mainBackground.swiftUIColor

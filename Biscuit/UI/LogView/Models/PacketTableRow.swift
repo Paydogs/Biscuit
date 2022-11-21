@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PacketTableRow: Identifiable {
     let id: String
+    let pinned: Bool
     let status: String
     let statusColor: Color
     var method: String

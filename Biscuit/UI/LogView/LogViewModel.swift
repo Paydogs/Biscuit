@@ -15,6 +15,7 @@ protocol LogViewModelInterface: ObservableObject {
     var packets: [PacketTableRow] { get }
 
     func selectPackets(identifiers: [String])
+    func pinPackets(identifiers: [String])
     func exportPackets()
     func filterUrl(url: String)
     func clearLogs()
@@ -53,10 +54,11 @@ class LogViewModel: LogViewModelInterface {
 private extension LogViewModel {
     func mapPacket(packet: Packet) -> PacketTableRow {
         return .init(id: packet.bagelPacketId,
+                     pinned: packet.pinned,
                      status: String(packet.statusCode.code),
                      statusColor: packet.statusCode.color,
                      method: packet.request.method?.rawValue ?? "",
-                     methodColor: packet.request.method?.color ?? Color.white,
+                     methodColor: packet.request.method?.color ?? Colors.Defaults.white,
                      url: packet.url,
                      date: packet.startDate.formatted())
     }
@@ -65,11 +67,16 @@ private extension LogViewModel {
 // MARK: - Event handling
 extension LogViewModel {
     func selectPackets(identifiers: [String]) {
-        print("Selecting: \(identifiers)")
         let allPackets = packetStore.observed.state.projects.allPackets()
         let packets = allPackets.filter { (packet: Packet) in identifiers.contains(packet.id) }
         print("packets to select: \(identifiers)")
         let action = AppActions.didSelectPackets(packets)
+        dispatcher.dispatch(action: action)
+    }
+
+    func pinPackets(identifiers: [String]) {
+        print("Toggling pinning on: \(identifiers)")
+        let action = PacketActions.didTogglePacketPinStatus(identifiers)
         dispatcher.dispatch(action: action)
     }
 

@@ -14,6 +14,8 @@ class PacketStore: BaseStore<PacketState> {
                 handleDidStorePacket(packet: packet)
             case .didClientWentOffline(let client):
                 handleDidClientWentOffline(client: client)
+            case .didTogglePacketPinStatus(let packetIds):
+                handleDidTogglePacketPinStatus(packetIds: packetIds)
         }
     }
 }
@@ -56,6 +58,26 @@ private extension PacketStore {
                         device.online = false
                         project.devices.update(with: device)
                         state.projects.update(with: project)
+                    }
+                }
+            }
+
+            Array(state.projects).describe()
+        }
+    }
+
+    func handleDidTogglePacketPinStatus(packetIds: [String]) {
+        update { state in
+            print("[PACKETSTORE MANIP] Trying to toggle \(packetIds) pin status")
+            for var project in state.projects {
+                for var device in project.devices {
+                    for var packet in device.packets {
+                        if packetIds.contains(packet.id) {
+                            packet.pinned.toggle()
+                            device.packets.update(with: packet)
+                            project.devices.update(with: device)
+                            state.projects.update(with: project)
+                        }
                     }
                 }
             }

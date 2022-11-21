@@ -67,6 +67,7 @@
 		BE04CE9828B834350057F82A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE04CE9728B834350057F82A /* HeaderView.swift */; };
 		BE25442029185B0A007904DC /* HeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE25441F29185B0A007904DC /* HeaderViewModel.swift */; };
 		BEC9507928F8C42700809C05 /* Highlight in Frameworks */ = {isa = PBXBuildFile; productRef = BEC9507828F8C42700809C05 /* Highlight */; };
+		BE2BCED0292C410500E291F3 /* IconName.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2BCECF292C410500E291F3 /* IconName.swift */; };
 		BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9001A828B0F999000B7C0E /* IncomingPacket.swift */; };
 		BEF6A00028DFB44A00B3ECBB /* InvalidPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */; };
 		BEEB0007291FE308000DF1D7 /* Localizable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB0003291FE308000DF1D7 /* Localizable.generated.swift */; };
@@ -113,7 +114,6 @@
 		BEC80074290560390088AC06 /* SavePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC80073290560390088AC06 /* SavePanel.swift */; };
 		BE6CD46C28F227960064C777 /* SmallActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CD46B28F227960064C777 /* SmallActionButton.swift */; };
 		BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE44C44B28C40BFB00791897 /* StandardPicker.swift */; };
-		BEEE4D1F28B42AB700402219 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEE4D1E28B42AB700402219 /* Status.swift */; };
 		BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE88A63028DFD39800406E79 /* StatusCode.swift */; };
 		BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F8F2288F367B0042F376 /* String+Utils.swift */; };
 		BEC2C47A28FB5AA700679083 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC2C47928FB5AA700679083 /* Style.swift */; };
@@ -195,6 +195,7 @@
 		BED81E1E28F8E7D3001E8E50 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		BE04CE9728B834350057F82A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BE25441F29185B0A007904DC /* HeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewModel.swift; sourceTree = "<group>"; };
+		BE2BCECF292C410500E291F3 /* IconName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconName.swift; sourceTree = "<group>"; };
 		BE9001A828B0F999000B7C0E /* IncomingPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingPacket.swift; sourceTree = "<group>"; };
 		BEF69FFF28DFB44A00B3ECBB /* InvalidPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvalidPacket.swift; sourceTree = "<group>"; };
 		BEEB0003291FE308000DF1D7 /* Localizable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.generated.swift; sourceTree = "<group>"; };
@@ -240,7 +241,6 @@
 		BEC80073290560390088AC06 /* SavePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePanel.swift; sourceTree = "<group>"; };
 		BE6CD46B28F227960064C777 /* SmallActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallActionButton.swift; sourceTree = "<group>"; };
 		BE44C44B28C40BFB00791897 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
-		BEEE4D1E28B42AB700402219 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		BE88A63028DFD39800406E79 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		BE27F8F2288F367B0042F376 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		BEC2C47928FB5AA700679083 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -370,7 +370,6 @@
 				BEC25AEC2899DE890083E5B5 /* ProjectDescriptor.swift */,
 				BE27F907288F54290042F376 /* Request.swift */,
 				BE27F909288F54300042F376 /* Response.swift */,
-				BEEE4D1E28B42AB700402219 /* Status.swift */,
 				BE88A63028DFD39800406E79 /* StatusCode.swift */,
 			);
 			path = Domain;
@@ -564,6 +563,7 @@
 				BE79ABAE28FE0D7000301D7C /* Sources */,
 				BEEBFFFD291FD946000DF1D7 /* Colors.swift */,
 				BED81E1E28F8E7D3001E8E50 /* Fonts.swift */,
+				BE2BCECF292C410500E291F3 /* IconName.swift */,
 				BEF7BD8A28A847B8002E825A /* UserColors.swift */,
 			);
 			path = Assets;
@@ -939,6 +939,7 @@
 				BED81E1F28F8E7D3001E8E50 /* Fonts.swift in Sources */,
 				BE04CE9828B834350057F82A /* HeaderView.swift in Sources */,
 				BE25442029185B0A007904DC /* HeaderViewModel.swift in Sources */,
+				BE2BCED0292C410500E291F3 /* IconName.swift in Sources */,
 				BE9001A928B0F999000B7C0E /* IncomingPacket.swift in Sources */,
 				BEF6A00028DFB44A00B3ECBB /* InvalidPacket.swift in Sources */,
 				BEEB0007291FE308000DF1D7 /* Localizable.generated.swift in Sources */,
@@ -983,7 +984,6 @@
 				BEC80074290560390088AC06 /* SavePanel.swift in Sources */,
 				BE6CD46C28F227960064C777 /* SmallActionButton.swift in Sources */,
 				BE44C44C28C40BFB00791897 /* StandardPicker.swift in Sources */,
-				BEEE4D1F28B42AB700402219 /* Status.swift in Sources */,
 				BE88A63128DFD39800406E79 /* StatusCode.swift in Sources */,
 				BE27F8F3288F367B0042F376 /* String+Utils.swift in Sources */,
 				BEC2C47A28FB5AA700679083 /* Style.swift in Sources */,
@@ -1205,7 +1205,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.Biscuit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1234,7 +1234,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.Biscuit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

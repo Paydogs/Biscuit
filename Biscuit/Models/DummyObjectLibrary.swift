@@ -50,6 +50,7 @@ extension DummyObjectLibrary {
                              response: Response = createBodylessResponse()) -> Packet {
         return Packet.init(bagelPacketId: bagelPacketId,
                            received: received,
+                           pinned: false,
                            url: url,
                            statusCode: statusCode,
                            startDate: startDate,

@@ -30,6 +30,7 @@ public enum GeneratedColors {
     public static let orange = ColorAsset(name: "Orange")
     public static let purple = ColorAsset(name: "Purple")
     public static let red = ColorAsset(name: "Red")
+    public static let white = ColorAsset(name: "White")
     public static let yellow = ColorAsset(name: "Yellow")
   }
   public enum DeviceStatus {

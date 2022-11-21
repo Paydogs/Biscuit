@@ -9,7 +9,7 @@ extension AppError {
     func localizedMessage() -> String {
         switch self {
             case .cannotConnect:
-            return "Error during connection. Is the port open? Maybe Bagel is running"
+            return Localized.AppError.cannotConnect
         }
     }
 }

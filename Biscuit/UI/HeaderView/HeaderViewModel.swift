@@ -46,7 +46,7 @@ class HeaderViewModel: HeaderViewModelInterface {
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
             .map { (projects: Set<Project>, filter: BuildFilter) in
                 return projects.devices(filter: filter).map { device in
-                    let icon = device.online ? "iphone" : "iphone.slash"
+                    let icon = device.online ? IconName.iPhoneOn : IconName.iPhoneOff
                     return StandardPicker.PickerItem(id: device.id, text: device.descriptor.name, icon: icon)
                 }
             }

@@ -93,13 +93,13 @@ struct StandardPicker_Previews: PreviewProvider {
                                                     selectedId: "Item2"))
         .lightPreview(title: "Light Filled")
         StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
-                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1", icon: "iphone"),
-                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2", icon: "iphone.slash")],
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1", icon: IconName.iPhoneOn),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2", icon: IconName.iPhoneOff)],
                                                     selectedId: "Item2"))
         .darkPreview(title: "Dark Filled and icon")
         StandardPicker(data: StandardPicker.Content(title: "Standard picker 2:",
-                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1", icon: "iphone"),
-                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2", icon: "iphone.slash")],
+                                                    values: [StandardPicker.PickerItem(id: "Item1", text: "Item 1", icon: IconName.iPhoneOn),
+                                                             StandardPicker.PickerItem(id: "Item2", text: "Item 2", icon: IconName.iPhoneOff)],
                                                     selectedId: "Item2"))
         .lightPreview(title: "Light Filled and icon")
 

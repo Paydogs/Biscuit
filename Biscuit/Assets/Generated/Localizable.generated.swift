@@ -24,13 +24,27 @@ public enum Localized {
   public static let packetRequestHeaders = Localized.tr("Localizable", "packet_request_headers", fallback: "REQUEST HEADERS:")
   /// RESPONSE BODY
   public static let packetResponseBody = Localized.tr("Localizable", "packet_response_body", fallback: "RESPONSE BODY")
+  public enum AppError {
+    /// Error during connection. Is the port open? Maybe Bagel is running
+    public static let cannotConnect = Localized.tr("Localizable", "AppError.cannotConnect", fallback: "Error during connection. Is the port open? Maybe Bagel is running")
+  }
   public enum HeaderView {
     /// Device
     public static let deviceTitle = Localized.tr("Localizable", "HeaderView.deviceTitle", fallback: "Device")
     /// Project
     public static let projectTitle = Localized.tr("Localizable", "HeaderView.projectTitle", fallback: "Project")
+    /// Toggle
+    public static let toggleHelp = Localized.tr("Localizable", "HeaderView.toggleHelp", fallback: "Toggle")
   }
   public enum LogView {
+    /// Reset
+    public static let clearButtonContextReset = Localized.tr("Localizable", "LogView.clearButtonContextReset", fallback: "Reset")
+    /// Clear
+    public static let clearButtonHelp = Localized.tr("Localizable", "LogView.clearButtonHelp", fallback: "Clear")
+    /// Url
+    public static let filterPlaceholder = Localized.tr("Localizable", "LogView.filterPlaceholder", fallback: "Url")
+    /// Filter:
+    public static let filterTitle = Localized.tr("Localizable", "LogView.filterTitle", fallback: "Filter:")
     public enum ContextMenu {
       /// Export
       public static let export = Localized.tr("Localizable", "LogView.contextMenu.export", fallback: "Export")

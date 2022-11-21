@@ -39,7 +39,7 @@ struct Overview<ViewModel: OverviewViewModelInterface>: View {
 
 private extension Overview {
     var copyBodyToClipboardButtonData: SmallActionButton.Data {
-        return SmallActionButton.Data(icon: "doc.on.clipboard.fill",
+        return SmallActionButton.Data(icon: IconName.clipboardIcon,
                                       help: Localized.PacketView.Button.copyToPasteboard)
     }
 }

@@ -20,7 +20,7 @@ struct ErrorView<ViewModel: ErrorViewModelInterface>: View {
                 .font(Fonts.plain.swiftUIFont)
                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
                 .background {
-                    Color.red
+                    Colors.Defaults.red
                 }
                 .cornerRadius(10)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
