@@ -10,9 +10,13 @@ import SwiftUI
 enum IconName {
     public static let pinOn = "pin.fill"
     public static let pinOff = "pin"
-    public static let trash = "trash"
     public static let iPhoneOn = "iphone"
     public static let iPhoneOff = "iphone.slash"
-    public static let toggleViewIcon = "sidebar.right"
-    public static let clipboardIcon = "doc.on.clipboard.fill"
+    public static let trash = "trash"
+    public static let toggleView = "sidebar.right"
+    public static let clipboard = "doc.on.clipboard.fill"
+    public static let hide = "eye.slash.fill"
+    public static let show = "eye.fill"
+    public static let undo = "arrow.counterclockwise"
+    public static let export = "display.and.arrow.down"
 }

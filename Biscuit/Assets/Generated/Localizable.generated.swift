@@ -37,17 +37,23 @@ public enum Localized {
     public static let toggleHelp = Localized.tr("Localizable", "HeaderView.toggleHelp", fallback: "Toggle")
   }
   public enum LogView {
-    /// Reset
-    public static let clearButtonContextReset = Localized.tr("Localizable", "LogView.clearButtonContextReset", fallback: "Reset")
-    /// Clear
-    public static let clearButtonHelp = Localized.tr("Localizable", "LogView.clearButtonHelp", fallback: "Clear")
     /// Url
     public static let filterPlaceholder = Localized.tr("Localizable", "LogView.filterPlaceholder", fallback: "Url")
     /// Filter:
     public static let filterTitle = Localized.tr("Localizable", "LogView.filterTitle", fallback: "Filter:")
+    /// Reset message hiding
+    public static let hideMessagesButtonContextReset = Localized.tr("Localizable", "LogView.hideMessagesButtonContextReset", fallback: "Reset message hiding")
+    /// Hide current messages
+    public static let hideMessagesButtonHelp = Localized.tr("Localizable", "LogView.hideMessagesButtonHelp", fallback: "Hide current messages")
     public enum ContextMenu {
-      /// Export
-      public static let export = Localized.tr("Localizable", "LogView.contextMenu.export", fallback: "Export")
+      /// Clear from here
+      public static let clearFromHere = Localized.tr("Localizable", "LogView.contextMenu.clearFromHere", fallback: "Clear from here")
+      /// Export selected
+      public static let exportSelected = Localized.tr("Localizable", "LogView.contextMenu.exportSelected", fallback: "Export selected")
+      /// Pin selected
+      public static let pinSelected = Localized.tr("Localizable", "LogView.contextMenu.pinSelected", fallback: "Pin selected")
+      /// Unpin selected
+      public static let unpinSelected = Localized.tr("Localizable", "LogView.contextMenu.unpinSelected", fallback: "Unpin selected")
     }
     public enum TableColumn {
       /// Date

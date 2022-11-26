@@ -32,12 +32,9 @@ struct StandardPicker: View {
                 Text(Localized.StandardPicker.noneSelected).tag(nil as Int?)
             } else {
                 ForEach(Array(data.values.enumerated()), id: \.element.id) { index, element in
-                    HStack {
-                        if let icon = element.icon {
-                            Image(systemName: icon)
-                        }
-                        Text(element.text)
-                    }.tag(index as Int?)
+                    Label(element.text, systemImage: element.icon ?? "")
+                        .labelStyle(.titleAndIcon)
+                        .tag(index as Int?)
                 }
             }
         }

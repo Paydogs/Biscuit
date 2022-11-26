@@ -13,13 +13,16 @@ import SwiftUI
 
 protocol LogViewModelInterface: ObservableObject {
     var packets: [PacketTableRow] { get }
+    var hasTimeFilter: Bool { get }
 
     func selectPackets(identifiers: [String])
     func pinPackets(identifiers: [String])
+    func unpinPackets(identifiers: [String])
     func exportPackets()
     func filterUrl(url: String)
-    func clearLogs()
-    func undoClearLogs()
+    func clearFromLastSelected()
+    func hideCurrentMessages()
+    func resetMessageHiding()
 }
 
 class LogViewModel: LogViewModelInterface {
@@ -29,6 +32,7 @@ class LogViewModel: LogViewModelInterface {
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var packets: [PacketTableRow] = []
+    @Published var hasTimeFilter: Bool = false
 
     init() {
         packetStore.observed.$state.map(\.projects)
@@ -37,7 +41,14 @@ class LogViewModel: LogViewModelInterface {
                 projects.packetsOfDeviceInFilter(filter: buildFilter).sorted()
             }
             .combineLatest(appStore.observed.$state.map(\.packetFilter))
-            .map { (devicePackets: [Packet], packetFilter: PacketFilter) -> [Packet] in
+            .map { [weak self] (devicePackets: [Packet], packetFilter: PacketFilter) -> [Packet] in
+                if case .date = packetFilter.from {
+                    self?.hasTimeFilter = true
+                } else if case .date = packetFilter.to {
+                    self?.hasTimeFilter = true
+                } else {
+                    self?.hasTimeFilter = false
+                }
                 return devicePackets.filteredPackets(filter: packetFilter)
             }
             .map { [weak self] (filteredPackets: [Packet]) -> [PacketTableRow] in
@@ -74,9 +85,21 @@ extension LogViewModel {
         dispatcher.dispatch(action: action)
     }
 
-    func pinPackets(identifiers: [String]) {
+    func togglePacketPinning(identifiers: [String]) {
         print("Toggling pinning on: \(identifiers)")
         let action = PacketActions.didTogglePacketPinStatus(identifiers)
+        dispatcher.dispatch(action: action)
+    }
+
+    func pinPackets(identifiers: [String]) {
+        print("Turning pinning on: \(identifiers)")
+        let action = PacketActions.didSetPacketPinStatusOn(identifiers)
+        dispatcher.dispatch(action: action)
+    }
+
+    func unpinPackets(identifiers: [String]) {
+        print("Turning pinning off: \(identifiers)")
+        let action = PacketActions.didSetPacketPinStatusOff(identifiers)
         dispatcher.dispatch(action: action)
     }
 
@@ -90,14 +113,21 @@ extension LogViewModel {
         dispatcher.dispatch(action: action)
     }
 
-    func clearLogs() {
-        print("Clearing logs")
+    func clearFromLastSelected() {
+        guard let first = appStore.observed.state.selectedPackets.last else { return }
+        print("Clearing from first selected packet")
+        let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .date(first.received)))
+        dispatcher.dispatch(action: action)
+    }
+
+    func hideCurrentMessages() {
+        print("Hide current messages")
         let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .date(Double(Date().timeIntervalSince1970))))
         dispatcher.dispatch(action: action)
     }
 
-    func undoClearLogs() {
-        print("Undoing Clearing logs")
+    func resetMessageHiding() {
+        print("Reset message hiding")
         let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .reset))
         dispatcher.dispatch(action: action)
     }

@@ -30,9 +30,12 @@
 "LogView.tableColumn.date" = "Date";
 "LogView.filterTitle" = "Filter:";
 "LogView.filterPlaceholder" = "Url";
-"LogView.clearButtonHelp" = "Clear";
-"LogView.clearButtonContextReset" = "Reset";
-"LogView.contextMenu.export" = "Export";
+"LogView.hideMessagesButtonHelp" = "Hide current messages";
+"LogView.hideMessagesButtonContextReset" = "Reset message hiding";
+"LogView.contextMenu.pinSelected" = "Pin selected";
+"LogView.contextMenu.unpinSelected" = "Unpin selected";
+"LogView.contextMenu.exportSelected" = "Export selected";
+"LogView.contextMenu.clearFromHere" = "Clear from here";
 // Headerview strings
 "HeaderView.projectTitle" = "Project";
 "HeaderView.deviceTitle" = "Device";

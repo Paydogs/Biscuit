@@ -27,7 +27,7 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                         viewModel.pinPackets(identifiers: [item.id])
                     } label: {
                         Image(systemName: item.pinned ? IconName.pinOn : IconName.pinOff)
-                            .foregroundColor(item.pinned ? Colors.StatusCode.http4xx : Colors.Text.primaryText)
+                            .foregroundColor(item.pinned ? Colors.Defaults.red : Colors.Text.primaryText)
                             .opacity(item.pinned ? 1 : 0.2)
                     }
                     .buttonStyle(BorderlessButtonStyle())
@@ -50,6 +50,7 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
             HStack {
                 Text(Localized.LogView.filterTitle)
                     .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 5))
+
                 TextField(Localized.LogView.filterPlaceholder, text: $filterUrl)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 10))
@@ -57,20 +58,55 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                     .onAppear {
                         DispatchQueue.main.async { urlFilterDisabled = false }
                      }
-                SmallActionButton(data: SmallActionButton.Data(icon: IconName.trash, help: Localized.LogView.clearButtonHelp),
-                                  event: SmallActionButton.Event(action: { viewModel.clearLogs() }))
-                .contextMenu {
-                    Button(Localized.LogView.clearButtonContextReset, action: {
-                        viewModel.undoClearLogs()
-                    })
+                Spacer()
+                HStack {
+                    SmallActionButton(data: SmallActionButton.Data(icon: IconName.hide, help: Localized.LogView.hideMessagesButtonHelp),
+                                      event: SmallActionButton.Event(action: { viewModel.hideCurrentMessages() }))
+                    .disabled(viewModel.packets.isEmpty)
+                    .contextMenu {
+                        Button {
+                            viewModel.resetMessageHiding()
+                        } label: {
+                            Label(Localized.LogView.hideMessagesButtonContextReset, systemImage: IconName.undo)
+                                .labelStyle(.titleAndIcon)
+                        }
+                    }
+
+                    SmallActionButton(data: SmallActionButton.Data(icon: IconName.undo, help: Localized.LogView.hideMessagesButtonContextReset),
+                                      event: SmallActionButton.Event(action: { viewModel.resetMessageHiding() }))
+                    .disabled(!viewModel.hasTimeFilter)
                 }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
             }
+            .frame(height: 40)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
         .contextMenu {
-            Button(Localized.LogView.ContextMenu.export, action: {
+            Button {
+                viewModel.pinPackets(identifiers: Array(selectedPacket))
+            } label: {
+                Label(Localized.LogView.ContextMenu.pinSelected, systemImage: IconName.pinOn).labelStyle(.titleAndIcon)
+            }
+            .disabled(selectedPacket.isEmpty)
+            Button {
+                viewModel.unpinPackets(identifiers: Array(selectedPacket))
+            } label: {
+                Label(Localized.LogView.ContextMenu.unpinSelected, systemImage: IconName.pinOff).labelStyle(.titleAndIcon)
+            }
+            .disabled(selectedPacket.isEmpty)
+            Divider()
+            Button {
+                viewModel.clearFromLastSelected()
+            } label: {
+                Label(Localized.LogView.ContextMenu.clearFromHere, systemImage: IconName.hide).labelStyle(.titleAndIcon)
+            }
+            .disabled(selectedPacket.isEmpty)
+            Divider()
+            Button {
                 viewModel.exportPackets()
-            })
+            } label: {
+                Label(Localized.LogView.ContextMenu.exportSelected, systemImage: IconName.export).labelStyle(.titleAndIcon)
+            }
             .disabled(selectedPacket.isEmpty)
         }
         .onChange(of: selectedPacket) { selected in

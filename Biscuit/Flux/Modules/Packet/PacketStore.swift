@@ -16,6 +16,10 @@ class PacketStore: BaseStore<PacketState> {
                 handleDidClientWentOffline(client: client)
             case .didTogglePacketPinStatus(let packetIds):
                 handleDidTogglePacketPinStatus(packetIds: packetIds)
+            case .didSetPacketPinStatusOn(let packetIds):
+                handleDidSetPacketPinStatusOn(packetIds: packetIds)
+            case .didSetPacketPinStatusOff(let packetIds):
+                handleDidSetPacketPinStatusOff(packetIds: packetIds)
         }
     }
 }
@@ -50,14 +54,49 @@ private extension PacketStore {
     }
 
     func handleDidClientWentOffline(client: Client) {
+        print("[PACKETSTORE MANIP] Trying to turn \(client.id) offline")
+        updateDevice(deviceId: client.id) { device in
+            device.online = false
+        }
+    }
+
+    func handleDidTogglePacketPinStatus(packetIds: [String]) {
+        print("[PACKETSTORE MANIP] Trying to toggle \(packetIds) pin status")
+        updatePackets(packetIds: packetIds) { packet in
+            packet.pinned.toggle()
+        }
+    }
+
+    func handleDidSetPacketPinStatusOn(packetIds: [String]) {
+        print("[PACKETSTORE MANIP] Trying to turn the pin status on \(packetIds) to ON")
+        updatePackets(packetIds: packetIds) { packet in
+            packet.pinned = true
+        }
+    }
+
+    func handleDidSetPacketPinStatusOff(packetIds: [String]) {
+        print("[PACKETSTORE MANIP] Trying to turn the pin status on \(packetIds) to OFF")
+        updatePackets(packetIds: packetIds) { packet in
+            packet.pinned = false
+        }
+    }
+}
+
+private extension PacketStore {
+    typealias TransformPacket = (inout Packet) -> Void
+    typealias TransformDevice = (inout Device) -> Void
+
+    func updatePackets(packetIds: [String], with transform: TransformPacket) {
         update { state in
-            print("[PACKETSTORE MANIP] Trying to turn \(client.id) offline")
             for var project in state.projects {
                 for var device in project.devices {
-                    if device.id.contains(client.id) {
-                        device.online = false
-                        project.devices.update(with: device)
-                        state.projects.update(with: project)
+                    for var packet in device.packets {
+                        if packetIds.contains(packet.id) {
+                            transform(&packet)
+                            device.packets.update(with: packet)
+                            project.devices.update(with: device)
+                            state.projects.update(with: project)
+                        }
                     }
                 }
             }
@@ -66,18 +105,14 @@ private extension PacketStore {
         }
     }
 
-    func handleDidTogglePacketPinStatus(packetIds: [String]) {
+    func updateDevice(deviceId: String, with transform: TransformDevice) {
         update { state in
-            print("[PACKETSTORE MANIP] Trying to toggle \(packetIds) pin status")
             for var project in state.projects {
                 for var device in project.devices {
-                    for var packet in device.packets {
-                        if packetIds.contains(packet.id) {
-                            packet.pinned.toggle()
-                            device.packets.update(with: packet)
-                            project.devices.update(with: device)
-                            state.projects.update(with: project)
-                        }
+                    if device.id.contains(deviceId) {
+                        transform(&device)
+                        project.devices.update(with: device)
+                        state.projects.update(with: project)
                     }
                 }
             }

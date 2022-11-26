@@ -14,11 +14,14 @@ class MockLogViewModel: LogViewModelInterface {
          .init(id: "Test1114", pinned: false, status: "200", statusColor: Colors.StatusCode.http2xx, method: "DELETE", methodColor: Colors.RequestMethod.delete, url: "http://0.0.0.0:8882/api/v10/login/fingerprint/ios", date: Date.now.formatted()),
          .init(id: "Test1115", pinned: false, status: "204", statusColor: Colors.StatusCode.http2xx, method: "PATCH", methodColor: Colors.RequestMethod.defaultColor, url: "http://0.0.0.0:8882/api/v10/login/fingerprint/ios", date: Date.now.formatted())]
     }
+    var hasTimeFilter: Bool = false
 
     func selectPackets(identifiers: [String]) { }
     func pinPackets(identifiers: [String]) { }
+    func unpinPackets(identifiers: [String]) { }
     func exportPackets() { }
     func filterUrl(url: String) { }
-    func clearLogs() { }
-    func undoClearLogs() { }
+    func clearFromLastSelected() { }
+    func hideCurrentMessages() { }
+    func resetMessageHiding() { }
 }
