@@ -17,12 +17,16 @@ extension Collection where Element == Project {
             return devices.flatMap { (device: Device) -> [Packet] in return Array(device.packets) }
         }
     }
+
+    func deviceIds() -> [String] {
+        return self.flatMap { project in project.devices.map(\.id) }
+    }
 }
 
 extension Collection where Element == Device {
     func sorted() -> [Device] {
         return self.sorted { (lhs:Device, rhs: Device) in
-            lhs.descriptor.name < rhs.descriptor.name
+            lhs.descriptor.deviceId < rhs.descriptor.deviceId
         }
     }
 }

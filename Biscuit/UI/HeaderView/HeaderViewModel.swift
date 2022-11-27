@@ -16,7 +16,7 @@ protocol HeaderViewModelInterface: ObservableObject {
     var deviceList: [StandardPicker.PickerItem] { get }
 
     func projectSelected(identifier: String)
-    func deviceSelected(identifier: String)
+    func deviceSelected(identifier: String?)
     func toggleSidebar()
 }
 
@@ -44,8 +44,14 @@ class HeaderViewModel: HeaderViewModelInterface {
 
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
+            .handleEvents(receiveOutput: { [weak self] (projects: Set<Project>, filter: BuildFilter) in
+                if let deviceId = filter.deviceId,
+                   !projects.devicesOfProjectInFilter(filter: filter).map(\.id).contains(deviceId) {
+                    self?.resetBuildFilterDevice()
+                }
+            })
             .map { (projects: Set<Project>, filter: BuildFilter) in
-                return projects.devices(filter: filter).map { device in
+                return projects.devicesOfProjectInFilter(filter: filter).map { device in
                     let icon = device.online ? IconName.iPhoneOn : IconName.iPhoneOff
                     return StandardPicker.PickerItem(id: device.id, text: device.descriptor.name, icon: icon)
                 }
@@ -62,19 +68,30 @@ extension HeaderViewModel {
     func projectSelected(identifier: String) {
         var filter = BuildFilter(project: identifier)
         print("Picker selected: \(identifier)")
-        let devices = packetStore.observed.state.projects.devices(filter: filter)
+        let devices = packetStore.observed.state.projects.devicesOfProjectInFilter(filter: filter)
         filter.deviceId = devices.first?.id
         let action = AppActions.didModifiedBuildFilter(filter)
         dispatcher.dispatch(action: action)
     }
 
-    func deviceSelected(identifier: String) {
+    func deviceSelected(identifier: String?) {
         print("Device selected: \(identifier)")
         let action = AppActions.didModifiedBuildFilter(BuildFilter(deviceId: identifier))
         dispatcher.dispatch(action: action)
     }
 
     func toggleSidebar() {
+        print("Toggle sidebar")
         dispatcher.dispatch(action: AppActions.toggleSidebar)
+    }
+}
+
+private extension HeaderViewModel {
+    func resetBuildFilterDevice() {
+        print("Reset device in build filter")
+        var currentFilter = appStore.observed.state.buildFilter
+        currentFilter.deviceId = nil
+        let action = AppActions.didModifiedBuildFilter(currentFilter)
+        dispatcher.dispatch(action: action)
     }
 }

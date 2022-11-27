@@ -41,11 +41,12 @@
 "HeaderView.deviceTitle" = "Device";
 "HeaderView.toggleHelp" = "Toggle";
 // Menu items
-"MenuItem.export_packets" = "Export packets";
+"MenuItem.exportPackets" = "Export packets";
+"MenuItem.deleteOfflineDevice" = "Delete offline device";
 // Menu functions
-"SavePanel.exportpacket_title" = "Save packet";
-"SavePanel.exportpacket_message" = "Choose a folder and a name to store the packet.";
-"SavePanel.exportpacket_namefield" = "Packet file name:";
+"SavePanel.exportpacketTitle" = "Save packet";
+"SavePanel.exportpacketMessage" = "Choose a folder and a name to store the packet.";
+"SavePanel.exportpacketNamefield" = "Packet file name:";
 // Component strings
 "StandardPicker.noneSelected" = "None";
 // Messages

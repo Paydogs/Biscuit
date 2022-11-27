@@ -12,6 +12,7 @@ import Factory
 struct MenuController {
     @Injected(BiscuitContainer.appStore) var appStore
     @Injected(BiscuitContainer.packetStore) var packetStore
+    @Injected(BiscuitContainer.dispatcher) var dispatcher
 
     private var subscriptions: Set<AnyCancellable> = []
 }
@@ -21,5 +22,10 @@ extension MenuController {
     func exportPackets() {
         print("[MenuController] Exporting packets...")
         SavePanel.exportPackets(packets: appStore.observed.state.selectedPackets)
+    }
+    func deleteOfflineDevices() {
+        print("[MenuController] Deleting offline devices")
+        let action = PacketActions.deleteOfflineDevices
+        dispatcher.dispatch(action: action)
     }
 }

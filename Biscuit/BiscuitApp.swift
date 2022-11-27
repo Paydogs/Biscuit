@@ -41,6 +41,10 @@ struct BiscuitApp: App {
                 Button(action: { menuController.exportPackets() }) {
                     Text(Localized.MenuItem.exportPackets)
                 }
+                Divider()
+                Button(action: { menuController.deleteOfflineDevices() }) {
+                    Text(Localized.MenuItem.deleteOfflineDevice)
+                }
             }
         }
     }

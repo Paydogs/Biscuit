@@ -8,46 +8,49 @@
 import SwiftUI
 
 struct StandardPicker: View {
-    @State private var selectedIndex: Int?
+    @State private var selectedId: String?
 
     typealias PickerAction = (PickerItem)->()
     var data: Content
     var event: Events?
 
-    init(selectedIndex: Int? = nil, data: Content, event: Events? = nil) {
-        self.selectedIndex = selectedIndex
+    init(selectedId: String? = nil, data: Content, event: Events? = nil) {
+        self.selectedId = selectedId
         self.data = data
         self.event = event
 
         if let selectedId = data.selectedId {
-            _selectedIndex = State(initialValue: data.values.firstIndex(where: { (item: PickerItem) in
-                item.id == selectedId
-            }))
+            _selectedId = State(initialValue: selectedId)
         }
     }
 
     var body: some View {
-        Picker(data.title, selection: $selectedIndex) {
+        Picker(data.title, selection: $selectedId) {
             if data.values.isEmpty {
-                Text(Localized.StandardPicker.noneSelected).tag(nil as Int?)
+                Text(Localized.StandardPicker.noneSelected).tag(nil as String?)
             } else {
                 ForEach(Array(data.values.enumerated()), id: \.element.id) { index, element in
                     Label(element.text, systemImage: element.icon ?? "")
                         .labelStyle(.titleAndIcon)
-                        .tag(index as Int?)
+                        .tag(element.id as String?)
                 }
             }
         }
         .onChange(of: data.values, perform: { newValue in
             if !newValue.isEmpty {
-                selectedIndex = 0
+                selectedId = newValue.first?.id
+            } else {
+                selectedId = nil
             }
         })
-        .onChange(of: selectedIndex, perform: { selection in
+        .onChange(of: selectedId, perform: { selection in
             guard let selection = selection else {
                 return
             }
-            event?.itemSelected(data.values[selection])
+            guard let selectItem = data.values.first(where: { item in
+                item.id == selection
+            }) else { return }
+            event?.itemSelected(selectItem)
         })
     }
 }

@@ -82,9 +82,8 @@ private extension AppStore {
             if let project = filter.project {
                 state.buildFilter.project = project
             }
-            if let device = filter.deviceId {
-                state.buildFilter.deviceId = device
-            }
+
+            state.buildFilter.deviceId = filter.deviceId
         }
     }
     func handleDidModifiedPacketFilter(filter: PacketFilter) {

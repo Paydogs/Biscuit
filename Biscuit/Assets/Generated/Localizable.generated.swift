@@ -67,8 +67,10 @@ public enum Localized {
     }
   }
   public enum MenuItem {
+    /// Delete offline device
+    public static let deleteOfflineDevice = Localized.tr("Localizable", "MenuItem.deleteOfflineDevice", fallback: "Delete offline device")
     /// Export packets
-    public static let exportPackets = Localized.tr("Localizable", "MenuItem.export_packets", fallback: "Export packets")
+    public static let exportPackets = Localized.tr("Localizable", "MenuItem.exportPackets", fallback: "Export packets")
   }
   public enum Messages {
     public enum CopyToPasteboard {
@@ -114,11 +116,11 @@ public enum Localized {
   }
   public enum SavePanel {
     /// Choose a folder and a name to store the packet.
-    public static let exportpacketMessage = Localized.tr("Localizable", "SavePanel.exportpacket_message", fallback: "Choose a folder and a name to store the packet.")
+    public static let exportpacketMessage = Localized.tr("Localizable", "SavePanel.exportpacketMessage", fallback: "Choose a folder and a name to store the packet.")
     /// Packet file name:
-    public static let exportpacketNamefield = Localized.tr("Localizable", "SavePanel.exportpacket_namefield", fallback: "Packet file name:")
+    public static let exportpacketNamefield = Localized.tr("Localizable", "SavePanel.exportpacketNamefield", fallback: "Packet file name:")
     /// Save packet
-    public static let exportpacketTitle = Localized.tr("Localizable", "SavePanel.exportpacket_title", fallback: "Save packet")
+    public static let exportpacketTitle = Localized.tr("Localizable", "SavePanel.exportpacketTitle", fallback: "Save packet")
   }
   public enum StandardPicker {
     /// None

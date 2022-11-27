@@ -6,12 +6,12 @@
 //
 
 extension Set where Element == Project {
-    func devices(filter: BuildFilter) -> Set<Device> {
+    func devicesOfProjectInFilter(filter: BuildFilter) -> Set<Device> {
         guard let project = self.first(where: { project in project.id == filter.project }) else { return [] }
         return project.devices
     }
     func packetsOfDeviceInFilter(filter: BuildFilter) -> Set<Packet> {
-        let devices = devices(filter: filter)
+        let devices = devicesOfProjectInFilter(filter: filter)
         let selectedDevice = devices.first { device in
             device.id == filter.deviceId
         }

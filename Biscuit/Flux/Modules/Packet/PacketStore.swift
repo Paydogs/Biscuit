@@ -20,6 +20,8 @@ class PacketStore: BaseStore<PacketState> {
                 handleDidSetPacketPinStatusOn(packetIds: packetIds)
             case .didSetPacketPinStatusOff(let packetIds):
                 handleDidSetPacketPinStatusOff(packetIds: packetIds)
+            case .deleteOfflineDevices:
+                handleDeleteOfflineDevices()
         }
     }
 }
@@ -57,6 +59,22 @@ private extension PacketStore {
         print("[PACKETSTORE MANIP] Trying to turn \(client.id) offline")
         updateDevice(deviceId: client.id) { device in
             device.online = false
+        }
+    }
+
+    func handleDeleteOfflineDevices() {
+        print("[PACKETSTORE MANIP] Trying to delete offline devices")
+        update { state in
+            for var project in state.projects {
+                for device in project.devices {
+                    if !device.online {
+                        project.devices.remove(device)
+                        state.projects.update(with: project)
+                    }
+                }
+            }
+
+            Array(state.projects).describe()
         }
     }
 
