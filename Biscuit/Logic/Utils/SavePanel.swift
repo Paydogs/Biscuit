@@ -6,10 +6,18 @@
 //
 
 import AppKit
+import Factory
 
 struct SavePanel {
-    static func exportPackets(packets: [Packet]) {
+    static func exportPacketBodies(packets: [Packet]) {
+        var bodylessPackets: [Packet] = []
+        var packetsWithBody: [Packet] = []
         for packet in packets {
+            if packet.response.prettyBody == nil { bodylessPackets.append(packet) }
+            else { packetsWithBody.append(packet)}
+        }
+
+        for packet in packetsWithBody {
             guard let body = packet.response.prettyBody else { return }
 
             let proposedName = URL(string: packet.url)?.lastPathComponent
@@ -24,6 +32,10 @@ struct SavePanel {
                 }
             }
         }
+        if !bodylessPackets.isEmpty {
+            let postMessageTask = BiscuitContainer.postMessageTask.callAsFunction()
+            postMessageTask.execute(message: Localized.Messages.Export.emptyBodyForPackets(bodylessPackets.count))
+        }
     }
 }
 
@@ -33,9 +45,9 @@ private extension SavePanel {
         savePanel.allowedContentTypes = [.json]
         savePanel.canCreateDirectories = true
         savePanel.isExtensionHidden = false
-        savePanel.title = Localized.SavePanel.exportpacketTitle
-        savePanel.message = Localized.SavePanel.exportpacketMessage
-        savePanel.nameFieldLabel = Localized.SavePanel.exportpacketNamefield
+        savePanel.title = Localized.SavePanel.Exportpacket.title
+        savePanel.message = Localized.SavePanel.Exportpacket.message
+        savePanel.nameFieldLabel = Localized.SavePanel.Exportpacket.namefield
         if let proposedName = proposedName {
             savePanel.nameFieldStringValue = proposedName
         }

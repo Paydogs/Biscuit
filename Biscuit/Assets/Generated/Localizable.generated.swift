@@ -48,8 +48,8 @@ public enum Localized {
     public enum ContextMenu {
       /// Clear from here
       public static let clearFromHere = Localized.tr("Localizable", "LogView.contextMenu.clearFromHere", fallback: "Clear from here")
-      /// Export selected
-      public static let exportSelected = Localized.tr("Localizable", "LogView.contextMenu.exportSelected", fallback: "Export selected")
+      /// Export selected message Body
+      public static let exportSelectedBody = Localized.tr("Localizable", "LogView.contextMenu.exportSelectedBody", fallback: "Export selected message Body")
       /// Pin selected
       public static let pinSelected = Localized.tr("Localizable", "LogView.contextMenu.pinSelected", fallback: "Pin selected")
       /// Unpin selected
@@ -80,6 +80,12 @@ public enum Localized {
       public static let nopacket = Localized.tr("Localizable", "Messages.CopyToPasteboard.nopacket", fallback: "Nothing selected")
       /// Response body copied to Pasteboard
       public static let success = Localized.tr("Localizable", "Messages.CopyToPasteboard.success", fallback: "Response body copied to Pasteboard")
+    }
+    public enum Export {
+      /// There were %d bodyless packets
+      public static func emptyBodyForPackets(_ p1: Int) -> String {
+        return Localized.tr("Localizable", "Messages.Export.emptyBodyForPackets", p1, fallback: "There were %d bodyless packets")
+      }
     }
   }
   public enum PacketView {
@@ -115,12 +121,14 @@ public enum Localized {
     }
   }
   public enum SavePanel {
-    /// Choose a folder and a name to store the packet.
-    public static let exportpacketMessage = Localized.tr("Localizable", "SavePanel.exportpacketMessage", fallback: "Choose a folder and a name to store the packet.")
-    /// Packet file name:
-    public static let exportpacketNamefield = Localized.tr("Localizable", "SavePanel.exportpacketNamefield", fallback: "Packet file name:")
-    /// Save packet
-    public static let exportpacketTitle = Localized.tr("Localizable", "SavePanel.exportpacketTitle", fallback: "Save packet")
+    public enum Exportpacket {
+      /// Choose a folder and a name to store the packet.
+      public static let message = Localized.tr("Localizable", "SavePanel.exportpacket.message", fallback: "Choose a folder and a name to store the packet.")
+      /// Packet file name:
+      public static let namefield = Localized.tr("Localizable", "SavePanel.exportpacket.namefield", fallback: "Packet file name:")
+      /// Save packet
+      public static let title = Localized.tr("Localizable", "SavePanel.exportpacket.title", fallback: "Save packet")
+    }
   }
   public enum StandardPicker {
     /// None

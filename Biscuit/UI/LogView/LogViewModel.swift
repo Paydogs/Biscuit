@@ -104,7 +104,8 @@ extension LogViewModel {
     }
 
     func exportPackets() {
-        SavePanel.exportPackets(packets: appStore.observed.state.selectedPackets)
+        print("Trying to export packets: \(appStore.observed.state.selectedPackets.count)")
+        SavePanel.exportPacketBodies(packets: appStore.observed.state.selectedPackets)
     }
 
     func filterUrl(url: String) {

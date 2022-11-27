@@ -21,7 +21,7 @@ struct MenuController {
 extension MenuController {
     func exportPackets() {
         print("[MenuController] Exporting packets...")
-        SavePanel.exportPackets(packets: appStore.observed.state.selectedPackets)
+        SavePanel.exportPacketBodies(packets: appStore.observed.state.selectedPackets)
     }
     func deleteOfflineDevices() {
         print("[MenuController] Deleting offline devices")

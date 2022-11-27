@@ -105,7 +105,7 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
             Button {
                 viewModel.exportPackets()
             } label: {
-                Label(Localized.LogView.ContextMenu.exportSelected, systemImage: IconName.export).labelStyle(.titleAndIcon)
+                Label(Localized.LogView.ContextMenu.exportSelectedBody, systemImage: IconName.export).labelStyle(.titleAndIcon)
             }
             .disabled(selectedPacket.isEmpty)
         }
