@@ -108,6 +108,13 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                 Label(Localized.LogView.ContextMenu.exportSelectedBody, systemImage: IconName.export).labelStyle(.titleAndIcon)
             }
             .disabled(selectedPacket.isEmpty)
+            Button {
+                viewModel.exportPacketsAndZip()
+            } label: {
+                Label(Localized.LogView.ContextMenu.exportAndZipSelectedBody, systemImage: IconName.export).labelStyle(.titleAndIcon)
+            }
+            .disabled(selectedPacket.isEmpty)
+
         }
         .onChange(of: selectedPacket) { selected in
             viewModel.selectPackets(identifiers: Array(selected))

@@ -121,6 +121,7 @@
 		BEE3B295291C738600927AAD /* ToastContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3B294291C738600927AAD /* ToastContainerView.swift */; };
 		BEE3B297291C74E300927AAD /* ToastContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3B296291C74E300927AAD /* ToastContainerViewModel.swift */; };
 		BEF7BD8B28A847B8002E825A /* UserColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF7BD8A28A847B8002E825A /* UserColors.swift */; };
+		BE9B216929330FC100D1BCDD /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = BE9B216829330FC100D1BCDD /* ZIPFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +266,7 @@
 			files = (
 				BE32D64328A1E26300EADEF7 /* Factory in Frameworks */,
 				BEC9507928F8C42700809C05 /* Highlight in Frameworks */,
+				BE9B216929330FC100D1BCDD /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +782,7 @@
 			packageProductDependencies = (
 				BE32D64228A1E26300EADEF7 /* Factory */,
 				BEC9507828F8C42700809C05 /* Highlight */,
+				BE9B216829330FC100D1BCDD /* ZIPFoundation */,
 			);
 			productName = Biscuit;
 			productReference = BE682F5F288C31010096346F /* Biscuit.app */;
@@ -817,6 +820,7 @@
 				BE32D64128A1E26300EADEF7 /* XCRemoteSwiftPackageReference "Factory" */,
 				BECCCB9628A2024A00BD65BB /* XCRemoteSwiftPackageReference "SwiftyMocky" */,
 				BEC9507728F8C42600809C05 /* XCRemoteSwiftPackageReference "Highlight" */,
+				BE9B216729330FC100D1BCDD /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = BE682F60288C31010096346F /* Products */;
 			projectDirPath = "";
@@ -1200,12 +1204,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Biscuit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.Biscuit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1229,12 +1235,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Biscuit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.magnificat.Biscuit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1291,6 +1299,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		BE9B216729330FC100D1BCDD /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
 		BEC9507728F8C42600809C05 /* XCRemoteSwiftPackageReference "Highlight" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:nkristek/Highlight.git";
@@ -1319,6 +1335,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BE5C9EB12899FD1F00F84DE7 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		BE9B216829330FC100D1BCDD /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE9B216729330FC100D1BCDD /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 		BEC9507828F8C42700809C05 /* Highlight */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -48,6 +48,8 @@ public enum Localized {
     public enum ContextMenu {
       /// Clear from here
       public static let clearFromHere = Localized.tr("Localizable", "LogView.contextMenu.clearFromHere", fallback: "Clear from here")
+      /// Export and zip selected message Body
+      public static let exportAndZipSelectedBody = Localized.tr("Localizable", "LogView.contextMenu.exportAndZipSelectedBody", fallback: "Export and zip selected message Body")
       /// Export selected message Body
       public static let exportSelectedBody = Localized.tr("Localizable", "LogView.contextMenu.exportSelectedBody", fallback: "Export selected message Body")
       /// Pin selected

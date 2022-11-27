@@ -35,6 +35,7 @@
 "LogView.contextMenu.pinSelected" = "Pin selected";
 "LogView.contextMenu.unpinSelected" = "Unpin selected";
 "LogView.contextMenu.exportSelectedBody" = "Export selected message Body";
+"LogView.contextMenu.exportAndZipSelectedBody" = "Export and zip selected message Body";
 "LogView.contextMenu.clearFromHere" = "Clear from here";
 // Headerview strings
 "HeaderView.projectTitle" = "Project";

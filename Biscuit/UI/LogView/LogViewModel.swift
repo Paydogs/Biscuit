@@ -19,6 +19,7 @@ protocol LogViewModelInterface: ObservableObject {
     func pinPackets(identifiers: [String])
     func unpinPackets(identifiers: [String])
     func exportPackets()
+    func exportPacketsAndZip()
     func filterUrl(url: String)
     func clearFromLastSelected()
     func hideCurrentMessages()
@@ -106,6 +107,11 @@ extension LogViewModel {
     func exportPackets() {
         print("Trying to export packets: \(appStore.observed.state.selectedPackets.count)")
         SavePanel.exportPacketBodies(packets: appStore.observed.state.selectedPackets)
+    }
+
+    func exportPacketsAndZip() {
+        print("Trying to export packets: \(appStore.observed.state.selectedPackets.count) and zip")
+        SavePanel.exportPacketAsZip(packets: appStore.observed.state.selectedPackets)
     }
 
     func filterUrl(url: String) {

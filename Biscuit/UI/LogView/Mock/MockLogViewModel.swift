@@ -20,6 +20,7 @@ class MockLogViewModel: LogViewModelInterface {
     func pinPackets(identifiers: [String]) { }
     func unpinPackets(identifiers: [String]) { }
     func exportPackets() { }
+    func exportPacketsAndZip() { }
     func filterUrl(url: String) { }
     func clearFromLastSelected() { }
     func hideCurrentMessages() { }
