@@ -20,3 +20,7 @@ enum IconName {
     public static let undo = "arrow.counterclockwise"
     public static let export = "display.and.arrow.down"
 }
+
+enum ImageName {
+    public static let biscuitLarge = "biscuit_main_1024"
+}

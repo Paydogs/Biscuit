@@ -13,10 +13,7 @@ import Foundation
 public enum Localized {
   /// NIL
   public static let packetNil = Localized.tr("Localizable", "packet_nil", fallback: "NIL")
-  /// Localizable.strings
-  ///   Biscuit
-  /// 
-  ///   Created by Andras Olah on 2022. 10. 23..
+  /// Nothing to show
   public static let packetNothingToShow = Localized.tr("Localizable", "packet_nothing_to_show", fallback: "Nothing to show")
   /// REQUEST BODY:
   public static let packetRequestBody = Localized.tr("Localizable", "packet_request_body", fallback: "REQUEST BODY:")
@@ -24,6 +21,19 @@ public enum Localized {
   public static let packetRequestHeaders = Localized.tr("Localizable", "packet_request_headers", fallback: "REQUEST HEADERS:")
   /// RESPONSE BODY
   public static let packetResponseBody = Localized.tr("Localizable", "packet_response_body", fallback: "RESPONSE BODY")
+  public enum AboutView {
+    /// Localizable.strings
+    ///   Biscuit
+    /// 
+    ///   Created by Andras Olah on 2022. 10. 23..
+    public static let appName = Localized.tr("Localizable", "AboutView.appName", fallback: "Biscuit")
+    /// 2022
+    public static let date = Localized.tr("Localizable", "AboutView.date", fallback: "2022")
+    /// Version %@
+    public static func version(_ p1: Any) -> String {
+      return Localized.tr("Localizable", "AboutView.version", String(describing: p1), fallback: "Version %@")
+    }
+  }
   public enum AppError {
     /// Error during connection. Is the port open? Maybe Bagel is running
     public static let cannotConnect = Localized.tr("Localizable", "AppError.cannotConnect", fallback: "Error during connection. Is the port open? Maybe Bagel is running")

@@ -5,6 +5,10 @@
   Created by Andras Olah on 2022. 10. 23..
 */
 
+// Main
+"AboutView.appName" = "Biscuit";
+"AboutView.date" = "2022";
+"AboutView.version" = "Version %@";
 // Packet strings
 "packet_nothing_to_show" = "Nothing to show";
 "packet_nil" = "NIL";

@@ -36,6 +36,14 @@ struct BiscuitApp: App {
             }
         })
         .commands {
+            CommandGroup(replacing: .appInfo) {
+                Button(action: {
+                    guard let url = URL(string: "biscuiturl://AboutView") else { return }
+                    NSWorkspace.shared.open(url)
+                }) {
+                    Text("About Biscuit")
+                }
+            }
             CommandGroup(after: .newItem) {
                 Divider()
                 Button(action: { menuController.exportPackets() }) {
@@ -47,5 +55,11 @@ struct BiscuitApp: App {
                 }
             }
         }
+
+        WindowGroup("About") {
+            AboutView()
+        }
+        .windowStyle(.hiddenTitleBar)
+        .handlesExternalEvents(matching: ["AboutView"])
     }
 }
