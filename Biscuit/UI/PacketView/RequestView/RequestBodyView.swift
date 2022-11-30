@@ -13,17 +13,15 @@ struct RequestBodyView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Button {
-                isOpen.toggle()
-            } label: {
-                Text("Body")
-            }
-            .padding(10)
-            .buttonStyle(.plain)
-            .background(.gray)
+            DropdownButton(data: DropdownButton.Data(title: "Body",
+                                                     help: "Show request body"),
+                           event: DropdownButton.Event(action: { isOpen in
+                self.isOpen = isOpen
+            }))
             AttributedTextView(attributedText: attributedText)
                 .background(Colors.Overview.background)
                 .frame(maxHeight: isOpen ? .infinity : 0)
+            Divider()
         }
     }
 }

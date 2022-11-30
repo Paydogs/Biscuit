@@ -13,20 +13,17 @@ struct RequestHeadersView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Button {
-                isOpen.toggle()
-            } label: {
-                Text("Headers")
-            }
-            .padding(10)
-            .buttonStyle(.plain)
-            .background(.gray)
-
+            DropdownButton(data: DropdownButton.Data(title: "Headers",
+                                                     help: "Show request headers"),
+                           event: DropdownButton.Event(action: { isOpen in
+                self.isOpen = isOpen
+            }))
             Table(responseHeaders) {
                 TableColumn(Localized.ResponseView.Header.TableColumn.key, value: \.key)
                 TableColumn(Localized.ResponseView.Header.TableColumn.value, value: \.value)
             }
             .frame(maxHeight: isOpen ? .infinity : 0)
+            Divider()
         }
     }
 }
