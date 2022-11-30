@@ -11,8 +11,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Localized {
-  /// NIL
-  public static let packetNil = Localized.tr("Localizable", "packet_nil", fallback: "NIL")
+  /// Empty
+  public static let packetEmpty = Localized.tr("Localizable", "packet_empty", fallback: "Empty")
   /// Nothing to show
   public static let packetNothingToShow = Localized.tr("Localizable", "packet_nothing_to_show", fallback: "Nothing to show")
   /// REQUEST BODY:
@@ -57,25 +57,25 @@ public enum Localized {
     public static let hideMessagesButtonHelp = Localized.tr("Localizable", "LogView.hideMessagesButtonHelp", fallback: "Hide current messages")
     public enum ContextMenu {
       /// Clear from here
-      public static let clearFromHere = Localized.tr("Localizable", "LogView.contextMenu.clearFromHere", fallback: "Clear from here")
+      public static let clearFromHere = Localized.tr("Localizable", "LogView.ContextMenu.clearFromHere", fallback: "Clear from here")
       /// Export and zip selected message Body
-      public static let exportAndZipSelectedBody = Localized.tr("Localizable", "LogView.contextMenu.exportAndZipSelectedBody", fallback: "Export and zip selected message Body")
+      public static let exportAndZipSelectedBody = Localized.tr("Localizable", "LogView.ContextMenu.exportAndZipSelectedBody", fallback: "Export and zip selected message Body")
       /// Export selected message Body
-      public static let exportSelectedBody = Localized.tr("Localizable", "LogView.contextMenu.exportSelectedBody", fallback: "Export selected message Body")
+      public static let exportSelectedBody = Localized.tr("Localizable", "LogView.ContextMenu.exportSelectedBody", fallback: "Export selected message Body")
       /// Pin selected
-      public static let pinSelected = Localized.tr("Localizable", "LogView.contextMenu.pinSelected", fallback: "Pin selected")
+      public static let pinSelected = Localized.tr("Localizable", "LogView.ContextMenu.pinSelected", fallback: "Pin selected")
       /// Unpin selected
-      public static let unpinSelected = Localized.tr("Localizable", "LogView.contextMenu.unpinSelected", fallback: "Unpin selected")
+      public static let unpinSelected = Localized.tr("Localizable", "LogView.ContextMenu.unpinSelected", fallback: "Unpin selected")
     }
     public enum TableColumn {
       /// Date
-      public static let date = Localized.tr("Localizable", "LogView.tableColumn.date", fallback: "Date")
+      public static let date = Localized.tr("Localizable", "LogView.TableColumn.date", fallback: "Date")
       /// Method
-      public static let method = Localized.tr("Localizable", "LogView.tableColumn.method", fallback: "Method")
+      public static let method = Localized.tr("Localizable", "LogView.TableColumn.method", fallback: "Method")
       /// Status
-      public static let status = Localized.tr("Localizable", "LogView.tableColumn.status", fallback: "Status")
+      public static let status = Localized.tr("Localizable", "LogView.TableColumn.status", fallback: "Status")
       /// Url
-      public static let url = Localized.tr("Localizable", "LogView.tableColumn.url", fallback: "Url")
+      public static let url = Localized.tr("Localizable", "LogView.TableColumn.url", fallback: "Url")
     }
   }
   public enum MenuItem {
@@ -125,6 +125,14 @@ public enum Localized {
     }
   }
   public enum ResponseView {
+    public enum Header {
+      public enum TableColumn {
+        /// Key
+        public static let key = Localized.tr("Localizable", "ResponseView.Header.TableColumn.key", fallback: "Key")
+        /// Value
+        public static let value = Localized.tr("Localizable", "ResponseView.Header.TableColumn.value", fallback: "Value")
+      }
+    }
     public enum Tab {
       /// Body
       public static let body = Localized.tr("Localizable", "ResponseView.Tab.body", fallback: "Body")
@@ -135,11 +143,11 @@ public enum Localized {
   public enum SavePanel {
     public enum Exportpacket {
       /// Choose a folder and a name to store the packet.
-      public static let message = Localized.tr("Localizable", "SavePanel.exportpacket.message", fallback: "Choose a folder and a name to store the packet.")
+      public static let message = Localized.tr("Localizable", "SavePanel.Exportpacket.message", fallback: "Choose a folder and a name to store the packet.")
       /// Packet file name:
-      public static let namefield = Localized.tr("Localizable", "SavePanel.exportpacket.namefield", fallback: "Packet file name:")
+      public static let namefield = Localized.tr("Localizable", "SavePanel.Exportpacket.namefield", fallback: "Packet file name:")
       /// Save packet
-      public static let title = Localized.tr("Localizable", "SavePanel.exportpacket.title", fallback: "Save packet")
+      public static let title = Localized.tr("Localizable", "SavePanel.Exportpacket.title", fallback: "Save packet")
     }
   }
   public enum StandardPicker {

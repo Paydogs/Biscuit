@@ -30,9 +30,14 @@ struct StandardPicker: View {
                 Text(Localized.StandardPicker.noneSelected).tag(nil as String?)
             } else {
                 ForEach(Array(data.values.enumerated()), id: \.element.id) { index, element in
-                    Label(element.text, systemImage: element.icon ?? "")
-                        .labelStyle(.titleAndIcon)
-                        .tag(element.id as String?)
+                    if let icon = element.icon {
+                        Label(element.text, systemImage: icon)
+                            .labelStyle(.titleAndIcon)
+                            .tag(element.id as String?)
+                    } else {
+                        Text(element.text)
+                            .tag(element.id as String?)
+                    }
                 }
             }
         }

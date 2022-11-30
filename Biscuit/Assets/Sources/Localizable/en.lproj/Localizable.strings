@@ -11,7 +11,7 @@
 "AboutView.version" = "Version %@";
 // Packet strings
 "packet_nothing_to_show" = "Nothing to show";
-"packet_nil" = "NIL";
+"packet_empty" = "Empty";
 "packet_request_headers" = "REQUEST HEADERS:";
 "packet_request_body" = "REQUEST BODY:";
 "packet_response_body" = "RESPONSE BODY";
@@ -27,20 +27,22 @@
 // ResponseView strings
 "ResponseView.Tab.body" = "Body";
 "ResponseView.Tab.headers" = "Headers";
+"ResponseView.Header.TableColumn.key" = "Key";
+"ResponseView.Header.TableColumn.value" = "Value";
 // Logview strings
-"LogView.tableColumn.status" = "Status";
-"LogView.tableColumn.method" = "Method";
-"LogView.tableColumn.url" = "Url";
-"LogView.tableColumn.date" = "Date";
+"LogView.TableColumn.status" = "Status";
+"LogView.TableColumn.method" = "Method";
+"LogView.TableColumn.url" = "Url";
+"LogView.TableColumn.date" = "Date";
 "LogView.filterTitle" = "Filter:";
 "LogView.filterPlaceholder" = "Url";
 "LogView.hideMessagesButtonHelp" = "Hide current messages";
 "LogView.hideMessagesButtonContextReset" = "Reset message hiding";
-"LogView.contextMenu.pinSelected" = "Pin selected";
-"LogView.contextMenu.unpinSelected" = "Unpin selected";
-"LogView.contextMenu.exportSelectedBody" = "Export selected message Body";
-"LogView.contextMenu.exportAndZipSelectedBody" = "Export and zip selected message Body";
-"LogView.contextMenu.clearFromHere" = "Clear from here";
+"LogView.ContextMenu.pinSelected" = "Pin selected";
+"LogView.ContextMenu.unpinSelected" = "Unpin selected";
+"LogView.ContextMenu.exportSelectedBody" = "Export selected message Body";
+"LogView.ContextMenu.exportAndZipSelectedBody" = "Export and zip selected message Body";
+"LogView.ContextMenu.clearFromHere" = "Clear from here";
 // Headerview strings
 "HeaderView.projectTitle" = "Project";
 "HeaderView.deviceTitle" = "Device";
@@ -49,9 +51,9 @@
 "MenuItem.exportPackets" = "Export packets";
 "MenuItem.deleteOfflineDevice" = "Delete offline device";
 // Menu functions
-"SavePanel.exportpacket.title" = "Save packet";
-"SavePanel.exportpacket.message" = "Choose a folder and a name to store the packet.";
-"SavePanel.exportpacket.namefield" = "Packet file name:";
+"SavePanel.Exportpacket.title" = "Save packet";
+"SavePanel.Exportpacket.message" = "Choose a folder and a name to store the packet.";
+"SavePanel.Exportpacket.namefield" = "Packet file name:";
 // Component strings
 "StandardPicker.noneSelected" = "None";
 // Messages

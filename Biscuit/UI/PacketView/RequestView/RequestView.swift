@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct RequestView: View {
-    let tabs: [Tab] = [.body, .headers, .parameters]
-    
+struct RequestView<ViewModel: RequestViewModelInterface>: View {
+    @StateObject var viewModel: ViewModel
     @State private var selectedTab: Tab = .body
+
+    init(viewModel: ViewModel = RequestViewModel()) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack {
@@ -41,11 +44,18 @@ extension RequestView {
     }
 }
 
+
+private extension RequestView {
+    var tabs: [Tab] {
+        [.body, .headers, .parameters]
+    }
+}
+
 struct RequestView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestView()
+        RequestView(viewModel: MockRequestViewModel())
             .darkPreview(title: "Dark")
-        RequestView()
+        RequestView(viewModel: MockRequestViewModel())
             .lightPreview(title: "Light")
     }
 }

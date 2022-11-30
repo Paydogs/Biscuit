@@ -75,7 +75,7 @@ extension HeaderViewModel {
     }
 
     func deviceSelected(identifier: String?) {
-        print("Device selected: \(identifier)")
+        print("Device selected: \(identifier ?? "undefined")")
         let action = AppActions.didModifiedBuildFilter(BuildFilter(deviceId: identifier))
         dispatcher.dispatch(action: action)
     }

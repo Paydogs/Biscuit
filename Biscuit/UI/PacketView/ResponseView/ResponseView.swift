@@ -5,11 +5,12 @@
 //  Created by Andras Olah on 2022. 10. 02..
 //
 
+import Combine
 import SwiftUI
+import Factory
+import Highlight
 
 struct ResponseView: View {
-    let tabs: [Tab] = [.body, .headers]
-
     @State private var selectedTab: Tab = .body
 
     var body: some View {
@@ -27,6 +28,12 @@ struct ResponseView: View {
             .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
             .frame(height: 25, alignment: .top)
             Spacer()
+            ZStack {
+                switch selectedTab {
+                    case .body: ResponseBodyView()
+                    case .headers: ResponseHeadersView()
+                }
+            }
         }
         .frame(maxWidth: .infinity)
     }
@@ -36,6 +43,12 @@ extension ResponseView {
     enum Tab: String {
         case body
         case headers
+    }
+}
+
+private extension ResponseView {
+    var tabs: [Tab] {
+        [.body, .headers]
     }
 }
 
