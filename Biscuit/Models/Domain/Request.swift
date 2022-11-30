@@ -7,16 +7,23 @@
 
 import Foundation
 
-struct Request: Equatable {
+struct Request {
     var method: RequestMethod?
     let headers: [String: String]
-    var body: NSString?
+    var body: [String: Any]?
+    var prettyBody: NSString?
+}
+
+extension Request: Equatable {
+    static func == (lhs: Request, rhs: Request) -> Bool {
+        return lhs.method == rhs.method && lhs.headers == rhs.headers && lhs.prettyBody == rhs.prettyBody
+    }
 }
 
 extension Request {
     static func defaultValue() -> Request {
         return .init(method: .unknown,
                      headers: [:],
-                     body: nil)
+                     prettyBody: nil)
     }
 }

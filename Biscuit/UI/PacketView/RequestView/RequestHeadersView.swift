@@ -8,13 +8,31 @@
 import SwiftUI
 
 struct RequestHeadersView: View {
+    var responseHeaders: [HeaderRow]
+    @State var isOpen: Bool = true
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Button {
+                isOpen.toggle()
+            } label: {
+                Text("Headers")
+            }
+            .padding(10)
+            .buttonStyle(.plain)
+            .background(.gray)
+
+            Table(responseHeaders) {
+                TableColumn(Localized.ResponseView.Header.TableColumn.key, value: \.key)
+                TableColumn(Localized.ResponseView.Header.TableColumn.value, value: \.value)
+            }
+            .frame(maxHeight: isOpen ? .infinity : 0)
+        }
     }
 }
 
 struct RequestHeadersView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestHeadersView()
+        RequestHeadersView(responseHeaders: MockRequestViewModel().requestHeaders)
     }
 }

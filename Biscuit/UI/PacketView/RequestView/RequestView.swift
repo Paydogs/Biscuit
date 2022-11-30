@@ -9,45 +9,17 @@ import SwiftUI
 
 struct RequestView<ViewModel: RequestViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
-    @State private var selectedTab: Tab = .body
 
     init(viewModel: ViewModel = RequestViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     var body: some View {
-        VStack {
-            Picker("", selection: $selectedTab) {
-                ForEach(tabs, id:\.self) { tab in
-                    switch tab {
-                        case .body: Text(Localized.RequestView.Tab.body)
-                        case .headers: Text(Localized.RequestView.Tab.headers)
-                        case .parameters: Text(Localized.RequestView.Tab.parameters)
-                    }
-                }
-            }
-            .pickerStyle(.segmented)
-            .labelsHidden()
-            .padding(EdgeInsets(top: 0, leading: 5, bottom: 5, trailing: 5))
-            .frame(height: 25, alignment: .top)
-            Spacer()
+        VStack() {
+            RequestHeadersView(responseHeaders: viewModel.requestHeaders)
+            RequestBodyView(attributedText: viewModel.requestBody)
         }
         .frame(maxWidth: .infinity)
-    }
-}
-
-extension RequestView {
-    enum Tab: String {
-        case body
-        case headers
-        case parameters
-    }
-}
-
-
-private extension RequestView {
-    var tabs: [Tab] {
-        [.body, .headers, .parameters]
     }
 }
 

@@ -46,7 +46,8 @@ private extension PacketParser {
         guard let source = packet.requestInfo else { return Request.defaultValue() }
         return .init(method: source.requestMethod ?? .unknown,
                      headers: source.requestHeaders ?? [:],
-                     body: parseEncodedBodyToFormattedString(base64String: source.requestBody))
+                     body: parseEncodedBodyToDictionary(base64String: source.requestBody),
+                     prettyBody: parseEncodedBodyToFormattedString(base64String: source.requestBody))
     }
 
     func mapResponse(from packet: BagelPacket) -> Response {

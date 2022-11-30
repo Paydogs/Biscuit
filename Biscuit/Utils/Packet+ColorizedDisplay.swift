@@ -1,5 +1,5 @@
 //
-//  Packet+Display.swift
+//  Packet+ColorizedDisplay.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 10. 12..
@@ -9,6 +9,8 @@ import AppKit
 import Highlight
 
 extension Packet {
+    private static let jsonHighlighter = JsonSyntaxHighlightProvider(theme: BiscuitJsonSyntaxHighlightingTheme())
+
     var colorizedOverviewDescription: NSAttributedString {
         let extraSeparator =  Constants.newLine.attributed
         let url = self.request.method?.rawValue.mutableWithStyle(Constants.requestMethodStyle) ?? NSMutableAttributedString()
@@ -43,13 +45,11 @@ extension Packet {
     }
 
     var colorizedRequestBody: NSAttributedString {
-        let jsonHighlighter = JsonSyntaxHighlightProvider(theme: BiscuitJsonSyntaxHighlightingTheme())
-        return jsonHighlighter.highlight(self.request.body ?? Localized.packetEmpty.nsValue)
+        return Packet.jsonHighlighter.highlight(self.request.prettyBody ?? Localized.packetEmpty.nsValue)
     }
 
     var colorizedResponseBody: NSAttributedString {
-        let jsonHighlighter = JsonSyntaxHighlightProvider(theme: BiscuitJsonSyntaxHighlightingTheme())
-        return jsonHighlighter.highlight(self.response.prettyBody ?? Localized.packetEmpty.nsValue)
+        return Packet.jsonHighlighter.highlight(self.response.prettyBody ?? Localized.packetEmpty.nsValue)
     }
 }
 
