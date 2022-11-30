@@ -18,18 +18,20 @@ struct MainWindow<ViewModel: MainWindowViewModelInterface>: View {
     }
 
     var body: some View {
-        HSplitView {
-            VStack {
-                HeaderView()
-                    .background(BlurView(material: .titlebar))
+            HSplitView {
                 VStack {
-                    LogView()
+                    HeaderView()
+                        .background(BlurView(material: .titlebar))
+                    VStack {
+                        LogView()
+                    }
+                    .layoutPriority(1)
                 }
-                .layoutPriority(1)
-            }
-            PacketView()
-                .background(BlurView(material: .underPageBackground))
-                .frame(maxWidth: viewModel.isSidebarVisible ? .infinity : 0)
+                ZStack {
+                    PacketView()
+                        .background(BlurView(material: .underPageBackground))
+                        .frame(maxWidth: viewModel.isSidebarVisible ? .infinity : 0)
+                }
         }
         .overlay(alignment: .center, content: {
             ErrorView()

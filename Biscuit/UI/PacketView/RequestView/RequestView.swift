@@ -16,7 +16,7 @@ struct RequestView<ViewModel: RequestViewModelInterface>: View {
 
     var body: some View {
         VStack() {
-            RequestHeadersView(responseHeaders: viewModel.requestHeaders)
+            RequestHeadersView(requestHeaders: viewModel.requestHeaders)
             RequestBodyView(attributedText: viewModel.requestBody)
         }
         .frame(maxWidth: .infinity)

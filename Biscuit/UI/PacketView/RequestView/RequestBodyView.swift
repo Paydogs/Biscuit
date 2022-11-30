@@ -13,7 +13,7 @@ struct RequestBodyView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            DropdownButton(data: DropdownButton.Data(title: "Body",
+            DropdownButton(data: DropdownButton.Data(title: "Request Body",
                                                      help: "Show request body"),
                            event: DropdownButton.Event(action: { isOpen in
                 self.isOpen = isOpen

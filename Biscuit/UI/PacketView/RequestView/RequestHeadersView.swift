@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct RequestHeadersView: View {
-    var responseHeaders: [HeaderRow]
+    var requestHeaders: [HeaderRow]
     @State var isOpen: Bool = true
 
     var body: some View {
         VStack(alignment: .leading) {
-            DropdownButton(data: DropdownButton.Data(title: "Headers",
+            DropdownButton(data: DropdownButton.Data(title: "Request Headers",
                                                      help: "Show request headers"),
                            event: DropdownButton.Event(action: { isOpen in
                 self.isOpen = isOpen
             }))
-            Table(responseHeaders) {
+            Table(requestHeaders) {
                 TableColumn(Localized.ResponseView.Header.TableColumn.key, value: \.key)
                 TableColumn(Localized.ResponseView.Header.TableColumn.value, value: \.value)
             }
@@ -30,6 +30,6 @@ struct RequestHeadersView: View {
 
 struct RequestHeadersView_Previews: PreviewProvider {
     static var previews: some View {
-        RequestHeadersView(responseHeaders: MockRequestViewModel().requestHeaders)
+        RequestHeadersView(requestHeaders: MockRequestViewModel().requestHeaders)
     }
 }

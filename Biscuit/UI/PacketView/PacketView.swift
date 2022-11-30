@@ -40,6 +40,7 @@ struct PacketView<ViewModel: PacketViewModelInterface>: View {
                     case .response: ResponseView()
                 }
             }
+            .background(BlurView(material: .underPageBackground))
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)

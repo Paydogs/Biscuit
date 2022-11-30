@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HeaderRow: Identifiable {
     var id: String {
-        return key
+        return UUID().uuidString
     }
     let key: String
     let value: String

@@ -89,8 +89,7 @@
 		BE9962212918A33600223475 /* MockOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9962202918A33600223475 /* MockOverviewViewModel.swift */; };
 		BE25441C29185458007904DC /* MockPacketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE25441B29185458007904DC /* MockPacketViewModel.swift */; };
 		BEF70FA52936C2D9005C91CD /* MockRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF70FA42936C2D9005C91CD /* MockRequestViewModel.swift */; };
-		BEF70FA32936C2CC005C91CD /* MockResponseBodyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF70FA22936C2CC005C91CD /* MockResponseBodyViewModel.swift */; };
-		BE9C3F682936DC0300E90B67 /* MockResponseHeadersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C3F672936DC0300E90B67 /* MockResponseHeadersViewModel.swift */; };
+		BEBB2D9F2937611600CD3E58 /* MockResponseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBB2D9E2937611600CD3E58 /* MockResponseViewModel.swift */; };
 		BEE3B29A291C759B00927AAD /* MockToastMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE3B299291C759B00927AAD /* MockToastMessageViewModel.swift */; };
 		BE32D68628A1E8D900EADEF7 /* MyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE32D68528A1E8D900EADEF7 /* MyTests.swift */; };
 		BED81E1D28F8DE75001E8E50 /* NSAttributedString+Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED81E1C28F8DE75001E8E50 /* NSAttributedString+Join.swift */; };
@@ -122,10 +121,9 @@
 		BEF4CEAB2936BDB5009F2404 /* RequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF4CEAA2936BDB5009F2404 /* RequestViewModel.swift */; };
 		BE27F90A288F54300042F376 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE27F909288F54300042F376 /* Response.swift */; };
 		BEB3A8832936CD62003D1120 /* ResponseBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3A8822936CD62003D1120 /* ResponseBodyView.swift */; };
-		BE9C3F642936D95400E90B67 /* ResponseBodyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C3F632936D95400E90B67 /* ResponseBodyViewModel.swift */; };
 		BEB3A8852936CD99003D1120 /* ResponseHeadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3A8842936CD99003D1120 /* ResponseHeadersView.swift */; };
-		BE9C3F662936D96800E90B67 /* ResponseHeadersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9C3F652936D96800E90B67 /* ResponseHeadersViewModel.swift */; };
 		BE5443D028E908D600DD9DCB /* ResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5443CF28E908D600DD9DCB /* ResponseView.swift */; };
+		BEBB2D9D2937604200CD3E58 /* ResponseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBB2D9C2937604200CD3E58 /* ResponseViewModel.swift */; };
 		BECCD93B293755B7006C9D8A /* ReversedLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECCD93A293755B7006C9D8A /* ReversedLabelStyle.swift */; };
 		BEC80074290560390088AC06 /* SavePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC80073290560390088AC06 /* SavePanel.swift */; };
 		BE6CD46C28F227960064C777 /* SmallActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CD46B28F227960064C777 /* SmallActionButton.swift */; };
@@ -234,8 +232,7 @@
 		BE9962202918A33600223475 /* MockOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOverviewViewModel.swift; sourceTree = "<group>"; };
 		BE25441B29185458007904DC /* MockPacketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPacketViewModel.swift; sourceTree = "<group>"; };
 		BEF70FA42936C2D9005C91CD /* MockRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRequestViewModel.swift; sourceTree = "<group>"; };
-		BEF70FA22936C2CC005C91CD /* MockResponseBodyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponseBodyViewModel.swift; sourceTree = "<group>"; };
-		BE9C3F672936DC0300E90B67 /* MockResponseHeadersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponseHeadersViewModel.swift; sourceTree = "<group>"; };
+		BEBB2D9E2937611600CD3E58 /* MockResponseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponseViewModel.swift; sourceTree = "<group>"; };
 		BEE3B299291C759B00927AAD /* MockToastMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockToastMessageViewModel.swift; sourceTree = "<group>"; };
 		BE32D68528A1E8D900EADEF7 /* MyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTests.swift; sourceTree = "<group>"; };
 		BED81E1C28F8DE75001E8E50 /* NSAttributedString+Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Join.swift"; sourceTree = "<group>"; };
@@ -267,10 +264,9 @@
 		BEF4CEAA2936BDB5009F2404 /* RequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewModel.swift; sourceTree = "<group>"; };
 		BE27F909288F54300042F376 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BEB3A8822936CD62003D1120 /* ResponseBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBodyView.swift; sourceTree = "<group>"; };
-		BE9C3F632936D95400E90B67 /* ResponseBodyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBodyViewModel.swift; sourceTree = "<group>"; };
 		BEB3A8842936CD99003D1120 /* ResponseHeadersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHeadersView.swift; sourceTree = "<group>"; };
-		BE9C3F652936D96800E90B67 /* ResponseHeadersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHeadersViewModel.swift; sourceTree = "<group>"; };
 		BE5443CF28E908D600DD9DCB /* ResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseView.swift; sourceTree = "<group>"; };
+		BEBB2D9C2937604200CD3E58 /* ResponseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseViewModel.swift; sourceTree = "<group>"; };
 		BECCD93A293755B7006C9D8A /* ReversedLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedLabelStyle.swift; sourceTree = "<group>"; };
 		BEC80073290560390088AC06 /* SavePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePanel.swift; sourceTree = "<group>"; };
 		BE6CD46B28F227960064C777 /* SmallActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallActionButton.swift; sourceTree = "<group>"; };
@@ -501,10 +497,9 @@
 			children = (
 				BEF4CEAC2936BE49009F2404 /* Mock */,
 				BEB3A8822936CD62003D1120 /* ResponseBodyView.swift */,
-				BE9C3F632936D95400E90B67 /* ResponseBodyViewModel.swift */,
 				BEB3A8842936CD99003D1120 /* ResponseHeadersView.swift */,
-				BE9C3F652936D96800E90B67 /* ResponseHeadersViewModel.swift */,
 				BE5443CF28E908D600DD9DCB /* ResponseView.swift */,
+				BEBB2D9C2937604200CD3E58 /* ResponseViewModel.swift */,
 			);
 			path = ResponseView;
 			sourceTree = "<group>";
@@ -776,8 +771,7 @@
 		BEF4CEAC2936BE49009F2404 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				BEF70FA22936C2CC005C91CD /* MockResponseBodyViewModel.swift */,
-				BE9C3F672936DC0300E90B67 /* MockResponseHeadersViewModel.swift */,
+				BEBB2D9E2937611600CD3E58 /* MockResponseViewModel.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1038,8 +1032,7 @@
 				BE9962212918A33600223475 /* MockOverviewViewModel.swift in Sources */,
 				BE25441C29185458007904DC /* MockPacketViewModel.swift in Sources */,
 				BEF70FA52936C2D9005C91CD /* MockRequestViewModel.swift in Sources */,
-				BEF70FA32936C2CC005C91CD /* MockResponseBodyViewModel.swift in Sources */,
-				BE9C3F682936DC0300E90B67 /* MockResponseHeadersViewModel.swift in Sources */,
+				BEBB2D9F2937611600CD3E58 /* MockResponseViewModel.swift in Sources */,
 				BEE3B29A291C759B00927AAD /* MockToastMessageViewModel.swift in Sources */,
 				BED81E1D28F8DE75001E8E50 /* NSAttributedString+Join.swift in Sources */,
 				BE682F97288CC15C0096346F /* NetworkConnection.swift in Sources */,
@@ -1070,10 +1063,9 @@
 				BEF4CEAB2936BDB5009F2404 /* RequestViewModel.swift in Sources */,
 				BE27F90A288F54300042F376 /* Response.swift in Sources */,
 				BEB3A8832936CD62003D1120 /* ResponseBodyView.swift in Sources */,
-				BE9C3F642936D95400E90B67 /* ResponseBodyViewModel.swift in Sources */,
 				BEB3A8852936CD99003D1120 /* ResponseHeadersView.swift in Sources */,
-				BE9C3F662936D96800E90B67 /* ResponseHeadersViewModel.swift in Sources */,
 				BE5443D028E908D600DD9DCB /* ResponseView.swift in Sources */,
+				BEBB2D9D2937604200CD3E58 /* ResponseViewModel.swift in Sources */,
 				BECCD93B293755B7006C9D8A /* ReversedLabelStyle.swift in Sources */,
 				BEC80074290560390088AC06 /* SavePanel.swift in Sources */,
 				BE6CD46C28F227960064C777 /* SmallActionButton.swift in Sources */,

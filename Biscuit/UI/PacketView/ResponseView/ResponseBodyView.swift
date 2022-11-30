@@ -7,24 +7,28 @@
 
 import SwiftUI
 
-struct ResponseBodyView<ViewModel: ResponseBodyViewModelInterface>: View {
-    @StateObject var viewModel: ViewModel
-
-    init(viewModel: ViewModel = ResponseBodyViewModel()) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
+struct ResponseBodyView: View {
+    var attributedText: NSAttributedString
+    @State var isOpen: Bool = true
 
     var body: some View {
-        AttributedTextView(attributedText: viewModel.responseBody)
+        DropdownButton(data: DropdownButton.Data(title: "Response Body",
+                                                 help: "Show response body"),
+                       event: DropdownButton.Event(action: { isOpen in
+            self.isOpen = isOpen
+        }))
+        AttributedTextView(attributedText: attributedText)
             .background(Colors.Overview.background)
+            .frame(maxHeight: isOpen ? .infinity : 0)
+        Divider()
     }
 }
 
 struct ResponseBodyView_Previews: PreviewProvider {
     static var previews: some View {
-        ResponseBodyView(viewModel: MockResponseBodyViewModel())
+        ResponseBodyView(attributedText: MockResponseViewModel().responseBody)
             .darkPreview(title: "Dark")
-        ResponseBodyView(viewModel: MockResponseBodyViewModel())
+        ResponseBodyView(attributedText: MockResponseViewModel().responseBody)
             .lightPreview(title: "Light")
     }
 }
