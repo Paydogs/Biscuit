@@ -15,7 +15,7 @@ struct RequestView<ViewModel: RequestViewModelInterface>: View {
     }
 
     var body: some View {
-        VStack() {
+        VSplitView() {
             RequestHeadersView(requestHeaders: viewModel.requestHeaders)
             RequestBodyView(attributedText: viewModel.requestBody)
         }

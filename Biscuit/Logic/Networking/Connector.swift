@@ -96,6 +96,7 @@ private extension Connector {
         connection.didReceivedData = { [weak self] (connection: NetworkConnection, data: Data) in
             DispatchQueue.global(qos: .background).async {
                 guard let self = self else { return }
+                let receivedDate = Double(Date().timeIntervalSince1970)
                 guard let bagelPacket = self.bagelPacketParser.parseData(data) else {
                     print("[Connector] WRONG DATA... INVALID, UNKNOWN")
                     let action = AppActions.didReceivedInvalidPacket(InvalidPacket(body: data))
@@ -103,7 +104,7 @@ private extension Connector {
                     return
                 }
 
-                let packet = self.packetParser.parsePacket(bagelPacket, client: connection.client)
+                let packet = self.packetParser.parsePacket(bagelPacket, client: connection.client, received: receivedDate)
                 print("[Connector] Got packet: \(packet.deviceDescriptor.ip): \(packet.packet.url)")
                 let action = PacketActions.didStorePacket(packet)
                 self.dispatcher.dispatch(action: action)

@@ -15,6 +15,8 @@ public enum Localized {
   public static let packetEmpty = Localized.tr("Localizable", "packet_empty", fallback: "Empty")
   /// Nothing to show
   public static let packetNothingToShow = Localized.tr("Localizable", "packet_nothing_to_show", fallback: "Nothing to show")
+  /// RECEIVED:
+  public static let packetReceivedTitle = Localized.tr("Localizable", "Packet_received_title", fallback: "RECEIVED:")
   /// REQUEST BODY:
   public static let packetRequestBody = Localized.tr("Localizable", "packet_request_body", fallback: "REQUEST BODY:")
   /// REQUEST HEADERS:
@@ -56,12 +58,12 @@ public enum Localized {
     /// Hide current messages
     public static let hideMessagesButtonHelp = Localized.tr("Localizable", "LogView.hideMessagesButtonHelp", fallback: "Hide current messages")
     public enum ContextMenu {
-      /// Clear from here
-      public static let clearFromHere = Localized.tr("Localizable", "LogView.ContextMenu.clearFromHere", fallback: "Clear from here")
       /// Export and zip selected message Body
       public static let exportAndZipSelectedBody = Localized.tr("Localizable", "LogView.ContextMenu.exportAndZipSelectedBody", fallback: "Export and zip selected message Body")
       /// Export selected message Body
       public static let exportSelectedBody = Localized.tr("Localizable", "LogView.ContextMenu.exportSelectedBody", fallback: "Export selected message Body")
+      /// Hide until this
+      public static let hideUntilThis = Localized.tr("Localizable", "LogView.ContextMenu.hideUntilThis", fallback: "Hide until this")
       /// Pin selected
       public static let pinSelected = Localized.tr("Localizable", "LogView.ContextMenu.pinSelected", fallback: "Pin selected")
       /// Unpin selected

@@ -14,6 +14,7 @@ import SwiftUI
 protocol LogViewModelInterface: ObservableObject {
     var packets: [PacketTableRow] { get }
     var hasTimeFilter: Bool { get }
+    var reset: PassthroughSubject<Bool, Never> { get }
 
     func selectPackets(identifiers: [String])
     func pinPackets(identifiers: [String])
@@ -31,25 +32,33 @@ class LogViewModel: LogViewModelInterface {
     @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.dispatcher) private var dispatcher
     private var subscriptions: Set<AnyCancellable> = []
+    private var selectedDevice: String?
 
     @Published var packets: [PacketTableRow] = []
     @Published var hasTimeFilter: Bool = false
+    let reset = PassthroughSubject<Bool, Never>()
 
     init() {
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
-            .map { (projects: Set<Project>, buildFilter: BuildFilter) -> [Packet] in
-                projects.packetsOfDeviceInFilter(filter: buildFilter).sorted()
+            .map { [weak self] (projects: Set<Project>, buildFilter: BuildFilter) -> [Packet] in
+                if self?.selectedDevice != buildFilter.deviceId {
+                    self?.selectedDevice = buildFilter.deviceId
+                    self?.reset.send(true)
+                }
+                return projects.packetsOfDeviceInFilter(filter: buildFilter).sorted()
             }
             .combineLatest(appStore.observed.$state.map(\.packetFilter))
             .map { [weak self] (devicePackets: [Packet], packetFilter: PacketFilter) -> [Packet] in
+                guard let self = self else { return [] }
                 if case .date = packetFilter.from {
-                    self?.hasTimeFilter = true
+                    self.hasTimeFilter = true
                 } else if case .date = packetFilter.to {
-                    self?.hasTimeFilter = true
+                    self.hasTimeFilter = true
                 } else {
-                    self?.hasTimeFilter = false
+                    self.hasTimeFilter = false
                 }
+
                 return devicePackets.filteredPackets(filter: packetFilter)
             }
             .map { [weak self] (filteredPackets: [Packet]) -> [PacketTableRow] in

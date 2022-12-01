@@ -17,20 +17,24 @@ extension Packet {
         url.append(" ".mutableAttributed)
         url.append(self.url.withStyle(Constants.headerKeyStyle))
 
+        let receivedDateText = Localized.packetReceivedTitle.mutableWithStyle(Constants.requestMethodStyle)
+        receivedDateText.append(" \(Date(timeIntervalSince1970: received)) (\(self.received))".withStyle(Constants.headerValueStyle))
+
         let requestHeaderTitle = Localized.packetRequestHeaders.withStyle(Constants.categoryStyle)
         let requestBodyTitle =  Localized.packetRequestBody.withStyle(Constants.categoryStyle)
         let bodyTitle =  Localized.packetResponseBody.withStyle(Constants.categoryStyle)
 
         let elements: [NSAttributedString?] = [url,
-                                extraSeparator,
-                                requestHeaderTitle,
-                                colorizedRequestHeader,
-                                extraSeparator,
-                                requestBodyTitle,
-                                colorizedRequestBody,
-                                extraSeparator,
-                                bodyTitle,
-                                colorizedResponseBody]
+                                               receivedDateText,
+                                               extraSeparator,
+                                               requestHeaderTitle,
+                                               colorizedRequestHeader,
+                                               extraSeparator,
+                                               requestBodyTitle,
+                                               colorizedRequestBody,
+                                               extraSeparator,
+                                               bodyTitle,
+                                               colorizedResponseBody]
         return elements.compactMap { $0 }.joined(separator: Constants.newLine)
     }
 

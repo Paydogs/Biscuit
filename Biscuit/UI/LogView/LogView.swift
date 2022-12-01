@@ -12,7 +12,7 @@ import Factory
 struct LogView<ViewModel: LogViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
     @State private var selectedPacket = Set<PacketTableRow.ID>()
-    @State private var filterUrl: String = ""
+    @State private var urlFilterOnScreen: String = ""
     @State var urlFilterDisabled: Bool = true // Bug workaround
 
     init(viewModel: ViewModel = LogViewModel()) {
@@ -51,7 +51,7 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                 Text(Localized.LogView.filterTitle)
                     .padding(.init(top: 5, leading: 10, bottom: 5, trailing: 5))
 
-                TextField(Localized.LogView.filterPlaceholder, text: $filterUrl)
+                TextField(Localized.LogView.filterPlaceholder, text: $urlFilterOnScreen)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 10))
                     .disabled(urlFilterDisabled)
@@ -98,7 +98,7 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
             Button {
                 viewModel.clearFromLastSelected()
             } label: {
-                Label(Localized.LogView.ContextMenu.clearFromHere, systemImage: IconName.hide).labelStyle(.titleAndIcon)
+                Label(Localized.LogView.ContextMenu.hideUntilThis, systemImage: IconName.hide).labelStyle(.titleAndIcon)
             }
             .disabled(selectedPacket.isEmpty)
             Divider()
@@ -116,10 +116,16 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
             .disabled(selectedPacket.isEmpty)
 
         }
+        .onReceive(viewModel.reset) { _ in
+            print("RESET NEEDED")
+            selectedPacket.removeAll()
+            urlFilterOnScreen = ""
+        }
         .onChange(of: selectedPacket) { selected in
             viewModel.selectPackets(identifiers: Array(selected))
         }
-        .onChange(of: filterUrl) { url in
+        .onChange(of: urlFilterOnScreen) { url in
+            selectedPacket.removeAll()
             viewModel.filterUrl(url: url)
         }
     }

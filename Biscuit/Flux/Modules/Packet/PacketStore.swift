@@ -11,7 +11,7 @@ class PacketStore: BaseStore<PacketState> {
         print("[PacketStore] PacketStore is handling action")
         switch action {
             case .didStorePacket(let packet):
-                handleDidStorePacket(packet: packet)
+                handleDidStorePacket(incomingPacket: packet)
             case .didClientWentOffline(let client):
                 handleDidClientWentOffline(client: client)
             case .didTogglePacketPinStatus(let packetIds):
@@ -27,25 +27,31 @@ class PacketStore: BaseStore<PacketState> {
 }
 
 private extension PacketStore {
-    func handleDidStorePacket(packet: IncomingPacket) {
+    func handleDidStorePacket(incomingPacket: IncomingPacket) {
         update { state in
             print("""
-                [PACKETSTORE MANIP] Trying to store IncomingPacket: project: \(packet.projectDescriptor.name),\
-                device: \(packet.deviceDescriptor.name), packet: \(packet.packet.bagelPacketId), url: \(packet.packet.url)
+                [PACKETSTORE MANIP] Trying to store IncomingPacket: project: \(incomingPacket.projectDescriptor.name),\
+                device: \(incomingPacket.deviceDescriptor.name), packet: \(incomingPacket.packet.bagelPacketId), url: \(incomingPacket.packet.url)
                 """)
-            let device = Device(descriptor: packet.deviceDescriptor, packets: [packet.packet], online: true)
-            let project = Project(descriptor: packet.projectDescriptor, devices: [device])
+            let device = Device(descriptor: incomingPacket.deviceDescriptor, packets: [incomingPacket.packet], online: true)
+            let project = Project(descriptor: incomingPacket.projectDescriptor, devices: [device])
+            var packet = incomingPacket.packet
 
-            if var foundProject = state.projects.first(where: { project in project.descriptor == packet.projectDescriptor }) {
-                if var foundDevice = foundProject.devices.first(where: { device in device.descriptor == packet.deviceDescriptor }) {
+            if var existingProject = state.projects.first(where: { project in project.descriptor == incomingPacket.projectDescriptor }) {
+                if var existingDevice = existingProject.devices.first(where: { device in device.descriptor == incomingPacket.deviceDescriptor }) {
                     print("[PACKETSTORE MANIP] Device found, updating packet")
-                    foundDevice.packets.update(with: packet.packet)
-                    foundProject.devices.update(with: foundDevice)
+                    if let existingPacket = existingDevice.packets.first(where: { foundPacket in foundPacket.id == incomingPacket.packet.id }) {
+                        packet.received = existingPacket.received
+                        existingDevice.packets.update(with: packet)
+                    } else {
+                        existingDevice.packets.update(with: packet)
+                    }
+                    existingProject.devices.update(with: existingDevice)
                 } else {
                     print("[PACKETSTORE MANIP] Device not found, inserting device and packet")
-                    foundProject.devices.update(with: device)
+                    existingProject.devices.update(with: device)
                 }
-                state.projects.update(with: foundProject)
+                state.projects.update(with: existingProject)
             } else {
                 print("[PACKETSTORE MANIP] Project not found, inserting project, device and packet")
                 state.projects.update(with: project)

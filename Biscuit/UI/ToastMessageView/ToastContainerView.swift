@@ -35,9 +35,9 @@ struct ToastMessageItem: View {
             .multilineTextAlignment(.center)
             .frame(maxWidth: 500)
             .font(Fonts.defaultFont(sized: 20).swiftUIFont)
-            .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+            .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
             .background {
-                Colors.View.mainBackground.opacity(0.7)
+                Colors.Defaults.lightBlue.opacity(0.7)
             }
             .cornerRadius(10)
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))

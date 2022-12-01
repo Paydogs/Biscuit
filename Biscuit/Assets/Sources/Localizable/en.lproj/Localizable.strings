@@ -12,6 +12,7 @@
 // Packet strings
 "packet_nothing_to_show" = "Nothing to show";
 "packet_empty" = "Empty";
+"Packet_received_title" = "RECEIVED:";
 "packet_request_headers" = "REQUEST HEADERS:";
 "packet_request_body" = "REQUEST BODY:";
 "packet_response_body" = "RESPONSE BODY";
@@ -42,7 +43,7 @@
 "LogView.ContextMenu.unpinSelected" = "Unpin selected";
 "LogView.ContextMenu.exportSelectedBody" = "Export selected message Body";
 "LogView.ContextMenu.exportAndZipSelectedBody" = "Export and zip selected message Body";
-"LogView.ContextMenu.clearFromHere" = "Clear from here";
+"LogView.ContextMenu.hideUntilThis" = "Hide until this";
 // Headerview strings
 "HeaderView.projectTitle" = "Project";
 "HeaderView.deviceTitle" = "Device";

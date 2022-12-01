@@ -19,7 +19,7 @@ struct ResponseView<ViewModel: ResponseViewModelInterface>: View {
 
     var body: some View {
         VStack {
-            VStack() {
+            VSplitView() {
                 ResponseHeadersView(responseHeaders: viewModel.responseHeaders)
                 ResponseBodyView(attributedText: viewModel.responseBody)
             }

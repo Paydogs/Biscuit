@@ -42,9 +42,11 @@ class Nosy {
             .removeDuplicates()
             .sink { (state: AppState) in
                 print("[Nosy] Active connections: \(state.connectedClients)")
-                print("[Nosy] Selected packets: \(state.selectedPackets.count)")
+                let selectedPackets = state.selectedPackets.map { packet in packet.id }
+                print("[Nosy] Selected packets: \(state.selectedPackets.count), \(selectedPackets.joined(separator: ", "))")
                 print("[Nosy] Messages: \(state.messages)")
                 print("[Nosy] SelectedProject: \(state.buildFilter.project), SelectedDevice: \(state.buildFilter.deviceId)")
+                print("[Nosy] Filter: From: \(state.packetFilter.from), To: \(state.packetFilter.to), url: \(state.packetFilter.url)")
         }
         .store(in: &subscriptions)
     }

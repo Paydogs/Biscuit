@@ -5,6 +5,7 @@
 //  Created by Andras Olah on 2022. 09. 28..
 //
 import Foundation
+import Combine
 
 class MockLogViewModel: LogViewModelInterface {
     var packets: [PacketTableRow] {
@@ -15,6 +16,7 @@ class MockLogViewModel: LogViewModelInterface {
          .init(id: "Test1115", pinned: false, status: "204", statusColor: Colors.StatusCode.http2xx, method: "PATCH", methodColor: Colors.RequestMethod.defaultColor, url: "http://0.0.0.0:8882/api/v10/login/fingerprint/ios", date: Date.now.formatted())]
     }
     var hasTimeFilter: Bool = false
+    var reset: PassthroughSubject<Bool, Never> = PassthroughSubject()
 
     func selectPackets(identifiers: [String]) { }
     func pinPackets(identifiers: [String]) { }
