@@ -8,7 +8,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>AboutView</string>
+			<string>ABOUT_WINDOW</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>biscuiturl</string>

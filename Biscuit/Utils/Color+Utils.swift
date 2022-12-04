@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension Color {
+    /// Creates SwiftUI Color from hex code
     init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
@@ -43,6 +44,7 @@ extension Color {
 }
 
 extension Color {
+    /// Converts SwiftUI Color to NSColor
     var nsColor: NSColor {
         return NSColor(self)
     }

@@ -8,6 +8,7 @@
 import Combine
 import Factory
 
+/// Basic logging utility to monitor some data changes
 class Nosy {
     @Injected(BiscuitContainer.appStore) private var appStore
     @Injected(BiscuitContainer.packetStore) private var packetStore
@@ -45,8 +46,8 @@ class Nosy {
                 let selectedPackets = state.selectedPackets.map { packet in packet.id }
                 print("[Nosy] Selected packets: \(state.selectedPackets.count), \(selectedPackets.joined(separator: ", "))")
                 print("[Nosy] Messages: \(state.messages)")
-                print("[Nosy] SelectedProject: \(state.buildFilter.project), SelectedDevice: \(state.buildFilter.deviceId)")
-                print("[Nosy] Filter: From: \(state.packetFilter.from), To: \(state.packetFilter.to), url: \(state.packetFilter.url)")
+                print("[Nosy] SelectedProject: \(state.buildFilter.project ?? "NONE"), SelectedDevice: \(state.buildFilter.deviceId ?? "NONE")")
+                print("[Nosy] Filter: From: \(state.packetFilter.from), To: \(state.packetFilter.to), url: \(state.packetFilter.url ?? "NONE")")
         }
         .store(in: &subscriptions)
     }

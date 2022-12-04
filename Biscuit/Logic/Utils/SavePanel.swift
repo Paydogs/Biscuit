@@ -35,7 +35,7 @@ struct SavePanel {
         }
 
         if !bodylessPackets.isEmpty {
-            let postMessageTask = BiscuitContainer.postMessageTask.callAsFunction()
+            let postMessageTask = BiscuitContainer.postMessageTask.resolve()
             postMessageTask.execute(message: Localized.Messages.Export.emptyBodyForPackets(bodylessPackets.count))
         }
     }
@@ -80,7 +80,7 @@ struct SavePanel {
         }
 
         if !bodylessPackets.isEmpty {
-            let postMessageTask = BiscuitContainer.postMessageTask.callAsFunction()
+            let postMessageTask = BiscuitContainer.postMessageTask.resolve()
             postMessageTask.execute(message: Localized.Messages.Export.emptyBodyForPackets(bodylessPackets.count))
         }
     }

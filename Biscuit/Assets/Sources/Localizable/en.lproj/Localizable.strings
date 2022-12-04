@@ -49,6 +49,7 @@
 "HeaderView.deviceTitle" = "Device";
 "HeaderView.toggleHelp" = "Toggle";
 // Menu items
+"MenuItem.aboutView" = "About Biscuit";
 "MenuItem.exportPackets" = "Export packets";
 "MenuItem.deleteOfflineDevice" = "Delete offline device";
 // Menu functions

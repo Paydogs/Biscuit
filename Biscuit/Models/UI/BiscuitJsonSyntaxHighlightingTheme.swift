@@ -49,7 +49,7 @@ public struct BiscuitJsonSyntaxHighlightingTheme: JsonSyntaxHighlightingTheme {
 
 public extension SyntaxHighlightProvider {
     func highlight(_ text: NSString) -> NSAttributedString {
-        let result = NSMutableAttributedString(string: String(text))
+        let result = String(text).mutableAttributed
         highlight(result, as: .json)
         return result
     }

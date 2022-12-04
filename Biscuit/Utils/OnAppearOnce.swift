@@ -11,6 +11,7 @@
 
 import SwiftUI
 
+/// Provides an onAppear modifier which runs only once
 extension View {
     func onAppearOnce(_ action: @escaping () -> ()) -> some View {
         self.modifier(OnAppearOnceModifier(action: action))

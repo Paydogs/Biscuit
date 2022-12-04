@@ -11,6 +11,7 @@ import Highlight
 extension Packet {
     private static let jsonHighlighter = JsonSyntaxHighlightProvider(theme: BiscuitJsonSyntaxHighlightingTheme())
 
+    /// Provides colorized attributed string representation of the Packet's Overview
     var colorizedOverviewDescription: NSAttributedString {
         let extraSeparator =  Constants.newLine.attributed
         let url = self.request.method?.rawValue.mutableWithStyle(Constants.requestMethodStyle) ?? NSMutableAttributedString()
@@ -38,6 +39,7 @@ extension Packet {
         return elements.compactMap { $0 }.joined(separator: Constants.newLine)
     }
 
+    /// Provides colorized attributed string representation of the Packet's Request Header
     var colorizedRequestHeader: NSAttributedString {
         return self.request.headers.map { (key: String, value: String) -> NSAttributedString in
             let header = key.mutableWithStyle(Constants.headerKeyStyle)
@@ -48,10 +50,12 @@ extension Packet {
         .joined(separator: Constants.newLine)
     }
 
+    /// Provides colorized attributed string representation of the Packet's Request Body
     var colorizedRequestBody: NSAttributedString {
         return Packet.jsonHighlighter.highlight(self.request.prettyBody ?? Localized.packetEmpty.nsValue)
     }
 
+    /// Provides colorized attributed string representation of the Packet's Response Body
     var colorizedResponseBody: NSAttributedString {
         return Packet.jsonHighlighter.highlight(self.response.prettyBody ?? Localized.packetEmpty.nsValue)
     }

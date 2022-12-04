@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+/// A Sample instance tracking utility from Michael Long, to track when insances are created, called and disposed in a SwiftUI lifecyle
+/// https://medium.com/swlh/deep-inside-views-state-and-performance-in-swiftui-d23a3a44b79
 class InstanceTracker {
     static var count: Int {
         counter += 1

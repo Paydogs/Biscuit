@@ -81,6 +81,8 @@ public enum Localized {
     }
   }
   public enum MenuItem {
+    /// About Biscuit
+    public static let aboutView = Localized.tr("Localizable", "MenuItem.aboutView", fallback: "About Biscuit")
     /// Delete offline device
     public static let deleteOfflineDevice = Localized.tr("Localizable", "MenuItem.deleteOfflineDevice", fallback: "Delete offline device")
     /// Export packets

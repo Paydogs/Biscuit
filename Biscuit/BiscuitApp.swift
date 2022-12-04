@@ -12,8 +12,6 @@ import Combine
 @main
 struct BiscuitApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @Environment(\.scenePhase) private var scenePhase
-
     @Injected(BiscuitContainer.menuController) var menuController
 
     init() { }
@@ -23,26 +21,10 @@ struct BiscuitApp: App {
             MainWindow()
         }
         .windowStyle(.hiddenTitleBar)
-        .onChange(of: scenePhase, perform: { (phase: ScenePhase) in
-            switch phase {
-                case .background:
-                    print("[BiscuitApp] onBackground")
-                case .inactive:
-                    print("[BiscuitApp] onInactive")
-                case .active:
-                    print("[BiscuitApp] onActive")
-                @unknown default:
-                    print("[BiscuitApp] unknown default")
-            }
-        })
         .commands {
             CommandGroup(replacing: .appInfo) {
-                Button(action: {
-                    guard let url = URL(string: "biscuiturl://AboutView") else { return }
-                    NSWorkspace.shared.open(url)
-                }) {
-                    Text("About Biscuit")
-                }
+                Button(action: { menuController.openAboutWindow() }) {
+                    Text(Localized.MenuItem.aboutView) }
             }
             CommandGroup(after: .newItem) {
                 Divider()
@@ -56,10 +38,10 @@ struct BiscuitApp: App {
             }
         }
 
-        WindowGroup("About") {
+        WindowGroup() {
             AboutView()
         }
         .windowStyle(.hiddenTitleBar)
-        .handlesExternalEvents(matching: ["AboutView"])
+        .handlesExternalEvents(matching: [WindowName.about.rawValue])
     }
 }

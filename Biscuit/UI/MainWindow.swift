@@ -11,7 +11,6 @@ import Combine
 
 struct MainWindow<ViewModel: MainWindowViewModelInterface>: View {
     @StateObject var viewModel: ViewModel
-    @State var width: CGFloat = .infinity
 
     init(viewModel: ViewModel = MainWindowViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)

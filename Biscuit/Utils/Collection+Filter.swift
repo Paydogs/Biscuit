@@ -6,10 +6,12 @@
 //
 
 extension Set where Element == Project {
+    /// Returns a collection of devices of the project, filtered by the contents of the BuildFilter
     func devicesOfProjectInFilter(filter: BuildFilter) -> Set<Device> {
         guard let project = self.first(where: { project in project.id == filter.project }) else { return [] }
         return project.devices
     }
+    /// Returns a collection of packets of the project, filtered by the contents of the BuildFilter
     func packetsOfDeviceInFilter(filter: BuildFilter) -> Set<Packet> {
         let devices = devicesOfProjectInFilter(filter: filter)
         let selectedDevice = devices.first { device in
@@ -20,6 +22,7 @@ extension Set where Element == Project {
 }
 
 extension Set where Element == Device {
+    /// Returns a collection of packets of the devices, filtered by the contents of the BuildFilter
     func packetsOfSelectedDevice(filter: BuildFilter) -> Set<Packet> {
         guard let device = self.first(where: { device in device.id == filter.deviceId }) else { return [] }
         return device.packets
@@ -27,6 +30,9 @@ extension Set where Element == Device {
 }
 
 extension Collection where Element == Packet {
+    /// Filters packets by the contents of the PacketFilter
+    /// Pinned packets are not filtered out
+    /// The remaining packets, which were not filtered out, will be sorted by received time (double)
     func filteredPackets(filter: PacketFilter) -> [Packet] {
         return self.compactMap { packet -> Packet? in
             if let url = filter.url, !url.isEmpty, !packet.url.contains(url) { return nil }
@@ -36,7 +42,7 @@ extension Collection where Element == Packet {
             if let statusCode = filter.statusCode, packet.statusCode != statusCode { return nil }
             return packet
         }.sorted { (lhs:Packet, rhs: Packet) in
-            lhs.startDate < rhs.startDate
+            lhs.received < rhs.received
         }
     }
 }

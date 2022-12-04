@@ -19,6 +19,9 @@ struct MenuController {
 
 // MARK: - Menu items
 extension MenuController {
+    func openAboutWindow() {
+        WindowHandler.open(window: WindowName.about)
+    }
     func exportPackets() {
         print("[MenuController] Exporting packets...")
         SavePanel.exportPacketBodies(packets: appStore.observed.state.selectedPackets)
