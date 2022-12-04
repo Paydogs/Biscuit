@@ -24,11 +24,21 @@ extension MenuController {
     }
     func exportPackets() {
         print("[MenuController] Exporting packets...")
-        SavePanel.exportPacketBodies(packets: appStore.observed.state.selectedPackets)
+        SavePanel.exportPacketBodies(packets: getSelectedPackets())
     }
     func deleteOfflineDevices() {
         print("[MenuController] Deleting offline devices")
         let action = PacketActions.deleteOfflineDevices
         dispatcher.dispatch(action: action)
+    }
+}
+
+private extension MenuController {
+    func getSelectedPackets() -> [Packet] {
+        let packetIds = appStore.observed.state.selectedPacketIds
+        let packets = packetStore.observed.state.projects.allPackets().filter { packet in
+            packetIds.contains(packet.id)
+        }
+        return packets
     }
 }

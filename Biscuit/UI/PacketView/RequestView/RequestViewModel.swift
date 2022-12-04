@@ -18,6 +18,7 @@ protocol RequestViewModelInterface: ObservableObject {
 
 class RequestViewModel: RequestViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
+    @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.postMessageTask) private var postMessageTask
     private var subscriptions: Set<AnyCancellable> = []
 
@@ -27,13 +28,19 @@ class RequestViewModel: RequestViewModelInterface {
 
     init() {
         appStore.observed.$state
-            .compactMap(\.selectedPackets.first)
+            .compactMap(\.selectedPacketIds.first)
+            .compactMap { [packetStore] packetId in
+                return packetStore.observed.state.projects.allPackets().first { packet in
+                    packet.id == packetId
+                }
+            }
             .sink { [weak self] (packet: Packet) in
-                self?.selectedPacket = packet
-                self?.requestHeaders = packet.request.headers.map { (key: String, value: String) in
+                guard let self = self else { return }
+                self.selectedPacket = packet
+                self.requestHeaders = packet.request.headers.map { (key: String, value: String) in
                     HeaderRow(key: key, value: value)
                 }
-                self?.requestBody = packet.colorizedRequestBody
+                self.requestBody = packet.colorizedRequestBody
             }
             .store(in: &subscriptions)
     }

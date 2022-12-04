@@ -7,6 +7,7 @@
 
 enum PacketActions: FluxAction {
     case didStorePacket(IncomingPacket)
+    case didReceivedInvalidPacket(InvalidPacket)
     case didClientWentOffline(Client)
     case didTogglePacketPinStatus([String])
     case didSetPacketPinStatusOn([String])

@@ -12,6 +12,8 @@ class PacketStore: BaseStore<PacketState> {
         switch action {
             case .didStorePacket(let packet):
                 handleDidStorePacket(incomingPacket: packet)
+            case .didReceivedInvalidPacket(let packet):
+                handleDidReceivedInvalidPacket(packet: packet)
             case .didClientWentOffline(let client):
                 handleDidClientWentOffline(client: client)
             case .didTogglePacketPinStatus(let packetIds):
@@ -58,6 +60,13 @@ private extension PacketStore {
             }
 
             Array(state.projects).describe() // printing description
+        }
+    }
+
+    func handleDidReceivedInvalidPacket(packet: InvalidPacket) {
+        update { state in
+            print("[PACKETSTORE MANIP] Invalid packet: \(packet)")
+            state.invalidPackets.append(packet)
         }
     }
 

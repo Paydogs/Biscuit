@@ -41,6 +41,8 @@ extension DummyObjectLibrary {
 // MARK: - Packets
 extension DummyObjectLibrary {
     static func createPacket(bagelPacketId: String = UUID().uuidString,
+                             deviceId: String = createDeviceiPhone13().id,
+                             project: String = createProject1().id,
                              received: Double = Double.random(in: 1665309433.9865642 ... 1665309933.999999),
                              url: String = "http://0.0.0.0:8882/api/v3/something/apicall1",
                              statusCode: StatusCode = .init(code: 200),
@@ -49,6 +51,8 @@ extension DummyObjectLibrary {
                              request: Request = createBodylessRequest(),
                              response: Response = createBodylessResponse()) -> Packet {
         return Packet.init(bagelPacketId: bagelPacketId,
+                           deviceId: deviceId,
+                           project: project,
                            received: received,
                            pinned: false,
                            url: url,

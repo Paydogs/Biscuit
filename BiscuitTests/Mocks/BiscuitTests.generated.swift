@@ -12,9 +12,9 @@ import Combine
 @testable import Biscuit
 
 
-// MARK: - Action
+// MARK: - FluxAction
 
-open class ActionMock: Action, Mock {
+open class FluxActionMock: FluxAction, Mock {
     public init(sequencing sequencingPolicy: SequencingPolicy = .lastWrittenResolvedFirst, stubbing stubbingPolicy: StubbingPolicy = .wrap, file: StaticString = #file, line: UInt = #line) {
         SwiftyMockyTestObserver.setup()
         self.sequencingPolicy = sequencingPolicy
@@ -156,9 +156,9 @@ open class ActionMock: Action, Mock {
     }
 }
 
-// MARK: - Dispatcher
+// MARK: - FluxDispatcher
 
-open class DispatcherMock: Dispatcher, Mock {
+open class FluxDispatcherMock: FluxDispatcher, Mock {
     public init(sequencing sequencingPolicy: SequencingPolicy = .lastWrittenResolvedFirst, stubbing stubbingPolicy: StubbingPolicy = .wrap, file: StaticString = #file, line: UInt = #line) {
         SwiftyMockyTestObserver.setup()
         self.sequencingPolicy = sequencingPolicy
@@ -198,22 +198,22 @@ open class DispatcherMock: Dispatcher, Mock {
 
 
 
-    open func registerStore(store: Store) {
-        addInvocation(.m_registerStore__store_store(Parameter<Store>.value(`store`)))
-		let perform = methodPerformValue(.m_registerStore__store_store(Parameter<Store>.value(`store`))) as? (Store) -> Void
+    open func registerStore(store: FluxStore) {
+        addInvocation(.m_registerStore__store_store(Parameter<FluxStore>.value(`store`)))
+		let perform = methodPerformValue(.m_registerStore__store_store(Parameter<FluxStore>.value(`store`))) as? (FluxStore) -> Void
 		perform?(`store`)
     }
 
-    open func dispatch(action: Action) {
-        addInvocation(.m_dispatch__action_action(Parameter<Action>.value(`action`)))
-		let perform = methodPerformValue(.m_dispatch__action_action(Parameter<Action>.value(`action`))) as? (Action) -> Void
+    open func dispatch(action: FluxAction) {
+        addInvocation(.m_dispatch__action_action(Parameter<FluxAction>.value(`action`)))
+		let perform = methodPerformValue(.m_dispatch__action_action(Parameter<FluxAction>.value(`action`))) as? (FluxAction) -> Void
 		perform?(`action`)
     }
 
 
     fileprivate enum MethodType {
-        case m_registerStore__store_store(Parameter<Store>)
-        case m_dispatch__action_action(Parameter<Action>)
+        case m_registerStore__store_store(Parameter<FluxStore>)
+        case m_dispatch__action_action(Parameter<FluxAction>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Matcher.ComparisonResult {
             switch (lhs, rhs) {
@@ -258,18 +258,18 @@ open class DispatcherMock: Dispatcher, Mock {
     public struct Verify {
         fileprivate var method: MethodType
 
-        public static func registerStore(store: Parameter<Store>) -> Verify { return Verify(method: .m_registerStore__store_store(`store`))}
-        public static func dispatch(action: Parameter<Action>) -> Verify { return Verify(method: .m_dispatch__action_action(`action`))}
+        public static func registerStore(store: Parameter<FluxStore>) -> Verify { return Verify(method: .m_registerStore__store_store(`store`))}
+        public static func dispatch(action: Parameter<FluxAction>) -> Verify { return Verify(method: .m_dispatch__action_action(`action`))}
     }
 
     public struct Perform {
         fileprivate var method: MethodType
         var performs: Any
 
-        public static func registerStore(store: Parameter<Store>, perform: @escaping (Store) -> Void) -> Perform {
+        public static func registerStore(store: Parameter<FluxStore>, perform: @escaping (FluxStore) -> Void) -> Perform {
             return Perform(method: .m_registerStore__store_store(`store`), performs: perform)
         }
-        public static func dispatch(action: Parameter<Action>, perform: @escaping (Action) -> Void) -> Perform {
+        public static func dispatch(action: Parameter<FluxAction>, perform: @escaping (FluxAction) -> Void) -> Perform {
             return Perform(method: .m_dispatch__action_action(`action`), performs: perform)
         }
     }
@@ -347,9 +347,9 @@ open class DispatcherMock: Dispatcher, Mock {
     }
 }
 
-// MARK: - Store
+// MARK: - FluxStore
 
-open class StoreMock: Store, Mock {
+open class FluxStoreMock: FluxStore, Mock {
     public init(sequencing sequencingPolicy: SequencingPolicy = .lastWrittenResolvedFirst, stubbing stubbingPolicy: StubbingPolicy = .wrap, file: StaticString = #file, line: UInt = #line) {
         SwiftyMockyTestObserver.setup()
         self.sequencingPolicy = sequencingPolicy
@@ -389,15 +389,15 @@ open class StoreMock: Store, Mock {
 
 
 
-    open func handleAction(action: Action) {
-        addInvocation(.m_handleAction__action_action(Parameter<Action>.value(`action`)))
-		let perform = methodPerformValue(.m_handleAction__action_action(Parameter<Action>.value(`action`))) as? (Action) -> Void
+    open func handleAction(action: FluxAction) {
+        addInvocation(.m_handleAction__action_action(Parameter<FluxAction>.value(`action`)))
+		let perform = methodPerformValue(.m_handleAction__action_action(Parameter<FluxAction>.value(`action`))) as? (FluxAction) -> Void
 		perform?(`action`)
     }
 
 
     fileprivate enum MethodType {
-        case m_handleAction__action_action(Parameter<Action>)
+        case m_handleAction__action_action(Parameter<FluxAction>)
 
         static func compareParameters(lhs: MethodType, rhs: MethodType, matcher: Matcher) -> Matcher.ComparisonResult {
             switch (lhs, rhs) {
@@ -434,14 +434,14 @@ open class StoreMock: Store, Mock {
     public struct Verify {
         fileprivate var method: MethodType
 
-        public static func handleAction(action: Parameter<Action>) -> Verify { return Verify(method: .m_handleAction__action_action(`action`))}
+        public static func handleAction(action: Parameter<FluxAction>) -> Verify { return Verify(method: .m_handleAction__action_action(`action`))}
     }
 
     public struct Perform {
         fileprivate var method: MethodType
         var performs: Any
 
-        public static func handleAction(action: Parameter<Action>, perform: @escaping (Action) -> Void) -> Perform {
+        public static func handleAction(action: Parameter<FluxAction>, perform: @escaping (FluxAction) -> Void) -> Perform {
             return Perform(method: .m_handleAction__action_action(`action`), performs: perform)
         }
     }

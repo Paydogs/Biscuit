@@ -24,6 +24,20 @@ extension Collection where Element == Project {
     func deviceIds() -> [String] {
         return self.flatMap { project in project.devices.map(\.id) }
     }
+
+    /// Get packets with the provided ids
+    func packetsWithIds(ids: [String]) -> [Packet] {
+        return allPackets().filter { packet in
+            ids.contains(packet.id)
+        }
+    }
+
+    /// Get packets with the provided ids
+    func packetWithId(id: String) -> Packet? {
+        return allPackets().first { packet in
+            packet.id == id
+        }
+    }
 }
 
 extension Collection where Element == Device {

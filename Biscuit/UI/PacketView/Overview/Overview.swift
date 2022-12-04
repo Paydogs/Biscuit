@@ -21,7 +21,7 @@ struct Overview<ViewModel: OverviewViewModelInterface>: View {
 
     init(viewModel: ViewModel = OverviewViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
-    }
+    } 
 
     var body: some View {
         VStack(spacing: 0) {

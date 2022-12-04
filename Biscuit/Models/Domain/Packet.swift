@@ -9,6 +9,8 @@ import Foundation
 
 struct Packet: Identifiable {
     let bagelPacketId: String
+    let deviceId: String
+    let project: String
     var received: Double
     var pinned: Bool
 

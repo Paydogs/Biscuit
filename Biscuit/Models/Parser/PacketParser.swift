@@ -9,20 +9,22 @@ import Foundation
 
 struct PacketParser {
     func parsePacket(_ packet: BagelPacket, client: Client, received: Double) -> IncomingPacket {
-        .init(projectDescriptor: mapProject(model: packet.project),
-              deviceDescriptor: mapDevice(packet.device, client: client),
-              packet: mapPacket(packet, received: received))
+        let projectDescriptor = mapProjectDescriptor(model: packet.project)
+        let deviceDescriptor = mapDeviceDescriptor(packet.device, client: client)
+        return IncomingPacket(projectDescriptor: projectDescriptor,
+                              deviceDescriptor: deviceDescriptor,
+                              packet: mapPacket(packet, received: received, project: projectDescriptor.id, deviceId: deviceDescriptor.deviceId))
     }
 }
 
 private extension PacketParser {
-    func mapProject(model: BagelProjectModel?) -> ProjectDescriptor {
+    func mapProjectDescriptor(model: BagelProjectModel?) -> ProjectDescriptor {
         guard let model = model,
               let projectName = model.projectName else { return ProjectDescriptor(id: "unknown", name: "unknown") }
         return ProjectDescriptor(id: projectName, name: projectName)
     }
 
-    func mapDevice(_ device: BagelDeviceModel?, client: Client) -> DeviceDescriptor {
+    func mapDeviceDescriptor(_ device: BagelDeviceModel?, client: Client) -> DeviceDescriptor {
         guard let device = device else { return DeviceDescriptor.defaultValue() }
         return .init(deviceId: "\(device.deviceId ?? "THIS_SHOULD_NOT_HAPPEN")-\(client.id)" ,
                      name: device.deviceName ?? "",
@@ -30,8 +32,10 @@ private extension PacketParser {
                      ip: client.ip)
     }
 
-    func mapPacket(_ packet: BagelPacket, received: Double) -> Packet {
+    func mapPacket(_ packet: BagelPacket, received: Double, project: String, deviceId: String) -> Packet {
         .init(bagelPacketId: packet.packetId ?? "",
+              deviceId: deviceId,
+              project: project,
               received: received,
               pinned: false,
               url: packet.requestInfo?.url ?? "",

@@ -7,10 +7,12 @@
 
 struct PacketState: FluxState {
     var projects: Set<Project>
+    var invalidPackets: [InvalidPacket]
 }
 
 extension PacketState: DefaultInitializer {
     static func defaultValue() -> PacketState {
-        return .init(projects: [])
+        return .init(projects: [],
+                     invalidPackets: [])
     }
 }

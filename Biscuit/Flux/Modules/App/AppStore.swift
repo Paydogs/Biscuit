@@ -18,8 +18,6 @@ class AppStore: BaseStore<AppState> {
                 handleDidDisconnectClient(clientId: clientId)
             case .didReceivedErrors(let error):
                 handleDidReceivedErrors(errors: error)
-            case .didReceivedInvalidPacket(let packet):
-                handleDidReceivedInvalidPacket(packet: packet)
             case .didSelectPackets(let packets):
                 handleDidSelectPackets(packets: packets)
             case .didModifiedBuildFilter(let filter):
@@ -62,17 +60,10 @@ private extension AppStore {
         }
     }
 
-    func handleDidReceivedInvalidPacket(packet: InvalidPacket) {
+    func handleDidSelectPackets(packets: [String]) {
         update { state in
-            print("[APPSTORE MANIP][DID RECEIVED INVALID PACKET] Invalid packet: \(packet)")
-            state.invalidPackets.append(packet)
-        }
-    }
-
-    func handleDidSelectPackets(packets: [Packet]) {
-        update { state in
-            print("[APPSTORE MANIP][DID SELECT PACKETS] Packets selected: \(packets.map(\.bagelPacketId))")
-            state.selectedPackets = packets
+            print("[APPSTORE MANIP][DID SELECT PACKETS] Packets selected: \(packets)")
+            state.selectedPacketIds = packets
         }
     }
 
@@ -85,7 +76,7 @@ private extension AppStore {
 
             state.buildFilter.deviceId = filter.deviceId
             state.packetFilter = PacketFilter()
-            state.selectedPackets = []
+            state.selectedPacketIds = []
         }
     }
     func handleDidModifiedPacketFilter(filter: PacketFilter) {
@@ -109,7 +100,7 @@ private extension AppStore {
             if let url = filter.url {
                 state.packetFilter.url = url
             }
-            state.selectedPackets = []
+            state.selectedPacketIds = []
         }
     }
     func handleDidResetPacketFilter() {

@@ -88,10 +88,8 @@ private extension LogViewModel {
 // MARK: - Event handling
 extension LogViewModel {
     func selectPackets(identifiers: [String]) {
-        let allPackets = packetStore.observed.state.projects.allPackets()
-        let packets = allPackets.filter { (packet: Packet) in identifiers.contains(packet.id) }
         print("packets to select: \(identifiers)")
-        let action = AppActions.didSelectPackets(packets)
+        let action = AppActions.didSelectPackets(identifiers)
         dispatcher.dispatch(action: action)
     }
 
@@ -114,13 +112,14 @@ extension LogViewModel {
     }
 
     func exportPackets() {
-        print("Trying to export packets: \(appStore.observed.state.selectedPackets.count)")
-        SavePanel.exportPacketBodies(packets: appStore.observed.state.selectedPackets)
+        print("Trying to export packets: \(appStore.observed.state.selectedPacketIds.count)")
+        SavePanel.exportPacketBodies(packets: getSelectedPackets())
     }
 
     func exportPacketsAndZip() {
-        print("Trying to export packets: \(appStore.observed.state.selectedPackets.count) and zip")
-        SavePanel.exportPacketAsZip(packets: appStore.observed.state.selectedPackets)
+        print("Trying to export packets: \(appStore.observed.state.selectedPacketIds.count) and zip")
+
+        SavePanel.exportPacketAsZip(packets: getSelectedPackets())
     }
 
     func filterUrl(url: String) {
@@ -130,7 +129,7 @@ extension LogViewModel {
     }
 
     func clearFromLastSelected() {
-        guard let first = appStore.observed.state.selectedPackets.last else { return }
+        guard let first = getSelectedPackets().last else { return }
         print("Clearing from first selected packet")
         let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .date(first.received)))
         dispatcher.dispatch(action: action)
@@ -146,5 +145,15 @@ extension LogViewModel {
         print("Reset message hiding")
         let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .reset))
         dispatcher.dispatch(action: action)
+    }
+}
+
+private extension LogViewModel {
+    func getSelectedPackets() -> [Packet] {
+        let packetIds = appStore.observed.state.selectedPacketIds
+        let packets = packetStore.observed.state.projects.allPackets().filter { packet in
+            packetIds.contains(packet.id)
+        }
+        return packets
     }
 }

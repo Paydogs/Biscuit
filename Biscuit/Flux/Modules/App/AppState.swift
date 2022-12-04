@@ -9,8 +9,7 @@ struct AppState: FluxState {
     var connectedClients: [Client]
     var errors: [AppError]
     var messages: [String]
-    var invalidPackets: [InvalidPacket]
-    var selectedPackets: [Packet]
+    var selectedPacketIds: [String]
     var buildFilter: BuildFilter
     var packetFilter: PacketFilter
     var isSidebarOpen: Bool
@@ -21,8 +20,7 @@ extension AppState: DefaultInitializer {
         return .init(connectedClients: [],
                      errors: [],
                      messages: [],
-                     invalidPackets: [],
-                     selectedPackets: [],
+                     selectedPacketIds: [],
                      buildFilter: BuildFilter(),
                      packetFilter: PacketFilter(),
                      isSidebarOpen: true)

@@ -99,7 +99,7 @@ private extension Connector {
                 let receivedDate = Double(Date().timeIntervalSince1970)
                 guard let bagelPacket = self.bagelPacketParser.parseData(data) else {
                     print("[Connector] WRONG DATA... INVALID, UNKNOWN")
-                    let action = AppActions.didReceivedInvalidPacket(InvalidPacket(body: data))
+                    let action = PacketActions.didReceivedInvalidPacket(InvalidPacket(body: data))
                     self.dispatcher.dispatch(action: action)
                     return
                 }

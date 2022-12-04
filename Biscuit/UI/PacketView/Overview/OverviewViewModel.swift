@@ -19,6 +19,7 @@ protocol OverviewViewModelInterface: ObservableObject {
 
 class OverviewViewModel: OverviewViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
+    @Injected(BiscuitContainer.packetStore) private var packetStore
     @Injected(BiscuitContainer.postMessageTask) private var postMessageTask
     private var subscriptions: Set<AnyCancellable> = []
 
@@ -27,7 +28,12 @@ class OverviewViewModel: OverviewViewModelInterface {
 
     init() {
         appStore.observed.$state
-            .compactMap(\.selectedPackets.first)
+            .compactMap(\.selectedPacketIds.first)
+            .compactMap { [packetStore] packetId in
+                return packetStore.observed.state.projects.allPackets().first { packet in
+                    packet.id == packetId
+                }
+            }
             .sink { [weak self] (packet: Packet) in
                 self?.selectedPacket = packet
                 self?.packetBody = packet.colorizedOverviewDescription

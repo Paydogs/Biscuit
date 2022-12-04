@@ -18,14 +18,16 @@ protocol PacketViewModelInterface: ObservableObject {
 
 class PacketViewModel: PacketViewModelInterface {
     @Injected(BiscuitContainer.appStore) private var appStore
+    @Injected(BiscuitContainer.packetStore) private var packetStore
     private var subscriptions: Set<AnyCancellable> = []
 
     @Published var selectedPacket: Packet?
     
     init() {
         appStore.observed.$state
-            .compactMap(\.selectedPackets.first)
-            .sink { [weak self] (packet: Packet) in
+            .compactMap(\.selectedPacketIds.first)
+            .map { [packetStore] packetId in packetStore.observed.state.projects.packetWithId(id: packetId) }
+            .sink { [weak self] (packet: Packet?) in
                 self?.selectedPacket = packet
             }
             .store(in: &subscriptions)
