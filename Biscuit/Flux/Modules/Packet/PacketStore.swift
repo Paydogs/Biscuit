@@ -22,6 +22,8 @@ class PacketStore: BaseStore<PacketState> {
                 handleDidSetPacketPinStatusOn(packetIds: packetIds)
             case .didSetPacketPinStatusOff(let packetIds):
                 handleDidSetPacketPinStatusOff(packetIds: packetIds)
+            case .deleteFrom(let time, let deviceId):
+                handleDidDeleteFrom(time: time, deviceId: deviceId)
             case .deleteOfflineDevices:
                 handleDeleteOfflineDevices()
         }
@@ -105,6 +107,18 @@ private extension PacketStore {
         updatePackets(packetIds: packetIds) { packet in
             packet.pinned = true
         }
+    }
+
+    func handleDidDeleteFrom(time: Double, deviceId: String) {
+        print("[PACKETSTORE MANIP] Trying to delete packets from \(time)")
+        updateDevice(deviceId: deviceId) { device in
+            for packet in device.packets {
+                if packet.received < time {
+                    device.packets.remove(packet)
+                }
+            }
+        }
+
     }
 
     func handleDidSetPacketPinStatusOff(packetIds: [String]) {

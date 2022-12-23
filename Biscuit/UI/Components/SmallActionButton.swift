@@ -19,6 +19,7 @@ struct SmallActionButton: View {
         } label: {
             Image(systemName: data.icon)
                 .resizable()
+                .foregroundColor(data.color)
                 .aspectRatio(contentMode: .fit)
                 .padding(8)
         }
@@ -32,6 +33,13 @@ extension SmallActionButton {
     struct Data {
         var icon: String
         var help: String
+        var color: Color
+
+        init(icon: String, help: String, color: Color = Colors.Defaults.white) {
+            self.icon = icon
+            self.help = help
+            self.color = color
+        }
     }
 }
 

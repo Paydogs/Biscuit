@@ -22,7 +22,9 @@ protocol LogViewModelInterface: ObservableObject {
     func exportPackets()
     func exportPacketsAndZip()
     func filterUrl(url: String)
-    func clearFromLastSelected()
+    func deleteFromLastSelected()
+    func hideFromLastSelected()
+    func deleteCurrentMessages()
     func hideCurrentMessages()
     func resetMessageHiding()
 }
@@ -128,10 +130,25 @@ extension LogViewModel {
         dispatcher.dispatch(action: action)
     }
 
-    func clearFromLastSelected() {
+    func deleteFromLastSelected() {
+        guard let first = getSelectedPackets().last,
+              let selectedDevice = selectedDevice else { return }
+        print("Deleting from first selected packet")
+        let action = PacketActions.deleteFrom(first.received, forDeviceId: selectedDevice)
+        dispatcher.dispatch(action: action)
+    }
+
+    func hideFromLastSelected() {
         guard let first = getSelectedPackets().last else { return }
-        print("Clearing from first selected packet")
+        print("Hiding from first selected packet")
         let action = AppActions.didModifiedPacketFilter(PacketFilter(from: .date(first.received)))
+        dispatcher.dispatch(action: action)
+    }
+
+    func deleteCurrentMessages() {
+        guard let selectedDevice = selectedDevice else { return }
+        print("Hide current messages")
+        let action = PacketActions.deleteFrom(Double(Date().timeIntervalSince1970), forDeviceId: selectedDevice)
         dispatcher.dispatch(action: action)
     }
 

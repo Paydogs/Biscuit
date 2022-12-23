@@ -49,6 +49,8 @@ public enum Localized {
     public static let toggleHelp = Localized.tr("Localizable", "HeaderView.toggleHelp", fallback: "Toggle")
   }
   public enum LogView {
+    /// Delete current messages
+    public static let deleteMessages = Localized.tr("Localizable", "LogView.deleteMessages", fallback: "Delete current messages")
     /// Url
     public static let filterPlaceholder = Localized.tr("Localizable", "LogView.filterPlaceholder", fallback: "Url")
     /// Filter:
@@ -58,6 +60,8 @@ public enum Localized {
     /// Hide current messages
     public static let hideMessagesButtonHelp = Localized.tr("Localizable", "LogView.hideMessagesButtonHelp", fallback: "Hide current messages")
     public enum ContextMenu {
+      /// Delete until this
+      public static let deleteUntilThis = Localized.tr("Localizable", "LogView.ContextMenu.deleteUntilThis", fallback: "Delete until this")
       /// Export and zip selected message Body
       public static let exportAndZipSelectedBody = Localized.tr("Localizable", "LogView.ContextMenu.exportAndZipSelectedBody", fallback: "Export and zip selected message Body")
       /// Export selected message Body

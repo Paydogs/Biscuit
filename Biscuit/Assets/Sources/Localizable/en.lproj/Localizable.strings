@@ -37,12 +37,14 @@
 "LogView.TableColumn.date" = "Date";
 "LogView.filterTitle" = "Filter:";
 "LogView.filterPlaceholder" = "Url";
+"LogView.deleteMessages" = "Delete current messages";
 "LogView.hideMessagesButtonHelp" = "Hide current messages";
 "LogView.hideMessagesButtonContextReset" = "Reset message hiding";
 "LogView.ContextMenu.pinSelected" = "Pin selected";
 "LogView.ContextMenu.unpinSelected" = "Unpin selected";
 "LogView.ContextMenu.exportSelectedBody" = "Export selected message Body";
 "LogView.ContextMenu.exportAndZipSelectedBody" = "Export and zip selected message Body";
+"LogView.ContextMenu.deleteUntilThis" = "Delete until this";
 "LogView.ContextMenu.hideUntilThis" = "Hide until this";
 // Headerview strings
 "HeaderView.projectTitle" = "Project";

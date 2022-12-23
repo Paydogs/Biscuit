@@ -60,6 +60,11 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                      }
                 Spacer()
                 HStack {
+                    SmallActionButton(data: SmallActionButton.Data(icon: IconName.trash,
+                                                                   help: Localized.LogView.deleteMessages,
+                                                                   color: viewModel.packets.isEmpty ? Colors.Defaults.white : Colors.Defaults.red),
+                                      event: SmallActionButton.Event(action: { viewModel.deleteCurrentMessages() }))
+                    .disabled(viewModel.packets.isEmpty)
                     SmallActionButton(data: SmallActionButton.Data(icon: IconName.hide, help: Localized.LogView.hideMessagesButtonHelp),
                                       event: SmallActionButton.Event(action: { viewModel.hideCurrentMessages() }))
                     .disabled(viewModel.packets.isEmpty)
@@ -71,7 +76,6 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                                 .labelStyle(.titleAndIcon)
                         }
                     }
-
                     SmallActionButton(data: SmallActionButton.Data(icon: IconName.undo, help: Localized.LogView.hideMessagesButtonContextReset),
                                       event: SmallActionButton.Event(action: { viewModel.resetMessageHiding() }))
                     .disabled(!viewModel.hasTimeFilter)
@@ -96,7 +100,14 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
             .disabled(selectedPacket.isEmpty)
             Divider()
             Button {
-                viewModel.clearFromLastSelected()
+                viewModel.deleteFromLastSelected()
+            } label: {
+                Label(Localized.LogView.ContextMenu.deleteUntilThis, systemImage: IconName.trash).labelStyle(.titleAndIcon)
+            }
+            .disabled(selectedPacket.isEmpty)
+            Divider()
+            Button {
+                viewModel.hideFromLastSelected()
             } label: {
                 Label(Localized.LogView.ContextMenu.hideUntilThis, systemImage: IconName.hide).labelStyle(.titleAndIcon)
             }

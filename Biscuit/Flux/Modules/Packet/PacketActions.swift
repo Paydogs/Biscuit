@@ -12,5 +12,6 @@ enum PacketActions: FluxAction {
     case didTogglePacketPinStatus([String])
     case didSetPacketPinStatusOn([String])
     case didSetPacketPinStatusOff([String])
+    case deleteFrom(Double, forDeviceId: String)
     case deleteOfflineDevices
 }

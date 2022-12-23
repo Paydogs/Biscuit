@@ -24,7 +24,9 @@ class MockLogViewModel: LogViewModelInterface {
     func exportPackets() { }
     func exportPacketsAndZip() { }
     func filterUrl(url: String) { }
-    func clearFromLastSelected() { }
+    func deleteFromLastSelected() { }
+    func hideFromLastSelected() { }
+    func deleteCurrentMessages() { }
     func hideCurrentMessages() { }
     func resetMessageHiding() { }
 }
