@@ -78,12 +78,12 @@ private extension Connector {
     func createListener() -> NWListener? {
         let port: NWEndpoint.Port = NWEndpoint.Port(integerLiteral: BagelConfig.defaultPort)
 
-        let tcpOptions = NWProtocolTCP.Options()
-        let params = NWParameters(tls: nil, tcp: tcpOptions)
+        let params = NWParameters(tls: nil)
 
         let listener = try? NWListener(using: params, on: port)
         let service = NWListener.Service(name: BagelConfig.defaultServiceName,
-                                         type: BagelConfig.defaultServiceType)
+                                         type: BagelConfig.defaultServiceType,
+                                         domain: BagelConfig.defaultServiceDomain)
         listener?.service = service
         return listener
     }
