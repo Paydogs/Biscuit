@@ -17,6 +17,7 @@ protocol HeaderViewModelInterface: ObservableObject {
 
     func projectSelected(identifier: String)
     func deviceSelected(identifier: String?)
+    func deleteOfflineDevices()
     func toggleSidebar()
 }
 
@@ -78,6 +79,11 @@ extension HeaderViewModel {
         print("Device selected: \(identifier ?? "undefined")")
         let action = AppActions.didModifiedBuildFilter(BuildFilter(deviceId: identifier))
         dispatcher.dispatch(action: action)
+    }
+
+    func deleteOfflineDevices() {
+        print("Delete offline devices")
+        dispatcher.dispatch(action: PacketActions.deleteOfflineDevices)
     }
 
     func toggleSidebar() {

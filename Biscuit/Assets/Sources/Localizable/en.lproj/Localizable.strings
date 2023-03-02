@@ -7,7 +7,7 @@
 
 // Main
 "AboutView.appName" = "Biscuit";
-"AboutView.date" = "2022";
+"AboutView.date" = "2022-23";
 "AboutView.version" = "Version %@";
 // Packet strings
 "packet_nothing_to_show" = "Nothing to show";
@@ -49,11 +49,12 @@
 // Headerview strings
 "HeaderView.projectTitle" = "Project";
 "HeaderView.deviceTitle" = "Device";
+"HeaderView.clearOfflineDevices" = "Clear offline devices";
 "HeaderView.toggleHelp" = "Toggle";
 // Menu items
 "MenuItem.aboutView" = "About Biscuit";
 "MenuItem.exportPackets" = "Export packets";
-"MenuItem.deleteOfflineDevice" = "Delete offline device";
+"MenuItem.clearOfflineDevice" = "Clear offline devices";
 // Menu functions
 "SavePanel.Exportpacket.title" = "Save packet";
 "SavePanel.Exportpacket.message" = "Choose a folder and a name to store the packet.";

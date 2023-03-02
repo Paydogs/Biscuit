@@ -29,8 +29,8 @@ public enum Localized {
     /// 
     ///   Created by Andras Olah on 2022. 10. 23..
     public static let appName = Localized.tr("Localizable", "AboutView.appName", fallback: "Biscuit")
-    /// 2022
-    public static let date = Localized.tr("Localizable", "AboutView.date", fallback: "2022")
+    /// 2022-23
+    public static let date = Localized.tr("Localizable", "AboutView.date", fallback: "2022-23")
     /// Version %@
     public static func version(_ p1: Any) -> String {
       return Localized.tr("Localizable", "AboutView.version", String(describing: p1), fallback: "Version %@")
@@ -41,6 +41,8 @@ public enum Localized {
     public static let cannotConnect = Localized.tr("Localizable", "AppError.cannotConnect", fallback: "Error during connection. Is the port open? Maybe Bagel is running")
   }
   public enum HeaderView {
+    /// Clear offline devices
+    public static let clearOfflineDevices = Localized.tr("Localizable", "HeaderView.clearOfflineDevices", fallback: "Clear offline devices")
     /// Device
     public static let deviceTitle = Localized.tr("Localizable", "HeaderView.deviceTitle", fallback: "Device")
     /// Project
@@ -87,8 +89,8 @@ public enum Localized {
   public enum MenuItem {
     /// About Biscuit
     public static let aboutView = Localized.tr("Localizable", "MenuItem.aboutView", fallback: "About Biscuit")
-    /// Delete offline device
-    public static let deleteOfflineDevice = Localized.tr("Localizable", "MenuItem.deleteOfflineDevice", fallback: "Delete offline device")
+    /// Clear offline devices
+    public static let clearOfflineDevice = Localized.tr("Localizable", "MenuItem.clearOfflineDevice", fallback: "Clear offline devices")
     /// Export packets
     public static let exportPackets = Localized.tr("Localizable", "MenuItem.exportPackets", fallback: "Export packets")
   }

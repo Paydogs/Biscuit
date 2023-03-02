@@ -33,7 +33,7 @@ struct BiscuitApp: App {
                 }
                 Divider()
                 Button(action: { menuController.deleteOfflineDevices() }) {
-                    Text(Localized.MenuItem.deleteOfflineDevice)
+                    Text(Localized.MenuItem.clearOfflineDevice)
                 }
             }
         }

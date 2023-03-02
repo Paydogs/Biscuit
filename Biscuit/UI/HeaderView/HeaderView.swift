@@ -33,7 +33,11 @@ struct HeaderView<ViewModel: HeaderViewModelInterface>: View {
             }))
             .frame(width: 250, height: 40, alignment: .center)
             .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
-
+            SmallActionButton(data: SmallActionButton.Data(icon: IconName.clearDevices,
+                                                           help: Localized.HeaderView.clearOfflineDevices),
+                              event: SmallActionButton.Event(action: {
+                viewModel.deleteOfflineDevices()
+                }))
             Spacer()
             SmallActionButton(data: SmallActionButton.Data(icon: IconName.toggleView,
                                                            help: Localized.HeaderView.toggleHelp),
