@@ -17,7 +17,7 @@ protocol HeaderViewModelInterface: ObservableObject {
 
     func projectSelected(identifier: String)
     func deviceSelected(identifier: String?)
-    func deleteOfflineDevices()
+    func deleteCurrentDevice()
     func toggleSidebar()
 }
 
@@ -45,13 +45,13 @@ class HeaderViewModel: HeaderViewModelInterface {
 
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
-            .handleEvents(receiveOutput: { [weak self] (projects: Set<Project>, filter: BuildFilter) in
+            .handleEvents(receiveOutput: { [weak self] (projects: Set<Project>, filter: AppFilter) in
                 if let deviceId = filter.deviceId,
                    !projects.devicesOfProjectInFilter(filter: filter).map(\.id).contains(deviceId) {
                     self?.resetBuildFilterDevice()
                 }
             })
-            .map { (projects: Set<Project>, filter: BuildFilter) in
+            .map { (projects: Set<Project>, filter: AppFilter) in
                 return projects.devicesOfProjectInFilter(filter: filter).map { device in
                     let icon = device.online ? IconName.iPhoneOn : IconName.iPhoneOff
                     return StandardPicker.PickerItem(id: device.id, text: device.descriptor.name, icon: icon)
@@ -67,7 +67,7 @@ class HeaderViewModel: HeaderViewModelInterface {
 // MARK: - Event handling
 extension HeaderViewModel {
     func projectSelected(identifier: String) {
-        var filter = BuildFilter(project: identifier)
+        var filter = AppFilter(project: identifier)
         print("Picker selected: \(identifier)")
         let devices = packetStore.observed.state.projects.devicesOfProjectInFilter(filter: filter)
         filter.deviceId = devices.first?.id
@@ -77,13 +77,15 @@ extension HeaderViewModel {
 
     func deviceSelected(identifier: String?) {
         print("Device selected: \(identifier ?? "undefined")")
-        let action = AppActions.didModifiedBuildFilter(BuildFilter(deviceId: identifier))
+        let action = AppActions.didModifiedBuildFilter(AppFilter(deviceId: identifier))
         dispatcher.dispatch(action: action)
     }
 
-    func deleteOfflineDevices() {
-        print("Delete offline devices")
-        dispatcher.dispatch(action: PacketActions.deleteOfflineDevices)
+    func deleteCurrentDevice() {
+        if let deviceId = appStore.observed.state.buildFilter.deviceId {
+            print("Delete current device")
+            dispatcher.dispatch(action: PacketActions.deleteDevice(id: deviceId))
+        }
     }
 
     func toggleSidebar() {

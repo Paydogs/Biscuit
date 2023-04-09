@@ -17,6 +17,6 @@ class MockHeaderViewModel: HeaderViewModelInterface {
 
     func projectSelected(identifier: String) { }
     func deviceSelected(identifier: String?) { }
-    func deleteOfflineDevices() { }
+    func deleteCurrentDevice() { }
     func toggleSidebar() { }
 }

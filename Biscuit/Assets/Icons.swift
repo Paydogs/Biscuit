@@ -13,6 +13,7 @@ enum IconName {
     public static let trash = "trash"
     public static let toggleView = "sidebar.right"
     public static let clearDevices = "iphone.slash.circle"
+    public static let clearDevice = "iphone.slash.circle"
     public static let clipboard = "doc.on.clipboard.fill"
     public static let hide = "eye.slash.fill"
     public static let show = "eye.fill"

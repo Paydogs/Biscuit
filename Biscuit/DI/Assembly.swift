@@ -13,7 +13,7 @@ class BiscuitContainer: SharedContainer { }
 extension BiscuitContainer {
     static let dispatcher = Factory(scope: .singleton, factory: { MainDispatcher() as FluxDispatcher })
     static let core = Factory(scope: .singleton, factory: { BiscuitCore() })
-    static let connector = Factory(scope: .singleton, factory: { Connector() })
+    static let connector = Factory(scope: .singleton, factory: { GrandCentralConnector() })
     static let menuController = Factory(scope: .singleton, factory: { MenuController() })
 }
 

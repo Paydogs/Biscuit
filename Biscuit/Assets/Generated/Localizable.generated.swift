@@ -41,26 +41,26 @@ public enum Localized {
     public static let cannotConnect = Localized.tr("Localizable", "AppError.cannotConnect", fallback: "Error during connection. Is the port open? Maybe Bagel is running")
   }
   public enum HeaderView {
-    /// Clear offline devices
-    public static let clearOfflineDevices = Localized.tr("Localizable", "HeaderView.clearOfflineDevices", fallback: "Clear offline devices")
+    /// Clear device
+    public static let clearDevice = Localized.tr("Localizable", "HeaderView.clearDevice", fallback: "Clear device")
     /// Device
     public static let deviceTitle = Localized.tr("Localizable", "HeaderView.deviceTitle", fallback: "Device")
     /// Project
     public static let projectTitle = Localized.tr("Localizable", "HeaderView.projectTitle", fallback: "Project")
-    /// Toggle
-    public static let toggleHelp = Localized.tr("Localizable", "HeaderView.toggleHelp", fallback: "Toggle")
+    /// Toggle side panel (⇧⌘O)
+    public static let toggleHelp = Localized.tr("Localizable", "HeaderView.toggleHelp", fallback: "Toggle side panel (⇧⌘O)")
   }
   public enum LogView {
-    /// Delete current messages
-    public static let deleteMessages = Localized.tr("Localizable", "LogView.deleteMessages", fallback: "Delete current messages")
+    /// Delete messages (⌘K)
+    public static let deleteMessages = Localized.tr("Localizable", "LogView.deleteMessages", fallback: "Delete messages (⌘K)")
     /// Url
     public static let filterPlaceholder = Localized.tr("Localizable", "LogView.filterPlaceholder", fallback: "Url")
     /// Filter:
     public static let filterTitle = Localized.tr("Localizable", "LogView.filterTitle", fallback: "Filter:")
-    /// Reset message hiding
-    public static let hideMessagesButtonContextReset = Localized.tr("Localizable", "LogView.hideMessagesButtonContextReset", fallback: "Reset message hiding")
-    /// Hide current messages
-    public static let hideMessagesButtonHelp = Localized.tr("Localizable", "LogView.hideMessagesButtonHelp", fallback: "Hide current messages")
+    /// Reset message hiding (⇧⌘H)
+    public static let hideMessagesButtonContextReset = Localized.tr("Localizable", "LogView.hideMessagesButtonContextReset", fallback: "Reset message hiding (⇧⌘H)")
+    /// Hide current messages (⌘H)
+    public static let hideMessagesButtonHelp = Localized.tr("Localizable", "LogView.hideMessagesButtonHelp", fallback: "Hide current messages (⌘H)")
     public enum ContextMenu {
       /// Delete until this
       public static let deleteUntilThis = Localized.tr("Localizable", "LogView.ContextMenu.deleteUntilThis", fallback: "Delete until this")

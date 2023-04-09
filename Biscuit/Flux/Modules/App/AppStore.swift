@@ -67,7 +67,7 @@ private extension AppStore {
         }
     }
 
-    func handleDidModifiedBuildFilter(filter: BuildFilter) {
+    func handleDidModifiedBuildFilter(filter: AppFilter) {
         update { state in
             print("[APPSTORE MANIP][DID MODIFIED BUILD FILTER] Build filter changed: \(filter)")
             if let project = filter.project {

@@ -12,7 +12,7 @@ enum AppActions: FluxAction {
     case didSendMessage(String)
     case didRemoveLastMessage
     case didSelectPackets([String])
-    case didModifiedBuildFilter(BuildFilter)
+    case didModifiedBuildFilter(AppFilter)
     case didModifiedPacketFilter(PacketFilter)
     case didResetPacketFilter
     case toggleSidebar

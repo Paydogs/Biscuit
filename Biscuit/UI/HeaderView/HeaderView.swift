@@ -33,17 +33,21 @@ struct HeaderView<ViewModel: HeaderViewModelInterface>: View {
             }))
             .frame(width: 250, height: 40, alignment: .center)
             .padding(EdgeInsets(top: 0, leading: 50, bottom: 0, trailing: 0))
-            SmallActionButton(data: SmallActionButton.Data(icon: IconName.clearDevices,
-                                                           help: Localized.HeaderView.clearOfflineDevices),
+            SmallActionButton(data: SmallActionButton.Data(icon: IconName.clearDevice,
+                                                           help: Localized.HeaderView.clearDevice,
+                                                           color: viewModel.deviceList.isEmpty ? Colors.Defaults.white : Colors.Defaults.red),
                               event: SmallActionButton.Event(action: {
-                viewModel.deleteOfflineDevices()
+                viewModel.deleteCurrentDevice()
                 }))
+            .disabled(viewModel.deviceList.isEmpty)
+
             Spacer()
             SmallActionButton(data: SmallActionButton.Data(icon: IconName.toggleView,
                                                            help: Localized.HeaderView.toggleHelp),
                               event: SmallActionButton.Event(action: {
                 viewModel.toggleSidebar()
                 }))
+            .keyboardShortcut("o", modifiers: [.command, .shift])
         }
         .background(Colors.HeaderView.background)
     }

@@ -24,7 +24,7 @@ protocol LogViewModelInterface: ObservableObject {
     func filterUrl(url: String)
     func deleteFromLastSelected()
     func hideFromLastSelected()
-    func deleteCurrentMessages()
+    func deleteMessages()
     func hideCurrentMessages()
     func resetMessageHiding()
 }
@@ -43,7 +43,7 @@ class LogViewModel: LogViewModelInterface {
     init() {
         packetStore.observed.$state.map(\.projects)
             .combineLatest(appStore.observed.$state.map(\.buildFilter))
-            .map { [weak self] (projects: Set<Project>, buildFilter: BuildFilter) -> [Packet] in
+            .map { [weak self] (projects: Set<Project>, buildFilter: AppFilter) -> [Packet] in
                 if self?.selectedDevice != buildFilter.deviceId {
                     self?.selectedDevice = buildFilter.deviceId
                     self?.reset.send(true)
@@ -145,9 +145,9 @@ extension LogViewModel {
         dispatcher.dispatch(action: action)
     }
 
-    func deleteCurrentMessages() {
+    func deleteMessages() {
         guard let selectedDevice = selectedDevice else { return }
-        print("Hide current messages")
+        print("Delete current messages")
         let action = PacketActions.deleteFrom(Double(Date().timeIntervalSince1970), forDeviceId: selectedDevice)
         dispatcher.dispatch(action: action)
     }

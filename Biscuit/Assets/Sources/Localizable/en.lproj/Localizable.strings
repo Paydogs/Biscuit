@@ -37,9 +37,9 @@
 "LogView.TableColumn.date" = "Date";
 "LogView.filterTitle" = "Filter:";
 "LogView.filterPlaceholder" = "Url";
-"LogView.deleteMessages" = "Delete current messages";
-"LogView.hideMessagesButtonHelp" = "Hide current messages";
-"LogView.hideMessagesButtonContextReset" = "Reset message hiding";
+"LogView.deleteMessages" = "Delete messages (⌘K)";
+"LogView.hideMessagesButtonHelp" = "Hide current messages (⌘H)";
+"LogView.hideMessagesButtonContextReset" = "Reset message hiding (⇧⌘H)";
 "LogView.ContextMenu.pinSelected" = "Pin selected";
 "LogView.ContextMenu.unpinSelected" = "Unpin selected";
 "LogView.ContextMenu.exportSelectedBody" = "Export selected message Body";
@@ -49,8 +49,8 @@
 // Headerview strings
 "HeaderView.projectTitle" = "Project";
 "HeaderView.deviceTitle" = "Device";
-"HeaderView.clearOfflineDevices" = "Clear offline devices";
-"HeaderView.toggleHelp" = "Toggle";
+"HeaderView.clearDevice" = "Clear device";
+"HeaderView.toggleHelp" = "Toggle side panel (⇧⌘O)";
 // Menu items
 "MenuItem.aboutView" = "About Biscuit";
 "MenuItem.exportPackets" = "Export packets";

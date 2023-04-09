@@ -63,11 +63,14 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                     SmallActionButton(data: SmallActionButton.Data(icon: IconName.trash,
                                                                    help: Localized.LogView.deleteMessages,
                                                                    color: viewModel.packets.isEmpty ? Colors.Defaults.white : Colors.Defaults.red),
-                                      event: SmallActionButton.Event(action: { viewModel.deleteCurrentMessages() }))
+                                      event: SmallActionButton.Event(action: { viewModel.deleteMessages() }))
                     .disabled(viewModel.packets.isEmpty)
+                    .keyboardShortcut("k", modifiers: [.command])
+
                     SmallActionButton(data: SmallActionButton.Data(icon: IconName.hide, help: Localized.LogView.hideMessagesButtonHelp),
                                       event: SmallActionButton.Event(action: { viewModel.hideCurrentMessages() }))
                     .disabled(viewModel.packets.isEmpty)
+                    .keyboardShortcut("h", modifiers: [.command])
                     .contextMenu {
                         Button {
                             viewModel.resetMessageHiding()
@@ -76,9 +79,11 @@ struct LogView<ViewModel: LogViewModelInterface>: View {
                                 .labelStyle(.titleAndIcon)
                         }
                     }
+
                     SmallActionButton(data: SmallActionButton.Data(icon: IconName.undo, help: Localized.LogView.hideMessagesButtonContextReset),
                                       event: SmallActionButton.Event(action: { viewModel.resetMessageHiding() }))
                     .disabled(!viewModel.hasTimeFilter)
+                    .keyboardShortcut("h", modifiers: [.command, .shift])
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
             }

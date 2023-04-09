@@ -1,5 +1,5 @@
 //
-//  Connector.swift
+//  GrandCentralConnector.swift
 //  Biscuit
 //
 //  Created by Andras Olah on 2022. 07. 24..
@@ -10,7 +10,7 @@ import Network
 import Combine
 import Factory
 
-class Connector {
+class GrandCentralConnector {
     var listener: NWListener?
     var activeConnections: Set<NetworkConnection> = []
 
@@ -35,7 +35,7 @@ class Connector {
     }
 }
 
-private extension Connector {
+private extension GrandCentralConnector {
     func didStateChanged(state: NWListener.State) {
         guard let listener = listener else { return }
 
@@ -74,7 +74,7 @@ private extension Connector {
     }
 }
 
-private extension Connector {
+private extension GrandCentralConnector {
     func createListener() -> NWListener? {
         let port: NWEndpoint.Port = NWEndpoint.Port(integerLiteral: BagelConfig.defaultPort)
 

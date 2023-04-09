@@ -10,7 +10,7 @@ struct AppState: FluxState {
     var errors: [AppError]
     var messages: [String]
     var selectedPacketIds: [String]
-    var buildFilter: BuildFilter
+    var buildFilter: AppFilter
     var packetFilter: PacketFilter
     var isSidebarOpen: Bool
 }
@@ -21,7 +21,7 @@ extension AppState: DefaultInitializer {
                      errors: [],
                      messages: [],
                      selectedPacketIds: [],
-                     buildFilter: BuildFilter(),
+                     buildFilter: AppFilter(),
                      packetFilter: PacketFilter(),
                      isSidebarOpen: true)
     }

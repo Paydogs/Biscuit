@@ -26,7 +26,7 @@ class MockLogViewModel: LogViewModelInterface {
     func filterUrl(url: String) { }
     func deleteFromLastSelected() { }
     func hideFromLastSelected() { }
-    func deleteCurrentMessages() { }
+    func deleteMessages() { }
     func hideCurrentMessages() { }
     func resetMessageHiding() { }
 }

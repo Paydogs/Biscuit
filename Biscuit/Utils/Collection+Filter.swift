@@ -7,12 +7,12 @@
 
 extension Set where Element == Project {
     /// Returns a collection of devices of the project, filtered by the contents of the BuildFilter
-    func devicesOfProjectInFilter(filter: BuildFilter) -> Set<Device> {
+    func devicesOfProjectInFilter(filter: AppFilter) -> Set<Device> {
         guard let project = self.first(where: { project in project.id == filter.project }) else { return [] }
         return project.devices
     }
     /// Returns a collection of packets of the project, filtered by the contents of the BuildFilter
-    func packetsOfDeviceInFilter(filter: BuildFilter) -> Set<Packet> {
+    func packetsOfDeviceInFilter(filter: AppFilter) -> Set<Packet> {
         let devices = devicesOfProjectInFilter(filter: filter)
         let selectedDevice = devices.first { device in
             device.id == filter.deviceId
@@ -23,7 +23,7 @@ extension Set where Element == Project {
 
 extension Set where Element == Device {
     /// Returns a collection of packets of the devices, filtered by the contents of the BuildFilter
-    func packetsOfSelectedDevice(filter: BuildFilter) -> Set<Packet> {
+    func packetsOfSelectedDevice(filter: AppFilter) -> Set<Packet> {
         guard let device = self.first(where: { device in device.id == filter.deviceId }) else { return [] }
         return device.packets
     }
